@@ -1,0 +1,25 @@
+1. Para subir a aplicacao pelo maven, basta executar o comando abaixo na pasta raiz do projeto:
+2. `mvn clean install`
+3. `mvn spring-boot:run`
+
+
+
+---------------------
+
+Para criar uma aplicação Spring Boot, você pode seguir os seguintes passos:
+
+Instale o Spring Boot CLI (Command Line Interface) em sua máquina, se ainda não tiver feito isso.
+
+Abra um terminal e crie um novo projeto Spring Boot usando o Spring Initializr, que é uma ferramenta online para gerar projetos Spring Boot. Você pode acessá-lo em https://start.spring.io/.
+
+Escolha as configurações do seu projeto, como a linguagem de programação (Java, Kotlin, etc), a versão do Spring Boot, as dependências que você deseja incluir (por exemplo, Spring Web, Spring Data JPA, etc) e clique em "Generate" para baixar o projeto ZIP.
+
+Descompacte o arquivo ZIP em um diretório de sua escolha e abra o projeto em sua IDE preferida, como IntelliJ IDEA, Eclipse ou VS Code.
+
+Implemente a lógica da sua aplicação, criando classes de modelo, controladores, serviços e repositórios de acordo com as necessidades do seu projeto.
+
+Execute a aplicação Spring Boot usando o comando ./mvnw spring-boot:run no terminal, ou configure um ambiente de execução na sua IDE.
+
+Acesse a aplicação em um navegador web, digitando a URL padrão http://localhost:8080 (a menos que você tenha configurado uma porta diferente).
+
+Com esses passos, você terá criado uma aplicação Spring Boot pronta para ser executada e desenvolvida de acordo com suas necessidades. Lembre-se de consultar a documentação oficial do Spring Boot para obter mais informações e orientações sobre como criar e configurar sua aplicação.

@@ -1,7 +1,55 @@
 spring:
   application:
     name: developer-service
+  datasource:
+    url: jdbc:h2:mem:vendas;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: sa
+    driverClassName: org.h2.Driver
+  jpa:
+    open-in-view: false #https://vladmihalcea.com/the-open-session-in-view-anti-pattern/
+                        #Permite que o hibernate mantenha a sessao aberta ate o final da requisicao se 'true'
+                        #Para evitar o erro de lazy loading(LazyInitializationException),
+                        #Mas pode causar problemas de performance e Relacoes OneToMany e ManyToMany com Fetch LAZY
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true #https://www.baeldung.com/sql-logging-spring-boot
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none #create-drop - cria e destroi o banco a cada inicializacao
+                     #vamos deixar 'none' pois vamos criar o schema e dados via scripts la em baixo
+    defer-datasource-initialization: true #retarda a inicializacao do datasource
+  sql:
+    init:
+        mode: always #always, never, embedded - somente para h2 usa aways
+        platform: h2
+        schema-locations: classpath:/schema.sql
+        data-locations: classpath:/data.sql
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        trace: false
+        web-allow-others: false
 server:
-    servlet:
-        context-path: /base
-    port: 8081
+  servlet:
+    context-path: /base
+  port: 8080
+
+#logging:
+#    level:
+#        root: INFO
+#        org.springframework.web: DEBUG
+#        org.hibernate: ERROR
+#        org.hibernate.type: TRACE
+#        org.hibernate.stat: DEBUG
+#        org.hibernate.SQL: DEBUG
+#        org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+#        org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+logging:
+  level:
+    org.springframework.jdbc.core.JdbcTemplate: DEBUG
+
+

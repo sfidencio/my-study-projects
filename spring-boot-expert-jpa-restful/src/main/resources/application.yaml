@@ -3,3 +3,5 @@ spring:
   profiles:
     default: development
     #default: production
+
+#Por padrao o spring boot usa o HikariCP como pool de conexoes (Bem robusto)
