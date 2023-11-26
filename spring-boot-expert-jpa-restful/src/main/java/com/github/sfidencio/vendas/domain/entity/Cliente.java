@@ -32,6 +32,6 @@ public class Cliente {
     @Column(name = "EMAIL", length = 100)
     @Email(message = "{cliente.email.invalido}")
     private String email;
-    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY, cascade = CascadeType.ALL, targetEntity = Pedido.class)
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = Pedido.class)
     private List<Pedido> pedidos;
 }

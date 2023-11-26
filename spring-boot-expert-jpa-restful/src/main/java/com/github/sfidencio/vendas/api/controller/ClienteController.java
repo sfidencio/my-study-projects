@@ -41,8 +41,8 @@ public class ClienteController {
         log.info("Consultando cliente por id: {}", id);
         var clienteResponse = this.clienteService.buscarPorId(id);
         //Map<String,ClienteResponse> dados = Map.of("dados",clienteResponse);
-        Map<String,ClienteResponse> dados = new HashMap<>();
-        dados.put("dados",clienteResponse);
+        Map<String, ClienteResponse> dados = new HashMap<>();
+        dados.put("dados", clienteResponse);
         WebMvcLinkBuilder linkTo = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(ClienteController.class).consultarComNivelMaturidadeAplicadoNoEndPoint(id));
         EntityModel entityModel = EntityModel.of(dados);
         entityModel.add(linkTo.withRel("cadastro-jpa-repository"));
@@ -50,28 +50,6 @@ public class ClienteController {
         entityModel.add(linkTo.withRel("cadastro-jdbc-template"));
         MappingJacksonValue mappingJacksonValue = new MappingJacksonValue(entityModel);
         return ResponseEntity.ok(mappingJacksonValue);
-    }
-
-
-    @PostMapping("/cadastro-jpa-repository")
-    @ResponseStatus(HttpStatus.CREATED)
-    public void cadastrarJpaRepository(@Valid @RequestBody ClienteRequest clienteRequest) {
-        log.info("Cadastrando cliente: {}", clienteRequest);
-        this.clienteService.salvarJpaRepository(clienteRequest);
-    }
-
-    @PostMapping("/cadastro-jdbc-template")
-    @ResponseStatus(HttpStatus.CREATED)
-    public void cadastrar(@Valid @RequestBody ClienteRequest clienteRequest) {
-        log.info("Cadastrando cliente: {}", clienteRequest);
-        this.clienteService.salvarJdbcTemplate(clienteRequest);
-    }
-
-    @PostMapping("/cadastro-entity-manager")
-    @ResponseStatus(HttpStatus.CREATED)
-    public void cadastrarEntityManager(@Valid @RequestBody ClienteRequest clienteRequest) {
-        log.info("Cadastrando cliente: {}", clienteRequest);
-        this.clienteService.salvarEntityManager(clienteRequest);
     }
 
 }
