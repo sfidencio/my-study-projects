@@ -1,6 +1,9 @@
 package com.github.sfidencio.vendas.api.dto;
 
-import java.util.Map;
 
-public record ClienteResponse(Integer id, String nome, String cpf,String email) {
+import com.github.sfidencio.vendas.domain.entity.Pedido;
+
+import java.util.Set;
+
+public record ClienteResponse(Integer id, String nome, String cpf, String email, Set<Pedido> pedidos) {
 }

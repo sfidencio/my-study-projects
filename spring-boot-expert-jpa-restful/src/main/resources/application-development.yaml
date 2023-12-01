@@ -6,6 +6,10 @@ spring:
     username: sa
     password: sa
     driverClassName: org.h2.Driver
+    hikari:
+      maximum-pool-size: 5
+      idle-timeout: 30000
+      pool-name: VendasHikariCP
   jpa:
     open-in-view: false #https://vladmihalcea.com/the-open-session-in-view-anti-pattern/
                         #Permite que o hibernate mantenha a sessao aberta ate o final da requisicao se 'true'
@@ -37,22 +41,16 @@ server:
   servlet:
     context-path: /base
   port: 8080
-
-#logging:
-#    level:
-#        root: INFO
-#        org.springframework.web: DEBUG
-#        org.hibernate: ERROR
-#        org.hibernate.type: TRACE
-#        org.hibernate.stat: DEBUG
-#        org.hibernate.SQL: DEBUG
-#        org.hibernate.type.descriptor.sql.BasicBinder: TRACE
-#        org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+#https://medium.com/@patelsajal2/learn-how-to-enable-logging-of-sql-statements-in-spring-boot-with-this-comprehensive-tutorial-48c06bc080ab
 logging:
-  level:
-    org.springframework.jdbc.core.JdbcTemplate: DEBUG
-    org.springframework.jdbc.core.StatementCreatorUtils: TRACE
-    org.hibernate.SQL: DEBUG
-    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
-
-
+    level:
+        root: INFO
+        org.springframework.jdbc.core.JdbcTemplate: INFO
+        org.springframework.jdbc.core.jdbc: DEBUG
+        org.springframework.web: INFO
+        org.hibernate: DEBUG
+        org.hibernate.type: INFO
+        org.hibernate.stat: INFO
+        org.hibernate.SQL: DEBUG
+        org.hibernate.type.descriptor.sql.BasicBinder: DEBUG
+        org.hibernate.type.descriptor.sql.BasicExtractor: DEBUG

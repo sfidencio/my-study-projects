@@ -1,26 +1,29 @@
 package com.github.sfidencio.vendas.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.github.sfidencio.vendas.api.dto.ClienteResponseSemRetornoDosPedidos;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;
 
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "CLIENTE")
-@Data
+//@Data - Se usar ese aqui nao funciona a listagem de pedidos no endpoint /v1/api/clientes/consulta-todos
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @Builder
+@ToString
 public class Cliente {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "CLIENTE_SEQ", sequenceName = "CLIENTE_SEQ", allocationSize = 1)
     private Integer id;
     @Column(name = "NOME", nullable = false)
     @NotEmpty(message = "{cliente.nome.obrigatorio}")
@@ -32,6 +35,18 @@ public class Cliente {
     @Column(name = "EMAIL", length = 100)
     @Email(message = "{cliente.email.invalido}")
     private String email;
-    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = Pedido.class)
-    private List<Pedido> pedidos;
+    @JsonManagedReference
+    //@OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = Pedido.class)
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
+    private Set<Pedido> pedidos;
+
+    public ClienteResponseSemRetornoDosPedidos toResponse() {
+        return new ClienteResponseSemRetornoDosPedidos(
+                this.id,
+                this.nome,
+                this.cpf,
+                this.email,
+                this.pedidos
+        );
+    }
 }

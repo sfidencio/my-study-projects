@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="112984b1-376f-4fff-ac52-ee0836e49ed1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/api/controller/PedidoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/api/controller/ProdutoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/api/dto/ItemPedidoRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/api/dto/PedidoRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/api/dto/PedidoResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/api/dto/ProdutoRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/api/dto/ProdutoResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/domain/entity/StatusPedido.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/domain/service/PedidoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/domain/service/ProdutoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/domain/service/imp/ClienteServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/domain/service/imp/PedidoServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/domain/service/imp/ProdutoServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/infra/repository/ClienteRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/infra/repository/ItemPedidoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/infra/repository/PedidoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/infra/repository/ProdutoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/resources/collections/pedido.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/resources/collections/produto.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/api/controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/api/controller/ClienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/api/dto/ClienteResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/api/dto/ClienteResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/domain/entity/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/domain/entity/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/domain/entity/ItemPedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/domain/entity/ItemPedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/domain/entity/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/domain/entity/Pedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/domain/entity/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/domain/entity/Produto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/domain/service/ClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/domain/service/ClienteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/domain/service/ClienteServiceImp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/java/com/github/sfidencio/vendas/infra/repository/jpaentitymanager/ClienteEntityManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/resources/application-development.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/resources/application-development.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/resources/collections/Insomnia_2023-11-24.json" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/resources/collections/backup-collections/Insomnia_2023-11-24.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/resources/collections/cliente.json" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-boot-expert-jpa-restful/src/main/resources/collections/cliente.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="AnnotationType" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2YpcFZx94RTiD6l4AsJ5DnzwCE9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="validators" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Teste" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Teste" />
+      <module name="TesteAnnotationValidacaoRegras" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Teste" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="112984b1-376f-4fff-ac52-ee0836e49ed1" name="Changes" comment="" />
+      <created>1701225859314</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701225859314</updated>
+    </task>
+    <servers />
+  </component>
+</project>

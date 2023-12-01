@@ -14,8 +14,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -32,14 +32,33 @@ public class ClienteController {
     @ResponseStatus(HttpStatus.OK)
     public ClienteResponse consultar(@PathVariable Integer id) throws NotFoundException {
         log.info("Consultando cliente por id: {}", id);
-        return this.clienteService.buscarPorId(id);
+        return this.clienteService.buscarClienteEPedidos(id);
     }
+
+    @PostMapping("/salvar")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void salvar(@RequestBody @Valid List<ClienteRequest> clienteRequest) {
+        log.info("Salvando cliente: {}", clienteRequest);
+        clienteRequest.forEach(c->{
+            this.clienteService.salvar(c);
+        });
+        //this.clienteService.salvar(clienteRequest);
+    }
+
+    @GetMapping("/consulta-todos-clientes")
+    @ResponseStatus(HttpStatus.OK)
+    public List<ClienteResponse> consultarTodos() {
+        log.info("Consultando todos os clientes");
+        return this.clienteService.buscarTodos();
+    }
+
+
 
     @GetMapping("/consulta-maturity/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<MappingJacksonValue> consultarComNivelMaturidadeAplicadoNoEndPoint(@PathVariable Integer id) throws NotFoundException {
         log.info("Consultando cliente por id: {}", id);
-        var clienteResponse = this.clienteService.buscarPorId(id);
+        var clienteResponse = this.clienteService.buscarClienteEPedidos(id);
         //Map<String,ClienteResponse> dados = Map.of("dados",clienteResponse);
         Map<String, ClienteResponse> dados = new HashMap<>();
         dados.put("dados", clienteResponse);
