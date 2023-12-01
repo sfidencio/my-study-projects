@@ -1,7 +1,10 @@
+
+
 1. Para subir a aplicacao pelo maven, basta executar o comando abaixo na pasta raiz do projeto:
 2. `mvn clean install`
 3. `mvn spring-boot:run`
-
+4. Formatacao README.md:
+    4.1 https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax
 
 
 ---------------------
