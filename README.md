@@ -1,6 +1,6 @@
 # my-study-projects
 >[!IMPORTANT]
->Centraliza o versionamento de projetos de softwares de maneira sistematica, com intuito de explorar diversas tecnologias, tais como SpringBoot/SpringCloud, Java 17+, Databases SQL e noSQL, Infraestrutura Docker/Kubernetes, Mensageria com Apache Kafka, RabbitMQ e mais um tanto de modinha.
+>Centraliza o versionamento de projetos de softwares de maneira sistematica, com intuito de explorar diversas tecnologias para resolver problemas do mundo real, tais como SpringBoot/SpringCloud, Java 17+, JavaScript, Databases SQL e noSQL, Infraestrutura Docker/Kubernetes, Mensageria com Apache Kafka, RabbitMQ e mais um tanto de modinha.
 
 >[!TIP]
 > Lista de Projetos desenvolvidos aqui neste repositório
