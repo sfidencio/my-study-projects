@@ -30,10 +30,10 @@ CMD ["java", "-jar", "app.jar"]
 ```
 version: '3.7'
 services:
-  postgres:
+  db:
     image: postgres:13-alpine
     container_name: postgres
-    restart: unless-stopped
+    restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres@@
@@ -43,20 +43,26 @@ services:
     volumes:
         - postgres-data:/var/lib/postgresql/data
   app:
-    image: myapp
+    image: myapp:latest
     platform: linux/amd64
     build: .
     ports:
         - "8080:8080"
     depends_on:
-      - postgres
+      - db
     environment:
         SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/myapp
         SPRING_DATASOURCE_USERNAME: postgres
         SPRING_DATASOURCE_PASSWORD: postgres@@
         SPRING_JPA_HIBERNATE_DDL_AUTO: update
+
+networks:
+  myapp:
+    driver: bridge
+
 volumes:
     postgres-data:
+      driver: local
 ```
 
 
