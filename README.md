@@ -25,4 +25,4 @@
     - Git
 
 > [!NOTE]
-> Cada repositorio possui um README.md com instruções de como configurar/executar o projeto
+> Cada repositorio possui um README.md com instruções de como configurar/executar o referido projeto
