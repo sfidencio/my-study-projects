@@ -1,4 +1,4 @@
-##   Subindo aplicacao no docker localmente usando imagem customizada via Dockerfile
+##   Subindo aplicacao no docker localmente usando imagem customizada via Dockerfile + docker-compose.yml
 
 ### 1. Criando arquivo Dockerfile e o arquivo docker-compose.yml
 
