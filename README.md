@@ -23,3 +23,6 @@
     - JdbcTemplateßßß
     - Docker
     - Git
+
+> [!NOTE]
+> Cada repositorio possui um README.md com instruções de como configurar/executar o projeto
