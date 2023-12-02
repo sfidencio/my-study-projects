@@ -1,6 +1,6 @@
 # api-rest-projects
 >[!IMPORTANT]
->Versiona de maneira resumida todas api`s desenvolvidas para fins de estudo
+>Centraliza o versionamento de todas api`s desenvolvidas para fins de estudo.
 
 >[!TIP]
 > Lista de Projetos desenvolvidos aqui neste repositório
