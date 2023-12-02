@@ -1,6 +1,6 @@
 # my-study-projects
 >[!IMPORTANT]
->Centraliza o versionamento de todas api`s desenvolvidas para fins de estudo.
+>Centraliza o versionamento de projetos de softwares, com intuito de explorar diversas tecnologias, tais como SpringBoot/SpringCloud, Java 17+, Databases SQL e noSQL, Infraestrutura Docker/Kubernetes, Mensageria com Apache Kafka, RabbitMQ e mais um tanto de modinha.
 
 >[!TIP]
 > Lista de Projetos desenvolvidos aqui neste repositório
