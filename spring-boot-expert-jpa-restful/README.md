@@ -84,7 +84,7 @@ docker rm -f $(docker ps -a -q)
 docker build --platform linux/amd64 -t sfidencio/spring-boot-expert-jpa-restful:latest .
 ```
 
-### 5. Executando imagem customizada attachado o sh (entrando no tty), visto que a opcao "-rm" remove o conteiner ao finalizar
+### 5. Executando imagem customizada attachado o interpretador sh no terminal (entrando no tty), visto que a opcao "-rm" remove o conteiner ao finalizar
 
 ```bash
 docker run --rm -it --name myapp -p 8080:8080 sfidencio/spring-boot-expert-jpa-restful:latest sh
