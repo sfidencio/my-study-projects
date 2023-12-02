@@ -1,0 +1,38 @@
+#https://www.baeldung.com/ops/docker-compose-links-depends-on
+#https://www.baeldung.com/spring-boot-docker-start-with-profile
+#https://docs.github.com/pt/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+version: '3.7'
+services:
+  db:
+    image: postgres:13-alpine
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres@@
+      POSTGRES_DB: myapp
+    ports:
+        - "5432:5432"
+    volumes:
+        - postgres-data:/var/lib/postgresql/data
+  app:
+    image: myapp:latest
+    platform: linux/amd64
+    build: .
+    ports:
+        - "8080:8080"
+    depends_on:
+      - db
+    environment:
+        SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/myapp
+        SPRING_DATASOURCE_USERNAME: postgres
+        SPRING_DATASOURCE_PASSWORD: postgres@@
+        SPRING_JPA_HIBERNATE_DDL_AUTO: update
+
+networks:
+  myapp:
+    driver: bridge
+
+volumes:
+    postgres-data:
+      driver: local
