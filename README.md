@@ -20,9 +20,16 @@
     - H2 Database
     - Lombok
     - JPA/Hibernate
-    - JdbcTemplateßßß
+    - JdbcTemplate
     - Docker
     - Git
+  - Abordagens/Boas Praticas
+    - DTO Pattern
+    - Domain Driven Design
+    - Testes Unitários
+    - Clean Code
+    - Paginação de Resultados com Spring Data JPA
+
 
 > [!NOTE]
 > Cada repositorio possui um README.md com instruções de como configurar/executar o referido projeto
