@@ -6,6 +6,8 @@
 > Observacoes: executar sempre um mvn clean install antes de criar a imagem customizada seja via Dockerfile ou docker-compose.yml
 
 
+>Dockerfile
+
 ```
 FROM openjdk:17-alpine3.13
 LABEL authors="sebastiaofidencio"
@@ -22,6 +24,8 @@ CMD ["java","-Dspring.profiles.active=production", "-jar", "app.jar"]
 
 CMD ["java", "-jar", "app.jar"]
 ```
+
+>docker-compose.yml
 
 ```
 version: '3.7'
