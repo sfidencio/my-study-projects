@@ -5,7 +5,7 @@
 >[!TIP]
 > Lista de Projetos desenvolvidos aqui neste repositório
 
-- [x] [spring-boot-experta-jpa-restful]
+- [x] [spring-boot-expert-jpa-restful]
   - API Restful de Vendas
     - Cadastro de Clientes
     - Cadastro de Produtos
@@ -13,9 +13,12 @@
       - Aprovacao de Pedidos
       - Cancelamento de Pedidos
   - Tecnologias Utilizadas
-    - Java 
+    - Java 17
+      - Record Pattern (new feature)
     - Spring Boot 
     - PostgreSQL
+    - H2 Database
+    - Lombok
     - JPA/Hibernate
     - JdbcTemplateßßß
     - Docker
