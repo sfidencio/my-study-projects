@@ -1,4 +1,4 @@
-# api-rest-projects
+# my-study-projects
 >[!IMPORTANT]
 >Centraliza o versionamento de todas api`s desenvolvidas para fins de estudo.
 
