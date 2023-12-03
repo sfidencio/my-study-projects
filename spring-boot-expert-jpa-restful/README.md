@@ -1,18 +1,21 @@
+
 # spring-boot-expert-jpa-restful
 
+
 >[!IMPORTANT]
-> Indice
+> Índice
 - [Guia explicativo como executar o projeto localmente](#guia-explicativo-como-executar-o-projeto-localmente)
 - [Guia explicando como dockerizar o projeto em seguinda executa-lo localmente](#guia-explicando-como-dockerizar-o-projeto-em-seguinda-executa-lo-localmente)
 
+
 >[!IMPORTANT]
-> Este projeto aborta os seguintes tópicos:
+> Este projeto aborda os seguintes tópicos:
 - [x] [spring-boot-expert-jpa-restful]
     - API Restful de Vendas
         - Cadastro de Clientes
         - Cadastro de Produtos
         - Registro de Pedidos
-            - Aprovacao de Pedidos
+            - Aprovação de Pedidos
             - Cancelamento de Pedidos
     - Tecnologias Utilizadas
         - Java 17
@@ -25,7 +28,7 @@
         - JdbcTemplate
         - Docker
         - Git
-    - Abordagens/Boas Praticas
+    - Abordagens/Boas Práticas
         - DTO Pattern
         - Domain Driven Design
         - Testes Unitários
@@ -33,118 +36,154 @@
         - Paginação de Resultados com Spring Data JPA
 
 
-#   Guia explicativo de como executar o projeto localmente 
+
+
+#   Guia explicativo de como executar o projeto localmente
+
 
 > [!WARNING]
 Certifique-se de que o Java 17 esteja instalado e configurado na sua máquina local, apache-maven, git, docker e etc. Por padrão, o projeto está configurado para executar o perfil de desenvolvimento, ou seja, o banco de dados H2 será utilizado.
+
 
 ### Abra o terminal e execute o comando abaixo para clonar o projeto:
 ```bash
 git clone git@github.com:sfidencio/my-study-projects.git
 ```
-### Acessando o diretorio raiz do projeto:
+### Acessando o diretório raiz do projeto:
 ```
 cd spring-boot-expert-jpa-restful
 ```
 
-#### Limpando e instalando dependencias, bem como o artefato final, ou seja, o .jar:
+
+#### Limpando e instalando dependências, bem como o artefato final, ou seja, o .jar:
 ```bash
 mvn clean install
 ```
+
 
 #### Executando o projeto:
 ```bash
 mvn spring-boot:run
 ```
 
+
 > [!IMPORTANT]
-> Caso tenha executado com sucesso a aplicacao, devera aparecer a seguinte mensagem -> Started Application in 2.11 seconds (process running for 2.3)
+> Caso tenha executado com sucesso a aplicação, deverá aparecer a seguinte mensagem -> Started Application in 2.11 seconds (process running for 2.3)
+
 
 ### Realizando teste de cadastro de cliente via curl:
 ```bash
 curl -kvs http://localhost:8080/base/v1/api/clientes/salvar --data '[{"nome":"Fulano","cpf":"41909644099", "email":"fulano@gmail.com" },{"nome":"Ciclano","cpf":"41909644099", "email":"ciclano@gmail.com" }]' -H "Content-Type: application/json"  -X POST
 ```
 
+
 ### Consultando cliente via curl:
 ```bash
 curl -kvs http://localhost:8080/base/v1/api/clientes/consulta/1 -H "Content-Type: application/json"  -X GET
 ```
 
+
 > [!IMPORTANT]
 > Pronto, agora abra o projeto no IntelliJ IDEA e divirta-se!
 
+
 #   Guia explicativo de como dockerizar o projeto em seguinda executa-lo localmente sem o docker-compose
+
 
 ### Criando arquivo Dockerfile e o arquivo docker-compose.yml
 
-> [!IMPORTANT] 
+
+> [!IMPORTANT]
 > Executar sempre um `mvn clean install` antes de criar a imagem customizada.
 
 
+
+
 >Dockerfile
+
 
 ```
 FROM openjdk:17-alpine3.13
 LABEL authors="sebastiaofidencio"
 
+
 RUN apk add --no-cache bash \
-    && apk add --no-cache curl \
-    && apk add --no-cache iputils 
+   && apk add --no-cache curl \
+   && apk add --no-cache iputils
+
+
 
 
 WORKDIR /app
 
+
 #Abaixo podemos alterar o profile de production para development
 CMD ["java","-Dspring.profiles.active=development", "-jar", "app.jar"]
+
 
 CMD ["java", "-jar", "app.jar"]
 ```
 
-### Acesse o diretorio raiz do projeto(root), via terminal, e execute o comando abaixo para criar a imagem customizada
+
+### Acesse o diretório raiz do projeto(root), via terminal, e execute o comando abaixo para criar a imagem customizada
 >[!WARNING]
-> Onde esta `sfidencio` devera ser substituido pelo seu usuario do dockerhub, isso presuponho que voce ja tenha uma conta no dockerhub e tenha feito login previamente.
-> Caso nao tenha feito login o comando e `docker login` e informe seu usuario e senha.
+> Onde está `sfidencio` deverá ser substituído pelo seu usuário do dockerhub, e pressupondo que você já tenha uma conta no docker hub e tenha feito login previamente.
+> Caso não tenha feito login o comando e `docker login` e informe seu usuário e senha.
+
 
 ```bash
 docker build --platform linux/amd64 -t sfidencio/spring-boot-expert-jpa-restful:latest .
 ```
 
-### Executando imagem customizada attachado o interpretador sh no terminal (entrando no tty), visto que a opcao "-rm" remove o conteiner ao finalizar
+
+### Executando imagem customizada attachado o interpretador sh no terminal (entrando no tty), visto que a opção "-rm" remove o container ao finalizar
+
 
 ```bash
 docker run --rm -it --name myapp -p 8080:8080 sfidencio/spring-boot-expert-jpa-restful:latest sh
 ```
 
-### 6. Executando imagem customizada em background, visto que a opcao "-rm" remove o conteiner ao finalizar
+
+### 6. Executando imagem customizada em background, visto que a opcao "-rm" remove o container ao finalizar
+
 
 ```bash
 docker run --rm -d --name myapp -p 8080:8080 sfidencio/spring-boot-expert-jpa-restful:latest
 ```
-### 7. Acessando aplicacao - Cadastrando Cliente
+### 7. Acessando aplicação - Cadastrando Cliente
+
 
 ```bash
 curl -kvs http://localhost:8080/base/v1/api/clientes/salvar --data '[{"nome":"Fulano","cpf":"41909644099", "email":"fulano@gmail.com" },{"nome":"Ciclano","cpf":"41909644099", "email":"ciclano@gmail.com" }]' -H "Content-Type: application/json"  -X POST
 ```
 
-### 8. Acessando aplicacao - Consultado cliente com id-> 1
+
+### 8. Acessando aplicação - Consultado cliente com id-> 1
+
 
 ```bash
 curl -kvs http://localhost:8080/base/v1/api/clientes/consulta/1 -H "Content-Type: application/json"  -X GET
 ```
 
-### 9. Acessando conteiner
+
+### 9. Acessando container
+
 
 ```bash
 docker exec -it myapp sh
 ```
 
-### 10. Executando conteiner attachado("-it") ao terminal, visto que a opcao "-rm" remove o conteiner ao finalizar
+
+### 10. Executando container attachado("-it") ao terminal, visto que a opção "-rm" remove o container ao finalizar
+
 
 ```bash
 docker run --rm -it --name myapp -p 8080:8080 sfidencio/spring-boot-expert-jpa-restful:latest
 ```
 
-### 11. Acessando aplicacao - Listando todos Clientes Cadastrados
+
+### 11. Acessando aplicação - Listando todos Clientes Cadastrados
+
 
 ```bash
 curl -kvs http://localhost:8080/base/v1/api/clientes/consulta-todos-clientes -H "Content-Type: application/json"  -X GET
@@ -154,55 +193,69 @@ curl -kvs http://localhost:8080/base/v1/api/clientes/consulta-todos-clientes -H 
 
 
 
+
+
+
+
+
 >docker-compose.yml
+
 
 ```
 version: '3.7'
 services:
-  db:
-    image: postgres:13-alpine
-    container_name: postgres
-    restart: always
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres@@
-      POSTGRES_DB: myapp
-    ports:
-        - "5432:5432"
-    volumes:
-        - postgres-data:/var/lib/postgresql/data
-  app:
-    image: myapp:latest
-    platform: linux/amd64
-    build: .
-    ports:
-        - "8080:8080"
-    depends_on:
-      - db
-    environment:
-        SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/myapp
-        SPRING_DATASOURCE_USERNAME: postgres
-        SPRING_DATASOURCE_PASSWORD: postgres@@
-        SPRING_JPA_HIBERNATE_DDL_AUTO: update
+ db:
+   image: postgres:13-alpine
+   container_name: postgres
+   restart: always
+   environment:
+     POSTGRES_USER: postgres
+     POSTGRES_PASSWORD: postgres@@
+     POSTGRES_DB: myapp
+   ports:
+       - "5432:5432"
+   volumes:
+       - postgres-data:/var/lib/postgresql/data
+ app:
+   image: myapp:latest
+   platform: linux/amd64
+   build: .
+   ports:
+       - "8080:8080"
+   depends_on:
+     - db
+   environment:
+       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/myapp
+       SPRING_DATASOURCE_USERNAME: postgres
+       SPRING_DATASOURCE_PASSWORD: postgres@@
+       SPRING_JPA_HIBERNATE_DDL_AUTO: update
+
 
 networks:
-  myapp:
-    driver: bridge
+ myapp:
+   driver: bridge
+
 
 volumes:
-    postgres-data:
-      driver: local
+   postgres-data:
+     driver: local
 ```
 
 
-### 12. Subindo aplicacao no docker localmente usando docker-compose aliado com Dockerfile, em background ("-d")
+
+
+### 12. Subindo aplicação no docker localmente usando docker-compose aliado com Dockerfile, em background ("-d")
+
 
 ```bash
 sudo docker-compose up --build -d
 ```
 
-### 13. Parando conteiners 
+
+### 13. Parando containers
+
 
 ```bash
 sudo docker-compose down
 ```
+
