@@ -309,7 +309,7 @@ sudo docker-compose down
 >+ https://www.baeldung.com/spring-custom-validation-message-source
 >+ https://reflectoring.io/bean-validation-with-spring-boot/
 >+ https://medium.com/yildiztech/decoding-i18n-challenges-in-spring-boot-3-exploring-internationalization-895a4ac627df
->+ https://medium.com/@seonggil/creating-a-maturity-level-3-rest-api-with-hateoas-fcd76d1b2db9 (Implementing HATEOAS in a REST API acima.)
+>+ https://medium.com/@seonggil/creating-a-maturity-level-3-rest-api-with-hateoas-fcd76d1b2db9 (**Implementing HATEOAS**)
 >+ https://www.baeldung.com/spring-data-jpa-pagination-sorting
 >+ https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
 >+ https://spring.io/guides/gs/accessing-data-jpa/
