@@ -135,17 +135,14 @@ CMD ["java", "-jar", "app.jar"]
 docker build --platform linux/amd64 -t sfidencio/spring-boot-expert-jpa-restful:latest .
 ```
 
-
-### Executando imagem customizada attachado o interpretador sh no terminal (entrando no tty), visto que a opção "-rm" remove o container ao finalizar
-
+### Executando imagem customizada em primeiro plano ou "attached" no terminal "-it", visto que a opcao "-rm" remove o container ao finalizar
 
 ```bash
-docker run --rm -it --name myapp -p 8080:8080 sfidencio/spring-boot-expert-jpa-restful:latest sh
+docker run --rm -it --name myapp -p 8080:8080 sfidencio/spring-boot-expert-jpa-restful:latest
 ```
 
 
-### 6. Executando imagem customizada em background, visto que a opcao "-rm" remove o container ao finalizar
-
+### Executando imagem customizada em background "-d", visto que a opcao "-rm" remove o container ao finalizar
 
 ```bash
 docker run --rm -d --name myapp -p 8080:8080 sfidencio/spring-boot-expert-jpa-restful:latest
@@ -259,3 +256,6 @@ sudo docker-compose up --build -d
 sudo docker-compose down
 ```
 
+>referências:
+[^1]: https://tpbabparn.medium.com/spring-boot-3-1-integrated-docker-compose-on-development-environment-spring-webflux-example-1ddcbfe052f
+[^2]: https://springhow.com/spring-boot-and-postgres-using-docker-compose/
