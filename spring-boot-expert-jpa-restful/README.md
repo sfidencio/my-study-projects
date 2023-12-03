@@ -3,7 +3,7 @@
 >[!IMPORTANT]
 > Indice
 - [Guia explicativo como executar o projeto localmente](#guia-explicativo-como-executar-o-projeto-localmente)
-- 
+- [Guia explicando como dockerizar o projeto em seguinda executa-lo localmente](#guia-explicando-como-dockerizar-o-projeto-em-seguinda-executa-lo-localmente)
 
 >[!IMPORTANT]
 > Este projeto aborta os seguintes tópicos:
@@ -73,7 +73,7 @@ curl -kvs http://localhost:8080/base/v1/api/clientes/consulta/1 -H "Content-Type
 > [!IMPORTANT]
 > Pronto, agora abra o projeto no IntelliJ IDEA e divirta-se!
 
-#   Guia explicando como executar o projeto localmente via Docker
+#   Guia explicando como dockerizar o projeto em seguinda executa-lo localmente
 
 ### 1. Criando arquivo Dockerfile e o arquivo docker-compose.yml
 
