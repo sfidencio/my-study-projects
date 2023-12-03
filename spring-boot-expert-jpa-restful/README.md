@@ -33,7 +33,7 @@
         - Paginação de Resultados com Spring Data JPA
 
 
-#   Guia explicativo como executar o projeto localmente 
+#   Guia explicativo de como executar o projeto localmente 
 
 > [!WARNING]
 Certifique-se de que o Java 17 esteja instalado e configurado na sua máquina local, apache-maven, git, docker e etc. Por padrão, o projeto está configurado para executar o perfil de desenvolvimento, ou seja, o banco de dados H2 será utilizado.
@@ -73,7 +73,7 @@ curl -kvs http://localhost:8080/base/v1/api/clientes/consulta/1 -H "Content-Type
 > [!IMPORTANT]
 > Pronto, agora abra o projeto no IntelliJ IDEA e divirta-se!
 
-#   Guia explicando como dockerizar o projeto em seguinda executa-lo localmente sem o docker-compose
+#   Guia explicativo de como dockerizar o projeto em seguinda executa-lo localmente sem o docker-compose
 
 ### Criando arquivo Dockerfile e o arquivo docker-compose.yml
 
@@ -100,14 +100,11 @@ CMD ["java","-Dspring.profiles.active=development", "-jar", "app.jar"]
 CMD ["java", "-jar", "app.jar"]
 ```
 
-
-
-### Acessando o diretorio raiz do projeto:
-```
-cd spring-boot-expert-jpa-restful
-```
-
 ### Acesse o diretorio raiz do projeto(root), via terminal, e execute o comando abaixo para criar a imagem customizada
+>[WARNING]
+> Onde esta `sfidencio` devera ser substituido pelo seu usuario do dockerhub, isso presuponho que voce ja tenha uma conta no dockerhub e tenha feito login previamente.
+> Caso nao tenha feito login o comando e `docker login` e informe seu usuario e senha.
+
 ```bash
 docker build --platform linux/amd64 -t sfidencio/spring-boot-expert-jpa-restful:latest .
 ```
