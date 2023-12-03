@@ -272,7 +272,7 @@ sudo docker-compose up --build -d
 ```
 
 
-### 13. Parando containers
+### Parando containers
 
 
 ```bash
