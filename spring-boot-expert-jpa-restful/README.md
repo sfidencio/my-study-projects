@@ -194,7 +194,7 @@ docker exec -it myapp sh
 > Nesse cenario, o docker-compose.yml deverá estar na raiz do projeto, ou seja, no mesmo diretório onde está o Dockerfile.
 
 >[!IMPORTANT]
-> Vamos subir o banco de dados postgres e a aplicação em containers, isso implica que teremos que mudar o profile de desenvolvimento para production, pois a aplicação não estará mais usando o banco de dados H2, mas sim o postgres. Altere o Dockerfile na linha `-Dspring.profiles.active=development` para `-Dspring.profiles.active=production
+> Vamos subir o banco de dados postgres e a aplicação em containers, isso implica que teremos que mudar o profile de `development` para `production`, pois a aplicação não estará mais usando o banco de dados H2, mas sim o postgres. Altere o Dockerfile na linha `-Dspring.profiles.active=development` para `-Dspring.profiles.active=production
 
 
 >docker-compose.yml
