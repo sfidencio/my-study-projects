@@ -78,7 +78,7 @@ curl -kvs http://localhost:8080/base/v1/api/clientes/consulta/1 -H "Content-Type
 ### 1. Criando arquivo Dockerfile e o arquivo docker-compose.yml
 
 > [!IMPORTANT] 
-> Observacoes: executar sempre um mvn clean install antes de criar a imagem customizada seja via Dockerfile ou docker-compose.yml
+> Observacoes: executar sempre um `**mvn clean install**` antes de criar a imagem customizada seja via Dockerfile ou docker-compose.yml
 
 
 >Dockerfile
