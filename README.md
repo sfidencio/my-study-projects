@@ -5,10 +5,10 @@
 >[!TIP]
 > Lista de projetos desenvolvidos aqui neste repositório:
 
-  - [x] [spring-boot-expert-jpa-restful]
-  - [x] [explorando-entity-manager-puro]
-  - [x] [explorando-jdbc-template]
-  - [x] [estudo-inicial-spring-boot]
+  - [x] [spring-boot-expert-jpa-restful](spring-boot-expert-jpa-restful/README.md)
+  - [x] [explorando-entity-manager-puro](explorando-entity-manager-puro/README.md)
+  - [x] [explorando-jdbc-template](explorando-jdbc-template/README.md)
+  - [x] [estudo-inicial-spring-boot](estudo-inicial-spring-boot/README.md)
 
 > [!NOTE]
 > Cada repositorio possui um README.md informando o objetivo do projeto e instruções de como configurar/executar o referido projeto.
