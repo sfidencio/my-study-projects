@@ -302,3 +302,8 @@ sudo docker-compose down
 >+ https://www.baeldung.com/spring-valid-vs-validated
 >+ https://salithachathuranga94.medium.com/validation-and-exception-handling-in-spring-boot-51597b580ffd
 >+ https://www.udemy.com/user/dougllas-sousa/
+>+ https://pt.stackoverflow.com/questions/207188/depend%C3%AAncia-circular-em-api-rest-com-spring-boot
+>+ https://medium.com/@seonggil/creating-a-maturity-level-3-rest-api-with-hateoas-fcd76d1b2db9
+>+ https://www.baeldung.com/spring-custom-validation-message-source
+>+ https://reflectoring.io/bean-validation-with-spring-boot/
+>+ https://medium.com/yildiztech/decoding-i18n-challenges-in-spring-boot-3-exploring-internationalization-895a4ac627df

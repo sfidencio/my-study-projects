@@ -22,10 +22,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/v1/api/clientes")
 @Log4j2
-/*
- *https://medium.com/@seonggil/creating-a-maturity-level-3-rest-api-with-hateoas-fcd76d1b2db9
- *Implementing HATEOAS in a REST API acima.
- */
+
 
 public class ClienteControllerImp implements ClienteController {
 
@@ -43,7 +40,7 @@ public class ClienteControllerImp implements ClienteController {
     @ResponseStatus(HttpStatus.CREATED)
     public void salvar(@RequestBody @Valid List<ClienteRequest> clienteRequest) {
         log.info("Salvando cliente: {}", clienteRequest);
-        clienteRequest.forEach(c->{
+        clienteRequest.forEach(c -> {
             this.clienteService.salvar(c);
         });
         //this.clienteService.salvar(clienteRequest);
@@ -55,7 +52,6 @@ public class ClienteControllerImp implements ClienteController {
         log.info("Consultando todos os clientes");
         return this.clienteService.buscarTodos();
     }
-
 
 
     @GetMapping("/consulta-maturity/{id}")

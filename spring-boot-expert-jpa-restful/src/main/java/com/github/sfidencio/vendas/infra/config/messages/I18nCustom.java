@@ -12,9 +12,6 @@ import java.nio.charset.StandardCharsets;
 @Configuration
 @Log4j2
 public class I18nCustom {
-    //https://www.baeldung.com/spring-custom-validation-message-source
-    //https://reflectoring.io/bean-validation-with-spring-boot/
-    //https://medium.com/yildiztech/decoding-i18n-challenges-in-spring-boot-3-exploring-internationalization-895a4ac627df
     @Bean
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();

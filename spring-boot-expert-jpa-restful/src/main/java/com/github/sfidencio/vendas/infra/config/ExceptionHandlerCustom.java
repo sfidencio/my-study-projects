@@ -16,22 +16,18 @@ import java.util.stream.Collectors;
 @RestControllerAdvice
 @Log4j2
 public class ExceptionHandlerCustom {
-    //https://blog.devgenius.io/how-to-handle-constraint-violation-exception-using-controlleradvice-in-spring-boot-2f61147d19de
-    //https://reflectoring.io/bean-validation-with-spring-boot/
-    //https://www.javadevjournal.com/spring-boot/spring-custom-validation-message-source/
-    //https://www.baeldung.com/spring-valid-vs-validated
-    //https://salithachathuranga94.medium.com/validation-and-exception-handling-in-spring-boot-51597b580ffd
+
 
     @ExceptionHandler(RuntimeException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public Map<String,String> handleExceptionGeneral(RuntimeException e) {
+    public Map<String, String> handleExceptionGeneral(RuntimeException e) {
         return new HashMap<>(Map.of("error", e.getMessage()));
     }
 
 
     @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public Map<String,String> handleExceptionNotFound(NotFoundException e) {
+    public Map<String, String> handleExceptionNotFound(NotFoundException e) {
         return new HashMap<>(Map.of("error", e.getMessage()));
     }
 
@@ -41,7 +37,7 @@ public class ExceptionHandlerCustom {
         /*return e.getConstraintViolations().stream()
                 .map(constraintViolation -> new ErrorResponseDefault(constraintViolation.getMessage() + " -> " + constraintViolation.getInvalidValue()))
                 .toList();*/
-    List<String> errors = e.getConstraintViolations().stream()
+        List<String> errors = e.getConstraintViolations().stream()
                 .map(constraintViolation -> constraintViolation.getMessage())
                 .collect(Collectors.toList());
 
