@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: developer-service
+server:
+    servlet:
+        context-path: /base
+    port: 8081

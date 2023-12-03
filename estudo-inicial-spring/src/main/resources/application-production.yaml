@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: production-service
+server:
+    servlet:
+        context-path: /base
+    port: 8080
