@@ -291,6 +291,14 @@ sudo docker-compose down
 ```
 
 >[!IMPORTANT]
->Referências:
+>Referências utilizadas em todo o projeto:
 >+ https://tpbabparn.medium.com/spring-boot-3-1-integrated-docker-compose-on-development-environment-spring-webflux-example-1ddcbfe052f
 >+ https://springhow.com/spring-boot-and-postgres-using-docker-compose/
+>+ https://www.baeldung.com/ops/docker-compose-links-depends-on
+>+ https://www.baeldung.com/spring-boot-docker-start-with-profile
+>+ https://blog.devgenius.io/how-to-handle-constraint-violation-exception-using-controlleradvice-in-spring-boot-2f61147d19de
+>+ https://reflectoring.io/bean-validation-with-spring-boot/
+>+ https://www.javadevjournal.com/spring-boot/spring-custom-validation-message-source/
+>+ https://www.baeldung.com/spring-valid-vs-validated
+>+ https://salithachathuranga94.medium.com/validation-and-exception-handling-in-spring-boot-51597b580ffd
+>+ https://www.udemy.com/user/dougllas-sousa/
