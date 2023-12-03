@@ -190,6 +190,9 @@ docker exec -it myapp sh
 ```
 
 # Guia explicando como dockerizar o projeto em seguinda executa-lo localmente com o docker-compose
+> [!IMPORTANT]
+> Executar sempre um `mvn clean install`, pois o docker-compose irá criar a imagem customizada e subir o container, e se não tivermos o .jar, o container não sobe.
+
 >[!IMPORTANT]
 > Nesse cenario, o docker-compose.yml deverá estar na raiz do projeto, ou seja, no mesmo diretório onde está o Dockerfile.
 
