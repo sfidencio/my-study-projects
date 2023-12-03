@@ -36,8 +36,7 @@
 #   Guia explicativo como executar o projeto localmente 
 
 > [!WARNING]
-> Certifique-se de que o Java 17 esteja instalado e configurado na sua maquina local, apache-maven, git, docker e etc.
-> Por padrao, o projeto esta configurado para executar o perfil de desenvolvimento, ou seja, o banco de dados H2 sera utilizado.
+Certifique-se de que o Java 17 esteja instalado e configurado na sua máquina local, apache-maven, git, docker e etc. Por padrão, o projeto está configurado para executar o perfil de desenvolvimento, ou seja, o banco de dados H2 será utilizado.
 
 Abra o terminal e execute o comando abaixo para clonar o projeto:
 ```bash
