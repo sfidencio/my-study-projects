@@ -1,4 +1,10 @@
 # spring-boot-expert-jpa-restful
+
+>[!IMPORTANT]
+> Indice
+- [Guia explicativo como executar o projeto localmente](#guia-explicativo-como-executar-o-projeto-localmente)
+- 
+
 >[!IMPORTANT]
 > Este projeto aborta os seguintes tópicos:
 - [x] [spring-boot-expert-jpa-restful]
@@ -26,6 +32,31 @@
         - Clean Code
         - Paginação de Resultados com Spring Data JPA
 
+
+#   Guia explicativo como executar o projeto localmente 
+
+> [!WARNING]
+> Certifique-se de que o Java 17 esteja instalado e configurado na sua maquina local, apache-maven, git, docker e etc.
+> Por padrao, o projeto esta configurado para executar o perfil de desenvolvimento, ou seja, o banco de dados H2 sera utilizado.
+
+Abra o terminal e execute o comando abaixo para clonar o projeto:
+```bash
+#git clone git@github.com:sfidencio/my-study-projects.git
+```
+Acessando o diretorio raiz do projeto:
+```
+#cd spring-boot-expert-jpa-restful
+```
+
+Limpando e instalando dependencias, bem como o artefato final, ou seja, o .jar:
+```bash
+#mvn clean install
+```
+
+Executando o projeto:
+```bash
+#mvn spring-boot:run
+```
 
 #   Guia explicando como executar o projeto localmente via Docker
 
