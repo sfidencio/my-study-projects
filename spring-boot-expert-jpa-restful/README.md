@@ -1,4 +1,33 @@
-##   Subindo aplicacao no docker localmente usando imagem customizada via Dockerfile + docker-compose.yml
+# spring-boot-expert-jpa-restful
+>[!IMPORTANT]
+> Este projeto aborta os seguintes tópicos:
+- [x] [spring-boot-expert-jpa-restful]
+    - API Restful de Vendas
+        - Cadastro de Clientes
+        - Cadastro de Produtos
+        - Registro de Pedidos
+            - Aprovacao de Pedidos
+            - Cancelamento de Pedidos
+    - Tecnologias Utilizadas
+        - Java 17
+            - Record Pattern (new feature)
+        - Spring Boot
+        - PostgreSQL
+        - H2 Database
+        - Lombok
+        - JPA/Hibernate
+        - JdbcTemplate
+        - Docker
+        - Git
+    - Abordagens/Boas Praticas
+        - DTO Pattern
+        - Domain Driven Design
+        - Testes Unitários
+        - Clean Code
+        - Paginação de Resultados com Spring Data JPA
+
+
+#   Guia explicando como executar o projeto localmente via Docker
 
 ### 1. Criando arquivo Dockerfile e o arquivo docker-compose.yml
 
