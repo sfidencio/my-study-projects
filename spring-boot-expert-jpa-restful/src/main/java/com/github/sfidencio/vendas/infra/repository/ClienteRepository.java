@@ -9,7 +9,6 @@ import java.util.Optional;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
     //Query Methods ajuda a criar consultas de forma mais simples
-    //https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
     //Porem nao resolve todos os casos, para isso temos o @Query
     //List<Cliente> findByNomeLike(String nome);
 

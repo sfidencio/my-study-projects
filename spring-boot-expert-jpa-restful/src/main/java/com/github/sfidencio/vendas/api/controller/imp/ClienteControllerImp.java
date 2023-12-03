@@ -23,7 +23,6 @@ import java.util.Map;
 @RequestMapping("/v1/api/clientes")
 @Log4j2
 
-
 public class ClienteControllerImp implements ClienteController {
 
     @Autowired
@@ -40,7 +39,7 @@ public class ClienteControllerImp implements ClienteController {
     @ResponseStatus(HttpStatus.CREATED)
     public void salvar(@RequestBody @Valid List<ClienteRequest> clienteRequest) {
         log.info("Salvando cliente: {}", clienteRequest);
-        clienteRequest.forEach(c -> {
+        clienteRequest.forEach(c->{
             this.clienteService.salvar(c);
         });
         //this.clienteService.salvar(clienteRequest);
@@ -52,6 +51,7 @@ public class ClienteControllerImp implements ClienteController {
         log.info("Consultando todos os clientes");
         return this.clienteService.buscarTodos();
     }
+
 
 
     @GetMapping("/consulta-maturity/{id}")
