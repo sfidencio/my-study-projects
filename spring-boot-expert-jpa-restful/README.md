@@ -242,11 +242,26 @@ volumes:
 
 >[!TIP]
 > Observe bem a estrutura do arquivo docker-compose.yml, pois é muito importante para o funcionamento correto do projeto.
+
+
+>[!TIP]
 > O arquivo docker-compose.yml é composto por 3 seções, sendo elas: services, networks e volumes.
+
+
+>[!TIP]
 > A seção services é composta por 2 serviços, sendo eles: db e app.
-> A seção networks é composta por 1 rede, sendo ela: myapp. A aplicacao e o banco de dados estarão na mesma rede. Certo?
-> O parametro `depends_on` é muito importante, pois ele garante que o banco de dados esteja no ar antes da aplicação subir.
-> A seção volumes é composta por 1 volume, sendo ele: postgres-data. Esse volume é responsável por persistir os dados do banco de dados postgres, pois o coneiner é efêmero(imutavel), ou seja, se o container for derrubado, os dados serão perdidos. Certo?
+
+
+>[!TIP]
+> A seção networks é composta por 1 rede, sendo ela: myapp. A aplicação e o banco de dados estarão na mesma rede. Certo?
+
+
+>[!TIP]
+> O parâmetro `depends_on` é muito importante, pois ele garante que o banco de dados esteja no ar antes da aplicação subir.
+
+
+>[!TIP]
+> A seção volumes é composta por 1 volume, sendo ele: `postgres-data`. Esse volume é responsável por persistir os dados do banco de dados postgres, pois o container é efêmero(imutável), ou seja, se o container for derrubado, os dados serão perdidos. Certo?
 
 
 ### Subindo aplicação no docker localmente usando docker-compose aliado com Dockerfile, em background ("-d")
