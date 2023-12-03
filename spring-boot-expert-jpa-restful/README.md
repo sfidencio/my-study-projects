@@ -253,7 +253,7 @@ volumes:
 
 
 >[!TIP]
-> A seção networks é composta por 1 rede, sendo ela: myapp. A aplicação e o banco de dados estarão na mesma rede. Certo?
+> A seção networks é composta por 1 rede, sendo ela: myapp. A aplicação e o banco de dados estarão na mesma rede.
 
 
 >[!TIP]
