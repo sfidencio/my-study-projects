@@ -4,12 +4,12 @@
 
 >[!IMPORTANT]
 > Índice
-- [Guia explicativo como executar o projeto localmente](#guia-explicativo-como-executar-o-projeto-localmente)
-- [Guia explicando como dockerizar o projeto em seguinda executa-lo localmente](#guia-explicando-como-dockerizar-o-projeto-em-seguinda-executa-lo-localmente)
-- [Guia explicando como dockerizar o projeto em seguinda executa-lo localmente sem o docker-compose](#guia-explicando-como-dockerizar-o-projeto-em-seguinda-executa-lo-localmente-sem-o-docker-compose)
+- [Guia explicativo de como executar o projeto localmente](#guia-explicativo-de-como-executar-o-projeto-localmente)
+- [Guia explicativo de como dockerizar o projeto em seguinda executa-lo localmente sem o docker-compose](#guia-explicativo-de-como-dockerizar-o-projeto-em-seguinda-executa-lo-localmente-sem-o-docker-compose)
 - [Guia explicando como dockerizar o projeto em seguinda executa-lo localmente com o docker-compose](#guia-explicando-como-dockerizar-o-projeto-em-seguinda-executa-lo-localmente-com-o-docker-compose)
+- [Referências](#referências)
 
->[!IMPORTANT]
+
 > Este projeto aborda os seguintes tópicos:
 - [x] [spring-boot-expert-jpa-restful]
     - API Restful de Vendas
