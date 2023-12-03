@@ -42,23 +42,25 @@ Abra o terminal e execute o comando abaixo para clonar o projeto:
 ```bash
 #git clone git@github.com:sfidencio/my-study-projects.git
 ```
-Acessando o diretorio raiz do projeto:
+### Acessando o diretorio raiz do projeto:
 ```
 #cd spring-boot-expert-jpa-restful
 ```
 
-Limpando e instalando dependencias, bem como o artefato final, ou seja, o .jar:
+#### Limpando e instalando dependencias, bem como o artefato final, ou seja, o .jar:
 ```bash
 #mvn clean install
 ```
 
-Executando o projeto:
+#### Executando o projeto:
 ```bash
 #mvn spring-boot:run
 ```
 
 > [!IMPORTANT]
 > Caso tenha executado com sucesso a aplicacao, devera aparecer a seguinte mensagem -> Started Application in 2.11 seconds (process running for 2.3)
+
+
 
 #   Guia explicando como executar o projeto localmente via Docker
 
