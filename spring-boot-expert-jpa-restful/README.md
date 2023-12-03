@@ -256,6 +256,6 @@ sudo docker-compose up --build -d
 sudo docker-compose down
 ```
 
->referências:
+
 [^1]: https://tpbabparn.medium.com/spring-boot-3-1-integrated-docker-compose-on-development-environment-spring-webflux-example-1ddcbfe052f
 [^2]: https://springhow.com/spring-boot-and-postgres-using-docker-compose/
