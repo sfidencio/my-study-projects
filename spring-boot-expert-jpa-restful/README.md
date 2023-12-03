@@ -6,7 +6,8 @@
 > Índice
 - [Guia explicativo como executar o projeto localmente](#guia-explicativo-como-executar-o-projeto-localmente)
 - [Guia explicando como dockerizar o projeto em seguinda executa-lo localmente](#guia-explicando-como-dockerizar-o-projeto-em-seguinda-executa-lo-localmente)
-
+- [Guia explicando como dockerizar o projeto em seguinda executa-lo localmente sem o docker-compose](#guia-explicando-como-dockerizar-o-projeto-em-seguinda-executa-lo-localmente-sem-o-docker-compose)
+- [Guia explicando como dockerizar o projeto em seguinda executa-lo localmente com o docker-compose](#guia-explicando-como-dockerizar-o-projeto-em-seguinda-executa-lo-localmente-com-o-docker-compose)
 
 >[!IMPORTANT]
 > Este projeto aborda os seguintes tópicos:
@@ -149,18 +150,18 @@ docker run --rm -d --name myapp -p 8080:8080 sfidencio/spring-boot-expert-jpa-re
 ```
 
 >[!TIP]
-> Caso senha necessario verificar os logs do container, execute o comando abaixo:
+> Caso seja necessario verificar os logs do container, execute o comando abaixo:
 ```bash
 docker logs myapp
 ```
 
 >[!TIP]
-> Caso senha necessario parar o container, execute o comando abaixo:
+> Caso seja necessario parar o container, execute o comando abaixo:
 ```bash
 docker stop myapp
 ```
 
-### 7. Acessando aplicação - Cadastrando Cliente
+### Acessando aplicação - Cadastrando Cliente
 
 
 ```bash
@@ -168,44 +169,27 @@ curl -kvs http://localhost:8080/base/v1/api/clientes/salvar --data '[{"nome":"Fu
 ```
 
 
-### 8. Acessando aplicação - Consultado cliente com id-> 1
+### Acessando aplicação - Consultado cliente com id-> 1
 
 
 ```bash
 curl -kvs http://localhost:8080/base/v1/api/clientes/consulta/1 -H "Content-Type: application/json"  -X GET
 ```
 
-
-### 9. Acessando container
-
-
-```bash
-docker exec -it myapp sh
-```
-
-
-### 10. Executando container attachado("-it") ao terminal, visto que a opção "-rm" remove o container ao finalizar
-
-
-```bash
-docker run --rm -it --name myapp -p 8080:8080 sfidencio/spring-boot-expert-jpa-restful:latest
-```
-
-
-### 11. Acessando aplicação - Listando todos Clientes Cadastrados
+### Acessando aplicação - Listando todos Clientes Cadastrados
 
 
 ```bash
 curl -kvs http://localhost:8080/base/v1/api/clientes/consulta-todos-clientes -H "Content-Type: application/json"  -X GET
 ```
 
+### Acessando container caso seja necessário
 
+```bash
+docker exec -it myapp sh
+```
 
-
-
-
-
-
+# Guia explicando como dockerizar o projeto em seguinda executa-lo localmente com o docker-compose
 
 
 >docker-compose.yml
