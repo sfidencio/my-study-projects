@@ -38,7 +38,7 @@
 > [!WARNING]
 Certifique-se de que o Java 17 esteja instalado e configurado na sua máquina local, apache-maven, git, docker e etc. Por padrão, o projeto está configurado para executar o perfil de desenvolvimento, ou seja, o banco de dados H2 será utilizado.
 
-Abra o terminal e execute o comando abaixo para clonar o projeto:
+### Abra o terminal e execute o comando abaixo para clonar o projeto:
 ```bash
 #git clone git@github.com:sfidencio/my-study-projects.git
 ```
@@ -60,7 +60,18 @@ Abra o terminal e execute o comando abaixo para clonar o projeto:
 > [!IMPORTANT]
 > Caso tenha executado com sucesso a aplicacao, devera aparecer a seguinte mensagem -> Started Application in 2.11 seconds (process running for 2.3)
 
+### Realizando teste de cadastro de cliente via curl:
+```bash
+curl -kvs http://localhost:8080/base/v1/api/clientes/salvar --data '[{"nome":"Fulano","cpf":"41909644099", "email":"fulano@gmail.com" },{"nome":"Ciclano","cpf":"41909644099", "email":"ciclano@gmail.com" }]' -H "Content-Type: application/json"  -X POST
+```
 
+### Consultando cliente via curl:
+```bash
+curl -kvs http://localhost:8080/base/v1/api/clientes/consulta/1 -H "Content-Type: application/json"  -X GET
+```
+
+> [!IMPORTANT]
+> Projeto, agora abra o projeto no IntelliJ IDEA e divirta-se!
 
 #   Guia explicando como executar o projeto localmente via Docker
 
