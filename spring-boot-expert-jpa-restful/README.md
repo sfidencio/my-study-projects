@@ -147,6 +147,19 @@ docker run --rm -it --name myapp -p 8080:8080 sfidencio/spring-boot-expert-jpa-r
 ```bash
 docker run --rm -d --name myapp -p 8080:8080 sfidencio/spring-boot-expert-jpa-restful:latest
 ```
+
+>[!TIP]
+> Caso senha necessario verificar os logs do container, execute o comando abaixo:
+```bash
+docker logs myapp
+```
+
+>[!TIP]
+> Caso senha necessario parar o container, execute o comando abaixo:
+```bash
+docker stop myapp
+```
+
 ### 7. Acessando aplicação - Cadastrando Cliente
 
 
