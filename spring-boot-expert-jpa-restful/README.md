@@ -101,7 +101,7 @@ CMD ["java", "-jar", "app.jar"]
 ```
 
 ### Acesse o diretorio raiz do projeto(root), via terminal, e execute o comando abaixo para criar a imagem customizada
->[WARNING]
+>[!WARNING]
 > Onde esta `sfidencio` devera ser substituido pelo seu usuario do dockerhub, isso presuponho que voce ja tenha uma conta no dockerhub e tenha feito login previamente.
 > Caso nao tenha feito login o comando e `docker login` e informe seu usuario e senha.
 
