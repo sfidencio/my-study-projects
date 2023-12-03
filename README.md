@@ -2,6 +2,9 @@
 >[!IMPORTANT]
 >Centraliza o versionamento de projetos de softwares de maneira sistematica, com intuito de explorar diversas tecnologias.
 
+>[!DANGER]
+>Este repositório recebe atualizações constantes, portanto, existirá alguns projetos incompletos, que estão em fase de desenvolvimento.
+
 >[!TIP]
 > Lista de projetos desenvolvidos aqui neste repositório:
 
