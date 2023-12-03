@@ -264,7 +264,7 @@ volumes:
 > A seção volumes é composta por 1 volume, sendo ele: `postgres-data`. Esse volume é responsável por persistir os dados do banco de dados postgres, pois o container é efêmero(imutável), ou seja, se o container for derrubado, os dados serão perdidos. Certo?
 
 
-### Subindo aplicação no docker localmente usando docker-compose aliado com Dockerfile, em background ("-d")
+### Subindo aplicação no docker localmente usando docker-compose aliado ao Dockerfile, em background ("-d")
 
 
 ```bash
