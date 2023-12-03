@@ -71,7 +71,7 @@ curl -kvs http://localhost:8080/base/v1/api/clientes/consulta/1 -H "Content-Type
 ```
 
 > [!IMPORTANT]
-> Projeto, agora abra o projeto no IntelliJ IDEA e divirta-se!
+> Pronto, agora abra o projeto no IntelliJ IDEA e divirta-se!
 
 #   Guia explicando como executar o projeto localmente via Docker
 
