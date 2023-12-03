@@ -7,4 +7,4 @@
 > - [x] Criando um projeto Spring com Spring Initializr.
 > - [x] Polimorfismo com Spring via Annotations.
 > - [x] Injeção de dependências com Spring.
-> - [x] Lendo variaveis do application.yml via @Value.
+> - [x] Lendo variaveis do application.yml via **@Value**.
