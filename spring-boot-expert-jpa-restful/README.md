@@ -281,7 +281,7 @@ sudo docker-compose up --build -d
 
 
 >[!WARNING]
->Repita os testes de cadastro de cliente via curl, consultando cliente via curl e listando todos clientes cadastrados via curl, conforme descrito acima, pois o banco de dados H2 não será mais utilizado, mas sim o postgres.
+>Repita os testes de cadastro de cliente, consulta e listagem via curl, conforme descrito acima, pois o banco de dados H2 não será mais utilizado, mas sim o postgres.
 
 ### Parando containers
 
