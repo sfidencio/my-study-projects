@@ -57,6 +57,9 @@ Executando o projeto:
 #mvn spring-boot:run
 ```
 
+> [!IMPORTANT]
+> Caso tenha executado com sucesso a aplicacao, devera aparecer a seguinte mensagem -> Started Application in 2.11 seconds (process running for 2.3)
+
 #   Guia explicando como executar o projeto localmente via Docker
 
 ### 1. Criando arquivo Dockerfile e o arquivo docker-compose.yml
