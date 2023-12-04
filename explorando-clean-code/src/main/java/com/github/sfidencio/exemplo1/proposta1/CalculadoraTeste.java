@@ -9,7 +9,7 @@ public class CalculadoraTeste {
         imprimeResultado(calculadora.calcular(CalculadoraStrategy.MULTIPLICACAO, 9, 8));
     }
 
-    public static void imprimeResultado(double resultado) {
+    static void imprimeResultado(double resultado) {
         System.out.println(resultado);
     }
 }
