@@ -16,8 +16,8 @@ public class Calculadora {
      *  Principio de aberto/fechado(Open/Closed Principle)
      *  Esse metodo não tem responsabilidade de saber como calcular, apenas delega para a classe CalculadoraStrategy
      *  A estrategia de calculo esta encapsulada na classe CalculadoraStrategy
-     *  Poderiamos abstrair mais ainda, criando uma interface comum e implementando as operações em classes separadas
-     *  Ou seja, processo descomponentizacao
+     *  Poderiamos abstrair mais ainda, criando uma interface comum e implementando as operações em classes separadas, ou seja, processo descomponentizacao
+     *  Estamos aplicando o polimorfismo, pois o metodo calcular e abstrato e cada enum implementa o metodo calcular de forma diferente
      * </p>
      */
     public double calcular(CalculadoraStrategy estrategia, double num1, double num2) {
