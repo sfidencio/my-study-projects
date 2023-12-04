@@ -12,11 +12,8 @@ public class Calculadora {
      *  Mais coeso (1 linha de codigo apenas)
      *  Mais legível
      *  Mais fácil de manter
-     *
-     *  Estamos aplicando os principios
-     *      responsabilidade unica(Single Responsibility Principle)
-     *      aberto para extensão e fechado para modificação(Open Closed Principle)
-     *
+     *  Principio de responsabilidade única(Single Responsibility Principle)
+     *  Principio de aberto/fechado(Open/Closed Principle)
      *  Esse metodo não tem responsabilidade de saber como calcular, apenas delega para a classe CalculadoraStrategy
      *  A estrategia de calculo esta encapsulada na classe CalculadoraStrategy
      *  Poderiamos abstrair mais ainda, criando uma interface comum e implementando as operações em classes separadas
