@@ -18,7 +18,6 @@ public class Calculadora {
      *  A estrategia de calculo esta encapsulada na classe CalculadoraStrategy
      *  Poderiamos abstrair mais ainda, criando uma interface comum e implementando as operações em classes separadas
      *  Ou seja, processo descomponentizacao
-     *
      * </p>
      */
     public double calcular(CalculadoraStrategy estrategia, double num1, double num2) {
