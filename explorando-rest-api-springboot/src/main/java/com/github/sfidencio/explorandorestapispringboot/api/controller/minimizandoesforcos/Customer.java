@@ -1,4 +1,4 @@
-package com.github.sfidencio.explorandorestapispringboot.api.controller.usandorequestmapping;
+package com.github.sfidencio.explorandorestapispringboot.api.controller.minimizandoesforcos;
 
 import java.util.UUID;
 

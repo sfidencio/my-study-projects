@@ -1,19 +1,19 @@
-package com.github.sfidencio.explorandorestapispringboot.api.controller.usandorequestmapping;
+package com.github.sfidencio.explorandorestapispringboot.api.controller.minimizandoesforcos;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
-@Controller("usandorequestmapping.Exemplo02Controller")
-public class Exemplo02Controller {
+@RestController
+@RequestMapping("/exemplo06")
+public class Exemplo06Controller {
     /*
-     * O método exemplo02() é mapeado para a URL /exemplo02
-     * curl  --location http://localhost:8080/exemplo02 -X GET --header 'Content-Type: application/json'
+     * O método exemplo06() é mapeado para a URL /exemplo06
+     * curl -kvs --location http://localhost:8080/exemplo06 -X GET --header 'Content-Type: application/json'
      */
-    @RequestMapping(value = "/exemplo02", method = RequestMethod.GET)
-    @ResponseBody
-    public String exemplo02() {
-        return "Hello World!";
+    @GetMapping(produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE }, consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+    @ResponseStatus(HttpStatus.OK)
+    public Customer exemplo06() {
+       return new Customer(java.util.UUID.randomUUID(), "Fulano", "fulano@gmail.com");
     }
 }

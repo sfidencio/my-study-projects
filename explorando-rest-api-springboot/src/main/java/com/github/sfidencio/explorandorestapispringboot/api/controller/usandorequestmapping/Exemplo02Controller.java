@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@Controller("usandorequestmapping.Exemplo02Controller")
+@Controller("usandorequestmapping.Exemplo06Controller")
 public class Exemplo02Controller {
     /*
      * O método exemplo02() é mapeado para a URL /exemplo02
