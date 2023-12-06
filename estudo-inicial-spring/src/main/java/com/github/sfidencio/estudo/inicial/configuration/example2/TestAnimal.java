@@ -10,7 +10,7 @@ public class TestAnimal {
 
     @Autowired
     //@Cachorro
-    @Gato
+    @Cachorro
     private Animal animal;
 
     @Bean("executeAnimal")
