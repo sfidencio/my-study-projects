@@ -1,5 +1,6 @@
-package com.github.sfidencio.explorandorestapispringboot.api.controller.returnxml;
+package com.github.sfidencio.explorandorestapispringboot.api.controller;
 
+import com.github.sfidencio.explorandorestapispringboot.api.controller.Customer;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

@@ -1,11 +1,11 @@
-package com.github.sfidencio.explorandorestapispringboot.api.controller.multiplasrotas;
+package com.github.sfidencio.explorandorestapispringboot.api.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@Controller("multiplasrotas.Exemplo05Controller")
+@Controller
 public class Exemplo01Controller {
     /*
      * O método exemplo01() é mapeado para a URL /exemplo01 e par a URL /exemplo01-1

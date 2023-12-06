@@ -2,28 +2,19 @@
 # explorando-rest-api-springboot
 >[!IMPORTANT]
 >Este projeto aborda os seguintes tópicos:
-> - [x] Criar "controller" Rest
->   - [x] Compreendendo as diferencas entre @Controller e @RestController
->     - RestController é uma especialização de Controller, que já possui a anotação @ResponseBody em todos os seus métodos
->     - @ResponseBody é uma anotação que indica que o retorno do método deve ser vinculado ao corpo da resposta HTTP
->     - @RequestBody é uma anotação que indica que o parâmetro do método deve ser vinculado ao corpo da requisição HTTP
->       - Exige que o `Content-Type` da requisição seja `application/json` e recebe um objeto JSON que será convertido para o objeto Java
->   - [x] Consumer/Producer JSON e XML e etc
->   - [x] @GetMapping
->   - [x] @PostMapping
->   - [x] @PutMapping
->   - [x] @DeleteMapping
->   - [x] @PatchMapping
->   - [x] @RequestMapping
->   - [x] @PathVariable
->   - [x] @RequestParam
->   - [x] @RequestBody
->   - [x] @ResponseStatus
->   - [x] ResponseEntity<T>
->     - [x] Reprensenta o retorno de uma requisição HTTP, nele voce pode encapsular o objeto de retorno, o status HTTP e os headers
-> - [x] Mapeamento de recursos e subrecursos baseado no fundamentos RestFul
->   - Implementação de multiplas rotas para um mesmo recurso ou metodo
-> - [x] Tratamento de erros
-> - [x] Operacoes de POST, DELETE, GET, PUT, PATCH e retorno de codigos de status de acordo com cada verbo
-> - [x] Explorando Lombok
-> - [x] DevTools do Spring no IntelliJ
+> - [x] Rest API com Spring Boot.
+> - [x] Diferentes maneiras de expor os endpoints da API.
+> - [x] Retornos Http corretos para cada operação da API.
+> - [x] Produzindo e consumindo JSON, XML e outros formatos.
+> 
+> ## Algumas dicas:
+> - [x] Se utilizarmos o ResponseEntity ao inves de retornar o objeto diretamente, podemos ter mais controle sobre o retorno da API, como por exemplo, retornar um status code diferente de 200.
+>   - [x] ResponseEntity.ok() retorna o status code 200.
+>   - [x] ResponseEntity.created() retorna o status code 201.
+>     - [x] ResponseEntity.created() poderia ser substituido por ResponseEntity.status(HttpStatus.CREATED).
+>   - [x] ResponseEntity.noContent() retorna o status code 204.
+>   - [x] ResponseEntity.badRequest() retorna o status code 400.
+>   - [x] ResponseEntity.notFound() retorna o status code 404.
+> - [x] Para retornar um objeto em formato JSON, basta adicionar a anotacao @ResponseBody no metodo que retorna o objeto, caso estejamos utilizando a anotacao @Controller, caso contrario, se estivermos utilizando a anotacao @RestController, nao e necessario adicionar a anotacao @ResponseBody, pois o @RestController ja faz isso automaticamente.
+> - [x] Nao confundamos o @ResponseBody com o @RequestBody, o @RequestBody e utilizado para receber um objeto no formato JSON e transforma-lo em um objeto Java.
+> - [x] Para retornar um objeto em formato XML, basta adicionar a anotacao @JacksonXmlRootElement na classe do objeto que sera retornado, alterar o @produces para "application/xml" e adicionar a dependencia do jackson-dataformat-xml no pom.xml.

@@ -1,11 +1,11 @@
-package com.github.sfidencio.explorandorestapispringboot.api.controller.usandorequestmapping;
+package com.github.sfidencio.explorandorestapispringboot.api.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@Controller("usandorequestmapping.Exemplo06Controller")
+@Controller
 public class Exemplo02Controller {
     /*
      * O método exemplo02() é mapeado para a URL /exemplo02

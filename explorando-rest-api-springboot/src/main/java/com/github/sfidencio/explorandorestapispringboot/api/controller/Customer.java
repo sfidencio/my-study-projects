@@ -1,4 +1,4 @@
-package com.github.sfidencio.explorandorestapispringboot.api.controller.returnxml;
+package com.github.sfidencio.explorandorestapispringboot.api.controller;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 

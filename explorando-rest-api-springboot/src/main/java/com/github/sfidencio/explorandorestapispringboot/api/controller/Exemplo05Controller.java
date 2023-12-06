@@ -1,4 +1,4 @@
-package com.github.sfidencio.explorandorestapispringboot.api.controller.json;
+package com.github.sfidencio.explorandorestapispringboot.api.controller;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@Controller("json.Exemplo05Controller")
+@Controller
 public class Exemplo05Controller {
     /*
      * O método exemplo01() é mapeado para a URL /exemplo01

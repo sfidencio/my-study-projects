@@ -1,4 +1,4 @@
-package com.github.sfidencio.explorandorestapispringboot.api.controller.minimizandoesforcos;
+package com.github.sfidencio.explorandorestapispringboot.api.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
