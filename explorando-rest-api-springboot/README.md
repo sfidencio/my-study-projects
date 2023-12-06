@@ -11,7 +11,7 @@
  - [x] Se utilizarmos o ResponseEntity ao inves de retornar o objeto diretamente, podemos ter mais controle sobre o retorno da API, como por exemplo, retornar um status code diferente de 200.
    - [x] ResponseEntity.ok() retorna o status code 200.
    - [x] ResponseEntity.created() retorna o status code 201.
-     - [x] ResponseEntity.created() poderia ser substituido por ResponseEntity.status(HttpStatus.CREATED).
+     - [x] ResponseEntity.created() poderia ser substituido por ResponseEntity.status(HttpStatus.CREATED), essa premissa vale para todos os outros metodos ou retornos.
    - [x] ResponseEntity.noContent() retorna o status code 204.
    - [x] ResponseEntity.badRequest() retorna o status code 400.
    - [x] ResponseEntity.notFound() retorna o status code 404.
