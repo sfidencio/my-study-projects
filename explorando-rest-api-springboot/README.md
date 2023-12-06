@@ -17,4 +17,4 @@
    - [x] ResponseEntity.notFound() retorna o status code 404.
  - [x] Para retornar um objeto em formato JSON, basta adicionar a anotacao @ResponseBody no metodo que retorna o objeto, caso estejamos utilizando a anotacao @Controller, caso contrario, se estivermos utilizando a anotacao @RestController, nao e necessario adicionar a anotacao @ResponseBody, pois o @RestController ja faz isso automaticamente.
  - [x] Nao confundamos o @ResponseBody com o @RequestBody, o @RequestBody e utilizado para receber um objeto no formato JSON e transforma-lo em um objeto Java.
- - [x] Para retornar um objeto em formato XML, basta adicionar a anotacao @JacksonXmlRootElement na classe do objeto que sera retornado, alterar o @produces para "application/xml" e adicionar a dependencia do jackson-dataformat-xml no pom.xml.
+ - [x] Para retornar um objeto em formato XML, basta adicionar a anotacao @JacksonXmlRootElement na classe do objeto que sera retornado, alterar o @produces para "application/xml" alem de  adicionar a dependencia do jackson-dataformat-xml no pom.xml.
