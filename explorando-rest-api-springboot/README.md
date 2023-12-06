@@ -6,7 +6,8 @@
  - [x] Retornos Http corretos para cada operação da API.
  - [x] Produzindo e consumindo JSON, XML e outros formatos.
  
-> ## Algumas dicas:
+
+>Algumas dicas:
  - [x] Se utilizarmos o ResponseEntity ao inves de retornar o objeto diretamente, podemos ter mais controle sobre o retorno da API, como por exemplo, retornar um status code diferente de 200.
    - [x] ResponseEntity.ok() retorna o status code 200.
    - [x] ResponseEntity.created() retorna o status code 201.
