@@ -298,6 +298,7 @@ sudo docker-compose down
 ```
 
 # Spring com Redis
+## Tutorial basico de como usar o Redis via CLI
 > [!IMPORTANT]
 > Para executar o RedisStandAlone via docker, execute o comando abaixo:
 ```bash
@@ -307,10 +308,14 @@ docker run --rm -d --name redis -p 6379:6379 redis
 ```bash
 docker exec -it redis bash
 ```
->Execute o comando abaixo para acessar o Redis (Dentro do Container)
+>Execute o comando abaixo para acessar o Redis CLI (Dentro do Container)
 ```bash
 redis-cli
 ```
+
+>[!WARNING]
+> Todos comandos abaixo devem ser executados dentro do Redis CLI
+
 >Visualizar todas as chaves
 ```bash
 KEYS *
@@ -323,7 +328,21 @@ GET <chave>
 ```bash
 SET <chave> <valor>
 ```
+>Excluir chave
+```bash
+DEL <chave>
+```
+>Caso queira limpar o Redis, execute o comando abaixo:
+```bash
+FLUSHALL
+```
+>[!WARNING]
+> Ate aqui, usamos do redis-cli.
 
+
+## Tutorial basico de como usar o Redis via Spring
+> [!IMPORTANT]
+> Na classe Application.java, temos um exemplo, via `CommandLineRunner`, de como realizar operacoes basicas no Redis, utilizando a classe Helper, `RedisTemplate`.
 
 >[!IMPORTANT]
 >Referências utilizadas em todo o projeto:
