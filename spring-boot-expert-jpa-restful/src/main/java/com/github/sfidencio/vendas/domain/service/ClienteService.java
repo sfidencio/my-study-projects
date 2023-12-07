@@ -9,11 +9,13 @@ import java.util.List;
 
 public interface ClienteService {
 
-    void salvar(ClienteRequest clienteRequest);
+    void salvar(ClienteRequest clienteRequest) throws NotFoundException;
 
-    void alterar(ClienteRequest clienteRequest);
+    void alterar(ClienteRequest clienteRequest,Integer id);
 
     List<ClienteResponse> buscarTodos();
 
     ClienteResponse buscarClienteEPedidos(Integer id) throws NotFoundException;
+
+    void excluir(Integer id) throws NotFoundException;
 }

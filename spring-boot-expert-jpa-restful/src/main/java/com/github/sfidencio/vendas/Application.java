@@ -8,21 +8,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.redis.core.RedisTemplate;
 
 @SpringBootApplication
 @Log4j2
+@EnableCaching
 public class Application {
     //@PersistenceContext
     //private EntityManager entityManager;
-
 
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 
-    @Bean
+    @Bean("executarTesteDB")
     public CommandLineRunner executar(@Autowired ProdutoRepository produtoRepository,
                                       @Autowired PedidoRepository pedidoRepository,
                                       @Autowired ClienteRepository clienteRepository) {
@@ -113,10 +115,16 @@ public class Application {
 //            this.pedidoService.salvar(pedido);
 
 
-
-
-
         };
     }
 
+    @Bean("executarTestRedisCache")
+    public CommandLineRunner executarTestRedisCache(@Autowired RedisTemplate redisTemplate) {
+        return args -> {
+            //Salvando no Redis
+            redisTemplate.opsForValue().set("nome", "Fidencio");
+            Object valor = redisTemplate.opsForValue().get("nome");
+            System.out.println(valor);
+        };
+    }
 }

@@ -1,13 +1,10 @@
 package com.github.sfidencio.vendas.infra.repository;
 
 import com.github.sfidencio.vendas.domain.entity.Produto;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 public interface ProdutoRepository extends JpaRepository<Produto, Integer> {

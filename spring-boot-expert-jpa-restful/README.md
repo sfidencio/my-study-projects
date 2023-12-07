@@ -8,6 +8,7 @@
 - [Guia explicativo de como dockerizar o projeto em seguinda executa-lo localmente sem o docker-compose](#guia-explicativo-de-como-dockerizar-o-projeto-em-seguinda-executa-lo-localmente-sem-o-docker-compose)
 - [Guia explicando como dockerizar o projeto em seguinda executa-lo localmente com o docker-compose](#guia-explicando-como-dockerizar-o-projeto-em-seguinda-executa-lo-localmente-com-o-docker-compose)
 - [Referências](#referências)
+- [Spring com Redis](#spring-com-redis)
 
 
 > Este projeto aborda os seguintes tópicos:
@@ -20,7 +21,6 @@
             - Cancelamento de Pedidos
     - Tecnologias Utilizadas
         - Java 17
-            - Record Pattern (new feature)
         - Spring Boot
         - PostgreSQL
         - H2 Database
@@ -30,14 +30,19 @@
         - Docker
         - Git
     - Abordagens/Boas Práticas
-        - DTO Pattern
+        - DTO Pattern + Record Pattern (new feature do Java 17)
         - Domain Driven Design
         - Testes Unitários
         - Clean Code
         - Paginação de Resultados com Spring Data JPA
-        - Nivel de Maturidade 3 de Richardson
+        - HATEOAS
         - Swagger
-
+        - Tratamento de Erros
+        - Segurança
+        - Cache com Redis
+        - Versionamento de API
+        - Documentação de API com Swagger
+        - Uso do @JsonManagedReference e @JsonBackReference para evitar recursividade infinita em relacionamentos bidirecionais
 
 
 
@@ -292,6 +297,8 @@ sudo docker-compose up --build -d
 sudo docker-compose down
 ```
 
+# Spring com Redis
+
 >[!IMPORTANT]
 >Referências utilizadas em todo o projeto:
 >+ https://tpbabparn.medium.com/spring-boot-3-1-integrated-docker-compose-on-development-environment-spring-webflux-example-1ddcbfe052f
@@ -316,3 +323,7 @@ sudo docker-compose down
 >+ https://spring.io
 >+ https://hibernate.org
 >+ https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/record.html
+>+ https://www.baeldung.com/spring-boot-redis-cache
+>+ https://www.digitalocean.com/community/tutorials/spring-boot-redis-cache
+>+ https://www.bezkoder.com/spring-boot-redis-cache-example/
+>+ https://redis.io/docs/connect/cli/

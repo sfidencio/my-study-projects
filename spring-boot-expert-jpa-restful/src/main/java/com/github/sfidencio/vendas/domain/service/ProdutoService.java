@@ -18,4 +18,6 @@ public interface ProdutoService {
     List<ProdutoResponse> listar() throws NotFoundException;
 
     Page<ProdutoResponse> listarProdutosPaginado(int numeroPagina, int tamanhoPagina) throws NotFoundException;
+
+    void atualizar(ProdutoRequest produtoRequest, Integer id) throws NotFoundException;
 }

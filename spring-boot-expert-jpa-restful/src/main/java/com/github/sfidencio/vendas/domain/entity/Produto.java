@@ -1,5 +1,6 @@
 package com.github.sfidencio.vendas.domain.entity;
 
+import com.github.sfidencio.vendas.api.dto.ProdutoResponse;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,4 +27,8 @@ public class Produto {
     private BigDecimal preco;
     //@OneToMany(mappedBy = "produto")
     //private List<ItemPedido> itemPedido;
+
+    public ProdutoResponse toResponse() {
+        return new ProdutoResponse(this.id, this.descricao, this.preco);
+    }
 }

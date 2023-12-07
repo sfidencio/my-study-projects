@@ -6,5 +6,9 @@ import com.github.sfidencio.vendas.domain.entity.Pedido;
 
 import java.util.Set;
 
-public record ClienteResponseSemRetornoDosPedidos(Integer id, String nome, String cpf, String email, @JsonIgnore Set<Pedido> pedidos) {
+public record ClienteResponseSemRetornoDosPedidos(Integer id,
+                                                  String nome,
+                                                  String cpf,
+                                                  String email,
+                                                  @JsonIgnore Set<Pedido> pedidos) {
 }

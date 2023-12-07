@@ -8,8 +8,10 @@ import com.github.sfidencio.vendas.infra.config.exceptions.NotFoundException;
 import jakarta.validation.Valid;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -24,24 +26,33 @@ public class ProdutoControllerImp implements ProdutoController {
     }
 
 
-    @PostMapping("/salvar")
-    @ResponseStatus(HttpStatus.CREATED)
-    public void salvar(@Valid @RequestBody List<ProdutoRequest> produtoRequest) {
+    @Override
+    public void salvar(@Valid @RequestBody ProdutoRequest produtoRequest) {
         log.info("Salvando produto: {}", produtoRequest);
-        produtoRequest.forEach(p -> {
-            this.produtoService.salvar(p);
-        });
+        this.produtoService.salvar(produtoRequest);
     }
 
-    @GetMapping("/consulta-todos-produtos")
-    @ResponseStatus(HttpStatus.OK)
+    @Override
+    public void atualizar(ProdutoRequest produtoRequest, Integer id) throws NotFoundException {
+        log.info("Atualizando produto: {}", produtoRequest);
+        this.produtoService.atualizar(produtoRequest, id);
+    }
+
+    @Override
+    public ProdutoResponse consultar(Integer id) throws NotFoundException {
+        log.info("Consultando produto: {}", id);
+        return this.produtoService.obterProduto(id).toResponse();
+    }
+
+
+    @Override
     public List<ProdutoResponse> consultarTodos() throws NotFoundException {
         log.info("Consultando todos os produtos");
         return this.produtoService.listar();
     }
 
-    @GetMapping("/consulta/paginada/{numeroPagina}/{tamanhoPagina}")
-    @ResponseStatus(HttpStatus.OK)
+
+    @Override
     public Page<ProdutoResponse> consultarProdutosPaginado(@PathVariable("numeroPagina") int numeroPagina,
                                                            @PathVariable("tamanhoPagina") int tamanhoPagina)
             throws NotFoundException {

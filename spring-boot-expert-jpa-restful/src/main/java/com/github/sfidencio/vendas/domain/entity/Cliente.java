@@ -9,6 +9,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;
 
+import java.io.Serializable;
 import java.util.Set;
 
 @Entity
@@ -20,7 +21,8 @@ import java.util.Set;
 @Setter
 @Builder
 @ToString
-public class Cliente {
+public class Cliente implements Serializable {
+    private static final long serialVersionUID = 1905122041950251207L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @SequenceGenerator(name = "CLIENTE_SEQ", sequenceName = "CLIENTE_SEQ", allocationSize = 1)

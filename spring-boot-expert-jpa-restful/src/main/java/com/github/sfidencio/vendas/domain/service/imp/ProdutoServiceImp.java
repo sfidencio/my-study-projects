@@ -34,7 +34,7 @@ public class ProdutoServiceImp implements ProdutoService {
     }
 
     @Override
-    public List<ProdutoResponse> listar() throws NotFoundException {
+    public List<ProdutoResponse> listar() {
         return this.produtoRepository.findAll().stream().map(p -> new ProdutoResponse(p.getId(), p.getDescricao(), p.getPreco())).collect(Collectors.toList());
     }
 
@@ -43,5 +43,21 @@ public class ProdutoServiceImp implements ProdutoService {
         Pageable pageAble = PageRequest.of(numeroPagina, tamanhoPagina);
 
         return this.produtoRepository.findAll(pageAble).map(p -> new ProdutoResponse(p.getId(), p.getDescricao(), p.getPreco()));
+    }
+
+    @Override
+    public void atualizar(ProdutoRequest produtoRequest, Integer id) throws NotFoundException {
+
+        //Outra forma de atualizar usando lambda expression (ifPresent)
+        /*this.produtoRepository.findById(id).ifPresent(p -> {
+            p.setDescricao(produtoRequest.descricao());
+            p.setPreco(produtoRequest.preco());
+            this.produtoRepository.save(p);
+        });*/
+        var produtoAtualizar = this.produtoRepository.findById(id).orElseThrow(() -> new NotFoundException("Produto não encontrado"));
+        produtoAtualizar.setDescricao(produtoRequest.descricao());
+        produtoAtualizar.setPreco(produtoRequest.preco());
+        this.produtoRepository.save(produtoAtualizar);
+        this.produtoRepository.save(produtoAtualizar);
     }
 }
