@@ -298,6 +298,32 @@ sudo docker-compose down
 ```
 
 # Spring com Redis
+> [!IMPORTANT]
+> Para executar o RedisStandAlone via docker, execute o comando abaixo:
+```bash
+docker run --rm -d --name redis -p 6379:6379 redis
+```
+>Acesse o container do Redis
+```bash
+docker exec -it redis bash
+```
+>Execute o comando abaixo para acessar o Redis (Dentro do Container)
+```bash
+redis-cli
+```
+>Visualizar todas as chaves
+```bash
+KEYS *
+```
+>Visualizar valor da chave
+```bash
+GET <chave>
+```
+>Incluir chave e valor
+```bash
+SET <chave> <valor>
+```
+
 
 >[!IMPORTANT]
 >Referências utilizadas em todo o projeto:
