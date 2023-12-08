@@ -1,10 +1,10 @@
 # explorando-rest-api-springboot
 
 >Lista de tarefas abordadas no projeto:
- - [x] Rest API com Spring Boot.
- - [x] Diferentes maneiras de expor os endpoints da API.
- - [x] Retornos Http corretos para cada operação da API.
- - [x] Produzindo e consumindo JSON, XML e outros formatos.
+ - Rest API com Spring Boot.
+ - Diferentes maneiras de expor os endpoints da API.
+ - Retornos Http corretos para cada operação da API.
+ - Produzindo e consumindo JSON, XML e outros formatos.
  
 
 >Algumas dicas:

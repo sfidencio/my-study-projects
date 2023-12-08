@@ -300,7 +300,7 @@ sudo docker-compose down
 # Spring com Redis
 ## Tutorial basico de como usar o Redis via CLI
 > [!IMPORTANT]
-> Para executar o RedisStandAlone via docker, execute o comando abaixo:
+> Para executar o redis standalone via docker, execute o comando abaixo:
 ```bash
 docker run --rm -d --name redis -p 6379:6379 redis
 ```
@@ -314,7 +314,11 @@ redis-cli
 ```
 
 >[!WARNING]
-> Todos comandos abaixo devem ser executados dentro do Redis CLI
+> Todos comandos abaixo devem ser executados dentro do redis-cli.
+>Teste Redis
+```bash
+ping
+```
 
 >Visualizar todas as chaves
 ```bash
@@ -344,6 +348,7 @@ FLUSHALL
 > [!IMPORTANT]
 > Na classe Application.java, temos um exemplo, via `CommandLineRunner`, de como realizar operacoes basicas no Redis, utilizando a classe Helper, `RedisTemplate`.
 
+
 >[!IMPORTANT]
 >Referências utilizadas em todo o projeto:
 >+ https://tpbabparn.medium.com/spring-boot-3-1-integrated-docker-compose-on-development-environment-spring-webflux-example-1ddcbfe052f
@@ -372,3 +377,8 @@ FLUSHALL
 >+ https://www.digitalocean.com/community/tutorials/spring-boot-redis-cache
 >+ https://www.bezkoder.com/spring-boot-redis-cache-example/
 >+ https://redis.io/docs/connect/cli/
+>+ https://premika-17.medium.com/implementing-redis-in-spring-boot-3d2756e5ab69
+>+ https://medium.com/javarevisited/classcast-exception-when-using-redis-and-springboot-frameworks-in-conjunction-ea132dd0d7ea
+>+ https://stackoverflow.com/questions/74557099/how-to-delete-all-data-from-redis-using-redistemplate-in-java
+>+ https://www.baeldung.com/spring-boot-evict-cache (Lmpando o cache de varias formas)
+>+ https://medium.com/@aedemirsen/cache-structure-in-spring-boot-projects-with-redis-2c5751bca9eb

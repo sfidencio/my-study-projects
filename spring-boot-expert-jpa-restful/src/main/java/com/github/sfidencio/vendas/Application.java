@@ -8,17 +8,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.core.RedisTemplate;
 
+import java.util.UUID;
+
 @SpringBootApplication
 @Log4j2
+@EnableCaching
 public class Application {
     //@PersistenceContext
     //private EntityManager entityManager;
 
 
     public static void main(String[] args) {
+        //Se coloarmos essa linha abaixo, o Spring Boot não vai reiniciar a aplicação quando salvarmos um arquivo
+        //Isso e para resolvermos o problema do Redis na hora de fazer cast de um objeto
+        //org.springframework.boot.devtools.restart.classloader.RestartClassLoader @7b70ccc9
+        System.setProperty("spring.devtools.restart.enabled", "false");
         SpringApplication.run(Application.class, args);
     }
 
@@ -119,10 +127,16 @@ public class Application {
     @Bean("executarTestRedisCache")
     public CommandLineRunner executarTestRedisCache(@Autowired RedisTemplate redisTemplate) {
         return args -> {
-            //Salvando no Redis
-            redisTemplate.opsForValue().set("nome", "Fidencio");
-            Object valor = redisTemplate.opsForValue().get("nome");
+            //Salvando no Redis - Poderiamos implementar manualmente o cache, mas o Spring já faz isso para nós com o Redis
+            //Atraves das Annotations @Cacheable e @CacheEvict›
+            String id = UUID.randomUUID().toString();
+            redisTemplate.opsForValue().set("id", id);
+            //Recuperando do Redis
+            Object valor = redisTemplate.opsForValue().get("id");
             System.out.println(valor);
+
+            //Resetando redis ou limpando o cache
+            redisTemplate.getConnectionFactory().getConnection().flushAll();
         };
     }
 }

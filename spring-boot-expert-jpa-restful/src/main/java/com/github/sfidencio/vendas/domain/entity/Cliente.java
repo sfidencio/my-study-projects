@@ -22,7 +22,7 @@ import java.util.Set;
 @Builder
 @ToString
 public class Cliente implements Serializable {
-    private static final long serialVersionUID = 1905122041950251207L;
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @SequenceGenerator(name = "CLIENTE_SEQ", sequenceName = "CLIENTE_SEQ", allocationSize = 1)

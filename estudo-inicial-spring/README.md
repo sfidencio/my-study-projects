@@ -1,10 +1,10 @@
 # estudo-inicial-spring
 
 >Lista de topicos abordados neste projeto:
- - [x] **"Configurations"** do Spring, como criar as proprias annotations.
- - [x] Entendendo o funcionamento dos Beans do Spring no contexto de uma aplicação.
- - [x] Explorando CommandLineRunner e ApplicationRunner. 
- - [x] Criando um projeto Spring com Spring Initializr.
- - [x] Polimorfismo com Spring via Annotations.
- - [x] Injeção de dependências com Spring.
- - [x] Lendo variaveis do application.yml via **@Value**.
+ - **"Configurations"** do Spring, como criar as proprias annotations.
+ - Entendendo o funcionamento dos Beans do Spring no contexto de uma aplicação.
+ - Explorando CommandLineRunner e ApplicationRunner. 
+ - Criando um projeto Spring com Spring Initializr.
+ - Polimorfismo com Spring via Annotations.
+ - Injeção de dependências com Spring.
+ - Lendo variaveis do application.yml via **@Value**.
