@@ -19,7 +19,7 @@
 
 
 >[!TIP]
-> O docker foi feito precipuamente e otimizado para executar no `Linux`, contudo a microsoft desenvolveu o `WSL(Windows Linux Subsystem)`, afim de facilitar a vida dos desenvolvedores que queriam continuar utilizando `Windows`, além de usar também o `Linux` para o desenvolvimento de aplicação, foi ai que a microsoft resolveu o problema do `WSL(v1)`, que tinha baixa performance, e não integração total com Docker, acrescentou elementos de virtualização(HyperVi), permitindo o uso pleno do kernel do linux estando rodando na instância WSL2, e também vale ressaltar que o MacOS roda o docker, porém virtualizado, ou seja, ele cria uam `VM` por baixo dos panos, não rodando tão nativo, quanto `Linux`, e em segundo Windows com `WSL(v2)`.
+> O docker foi feito precipuamente e otimizado para executar no `Linux`, contudo a microsoft desenvolveu o `WSL(Windows Linux Subsystem)`, afim de facilitar a vida dos desenvolvedores que queriam continuar utilizando `Windows`, além de usar também o `Linux` para o desenvolvimento de aplicações, e poderem executar o `Docker` e suas ferramentas com uma performance mais elevada, foi ai que a microsoft resolveu o problema do `WSL(v1)`, que tinha baixa performance, e não integração total com `Docker`, acrescentou elementos de virtualização(`HyperVi`), permitindo o uso pleno do kernel do linux estando rodando na instância WSL2, e também vale ressaltar que o MacOS roda o docker, porém virtualizado, ou seja, ele cria uam `VM` por baixo dos panos, não rodando tão nativo, quanto `Linux`, e em segundo Windows com `WSL(v2)`.
 
 >[!TIP]
 >Tecla de atalho na autosugestão:
