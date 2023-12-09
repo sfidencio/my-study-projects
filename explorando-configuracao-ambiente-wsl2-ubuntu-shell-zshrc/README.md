@@ -15,4 +15,4 @@
   -   Utilize este tutorial como guia para instalação do zshrc, apenas se tiver problemas com o primeiro tutorial, mas lembre-se, este aqui só irá abordar a instalação e configuração do zshrc no Linux.
 
 >[!WARNING]
->Resumindo, não existe uma único tutorial que resolva todos os problemas, tem que fazer uma mescla de tudo aquilo que é necessário para resolver o teu problema.
+>Resumindo, não existe uma único tutorial que resolva todos os problemas, veja o que melhor te atende, seguindo as dicas acima.
