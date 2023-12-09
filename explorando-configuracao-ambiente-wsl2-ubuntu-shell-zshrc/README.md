@@ -8,7 +8,7 @@
   - https://github.com/deanbot/easy-wsl-oh-my-zsh-p10k
     - Este e o mais importante a ser seguido, detalha a instalação do WSL2
     - Instalação do `Windows Terminal`, que permite utilizar várias abas com diferentes interpretadores
-    - Detalha a configuração via JSON do `Windows Terminal`, instalação da fonte apropriada e etc.
+    - Detalha a configuração via JSON do `Windows Terminal`, instalação da fonte apropriada para que o pacote de icones do tema `powerlevel10k` funcione corretamente.
   - https://github.com/codeedu/wsl2-docker-quickstart
     - Este explica sobre a instalação do Docker no WSL, e aborda sobre a configuração do `Windows Terminal` também.
   - https://medium.com/@gutoinfo.ribeiro/instalando-e-configurando-o-zsh-no-ubuntu-20-04-4ef8a2499ed5
