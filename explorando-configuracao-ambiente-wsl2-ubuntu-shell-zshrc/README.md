@@ -6,7 +6,7 @@
 > Lista de artigos:
 
   - https://github.com/deanbot/easy-wsl-oh-my-zsh-p10k
-    - Este tutorial de instalação do zsh/oh-my-zsh-p10k, é o mais importante a ser seguido, pois da uma explicada de forma resumida como instalar o WSL2, e sobretudo a instalação e configuração do `Windows Terminal`. **Recomendado**
+    - Este tutorial de instalação do zsh/oh-my-zsh-p10k, é o mais importante a ser seguido, pois da uma explicada de forma resumida como instalar o WSL2, e sobretudo a instalação e configuração do `Windows Terminal`. **(Recomendado)**
     - Instalação do `Windows Terminal`, que permite utilizar várias abas com diferentes interpretadores
     - Detalha a configuração via JSON do `Windows Terminal`, instalação da fonte apropriada para que o pacote de icones do tema `powerlevel10k` funcione corretamente.
   - https://github.com/codeedu/wsl2-docker-quickstart
