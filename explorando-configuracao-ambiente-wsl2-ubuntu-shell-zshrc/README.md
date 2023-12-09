@@ -16,3 +16,5 @@
 
 >[!WARNING]
 >Resumindo, não existe uma único tutorial que resolva todos os problemas, veja o que melhor te atende, seguindo as dicas acima.
+
+![image](https://github.com/sfidencio/my-study-projects/assets/660615/e76ac62f-505a-4392-b8f9-8900b5b77b6c)
