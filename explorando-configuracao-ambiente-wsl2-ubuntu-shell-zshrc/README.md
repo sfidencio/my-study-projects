@@ -11,8 +11,8 @@
     - Detalha a configuração via JSON do `Windows Terminal`, instalação da fonte apropriada e etc.
   - https://github.com/codeedu/wsl2-docker-quickstart
     - Este explica sobre a instalação do Docker no WSL, e aborda sobre a configuração do `Windows Terminal` também.
-  - https://medium.com/@gutoinfo.ribeiro/instalando-e-configurando-o-zsh-no-ubuntu-20-04-4ef8a2499ed5 (Este detalha a configuração do zshrc)
-  -   Utilize este tutorial como guia para instalação do zshrc, apenas se tiver problemas com o primeiro tutorial, mas lembre-se, este aqui só irá abordar a instalação e configuração do zshrc no Linux.
+  - https://medium.com/@gutoinfo.ribeiro/instalando-e-configurando-o-zsh-no-ubuntu-20-04-4ef8a2499ed5
+    - Utilize este tutorial como guia para instalação do zshrc, apenas se tiver problemas com o primeiro tutorial, mas lembre-se, este aqui só irá abordar a instalação e configuração do zshrc no Linux.
 
 >[!WARNING]
 >Resumindo, não existe uma único tutorial que resolva todos os problemas, veja o que melhor te atende, seguindo as dicas acima.
