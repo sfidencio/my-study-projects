@@ -23,7 +23,7 @@
 
 >[!TIP]
 >Tecla de atalho na autosugestão:
->https://github.com/zsh-users/zsh-autosuggestions/issues/532
->https://stackoverflow.com/questions/60087520/changing-the-acceptance-key-autosuggest-accept-zsh-shell-on-mac
+> - https://github.com/zsh-users/zsh-autosuggestions/issues/532
+> - https://stackoverflow.com/questions/60087520/changing-the-acceptance-key-autosuggest-accept-zsh-shell-on-mac
 
 ![image](https://github.com/sfidencio/my-study-projects/assets/660615/e76ac62f-505a-4392-b8f9-8900b5b77b6c)
