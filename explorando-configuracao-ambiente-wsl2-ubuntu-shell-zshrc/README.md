@@ -10,7 +10,8 @@
     - Instalação do `Windows Terminal`, que permite utilizar várias abas com diferentes interpretadores
     - Detalha a configuração via JSON do `Windows Terminal`, instalação da fonte apropriada para que o pacote de icones do tema `powerlevel10k` funcione corretamente.
   - https://github.com/codeedu/wsl2-docker-quickstart
-    - Este explica sobre a instalação do Docker no WSL, e aborda sobre a configuração do `Windows Terminal` também.
+    - Este explica sobre a instalação do Docker no WSL2, e aborda sobre a configuração do `Windows Terminal` também.
+    - Explica a evolução do WSL(v2), quando a microsoft acrescentou elementos de virtualização(HyperVI), permitindo o uso pleno do kernel do linux estando rodando na instância WSL, e a informação de que o MacOS roda o docker virtualizado, ou seja, dos três sistemas operacionais, o mais performático é o Linux(Evidente, pois docker foi feito pra executar nele), o segundo seria o Windows(Depois da evolução do WSL) e por último o MacOS. **(Vale conferir!)**
   - https://medium.com/@gutoinfo.ribeiro/instalando-e-configurando-o-zsh-no-ubuntu-20-04-4ef8a2499ed5
     - Utilize este tutorial como guia para instalação do zshrc, apenas se tiver problemas com o primeiro tutorial, mas lembre-se, este aqui só irá abordar a instalação e configuração do zshrc no Linux.
 
