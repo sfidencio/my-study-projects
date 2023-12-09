@@ -3,8 +3,16 @@
 >Dicas sobre configuração do ambiente de desenvolvimento utilizando WSL2 + Linux/Ubuntu/Debian + GIT + shell -> zshrc
 
 >[!TIP]
-> Lista artigos:
+> Lista de artigos:
 
   - https://github.com/deanbot/easy-wsl-oh-my-zsh-p10k
+    - Este e o mais importante a ser seguido, detalha a instalação do WSL2
+    - Instalação do `Windows Terminal`, que permite utilizar várias abas com diferentes interpretadores
+    - Detalha a configuração via JSON do `Windows Terminal`, instalação da fonte apropriada e etc.
   - https://github.com/codeedu/wsl2-docker-quickstart
-  - https://medium.com/@gutoinfo.ribeiro/instalando-e-configurando-o-zsh-no-ubuntu-20-04-4ef8a2499ed5
+    - Este explica sobre a instalação do Docker no WSL, e aborda sobre a configuração do `Windows Terminal` também.
+  - https://medium.com/@gutoinfo.ribeiro/instalando-e-configurando-o-zsh-no-ubuntu-20-04-4ef8a2499ed5 (Este detalha a configuração do zshrc)
+  -   Utilize este tutorial como guia para instalação do zshrc, apenas se tiver problemas com o primeiro tutorial, mas lembre-se, este aqui só irá abordar a instalação e configuração do zshrc no Linux.
+
+>[!WARNING]
+>Resumindo, não existe uma único tutorial que resolva todos os problemas, tem que fazer uma mescla de tudo aquilo que é necessário para resolver o teu problema.
