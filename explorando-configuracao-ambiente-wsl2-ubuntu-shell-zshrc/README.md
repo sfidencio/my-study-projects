@@ -17,7 +17,7 @@
 >[!WARNING]
 >Resumindo, não existe uma único tutorial que resolva todos os problemas, veja o que melhor te atende, seguindo as dicas acima.
 
->[!TIPS]
+>[!TIP]
 >Apensa para informação, O docker foi feito otimizado para executar no `Linux`, contudo a microsoft desenvolveu o `WSL(Windows Linux Subsystem)`, afim de facilitar a vida do desenvolvedores que queriam continuar utilizando `Windows`, além de usar também o `Linux` para o desenvolvimento de aplicação, foi ai que a microsoft resolveu o problema do `WSL(v1)`, que tinha baixa performance, e não integração total com Docker, acrescentou elementos de virtualização(HyperVi), permitindo o uso pleno do kernel do linux estando rodando na instância WSL2, e também vale ressaltar que o MacOS roda o docker, porém virtualizado, ou seja, ele cria uam `VM` por baixo dos panos, não rodando tão nativo, quanto `Linux`, e em segundo Windows com `WSL(v2)`.
 
 ![image](https://github.com/sfidencio/my-study-projects/assets/660615/e76ac62f-505a-4392-b8f9-8900b5b77b6c)
