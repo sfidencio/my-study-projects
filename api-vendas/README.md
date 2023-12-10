@@ -368,6 +368,8 @@ spring:
 
 >[!IMPORTANT]
 >Referências utilizadas em todo o projeto:
+
+>Tutoriais e cursos gratuitos: 
 >+ https://tpbabparn.medium.com/spring-boot-3-1-integrated-docker-compose-on-development-environment-spring-webflux-example-1ddcbfe052f
 >+ https://springhow.com/spring-boot-and-postgres-using-docker-compose/
 >+ https://www.baeldung.com/ops/docker-compose-links-depends-on
@@ -390,6 +392,8 @@ spring:
 >+ https://spring.io
 >+ https://hibernate.org
 >+ https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/record.html
+ 
+>Referências utilizadas para implementar o cache com Redis:
 >+ https://www.baeldung.com/spring-boot-redis-cache
 >+ https://www.digitalocean.com/community/tutorials/spring-boot-redis-cache
 >+ https://www.bezkoder.com/spring-boot-redis-cache-example/
@@ -399,4 +403,12 @@ spring:
 >+ https://stackoverflow.com/questions/74557099/how-to-delete-all-data-from-redis-using-redistemplate-in-java
 >+ https://www.baeldung.com/spring-boot-evict-cache (Lmpando o cache de varias formas)
 >+ https://medium.com/@aedemirsen/cache-structure-in-spring-boot-projects-with-redis-2c5751bca9eb
+
+>Guia sobre utilização do Banner do Spring:
 >+ https://devops.datenkollektiv.de/banner.txt/index.html
+
+>Guia sobre configuração do redis no docker:
+>+ https://cloudinfrastructureservices.co.uk/run-redis-with-docker-compose/ (Configuração mais completa)
+>+ https://medium.com/nerd-for-tech/setting-up-a-standalone-redis-instance-2721a7318037 (Configurando Redis standalone via Dockerfile - parametro bind)
+>+ https://zomro.com/blog/faq/301-kak-ustanovit-redis-v-docker (Configurando Redis standalone via docker-compose - parametro bind)
+>+ https://devopscell.com/docker/docker-compose/volumes/2018/01/16/volumes-in-docker-compose.html (Desmistificando volumes no docker-compose)

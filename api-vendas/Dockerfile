@@ -5,9 +5,11 @@ RUN apk add --no-cache bash \
     && apk add --no-cache curl \
     && apk add --no-cache iputils
 
+#development, production
+ARG AMBIENTE=development
 
 WORKDIR /app
 
 COPY target/*.jar /app/app.jar
 
-CMD ["java","-Dspring.profiles.active=development", "-jar", "app.jar"]
+CMD ["java","-Dspring.profiles.active=$AMBIENTE", "-jar", "app.jar"]

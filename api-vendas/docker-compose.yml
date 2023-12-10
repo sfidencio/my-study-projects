@@ -32,10 +32,15 @@ services:
     restart: always
     ports:
         - "6379:6379"
+    volumes:
+        - /home/conteiners/redis/data:/var/lib/redis/data
 
 networks:
   myapp:
     driver: bridge
+
+#Entenda o funcionamento do volumes no docker-compose
+#https://devopscell.com/docker/docker-compose/volumes/2018/01/16/volumes-in-docker-compose.html
 
 volumes:
     postgres-data:
