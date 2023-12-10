@@ -1,7 +1,6 @@
 
 # api-vendas
 
-
 >[!IMPORTANT]
 > Índice
 - [Guia explicativo de como executar o projeto localmente](#guia-explicativo-de-como-executar-o-projeto-localmente)
@@ -13,7 +12,6 @@
 
 
 > Este projeto aborda os seguintes tópicos:
-- [x] [api-vendas]
     - Requisitos (MVP)
         - Cadastro de Clientes
         - Cadastro de Produtos
@@ -83,7 +81,7 @@ mvn spring-boot:run
 
 ### Realizando teste de cadastro de cliente via curl:
 ```bash
-curl -kvs http://localhost:8080/base/v1/api/clientes/salvar --data '[{"nome":"Fulano","cpf":"41909644099", "email":"fulano@gmail.com" },{"nome":"Ciclano","cpf":"41909644099", "email":"ciclano@gmail.com" }]' -H "Content-Type: application/json"  -X POST
+curl -kvs http://localhost:8080/base/v1/api/clientes/salvar --data '{"nome":"Fulano","cpf":"41909644099", "email":"fulano@gmail.com" }' -H "Content-Type: application/json"  -X POST
 ```
 
 
@@ -174,7 +172,7 @@ docker stop myapp
 
 
 ```bash
-curl -kvs http://localhost:8080/base/v1/api/clientes/salvar --data '[{"nome":"Fulano","cpf":"41909644099", "email":"fulano@gmail.com" },{"nome":"Ciclano","cpf":"41909644099", "email":"ciclano@gmail.com" }]' -H "Content-Type: application/json"  -X POST
+curl -kvs http://localhost:8080/base/v1/api/clientes/salvar --data '{"nome":"Fulano","cpf":"41909644099", "email":"fulano@gmail.com" }' -H "Content-Type: application/json"  -X POST
 ```
 
 
@@ -385,7 +383,8 @@ spring:
 >+ https://www.baeldung.com/spring-custom-validation-message-source
 >+ https://reflectoring.io/bean-validation-with-spring-boot/
 >+ https://medium.com/yildiztech/decoding-i18n-challenges-in-spring-boot-3-exploring-internationalization-895a4ac627df
->+ https://medium.com/@seonggil/creating-a-maturity-level-3-rest-api-with-hateoas-fcd76d1b2db9 (**Implementing HATEOAS**)
+>+ https://medium.com/@seonggil/creating-a-maturity-level-3-rest-api-with-hateoas-fcd76d1b2db9 
+>  + (**Implementing HATEOAS**)
 >+ https://www.baeldung.com/spring-data-jpa-pagination-sorting
 >+ https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
 >+ https://spring.io/guides/gs/accessing-data-jpa/
@@ -401,14 +400,19 @@ spring:
 >+ https://premika-17.medium.com/implementing-redis-in-spring-boot-3d2756e5ab69
 >+ https://medium.com/javarevisited/classcast-exception-when-using-redis-and-springboot-frameworks-in-conjunction-ea132dd0d7ea
 >+ https://stackoverflow.com/questions/74557099/how-to-delete-all-data-from-redis-using-redistemplate-in-java
->+ https://www.baeldung.com/spring-boot-evict-cache (Lmpando o cache de varias formas)
+>+ https://www.baeldung.com/spring-boot-evict-cache 
+>  + (Limpando o cache de várias formas)
 >+ https://medium.com/@aedemirsen/cache-structure-in-spring-boot-projects-with-redis-2c5751bca9eb
 
 >Guia sobre utilização do Banner do Spring:
 >+ https://devops.datenkollektiv.de/banner.txt/index.html
 
 >Guia sobre configuração do redis no docker:
->+ https://cloudinfrastructureservices.co.uk/run-redis-with-docker-compose/ (Configuração mais completa)
->+ https://medium.com/nerd-for-tech/setting-up-a-standalone-redis-instance-2721a7318037 (Configurando Redis standalone via Dockerfile - parametro bind)
->+ https://zomro.com/blog/faq/301-kak-ustanovit-redis-v-docker (Configurando Redis standalone via docker-compose - parametro bind)
->+ https://devopscell.com/docker/docker-compose/volumes/2018/01/16/volumes-in-docker-compose.html (Desmistificando volumes no docker-compose)
+>+ https://cloudinfrastructureservices.co.uk/run-redis-with-docker-compose/ 
+>  + (Configuração mais completa)
+>+ https://medium.com/nerd-for-tech/setting-up-a-standalone-redis-instance-2721a7318037 
+>  + (Configurando Redis standalone via Dockerfile - parametro bind)
+>+ https://zomro.com/blog/faq/301-kak-ustanovit-redis-v-docker 
+>  + (Configurando Redis standalone via docker-compose - parametro bind)
+>+ https://devopscell.com/docker/docker-compose/volumes/2018/01/16/volumes-in-docker-compose.html 
+>  + (Desmistificando volumes no docker-compose)
