@@ -383,8 +383,8 @@ spring:
 >+ https://www.baeldung.com/spring-custom-validation-message-source
 >+ https://reflectoring.io/bean-validation-with-spring-boot/
 >+ https://medium.com/yildiztech/decoding-i18n-challenges-in-spring-boot-3-exploring-internationalization-895a4ac627df
->+ https://medium.com/@seonggil/creating-a-maturity-level-3-rest-api-with-hateoas-fcd76d1b2db9 
->  + (**Implementing HATEOAS**)
+>+ https://medium.com/@seonggil/creating-a-maturity-level-3-rest-api-with-hateoas-fcd76d1b2db9
+>  - (**Implementing HATEOAS**)
 >+ https://www.baeldung.com/spring-data-jpa-pagination-sorting
 >+ https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
 >+ https://spring.io/guides/gs/accessing-data-jpa/
@@ -409,10 +409,10 @@ spring:
 
 >Guia sobre configuração do redis no docker:
 >+ https://cloudinfrastructureservices.co.uk/run-redis-with-docker-compose/ 
->  + (Configuração mais completa)
+>  - (Configuração mais completa)
 >+ https://medium.com/nerd-for-tech/setting-up-a-standalone-redis-instance-2721a7318037 
->  + (Configurando Redis standalone via Dockerfile - parametro bind)
+>  - (Configurando Redis standalone via Dockerfile - parametro bind)
 >+ https://zomro.com/blog/faq/301-kak-ustanovit-redis-v-docker 
->  + (Configurando Redis standalone via docker-compose - parametro bind)
+>  - (Configurando Redis standalone via docker-compose - parametro bind)
 >+ https://devopscell.com/docker/docker-compose/volumes/2018/01/16/volumes-in-docker-compose.html 
->  + (Desmistificando volumes no docker-compose)
+>  - (Desmistificando volumes no docker-compose)
