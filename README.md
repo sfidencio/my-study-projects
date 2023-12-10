@@ -8,7 +8,7 @@
 >[!TIP]
 > Lista de projetos desenvolvidos aqui neste repositório:
 
-- [spring-boot-expert-jpa-restful](spring-boot-expert-jpa-restful)
+- [api-vendas](api-vendas)
 - [explorando-entity-manager-puro](explorando-entity-manager-puro)
 - [explorando-jdbc-template](explorando-jdbc-template)
 - [estudo-inicial-spring](estudo-inicial-spring)

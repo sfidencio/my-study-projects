@@ -9,6 +9,7 @@
 - [Guia explicando como dockerizar o projeto em seguinda executá-lo localmente com o docker-compose](#guia-explicando-como-dockerizar-o-projeto-em-seguinda-executa-lo-localmente-com-o-docker-compose)
 - [Referências](#referências)
 - [Spring com Redis](#spring-com-redis)
+- [Configurando Banner do Spring](#configurando-banner-do-spring)
 
 
 > Este projeto aborda os seguintes tópicos:
@@ -37,6 +38,7 @@
         - Paginação de Resultados com Spring Data JPA
         - HATEOAS
         - Swagger
+        - Banner do Spring
         - Tratamento de Erros
         - Segurança
         - Cache com Redis
@@ -349,6 +351,7 @@ FLUSHALL
 > Na classe Application.java, temos um exemplo, via `CommandLineRunner`, de como realizar operacoes basicas no Redis, utilizando a classe Helper, `RedisTemplate`.
 
 
+### Configurando Banner do Spring
 > [!TIP]
 > Para configurar banner do spring, acesse o link abaixo:
 > https://devops.datenkollektiv.de/banner.txt/index.html
