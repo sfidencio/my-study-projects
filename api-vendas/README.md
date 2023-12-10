@@ -349,7 +349,7 @@ FLUSHALL
 > Na classe Application.java, temos um exemplo, via `CommandLineRunner`, de como realizar operacoes basicas no Redis, utilizando a classe Helper, `RedisTemplate`.
 
 
-> [!TIPS]
+> [!TIP]
 > Para configurar banner do spring, acesse o link abaixo:
 > https://devops.datenkollektiv.de/banner.txt/index.html
 > Basta, copiar o banner e colar no arquivo application.yaml ou application.properties, conforme exemplo abaixo:
