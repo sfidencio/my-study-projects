@@ -161,7 +161,7 @@ CMD [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
 
 
 ```bash
-docker build --platform linux/amd64 -t sfidencio/api-vendas:latest .
+docker build -f docker/Dockerfile-api-vendas-multi-stage --platform linux/amd64 -t sfidencio/api-vendas:latest .
 ```
 
 ### Executando imagem customizada em primeiro plano ou "attached" no terminal "-it", visto que a opcao "-rm" remove o container ao finalizar
@@ -232,44 +232,68 @@ docker exec -it myapp sh
 
 >docker-compose.yml
 
+>[!TIP]]
+> Fique atento quanto a configuração das variaveis de ambiente, as mais importantes foram externalizadas no docker-compose.yml. Essas variaveis são "injetadas" no conteiner em execução, e recuperadas via application.yaml ou application.properties.
+
 ```
 version: '3.7'
 services:
- db:
-   image: postgres:13-alpine
-   container_name: postgres
-   restart: always
-   environment:
-     POSTGRES_USER: postgres
-     POSTGRES_PASSWORD: postgres@@
-     POSTGRES_DB: myapp
-   ports:
-       - "5432:5432"
-   volumes:
-       - postgres-data:/var/lib/postgresql/data
- app:
-   image: myapp:latest
-   platform: linux/amd64
-   build: .
-   ports:
-       - "8080:8080"
-   depends_on:
-     - db
-   environment:
-       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/myapp
-       SPRING_DATASOURCE_USERNAME: postgres
-       SPRING_DATASOURCE_PASSWORD: postgres@@
-       SPRING_JPA_HIBERNATE_DDL_AUTO: update
-
+  db:
+    image: postgres:13-alpine
+    container_name: postgres
+    networks:
+      - api-vendas-network
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres@@
+      POSTGRES_DB: api-vendas
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data #docker named volumes
+  app:
+    image: api-vendas:latest
+    platform: linux/amd64
+    container_name: api-vendas
+    networks:
+      - api-vendas-network
+    #build: . #default build context quando tempos apenas o Dockerfile
+    build:
+      context: .
+      dockerfile: docker/Dockerfile-api-vendas-multi-stage
+    ports:
+      - "8080:8080"
+    depends_on:
+      - redis
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/api-vendas
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres@@
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+  redis:
+    image: redis:latest
+    platform: linux/amd64
+    networks:
+      - api-vendas-network
+    build:
+      context: .
+      dockerfile: docker/Dockerfile-redis
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
 
 networks:
- myapp:
-   driver: bridge
-
+  api-vendas-network:
+    driver: bridge
 
 volumes:
-   postgres-data:
-     driver: local
+  postgres-data:
+    driver: local
 ```
 
 >[!TIP]
