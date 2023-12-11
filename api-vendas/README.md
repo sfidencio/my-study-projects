@@ -102,7 +102,7 @@ curl -kvs http://localhost:8080/base/v1/api/clientes/consulta/1 -H "Content-Type
 
 
 > [!IMPORTANT]
-> Executar sempre um `mvn clean install` antes de criar a imagem customizada.
+> Atualizamos o Dockerfile-api-vendas, para não precisar mais executar o comando `mvn clean install`, habilitando o deploy multi-stage, ou seja, o build é feito em duas etapas, sendo a primeira etapa, responsavel por gerar o artefato final, ou seja, o .jar, e a segunda etapa, responsavel por gerar a imagem final, ou seja, a imagem que será usada para subir o container.
 
 
 
