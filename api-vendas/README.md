@@ -120,7 +120,6 @@ curl -kvs http://localhost:8080/base/v1/api/clientes/consulta/1 -H "Content-Type
 FROM maven:3-openjdk-17 AS stage1
 LABEL authors="sebastiaofidencio"
 ENV MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
-#development, production
 WORKDIR /app
 COPY pom.xml .
 RUN mvn dependency:go-offline -B

@@ -5,7 +5,6 @@
 FROM maven:3-openjdk-17 AS stage1
 LABEL authors="sebastiaofidencio"
 ENV MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
-#development, production
 WORKDIR /app
 COPY pom.xml .
 RUN mvn dependency:go-offline -B
@@ -22,4 +21,5 @@ RUN apk add --no-cache bash \
     && apk add --no-cache htop
 WORKDIR /app
 COPY --from=stage1 /app/target/*.jar /app/app.jar
+#development, production
 CMD ["java","-Dspring.profiles.active=production", "-jar", "app.jar"]
