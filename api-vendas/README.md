@@ -12,9 +12,9 @@
 
 
 > Este projeto aborda os seguintes tópicos:
-    - Requisitos (MVP)
-        - Cadastro de Clientes
-        - Cadastro de Produtos
+>    - Requisitos (MVP)
+>        - Cadastro de Clientes
+>        - Cadastro de Produtos
         - Registro de Pedidos
             - Aprovação de Pedidos
             - Cancelamento de Pedidos
