@@ -364,7 +364,6 @@ spring:
     location: classpath:banner.txt
 ```
 
-
 ### Implementando Multi-Stage Build do Docker
 > [!TIP]
 > Para implementar o multi-stage build do docker, foi minerado informações dos links abaixo:
