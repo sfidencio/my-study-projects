@@ -443,7 +443,9 @@ public class RedisConfig {
 > [!TIP]
 > Vale ressaltar que o valor default do cache esta sendo definido via SPEL(Spring Expression Language), ou seja, estamos recuperando o valor da variavel de ambiente `myapp.cache.ttl`, caso não exista, o valor default é 60 segundos/minutos/horas, vai depender da unidade de medida que você definir no Duration.ofSeconds(this.ttl).
 
-### Configurando Banner do Spring
+> [!TIP]
+> Vale ressaltar que, o redis pode ser utilizado via @Annotations, ou via `RedisTemplate`, ou via `RedisRepository`, enfim, existem varias formas de utilizar o Redis no Spring. No entanto, a mais usual é via `@Annonations`, pois não precisamos manipular o `RedisTemplate` diretamente, ou seja, o Spring faz isso por nós, todavia, temos um exemplo de como utilizar o `RedisTemplate` na classe principal da aplicação, ou seja, na classe Application.java, temos um exemplo, via `CommandLineRunner`, de como realizar operacoes basicas no Redis, utilizando a classe Helper, `RedisTemplate`.
+
 > [!TIP]
 > Para configurar banner do spring, acesse o link abaixo:
 > https://devops.datenkollektiv.de/banner.txt/index.html
