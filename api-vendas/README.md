@@ -106,30 +106,50 @@ curl -kvs http://localhost:8080/base/v1/api/clientes/consulta/1 -H "Content-Type
 
 
 
+> [!IMPORTANT]
+> Optamos por configurar o Multi-Stage Build no Docker, pois o build é feito em duas etapas, sendo a primeira etapa, responsavel por gerar o artefato final, ou seja, o .jar, e a segunda etapa, responsavel por gerar a imagem final, ou seja, a imagem que será usada para subir o container.
+> A diferença entre o build sem multi-stage, é que o build com multi-stage gera uma imagem menor, pois o build é feito em duas etapas, sendo a primeira etapa, responsavel por gerar o artefato final, ou seja, o .jar, e a segunda etapa, responsavel por gerar a imagem final, ou seja, a imagem que será usada para subir o container.
+> O arquivo Dockerfile-api-vendas, sem o multi-stage, esta na pasta docker/default, na raiz do projeto.
 
->Dockerfile
-
+>Esse arquivo construirá imagem customizada para a aplicação api-vendas, gerando um .jar.
+>Dockerfile-api-vendas
 
 ```
-FROM openjdk:17-alpine3.13
+#Stage 1
+FROM maven:3-openjdk-17 AS stage1
 LABEL authors="sebastiaofidencio"
+ENV MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
+#development, production
+WORKDIR /app
+COPY pom.xml .
+RUN mvn dependency:go-offline -B
+COPY ./src ./src
+RUN mvn clean package -DskipTests
 
+#Stage 2
+FROM openjdk:17-alpine as stage2
 
 RUN apk add --no-cache bash \
-   && apk add --no-cache curl \
-   && apk add --no-cache iputils
-
-
-
-
+    && apk add --no-cache curl \
+    && apk add --no-cache iputils \
+    && apk add --no-cache vim \
+    && apk add --no-cache htop
 WORKDIR /app
+COPY --from=stage1 /app/target/*.jar /app/app.jar
+CMD ["java","-Dspring.profiles.active=production", "-jar", "app.jar"]
+```
 
+>Dockerfile-redis
+> Esse arquivo construirá imagem customizada para o redis, que será usado para cache, passando a configuração via redis.conf, que permite o acesso de qualquer perimetro de rede.
 
-#Abaixo podemos alterar o profile de production para development
-CMD ["java","-Dspring.profiles.active=development", "-jar", "app.jar"]
-
-
-CMD ["java", "-jar", "app.jar"]
+```
+FROM redis:alpine
+LABEL authors="sebastiaofidencio"
+RUN apk add --no-cache bash \
+    && apk add --no-cache curl \
+    && apk add --no-cache iputils
+COPY ../redis.conf /usr/local/etc/redis/redis.conf
+CMD [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
 ```
 
 

@@ -1,7 +1,6 @@
 #Aqui vamos implementar o multi-stage build, adicionando o "AS" no final da primeira imagem
 #Observe que estamos utilizando uma imagem que ja vem com as ferramentas necessarias para compilar o projeto
 #Maven e JDK
-
 #Stage 1
 FROM maven:3-openjdk-17 AS stage1
 LABEL authors="sebastiaofidencio"
