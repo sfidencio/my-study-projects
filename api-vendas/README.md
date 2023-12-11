@@ -440,6 +440,8 @@ public class RedisConfig {
 > [!TIP]
 > Estamos defindo o TTL global em 1 dia, e para cada cache, estamos definindo um TTL especifico, ou seja, o TTL global é sobrescrito pelo TTL especifico de cada cache. Essa configuração, é recuperada quando informamos a anotação `@Cacheable` o atributo `cacheName`, exemplo: `@Cacheable(cacheNames = "produto")`.
 
+> [!TIP]
+> Vale ressaltar que o valor default do cache esta sendo definido via SPEL(Spring Expression Language), ou seja, estamos recuperando o valor da variavel de ambiente `myapp.cache.ttl`, caso não exista, o valor default é 60 segundos/minutos/horas, vai depender da unidade de medida que você definir no Duration.ofSeconds(this.ttl).
 
 ### Configurando Banner do Spring
 > [!TIP]
