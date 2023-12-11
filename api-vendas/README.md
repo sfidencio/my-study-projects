@@ -366,7 +366,7 @@ spring:
 
 ### Implementando Multi-Stage Build do Docker
 > [!TIP]
-> Para implementar o multi-stage build no docker, foi minerado informações dos links abaixo:
+> Para implementar o multi-stage build no docker, "mineramos" informações dos links abaixo:
 > A diferença entre o build sem multi-stage, é que o build com multi-stage gera uma imagem menor, pois o build é feito em duas etapas, sendo a primeira etapa, responsavel por gerar o artefato final, ou seja, o .jar, e a segunda etapa, responsavel por gerar a imagem final, ou seja, a imagem que será usada para subir o container.
 
 >Explorando o multi-stage build do docker: (Implementado no projeto depois)
