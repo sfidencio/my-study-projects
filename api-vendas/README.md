@@ -112,6 +112,7 @@ curl -kvs http://localhost:8080/base/v1/api/clientes/consulta/1 -H "Content-Type
 > O arquivo Dockerfile-api-vendas, sem o multi-stage, esta na pasta docker/default, na raiz do projeto.
 
 >Esse arquivo construirá imagem customizada para a aplicação api-vendas, gerando um .jar.
+
 >Dockerfile-api-vendas
 
 ```
@@ -140,6 +141,7 @@ CMD ["java","-Dspring.profiles.active=production", "-jar", "app.jar"]
 ```
 
 >Dockerfile-redis
+
 > Esse arquivo construirá imagem customizada para o redis, que será usado para cache, passando a configuração via redis.conf, que permite o acesso de qualquer perimetro de rede.
 
 ```
