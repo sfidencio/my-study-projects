@@ -15,34 +15,33 @@
 >    - Requisitos (MVP)
 >        - Cadastro de Clientes
 >        - Cadastro de Produtos
-        - Registro de Pedidos
-            - Aprovação de Pedidos
-            - Cancelamento de Pedidos
-    - Tecnologias Utilizadas
-        - Java 17
-        - Spring Boot
-        - PostgreSQL
-        - H2 Database
-        - Lombok
-        - JPA/Hibernate
-        - JdbcTemplate
-        - Docker
-        - Git
-    - Abordagens/Boas Práticas
-        - DTO Pattern + Record Pattern (new feature do Java 17)
-        - Domain Driven Design
-        - Testes Unitários
-        - Clean Code
-        - Paginação de Resultados com Spring Data JPA
-        - HATEOAS
-        - Swagger
-        - Banner do Spring
-        - Tratamento de Erros
-        - Segurança
-        - Cache com Redis
-        - Versionamento de API
-        - Documentação de API com Swagger
-        - Uso do @JsonManagedReference e @JsonBackReference para evitar recursividade infinita em relacionamentos bidirecionais
+>        - Registro de Pedidos
+>            - Cancelamento de Pedidos
+>    - Tecnologias Utilizadas
+>        - Java 17
+>        - Spring Boot
+>        - PostgreSQL
+>        - H2 Database
+>        - Lombok
+>        - JPA/Hibernate
+>        - JdbcTemplate
+>        - Docker
+>        - Git
+>    - Abordagens/Boas Práticas
+>        - DTO Pattern + Record Pattern (new feature do Java 17)
+>        - Domain Driven Design
+>        - Testes Unitários
+>        - Clean Code
+>        - Paginação de Resultados com Spring Data JPA
+>        - HATEOAS
+>        - Swagger
+>        - Banner do Spring
+>        - Tratamento de Erros
+>        - Segurança
+>        - Cache com Redis
+>        - Versionamento de API
+>        - Documentação de API com Swagger
+>        - Uso do @JsonManagedReference e @JsonBackReference para evitar recursividade infinita em relacionamentos bidirecionais
 
 
 
