@@ -232,7 +232,7 @@ docker exec -it myapp sh
 
 >docker-compose.yml
 
->[!TIP]]
+>[!TIP]
 > Fique atento quanto a configuração das variaveis de ambiente, as mais importantes foram externalizadas no docker-compose.yml. Essas variaveis são "injetadas" no conteiner em execução, e recuperadas via application.yaml ou application.properties.
 
 ```
