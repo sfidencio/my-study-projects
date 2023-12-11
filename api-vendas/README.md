@@ -9,7 +9,7 @@
 - [Referências](#referências)
 - [Spring com Redis](#spring-com-redis)
 - [Configurando Banner do Spring](#configurando-banner-do-spring)
-- [Implementando Multi-Stage Build do Docker](#implementando-multi-stage-build-do-docker)
+- [Implementando Multi-Stage Build no Docker](#implementando-multi-stage-build-no-docker)
 
 
 > Este projeto aborda os seguintes tópicos:
@@ -364,7 +364,7 @@ spring:
     location: classpath:banner.txt
 ```
 
-### Implementando Multi-Stage Build do Docker
+### Implementando Multi-Stage Build no Docker
 > [!TIP]
 > Para implementar o multi-stage build no docker, "mineramos" informações dos links abaixo:
 > A diferença entre o build sem multi-stage, é que o build com multi-stage gera uma imagem menor, pois o build é feito em duas etapas, sendo a primeira etapa, responsavel por gerar o artefato final, ou seja, o .jar, e a segunda etapa, responsavel por gerar a imagem final, ou seja, a imagem que será usada para subir o container.
