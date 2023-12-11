@@ -141,7 +141,7 @@ CMD ["java","-Dspring.profiles.active=production", "-jar", "app.jar"]
 
 >Dockerfile-redis
 
-> Esse arquivo construirá imagem customizada para o redis, que será usado para cache, passando a configuração via redis.conf, que permite o acesso de qualquer perimetro de rede.
+> Esse arquivo construirá imagem customizada para o redis, que será usado para cache.
 
 ```
 FROM redis:alpine
