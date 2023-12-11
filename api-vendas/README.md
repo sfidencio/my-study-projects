@@ -407,7 +407,8 @@ FLUSHALL
 </dependency>
 ```
 > [!TIP]
-> As principais configurações de `bootsrap` do Redis, estão no arquivo application.yaml ou application.properties, e na classe RedisConfig.java.
+> As principais configurações de `bootstrap` do Redis, estão no arquivo application.yaml ou application.properties, e na classe RedisConfig.java.
+
 ```java
 @Configuration
 @EnableRedisRepositories
@@ -433,6 +434,11 @@ public class RedisConfig {
     }
 }
 ```
+> [!TIP]
+> Observem que estamos usando o `GenericJackson2JsonRedisSerializer`, para serializar os dados em json, pois o Redis não aceita serializar objetos em java, apenas em json.
+
+> [!TIP]
+> Estamos defindo o TTL global em 1 dia, e para cada cache, estamos definindo um TTL especifico, ou seja, o TTL global é sobrescrito pelo TTL especifico de cada cache. Essa configuração, é recuperada quando informamos a anotação `@Cacheable` o atributo `cacheName`, exemplo: `@Cacheable(cacheNames = "produto")`.
 
 
 ### Configurando Banner do Spring
