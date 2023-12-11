@@ -233,7 +233,7 @@ docker exec -it myapp sh
 >docker-compose.yml
 
 >[!TIP]
-> Fique atento quanto a configuração das variaveis de ambiente, as mais importantes foram externalizadas no docker-compose.yml. Essas variaveis são "injetadas" no conteiner em execução, e recuperadas via application.yaml ou application.properties.
+> Fique atento quanto a configuração das variaveis de ambiente, as mais importantes foram externalizadas no docker-compose.yml. Essas variaveis são "injetadas" no conteiner em execução, e recuperadas via application.yaml ou application.properties. Observe a seção environment do arquivo docker-compose.yml, e a seção environment do arquivo docker-compose.yaml.
 
 ```
 version: '3.7'
@@ -321,6 +321,9 @@ volumes:
 
 >[!TIP]
 > O volume é criado automaticamente pelo docker-compose, caso não exista. 
+
+>[!TIP]
+> Assim como .gitignore, o .dockerignore é muito importante, pois ele é responsável por ignorar arquivos e diretórios que não devem ser copiados para dentro do container, ou seja, o .dockerignore é responsável por otimizar o build da imagem, pois ele não copia arquivos e diretórios desnecessários para dentro do container.
 
 
 ### Subindo aplicação no docker localmente usando docker-compose aliado ao Dockerfile, em background "-d"
