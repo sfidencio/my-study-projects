@@ -1,5 +1,7 @@
-FROM openjdk:17-alpine3.13
+FROM openjdk:17-alpine
 LABEL authors="sebastiaofidencio"
+
+
 RUN apk add --no-cache bash \
     && apk add --no-cache curl \
     && apk add --no-cache iputils \
@@ -7,6 +9,7 @@ RUN apk add --no-cache bash \
     && apk add --no-cache htop
 #development, production
 WORKDIR /app
+
 COPY target/*.jar /app/app.jar
 CMD ["java","-Dspring.profiles.active=production", "-jar", "app.jar"]
 #CMD ["/bin/sh", "-c", "bash"]

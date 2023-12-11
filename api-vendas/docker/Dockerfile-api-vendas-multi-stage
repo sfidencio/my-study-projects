@@ -1,0 +1,26 @@
+#Aqui vamos implementar o multi-stage build, adicionando o "AS" no final da primeira imagem
+#Observe que estamos utilizando uma imagem que ja vem com as ferramentas necessarias para compilar o projeto
+#Maven e JDK
+
+#Stage 1
+FROM maven:3-openjdk-17 AS stage1
+LABEL authors="sebastiaofidencio"
+ENV MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
+#development, production
+WORKDIR /app
+COPY pom.xml .
+RUN mvn dependency:go-offline -B
+COPY ./src ./src
+RUN mvn clean package -DskipTests
+
+#Stage 2
+FROM openjdk:17-alpine as stage2
+
+RUN apk add --no-cache bash \
+    && apk add --no-cache curl \
+    && apk add --no-cache iputils \
+    && apk add --no-cache vim \
+    && apk add --no-cache htop
+WORKDIR /app
+COPY --from=stage1 /app/target/*.jar /app/app.jar
+CMD ["java","-Dspring.profiles.active=production", "-jar", "app.jar"]

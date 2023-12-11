@@ -9,6 +9,7 @@
 - [Referências](#referências)
 - [Spring com Redis](#spring-com-redis)
 - [Configurando Banner do Spring](#configurando-banner-do-spring)
+- [Implementando Multi-Stage Build do Docker](#implementando-multi-stage-build-do-docker)
 
 
 > Este projeto aborda os seguintes tópicos:
@@ -366,9 +367,16 @@ spring:
 
 ### Implementando Multi-Stage Build do Docker
 > [!TIP]
-> Para implementar o multi-stage build do docker, acesse o link abaixo:
-> https://www.harness.io/blog/how-to-create-multi-stage-docker-builds-with-harness-continuous-delivery
+> Para implementar o multi-stage build do docker, foi minerado informações dos links abaixo:
 > A diferença entre o build sem multi-stage, é que o build com multi-stage gera uma imagem menor, pois o build é feito em duas etapas, sendo a primeira etapa, responsavel por gerar o artefato final, ou seja, o .jar, e a segunda etapa, responsavel por gerar a imagem final, ou seja, a imagem que será usada para subir o container.
+
+>Explorando o multi-stage build do docker: (Implementado no projeto depois)
+> + https://ionutbanu.medium.com/build-spring-boot-docker-image-using-multi-stage-dockerfile-2-13b9f1e89393
+> + https://www.harness.io/blog/how-to-create-multi-stage-docker-builds-with-harness-continuous-delivery
+> + https://docs.docker.com/develop/develop-images/multistage-build/
+> + https://mailslurp.medium.com/faster-java-containers-with-docker-multi-stage-builds-cc63e056e546
+> + https://www.harness.io/blog/how-to-create-multi-stage-docker-builds-with-harness-continuous-delivery
+> + https://ionutbanu.medium.com/build-spring-boot-docker-image-using-multi-stage-dockerfile-2-13b9f1e89393
 
 
 >[!IMPORTANT]
@@ -418,8 +426,3 @@ spring:
 >+ https://zomro.com/blog/faq/301-kak-ustanovit-redis-v-docker
 >+ https://devopscell.com/docker/docker-compose/volumes/2018/01/16/volumes-in-docker-compose.html 
 >+ https://stackoverflow.com/questions/57528077/docker-compose-with-name-other-than-dockerfile
-
->Explorando o multi-stage build do docker: (Implementado no projeto depois)
-> + https://docs.docker.com/develop/develop-images/multistage-build/    
-> + https://mailslurp.medium.com/faster-java-containers-with-docker-multi-stage-builds-cc63e056e546
-> + https://www.harness.io/blog/how-to-create-multi-stage-docker-builds-with-harness-continuous-delivery

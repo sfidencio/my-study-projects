@@ -23,7 +23,7 @@ services:
     #build: . #default build context quando tempos apenas o Dockerfile
     build:
       context: .
-      dockerfile: Dockerfile-api-vendas
+      dockerfile: docker/Dockerfile-api-vendas-multi-stage
     ports:
       - "8080:8080"
     depends_on:
@@ -36,6 +36,7 @@ services:
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
       REDIS_HOST: redis
       REDIS_PORT: 6379
+  #No redis nao iremos criar volume pois nao precisamos persistir os dados a principio
   redis: #https://cloudinfrastructureservices.co.uk/run-redis-with-docker-compose/
     image: redis:latest
     platform: linux/amd64
@@ -43,7 +44,7 @@ services:
       - api-vendas-network
     build:
       context: .
-      dockerfile: Dockerfile-redis
+      dockerfile: docker/Dockerfile-redis
     #command: ["redis-server", "--protected-mode", "no"]
     container_name: redis
     restart: always
