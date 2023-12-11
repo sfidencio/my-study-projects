@@ -392,9 +392,21 @@ FLUSHALL
 > Ate aqui, usamos do redis-cli.
 
 
-## Tutorial basico de como usar o Redis via Spring
+## Algumas observações quanto a utilização do Redis no Spring
+
 > [!IMPORTANT]
 > Na classe Application.java, temos um exemplo, via `CommandLineRunner`, de como realizar operacoes basicas no Redis, utilizando a classe Helper, `RedisTemplate`.
+
+> [!TIP]
+> Para utilizar o Redis no Spring, precisamos adicionar a dependencia abaixo no pom.xml:
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-redis</artifactId>
+    <version>2.5.5</version>
+</dependency>
+```
+
 
 
 ### Configurando Banner do Spring
@@ -425,6 +437,8 @@ spring:
 > + https://www.harness.io/blog/how-to-create-multi-stage-docker-builds-with-harness-continuous-delivery
 > + https://ionutbanu.medium.com/build-spring-boot-docker-image-using-multi-stage-dockerfile-2-13b9f1e89393
 
+>Explorando o dockerignore:
+> + https://shisho.dev/blog/posts/how-to-use-dockerignore/
 
 >[!IMPORTANT]
 >Referências utilizadas em todo o projeto:
