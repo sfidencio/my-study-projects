@@ -410,3 +410,9 @@ spring:
 >+ https://medium.com/nerd-for-tech/setting-up-a-standalone-redis-instance-2721a7318037
 >+ https://zomro.com/blog/faq/301-kak-ustanovit-redis-v-docker
 >+ https://devopscell.com/docker/docker-compose/volumes/2018/01/16/volumes-in-docker-compose.html 
+>+ https://stackoverflow.com/questions/57528077/docker-compose-with-name-other-than-dockerfile
+
+>Explorando o multi-stage build do docker: (Implementado no projeto depois)
+> + https://docs.docker.com/develop/develop-images/multistage-build/    
+> + https://mailslurp.medium.com/faster-java-containers-with-docker-multi-stage-builds-cc63e056e546
+> + https://www.harness.io/blog/how-to-create-multi-stage-docker-builds-with-harness-continuous-delivery

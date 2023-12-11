@@ -1,7 +1,7 @@
-FROM redis:latest
+FROM redis:alpine
 LABEL authors="sebastiaofidencio"
-#RUN apk add --no-cache bash \
-#    && apk add --no-cache curl \
-#    && apk add --no-cache iputils
+RUN apk add --no-cache bash \
+    && apk add --no-cache curl \
+    && apk add --no-cache iputils
 COPY redis.conf /usr/local/etc/redis/redis.conf
 CMD [ "redis-server", "/usr/local/etc/redis/redis.conf" ]

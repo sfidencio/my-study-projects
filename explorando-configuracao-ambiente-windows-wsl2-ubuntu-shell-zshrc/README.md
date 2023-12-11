@@ -27,3 +27,19 @@
 > - https://stackoverflow.com/questions/60087520/changing-the-acceptance-key-autosuggest-accept-zsh-shell-on-mac
 
 ![image](https://github.com/sfidencio/my-study-projects/assets/660615/e76ac62f-505a-4392-b8f9-8900b5b77b6c)
+
+
+>[!TIP]
+>Realizando backup de uma VM do `WSL`, observe que nesse tutorial, é exemplificado o uso do "tar", no entanto, é possível gerar o backup no formato de disco do HyperVI, ou vhdx.
+>Usado para backup de VMs do `WSL`, formato de disco `tar` ou `vhdx`.:
+
+>O nome da distribuição pode ser obtido com o comando:
+> `wsl --list --verbose`
+
+>Exportando a VM, na hora de exportar, informe o nome da distribuição:
+
+>`wsl --export Ubuntu-22.04 backup.tar`
+>ou
+>`wsl --export Ubuntu-22.04 backup.vhdx --vhd`
+>
+>https://www.xda-developers.com/how-back-up-restore-wsl/

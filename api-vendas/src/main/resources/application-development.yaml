@@ -1,12 +1,13 @@
 spring:
   data:
     redis:
-      host: localhost
-      port: 6379
+      url: redis://localhost:6379
+      #host: localhost
+      #port: 6379
   cache:
     type: redis
   application:
-    name: myapp
+    name: api-vendas
   datasource:
     url: jdbc:h2:mem:vendas;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     username: sa
@@ -67,3 +68,9 @@ myapp:
   cache:
     redis:
       ttl: 15
+
+
+#Configuracoa Banner do Spring
+banner:
+  location: classpath:banner.txt
+  charset: UTF-8

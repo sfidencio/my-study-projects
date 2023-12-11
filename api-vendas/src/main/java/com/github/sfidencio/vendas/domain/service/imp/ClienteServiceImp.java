@@ -6,9 +6,6 @@ import com.github.sfidencio.vendas.domain.entity.Cliente;
 import com.github.sfidencio.vendas.domain.service.ClienteService;
 import com.github.sfidencio.vendas.infra.config.exceptions.NotFoundException;
 import com.github.sfidencio.vendas.infra.repository.ClienteRepository;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
