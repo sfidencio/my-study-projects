@@ -403,10 +403,36 @@ FLUSHALL
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-data-redis</artifactId>
-    <version>2.5.5</version>
+    <version>x.y.z</version>
 </dependency>
 ```
+> [!TIP]
+> As principais configurações de `bootsrap` do Redis, estão no arquivo application.yaml ou application.properties, e na classe RedisConfig.java.
+```java
+@Configuration
+@EnableRedisRepositories
+public class RedisConfig {
+    @Value("${myapp.cache.ttl:60}")
+    private long ttl;
 
+    @Bean
+    public RedisCacheConfiguration cacheConfiguration() {
+        return RedisCacheConfiguration
+                .defaultCacheConfig()
+                .entryTtl(Duration.ofDays(1)) //Aqui TTL global
+                .disableCachingNullValues() //desabilita cache de valores nulos
+                .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(new GenericJackson2JsonRedisSerializer()));
+    }
+
+    @Bean
+    public RedisCacheManagerBuilderCustomizer redisCacheManagerBuilderCustomizer() {
+        return builder -> builder
+                .withCacheConfiguration("produto", RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofSeconds(this.ttl)))
+                .withCacheConfiguration("cliente", RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofSeconds(this.ttl)))
+                .withCacheConfiguration("pedido", RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofSeconds(this.ttl)));
+    }
+}
+```
 
 
 ### Configurando Banner do Spring
