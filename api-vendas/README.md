@@ -472,7 +472,8 @@ public class RedisConfig {
 > https://devops.datenkollektiv.de/banner.txt/index.html
 > Basta, copiar o banner e colar no arquivo application.yaml ou application.properties, conforme exemplo abaixo:
 > application.yaml
-```
+
+```yaml
 spring:
   application:
     name: api-vendas
@@ -493,32 +494,6 @@ spring:
             <version>x.y.z</version>
         </dependency>
 ```
-
-
-# Implementando MongoDB no projeto
-## Guia explicativo de como implementar  o MongoDB no projeto
-
-> [!IMPORTANT]
-> Para implementar o MongoDB, basta adionarmos a dependencia abaixo no pom.xml:
-```xml
-        <!--MongoDB-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb</artifactId>
-            <version>x.y.z</version>
-        </dependency>
-```
-> [!IMPORTANT]
-> Configuração do MongoDB no arquivo application.yaml ou application.properties:
-```yaml
-spring:
-  data:
-    mongodb:
-      uri: mongodb://localhost:27017/api-vendas
-```
-
-
-
 
 > [!IMPORTANT]
 > Em seguinda, basta acessarmos a url abaixo para visualizar a documentação da API:
