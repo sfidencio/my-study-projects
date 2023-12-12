@@ -12,6 +12,15 @@
 >[!CAUTION]
 > Exemplos de utilização do `redis-cache`, foi implementado apenas na funcionalidade de Clientes, ou seja, apenas na classe ClienteController.java, no entanto, é possível implementar em todas as classes de controller, basta seguir o exemplo da classe ClienteController.java, e as dicas de uso do `redis-cache` ao longo desta documentação.
 
+>[!WARNING]
+>Não estamos utilizando o ResponseEntity para retornar os dados, pois o Spring já faz isso por nós automaticamente quando utilizamos a anotação @RestController, pois mesma já inclui a capacidade de converter o retorno do método para um objeto ResponseEntity, contendo internamente a anotação @ResponseBody, ou seja, não precisamos nos preocupar com isso, pois o Spring já faz isso por nós. Para o retorno correto do status, basta anotar o método com a anoção @ResponseStatus, e informar o status correto, conforme exemplo abaixo:
+```java
+@ResponseStatus(HttpStatus.CREATED)
+@PostMapping("/salvar")
+public Cliente salvar(@RequestBody @Valid Cliente cliente) {
+    return this.clienteService.salvar(cliente);
+}
+```
 
 >[!IMPORTANT]
 > Índice
@@ -504,6 +513,10 @@ spring:
 > [!TIP]
 > Algumas `@Annotations` básicas do Swagger para **personalizar** a documentação da API:
 > + `@Tag` -> Usado para agrupar endpoints, ou seja, agrupar endpoints por funcionalidade.
+> + `@Operation` -> Usado para descrever o endpoint, ou seja, descrever o que o endpoint faz.
+> + `@Parameter` -> Usado para descrever os parametros do endpoint, ou seja, descrever o que cada parametro faz.
+> + `@ApiResponse` -> Usado para descrever o retorno do endpoint, ou seja, descrever o que o endpoint retorna.
+> + `@ApiResponses` -> Usado para descrever os possiveis retornos do endpoint, ou seja, descrever o que o endpoint pode retornar.
 
 
 ### Implementando Multi-Stage Build no Docker
