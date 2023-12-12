@@ -479,15 +479,20 @@ spring:
         </dependency>
 ```
 
+
+> [!IMPORTANT]
+> Em seguinda, basta acessarmos a url abaixo para visualizar a documentação da API:
+> http://localhost:8080/base/swagger-ui.html
+
+>[!IMPORTANT]
+>Se não utilizarmos nenhuma das configurações descritas abaixos, o Swagger irá documentar todos os endpoints da aplicação, inclusive os endpoints do Spring Boot Actuator, ou seja, endpoints de monitoramento da aplicação.
+
 > [!TIP]
-> Algumas `@Annotations` básicas do Swagger:
+> Algumas `@Annotations` básicas do Swagger para **personalizar** a documentação da API:
 > + `@Api`: Define o nome da API, exemplo: `@Api(value = "API de Clientes")`
 > + `@ApiOperation`: Define o nome da operação, exemplo: `@ApiOperation(value = "Cadastra um cliente")`
 > + `@ApiResponses`: Define as respostas da operação, exemplo: `@ApiResponses(value = { @ApiResponse(code = 201, message = "Cliente cadastrado com sucesso"), @ApiResponse(code = 400, message = "Erro de validação") })`
 
-> [!TIP]
-> Em seguinda, basta acessarmos a url abaixo para visualizar a documentação da API:
-> http://localhost:8080/base/swagger-ui.html
 
 
 ### Implementando Multi-Stage Build no Docker
