@@ -10,13 +10,11 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1/api/produtos")
 @Log4j2
 public class ProdutoControllerImp implements ProdutoController {
     private final ProdutoService produtoService;
@@ -53,8 +51,8 @@ public class ProdutoControllerImp implements ProdutoController {
 
 
     @Override
-    public Page<ProdutoResponse> consultarProdutosPaginado(@PathVariable("numeroPagina") int numeroPagina,
-                                                           @PathVariable("tamanhoPagina") int tamanhoPagina)
+    public Page<ProdutoResponse> consultarPaginado(@PathVariable("numeroPagina") int numeroPagina,
+                                                   @PathVariable("tamanhoPagina") int tamanhoPagina)
             throws NotFoundException {
         log.info("Consultando todos os produtos paginados");
         return this.produtoService.listarProdutosPaginado(numeroPagina, tamanhoPagina);

@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/v1/api/pedidos")
 @Log4j2
 public class PedidoControllerImp implements PedidoController {
     private final PedidoService pedidoService;
