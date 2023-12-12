@@ -1,6 +1,16 @@
 
 # api-vendas
 
+>[!CAUTION]
+> Este projeto é apenas para estudo, não deve ser usado em produção, a menos que você saiba o que esta fazendo e faça os ajustes necessários.
+
+>[!CAUTION]
+> Anotações de personalização das páginas do Swagger, foi implementado apenas na funcionalidade de Clientes, ou seja, apenas na classe ClienteController.java, no entanto, é possível implementar em todas as classes de controller, basta seguir o exemplo da classe ClienteController.java.
+
+>[!CAUTION]
+> Exemplos de utilização do `redis-cache`, foi implementado apenas na funcionalidade de Clientes, ou seja, apenas na classe ClienteController.java, no entanto, é possível implementar em todas as classes de controller, basta seguir o exemplo da classe ClienteController.java, e as dicas de uso do `redis-cache` ao longo desta documentação.
+
+
 >[!IMPORTANT]
 > Índice
 - [Guia explicativo de como executar o projeto localmente](#guia-explicativo-de-como-executar-o-projeto-localmente)
@@ -10,6 +20,7 @@
 - [Spring com Redis](#spring-com-redis)
 - [Configurando Banner do Spring](#configurando-banner-do-spring)
 - [Implementando Multi-Stage Build no Docker](#implementando-multi-stage-build-no-docker)
+- [Implementando Swagger](#implementando-swagger)
 
 
 > Este projeto aborda os seguintes tópicos:
@@ -489,10 +500,7 @@ spring:
 
 > [!TIP]
 > Algumas `@Annotations` básicas do Swagger para **personalizar** a documentação da API:
-> + `@Api`: Define o nome da API, exemplo: `@Api(value = "API de Clientes")`
-> + `@ApiOperation`: Define o nome da operação, exemplo: `@ApiOperation(value = "Cadastra um cliente")`
-> + `@ApiResponses`: Define as respostas da operação, exemplo: `@ApiResponses(value = { @ApiResponse(code = 201, message = "Cliente cadastrado com sucesso"), @ApiResponse(code = 400, message = "Erro de validação") })`
-
+> + `@Tag` -> Usado para agrupar endpoints, ou seja, agrupar endpoints por funcionalidade.
 
 
 ### Implementando Multi-Stage Build no Docker

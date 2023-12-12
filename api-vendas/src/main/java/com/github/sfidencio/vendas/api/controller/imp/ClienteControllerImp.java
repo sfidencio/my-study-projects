@@ -23,7 +23,6 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/v1/api/clientes")
 @Log4j2
 @EnableCaching
 public class ClienteControllerImp implements ClienteController {
