@@ -46,8 +46,14 @@
 
 
 
-#   Guia explicativo de como executar o projeto localmente
+# Dicas e macetes
+> [!IMPORTANT]
+> Visualizar dependências de uma lib no maven:
+```bash
+mvn dependency:tree
+```
 
+#   Guia explicativo de como executar o projeto localmente
 
 > [!WARNING]
 Certifique-se de que o Java 17 esteja instalado e configurado na sua máquina local, apache-maven, git, docker e etc. Por padrão, o projeto está configurado para executar o perfil de desenvolvimento, ou seja, o banco de dados H2 será utilizado.
@@ -460,6 +466,30 @@ spring:
     location: classpath:banner.txt
 ```
 
+# Implementando Swagger
+## Guia explicativo de como implementar o Swagger no projeto
+> [!IMPORTANT]
+> Para implementar o Swagger, basta adionarmos a dependencia abaixo no pom.xml:
+```xml
+      <!--Enable Swagger-->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>x.y.z</version>
+        </dependency>
+```
+
+> [!TIP]
+> Algumas `@Annotations` básicas do Swagger:
+> + `@Api`: Define o nome da API, exemplo: `@Api(value = "API de Clientes")`
+> + `@ApiOperation`: Define o nome da operação, exemplo: `@ApiOperation(value = "Cadastra um cliente")`
+> + `@ApiResponses`: Define as respostas da operação, exemplo: `@ApiResponses(value = { @ApiResponse(code = 201, message = "Cliente cadastrado com sucesso"), @ApiResponse(code = 400, message = "Erro de validação") })`
+
+> [!TIP]
+> Em seguinda, basta acessarmos a url abaixo para visualizar a documentação da API:
+> http://localhost:8080/base/swagger-ui.html
+
+
 ### Implementando Multi-Stage Build no Docker
 > [!TIP]
 > Para implementar o multi-stage build no docker, "mineramos" informações dos links abaixo:
@@ -523,3 +553,7 @@ spring:
 >+ https://zomro.com/blog/faq/301-kak-ustanovit-redis-v-docker
 >+ https://devopscell.com/docker/docker-compose/volumes/2018/01/16/volumes-in-docker-compose.html 
 >+ https://stackoverflow.com/questions/57528077/docker-compose-with-name-other-than-dockerfile
+
+>Guia sobre implementação do Swagger:
+> + https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api
+> + https://medium.com/@f.s.a.kuzman/using-swagger-3-in-spring-boot-3-c11a483ea6dc#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IjBhZDFmZWM3ODUwNGY0NDdiYWU2NWJjZjVhZmFlZGI2NWVlYzllODEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIyMTYyOTYwMzU4MzQtazFrNnFlMDYwczJ0cDJhMmphbTRsamRjbXMwMHN0dGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiIyMTYyOTYwMzU4MzQtazFrNnFlMDYwczJ0cDJhMmphbTRsamRjbXMwMHN0dGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTYyMjM2MzYyOTQ3MzM2MjE0ODUiLCJlbWFpbCI6InNmaWRlbmNpb0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzAyMzM5MDE1LCJuYW1lIjoiU2ViYXN0acOjbyBGaWTDqm5jaW8iLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSzVGM2MycUJFbDFIT2xsOVYtUWkxRzRMOE1FcEQ0MWN2MnNYdzRUX3d1NkxTTT1zOTYtYyIsImdpdmVuX25hbWUiOiJTZWJhc3Rpw6NvIiwiZmFtaWx5X25hbWUiOiJGaWTDqm5jaW8iLCJsb2NhbGUiOiJwdC1CUiIsImlhdCI6MTcwMjMzOTMxNSwiZXhwIjoxNzAyMzQyOTE1LCJqdGkiOiI2M2Q0MGE1ZGM5ZDcwYzVmYmUxZGFmMmE5ZGM2ODJhZWU2ZTEyZjE5In0.p2Jpb1_zl-GfPki_m_hz8Xz4jsJxMxgS8wNM7ajqHPvgQq2ecGr8T8u2n5ZlbLh7LCDPxK3X9RY6CRCDp5uXqEZB2fdJ3-N9rvce4XDkSrzw90Qm_J2PPohOBLSY3EtbV3AOmeX8piWg-hxSzSBdUZI9SSomf0mJgPPv4EopfUQnqS7kISllewhs_JAKD6O_VYUbfy_jcmMMsHDzUQCem_4dBgn0d7r3DJE3snYzBtmzCqQuLih5ioiBB_g7MRQ-4SbfMyOwhwubKD96QV9VJxGpHoxvOTbYZKKhebg0vycHL--H0woaWLrgGcw0ajaPxeZLzuDutEw1b-YuaZPAJg
