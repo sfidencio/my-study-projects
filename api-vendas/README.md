@@ -25,6 +25,7 @@
 - [Configurando Banner do Spring](#configurando-banner-do-spring)
 - [Implementando Multi-Stage Build no Docker](#implementando-multi-stage-build-no-docker)
 - [Implementando Swagger](#implementando-swagger)
+- [Implementando MongoDB no projeto](#implementando-mongodb-no-projeto)
 
 
 > Este projeto aborda os seguintes tópicos:
@@ -510,6 +511,30 @@ spring:
 > + `@Parameter` -> Usado para descrever os parametros do endpoint, ou seja, descrever o que cada parametro faz.
 > + `@ApiResponse` -> Usado para descrever o retorno do endpoint, ou seja, descrever o que o endpoint retorna.
 > + `@ApiResponses` -> Usado para descrever os possiveis retornos do endpoint, ou seja, descrever o que o endpoint pode retornar.
+
+
+
+# Implementando MongoDB no projeto
+## Guia explicativo de como implementar  o MongoDB no projeto
+
+> [!IMPORTANT]
+> Para implementar o MongoDB, basta adionarmos a dependencia abaixo no pom.xml:
+```xml
+        <!--MongoDB-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+            <version>x.y.z</version>
+        </dependency>
+```
+> [!IMPORTANT]
+> Configuração do MongoDB no arquivo application.yaml ou application.properties:
+```yaml
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/api-vendas
+```
 
 
 ### Implementando Multi-Stage Build no Docker
