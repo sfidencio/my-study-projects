@@ -1,6 +1,8 @@
 
 # api-vendas
 
+> Informações Gerais
+
 >[!CAUTION]
 > Este projeto é apenas para estudo, não deve ser usado em produção, a menos que você saiba o que esta fazendo e faça os ajustes necessários.
 
@@ -494,6 +496,7 @@ spring:
 > [!IMPORTANT]
 > Em seguinda, basta acessarmos a url abaixo para visualizar a documentação da API:
 > http://localhost:8080/base/swagger-ui.html
+
 
 >[!IMPORTANT]
 >Se não utilizarmos nenhuma das configurações descritas abaixos, o Swagger irá documentar todos os endpoints da aplicação, inclusive os endpoints do Spring Boot Actuator, ou seja, endpoints de monitoramento da aplicação.
