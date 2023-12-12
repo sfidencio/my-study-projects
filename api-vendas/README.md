@@ -136,7 +136,7 @@ curl -kvs http://localhost:8080/base/v1/api/clientes/consulta/1 -H "Content-Type
 
 >Dockerfile-api-vendas
 
-```
+```dockerfile
 #Stage 1
 FROM maven:3-openjdk-17 AS stage1
 LABEL authors="sebastiaofidencio"
@@ -164,7 +164,7 @@ CMD ["java","-Dspring.profiles.active=production", "-jar", "app.jar"]
 
 > Esse arquivo construirá imagem customizada para o redis, que será usado para cache.
 
-```
+```dockerfile
 FROM redis:alpine
 LABEL authors="sebastiaofidencio"
 RUN apk add --no-cache bash \
@@ -256,7 +256,7 @@ docker exec -it myapp sh
 >[!TIP]
 > Fique atento quanto a configuração das variaveis de ambiente, as mais importantes foram externalizadas no docker-compose.yml. Essas variaveis são "injetadas" no conteiner em execução, e recuperadas via application.yaml ou application.properties. Observe a seção environment do arquivo docker-compose.yml, e a seção environment do arquivo docker-compose.yaml.
 
-```
+```yaml
 version: '3.7'
 services:
   db:
@@ -493,6 +493,31 @@ spring:
             <version>x.y.z</version>
         </dependency>
 ```
+
+
+# Implementando MongoDB no projeto
+## Guia explicativo de como implementar  o MongoDB no projeto
+
+> [!IMPORTANT]
+> Para implementar o MongoDB, basta adionarmos a dependencia abaixo no pom.xml:
+```xml
+        <!--MongoDB-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+            <version>x.y.z</version>
+        </dependency>
+```
+> [!IMPORTANT]
+> Configuração do MongoDB no arquivo application.yaml ou application.properties:
+```yaml
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/api-vendas
+```
+
+
 
 
 > [!IMPORTANT]
