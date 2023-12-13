@@ -573,17 +573,17 @@ spring:
       uri: mongodb://localhost:27017/api-vendas
 ```
 
->Executando o mongoDB via docker:
+>Executando o MongoDB via docker:
 ```bash
-docker run --rm -d --name mongodocker -p 27017:27017 mongo
+docker run --rm -d --name mongo -p 27017:27017 mongo
 ```
 >Cadastrando cliente Vip (MongoDB) via curl:
 ```bash
-curl -kvs http://localhost:8080/base/v1/api/clientes/salva-cliente-vip --data '{"1",nome":"Fulano","cpf":"41909644099", "email":"fulano@gmail.com" }' -H "Content-Type: application/json"  -X POST
+curl -kvs http://localhost:8080/base/v1/api/clientes/salva-cliente-vip --data '{nome":"Fulano","cpf":"41909644099", "email":"fulano@gmail.com" }' -H "Content-Type: application/json"  -X POST
 ```
->Consultando cliente Vip (MongoDB) via curl:
+>Consultando todos os clientes VIP (MongoDB) via curl:
 ```bash
-curl -kvs http://localhost:8080/base/v1/api/clientes/consulta-cliente-vip/1 -H "Content-Type: application/json"  -X GET
+curl -kvs http://localhost:8080/base/v1/api/clientes/consulta-todos-clientes-vip -H "Content-Type: application/json"  -X GET
 ```
 
 >Acessando o container do MongoDB
