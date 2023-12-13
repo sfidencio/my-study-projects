@@ -14,7 +14,7 @@
 - [estudo-inicial-spring](estudo-inicial-spring)
 - [explorando-clean-code](explorando-clean-code)
 - Dominando git 
-  - (https://github.com/joshnh/Git-Commands)
+  - https://github.com/joshnh/Git-Commands
 
 > [!NOTE]
 > Cada repositorio possui um README.md informando o objetivo do projeto e instruções de como configurar/executar o referido projeto.
