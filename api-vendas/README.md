@@ -101,7 +101,7 @@ mvn spring-boot:run
 > Caso tenha executado com sucesso a aplicação, deverá aparecer a seguinte mensagem -> Started Application in 2.11 seconds (process running for 2.3)
 
 > [!IMPORTANT]
-> As coleções do postman, estão na pasta `collections`, na raiz do projeto. Basta importar no postman.
+> As coleções do postman, estão na pasta `collections`, na raiz do projeto. Basta realizar a importação no postman.
 
 
 ### Realizando teste de cadastro de cliente via curl:
