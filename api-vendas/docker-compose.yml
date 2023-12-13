@@ -36,6 +36,8 @@ services:
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
       REDIS_HOST: redis
       REDIS_PORT: 6379
+      MONGO_DB_HOST: mongo
+      MONGO_DB_PORT: 27017
   #No redis nao iremos criar volume pois nao precisamos persistir os dados a principio
   redis: #https://cloudinfrastructureservices.co.uk/run-redis-with-docker-compose/
     image: redis:latest
