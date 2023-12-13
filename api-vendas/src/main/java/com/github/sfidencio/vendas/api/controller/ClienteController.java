@@ -2,6 +2,7 @@ package com.github.sfidencio.vendas.api.controller;
 
 import com.github.sfidencio.vendas.api.dto.ClienteRequest;
 import com.github.sfidencio.vendas.api.dto.ClienteResponse;
+import com.github.sfidencio.vendas.domain.integration.ClienteVIP;
 import com.github.sfidencio.vendas.infra.config.exceptions.NotFoundException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -77,4 +78,17 @@ public interface ClienteController {
     @GetMapping("/consulta-maturity/{id}")
     @ResponseStatus(HttpStatus.OK)
     ResponseEntity<MappingJacksonValue> consultarComNivelMaturidadeAplicadoNoEndPoint(@PathVariable Integer id) throws NotFoundException;
+
+    @PostMapping("/salva-cliente-vip")
+    @ResponseStatus(HttpStatus.CREATED)
+    void salvarClienteVIP(@RequestBody @Valid ClienteVIP request) throws NotFoundException;
+
+    @GetMapping("/consulta-cliente-vip/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    ClienteVIP consultarClienteVIP(@PathVariable String id) throws NotFoundException;
+
+
+    @GetMapping("/consulta-todos-clientes-vip")
+    @ResponseStatus(HttpStatus.OK)
+    List<ClienteVIP> consultarTodosClientesVIP();
 }

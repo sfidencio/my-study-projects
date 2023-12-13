@@ -1,8 +1,10 @@
 package com.github.sfidencio.vendas;
 
+import com.github.sfidencio.vendas.domain.integration.ClienteVIP;
 import com.github.sfidencio.vendas.infra.repository.ClienteRepository;
 import com.github.sfidencio.vendas.infra.repository.PedidoRepository;
 import com.github.sfidencio.vendas.infra.repository.ProdutoRepository;
+import com.github.sfidencio.vendas.infra.repository.integration.ClienteVIPRespository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -10,13 +12,16 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.data.redis.core.RedisTemplate;
 
+import java.util.List;
 import java.util.UUID;
 
 @SpringBootApplication
 @Log4j2
 @EnableCaching
+@EnableMongoRepositories
 public class Application {
     //@PersistenceContext
     //private EntityManager entityManager;
@@ -31,9 +36,7 @@ public class Application {
     }
 
     @Bean("executarTesteDB")
-    public CommandLineRunner executar(@Autowired ProdutoRepository produtoRepository,
-                                      @Autowired PedidoRepository pedidoRepository,
-                                      @Autowired ClienteRepository clienteRepository) {
+    public CommandLineRunner executar(@Autowired ProdutoRepository produtoRepository, @Autowired PedidoRepository pedidoRepository, @Autowired ClienteRepository clienteRepository) {
         return args -> {
             //var cliente = new Cliente(null, "Fidencio", "12345678901");
             //this.entityManager.persist(cliente);
@@ -137,6 +140,21 @@ public class Application {
 
             //Resetando redis ou limpando o cache
             redisTemplate.getConnectionFactory().getConnection().flushAll();
+        };
+    }
+
+    @Bean("executarTesteMongoDB")
+    public CommandLineRunner executarTesteMongoDB(@Autowired ClienteVIPRespository clienteVIPRespository) {
+        return args -> {
+            if (clienteVIPRespository.count() > 0) clienteVIPRespository.deleteAll();
+
+            /*var fulano = new ClienteVIP(null, "fulano", "12345678901", "fulano@gmail");
+            var beltrano = new ClienteVIP(null, "beltrano", "12345678901", "beltrano@gmail");
+            var list = List.of(fulano, beltrano);
+            clienteVIPRespository.saveAll(list);
+            System.out.println(clienteVIPRespository.findAll());
+            */
+
         };
     }
 }

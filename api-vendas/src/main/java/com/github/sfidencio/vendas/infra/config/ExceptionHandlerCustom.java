@@ -4,13 +4,13 @@ import com.github.sfidencio.vendas.infra.config.exceptions.NotFoundException;
 import jakarta.validation.ConstraintViolationException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @RestControllerAdvice
@@ -52,13 +52,14 @@ public class ExceptionHandlerCustom {
     }
 
 
-    /*@ExceptionHandler(MethodArgumentNotValidException.class)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
-    public List<ErrorResponseDefault> handleExceptionMethodArgumentNotValid(MethodArgumentNotValidException e) {
+    public List<Map<String,String>> handleExceptionMethodArgumentNotValid(MethodArgumentNotValidException e) {
         BindingResult bindingResult = e.getBindingResult();
         return bindingResult.getFieldErrors().stream()
-                .map(fieldError -> new ErrorResponseDefault(fieldError.getDefaultMessage()))
-                .toList();
+                .map(fieldError -> new HashMap<>(Map.of(fieldError.getField(), Objects.requireNonNull(fieldError.getDefaultMessage()))))
+                .collect(Collectors.toList());
 
-    }*/
+
+    }
 }

@@ -2,6 +2,7 @@ package com.github.sfidencio.vendas.domain.service;
 
 import com.github.sfidencio.vendas.api.dto.ClienteRequest;
 import com.github.sfidencio.vendas.api.dto.ClienteResponse;
+import com.github.sfidencio.vendas.domain.integration.ClienteVIP;
 import com.github.sfidencio.vendas.infra.config.exceptions.NotFoundException;
 
 import java.util.List;
@@ -18,4 +19,10 @@ public interface ClienteService {
     ClienteResponse buscarClienteEPedidos(Integer id) throws NotFoundException;
 
     void excluir(Integer id) throws NotFoundException;
+
+    ClienteVIP buscarClienteVIP(String id) throws NotFoundException;
+
+    void salvarClienteVIP(ClienteVIP clienteVIP);
+
+    List<ClienteVIP> buscarTodosClientesVIP();
 }

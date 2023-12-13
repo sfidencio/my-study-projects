@@ -536,6 +536,108 @@ spring:
       uri: mongodb://localhost:27017/api-vendas
 ```
 
+>Executando o mongoDB via docker:
+```bash
+docker run --rm -d --name mongodocker -p 27017:27017 mongo
+```
+>Cadastrando cliente Vip (MongoDB) via curl:
+```bash
+curl -kvs http://localhost:8080/base/v1/api/clientes/salva-cliente-vip --data '{"1",nome":"Fulano","cpf":"41909644099", "email":"fulano@gmail.com" }' -H "Content-Type: application/json"  -X POST
+```
+>Consultando cliente Vip (MongoDB) via curl:
+```bash
+curl -kvs http://localhost:8080/base/v1/api/clientes/consulta-cliente-vip/1 -H "Content-Type: application/json"  -X GET
+```
+
+>Acessando o container do MongoDB
+```bash
+docker exec -it mongodb bash
+```
+
+>Acessando o mongoDB via CLI (Dentro do Container)
+```bash
+mongosh
+```
+
+>Visualizar todas as bases de dados
+```bash
+show dbs
+```
+
+>Visualizar todas as coleções
+```bash
+show collections
+```
+
+>Consultando cliente Vip (MongoDB) via CLI (Dentro do Container)
+```bash
+use api-vendas
+db.cliente.find()
+```
+
+>Apagando base de dados api-vendas (MongoDB) via CLI (Dentro do Container)
+```bash
+use api-vendas
+db.dropDatabase()
+```
+
+>Apagando todos os dados da coleção clientesVIP (MongoDB) via CLI (Dentro do Container)
+> [!WARNING]
+> DeprecationWarning: Collection.remove() is deprecated. Use deleteOne, deleteMany, findOneAndDelete, or bulkWrite.
+
+```bash
+db.cliente.remove({})
+```
+
+ou
+
+```bash
+db.cliente.deleteMany()
+```
+
+>Mapeando entidade Cliente para o MongoDB
+
+```java
+import org.springframework.data.mongodb.core.mapping.FieldType;
+import org.springframework.data.mongodb.core.mapping.MongoId;
+
+@Document(collection = "cliente")
+public record ClienteVIP(@MongoId(FieldType.OBJECT_ID) String id, String nome, String cpf, String email) {
+}
+```
+
+>Criando repositorio para o MongoDB
+```java
+@Repository
+public interface ClienteVIPRepository extends MongoRepository<ClienteVIP, String> {
+}
+```
+>Exemplo de como salvar cliente Vip (MongoDB) via repositorio
+```java
+@Bean("executarTesteMongoDB")
+public CommandLineRunner executarTesteMongoDB(@Autowired ClienteVIPRespository clienteVIPRespository) {
+        return args -> {
+        //Esse codigo apaga todos registros existens na coleção `cliente`    
+        if (clienteVIPRespository.count() > 0) clienteVIPRespository.deleteAll();
+        
+        //Realizamos o cadastro, e posteriormente a consulta de todos os clientes cadastrados
+        var fulano = new ClienteVIP(null, "fulano", "12345678901", "fulano@gmail");
+        var beltrano = new ClienteVIP(null, "beltrano", "12345678901", "beltrano@gmail");
+        var list = List.of(fulano, beltrano);
+        clienteVIPRespository.saveAll(list);
+        System.out.println(clienteVIPRespository.findAll());
+        };
+}
+```
+
+>Para excluir registros via repositorio, basta usar o metodo deleteById, conforme exemplo abaixo:
+```java
+clienteVIPRespository.deleteById("id");
+```
+>[!TIP]
+> Temos um exemplo de utilização do mongo com sprinboot, agora caso queira implementar as demais funcionalidades de exclusão, atualização e consulta, basta seguir o exemplo acima, e consultar a documentação do spring data mongodb, os links descritos no final deste documento.
+
+
 
 ### Implementando Multi-Stage Build no Docker
 > [!TIP]
@@ -604,3 +706,7 @@ spring:
 >Guia sobre implementação do Swagger:
 > + https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api
 > + https://medium.com/@f.s.a.kuzman/using-swagger-3-in-spring-boot-3-c11a483ea6dc#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IjBhZDFmZWM3ODUwNGY0NDdiYWU2NWJjZjVhZmFlZGI2NWVlYzllODEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIyMTYyOTYwMzU4MzQtazFrNnFlMDYwczJ0cDJhMmphbTRsamRjbXMwMHN0dGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiIyMTYyOTYwMzU4MzQtazFrNnFlMDYwczJ0cDJhMmphbTRsamRjbXMwMHN0dGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTYyMjM2MzYyOTQ3MzM2MjE0ODUiLCJlbWFpbCI6InNmaWRlbmNpb0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzAyMzM5MDE1LCJuYW1lIjoiU2ViYXN0acOjbyBGaWTDqm5jaW8iLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSzVGM2MycUJFbDFIT2xsOVYtUWkxRzRMOE1FcEQ0MWN2MnNYdzRUX3d1NkxTTT1zOTYtYyIsImdpdmVuX25hbWUiOiJTZWJhc3Rpw6NvIiwiZmFtaWx5X25hbWUiOiJGaWTDqm5jaW8iLCJsb2NhbGUiOiJwdC1CUiIsImlhdCI6MTcwMjMzOTMxNSwiZXhwIjoxNzAyMzQyOTE1LCJqdGkiOiI2M2Q0MGE1ZGM5ZDcwYzVmYmUxZGFmMmE5ZGM2ODJhZWU2ZTEyZjE5In0.p2Jpb1_zl-GfPki_m_hz8Xz4jsJxMxgS8wNM7ajqHPvgQq2ecGr8T8u2n5ZlbLh7LCDPxK3X9RY6CRCDp5uXqEZB2fdJ3-N9rvce4XDkSrzw90Qm_J2PPohOBLSY3EtbV3AOmeX8piWg-hxSzSBdUZI9SSomf0mJgPPv4EopfUQnqS7kISllewhs_JAKD6O_VYUbfy_jcmMMsHDzUQCem_4dBgn0d7r3DJE3snYzBtmzCqQuLih5ioiBB_g7MRQ-4SbfMyOwhwubKD96QV9VJxGpHoxvOTbYZKKhebg0vycHL--H0woaWLrgGcw0ajaPxeZLzuDutEw1b-YuaZPAJg
+
+>Guia sobre implementação do MongoDB junto com o Spring:
+> + https://www.mongodb.com/compatibility/spring-boot
+> + https://docs.spring.io/spring-data/mongodb/reference/index.html

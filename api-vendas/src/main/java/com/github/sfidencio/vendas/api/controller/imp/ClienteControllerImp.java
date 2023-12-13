@@ -3,6 +3,7 @@ package com.github.sfidencio.vendas.api.controller.imp;
 import com.github.sfidencio.vendas.api.controller.ClienteController;
 import com.github.sfidencio.vendas.api.dto.ClienteRequest;
 import com.github.sfidencio.vendas.api.dto.ClienteResponse;
+import com.github.sfidencio.vendas.domain.integration.ClienteVIP;
 import com.github.sfidencio.vendas.domain.service.ClienteService;
 import com.github.sfidencio.vendas.infra.config.exceptions.NotFoundException;
 import jakarta.validation.Valid;
@@ -15,7 +16,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -78,6 +78,21 @@ public class ClienteControllerImp implements ClienteController {
         entityModel.add(linkTo.withRel("cadastro-jdbc-template"));
         MappingJacksonValue mappingJacksonValue = new MappingJacksonValue(entityModel);
         return ResponseEntity.ok(mappingJacksonValue);
+    }
+
+    @Override
+    public void salvarClienteVIP(ClienteVIP request) {
+        this.clienteService.salvarClienteVIP(request);
+    }
+
+    @Override
+    public ClienteVIP consultarClienteVIP(String id) throws NotFoundException {
+        return this.clienteService.buscarClienteVIP(id);
+    }
+
+    @Override
+    public List<ClienteVIP> consultarTodosClientesVIP() {
+        return this.clienteService.buscarTodosClientesVIP();
     }
 
 }
