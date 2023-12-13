@@ -1,7 +1,8 @@
 
 # api-vendas
 
-> [!IMPORTANT] Tarefas a serem implementadas:
+>[!IMPORTANT] 
+> Tarefas a serem implementadas:
 > + [ ] Implementar validação do nome usando Regex, apenas para exemplo
 
 
