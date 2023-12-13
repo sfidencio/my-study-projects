@@ -296,7 +296,8 @@ services:
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
       REDIS_HOST: redis
       REDIS_PORT: 6379
-  redis:
+  #No redis nao iremos criar volume pois nao precisamos persistir os dados a principio
+  redis: #https://cloudinfrastructureservices.co.uk/run-redis-with-docker-compose/
     image: redis:latest
     platform: linux/amd64
     networks:
@@ -304,17 +305,35 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile-redis
+    #command: ["redis-server", "--protected-mode", "no"]
     container_name: redis
     restart: always
     ports:
       - "6379:6379"
+  mongo:
+    image: mongo:latest
+    platform: linux/amd64
+    networks:
+      - api-vendas-network
+    container_name: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db #docker named volumes
 
 networks:
   api-vendas-network:
     driver: bridge
 
+#Entenda o funcionamento do volumes no docker-compose
+#https://devopscell.com/docker/docker-compose/volumes/2018/01/16/volumes-in-docker-compose.html
+#E possivel utilizar Docker host mounted volumes ou Docker named volumes
+
 volumes:
   postgres-data:
+    driver: local
+  mongo-data:
     driver: local
 ```
 
@@ -355,6 +374,16 @@ volumes:
 sudo docker-compose up --build -d
 ```
 
+ou
+
+```bash
+sudo docker compose up --build -d
+```
+
+>Após subir os conteinerers, via docker-compose.
+
+![img.png](img.png)
+
 
 
 >[!WARNING]
@@ -366,6 +395,14 @@ sudo docker-compose up --build -d
 ```bash
 sudo docker-compose down
 ```
+
+ou 
+
+```bash
+sudo docker compose down
+```
+
+
 
 # Spring com Redis
 ## Tutorial basico de como usar o Redis via CLI
@@ -635,7 +672,7 @@ public CommandLineRunner executarTesteMongoDB(@Autowired ClienteVIPRespository c
 clienteVIPRespository.deleteById("id");
 ```
 >[!TIP]
-> Temos um exemplo de utilização do mongo com sprinboot, agora caso queira implementar as demais funcionalidades de exclusão, atualização e consulta, basta seguir o exemplo acima, e consultar a documentação do spring data mongodb, os links descritos no final deste documento.
+> Temos um exemplo de utilização do mongodb com springboot, agora caso queira implementar as demais funcionalidades de exclusão, atualização e consulta, basta seguir o exemplo acima, e consultar a documentação do spring data mongodb, os links descritos no final deste documento.
 
 
 
