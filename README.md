@@ -13,12 +13,6 @@
 - [explorando-jdbc-template](explorando-jdbc-template)
 - [estudo-inicial-spring](estudo-inicial-spring)
 - [explorando-clean-code](explorando-clean-code)
-- Dominando git 
-  - https://github.com/joshnh/Git-Commands
-- Dicas IntelliJ
-  - https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html
-  - https://www.jetbrains.com/guide/go/tips/select-all-occurrences-in-a-file/#:~:text=Do%20you%20want%20to%20select,were%20all%20the%20same%20one.
-    - selecionar todas as ocorrencias de uma palavra: `ctrl + shift + alt + j`
 
 > [!NOTE]
 > Cada repositorio possui um README.md informando o objetivo do projeto e instruções de como configurar/executar o referido projeto.
