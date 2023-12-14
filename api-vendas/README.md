@@ -2,10 +2,12 @@
 # api-vendas
 
 >[!IMPORTANT] 
-> Tarefas a serem implementadas:
+> Tarefas a serem implementadas (Tanto requisitos funcionais quanto requisitos não funcionais):
 > + [ ] Implementar validação do nome do cliente usando Regex, apenas para exemplo.
 > + [ ] Implementar alguns testes unitários utilizando JUnit 5. (O correto é tentar cobrir o máximo possível de cenários, mas como o foco é apenas estudo, vamos implementar apenas alguns testes unitários, para exemplificar).
-
+> + [ ] Implementar integração com ChatGPT3, para exemplificar como consumir uma API externa.
+> + [ ] Implementar integração com API de CEP, para exemplificar como consumir uma API externa.
+> + [ ] Implementar integração com API de Cotação de Moedas, para exemplificar como consumir uma API externa.
 
 > Informações Gerais
 
