@@ -13,6 +13,7 @@
 - [explorando-jdbc-template](explorando-jdbc-template)
 - [estudo-inicial-spring](estudo-inicial-spring)
 - [explorando-clean-code](explorando-clean-code)
+- [dicas-macetes-ferramentas](dicas-macetes-ferramentas)
 
 > [!NOTE]
 > Cada repositorio possui um README.md informando o objetivo do projeto e instruções de como configurar/executar o referido projeto.
