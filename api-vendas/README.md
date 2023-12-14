@@ -26,6 +26,7 @@
 
 >[!TIP] 
 >Executando o perfil de desenvolvimento, o banco de dados utilizado é o H2(InMemory), logo é uma dependência satisfeita e que sobe junto com a aplicação, todavia, para as dependências redis e mongo, é necessário subir os containers manualmente, ou seja, via docker, conforme descrito abaixo.
+
 > + Para subir o container do redis, execute o comando abaixo:
 > + `docker run --rm -d --name redis -p 6379:6379 redis`
 > + Para subir o container do mongo, execute o comando abaixo:
