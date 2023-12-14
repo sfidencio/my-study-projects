@@ -29,6 +29,7 @@ services:
     depends_on:
       - redis
       - db
+      - mongo
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/api-vendas
       SPRING_DATASOURCE_USERNAME: postgres

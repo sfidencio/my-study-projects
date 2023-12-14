@@ -20,6 +20,17 @@
 >[!WARNING]
 >Não estamos utilizando o ResponseEntity<T>  para retornar os dados, pois o Spring já faz isso por nós automaticamente.
 
+>[!WARNING]
+>Para executar a aplicação diretamente na IDE (IntelliJ IDEA), basta executar a classe Application.java, que esta no pacote `br.com.sfidencio.api.vendas`, ou seja, no pacote raiz do projeto. 
+ 
+>[!WARNING] 
+>Executando o perfil de desenvolvimento, o banco de dados utilizado é o H2(InMemory), logo é uma dependência satisfeita e que sobe junto com a aplicação, todavia, para as dependências redis e mongo, é necessário subir os containers manualmente, ou seja, via docker, conforme descrito abaixo.
+> + Para subir o container do redis, execute o comando abaixo:
+> + `docker run --rm -d --name redis -p 6379:6379 redis`
+> + Para subir o container do mongo, execute o comando abaixo:
+> + `docker run --rm -d --name mongo -p 27017:27017 mongo`
+ 
+
 >[!IMPORTANT]
 > Índice
 - [Guia explicativo de como executar o projeto localmente](#guia-explicativo-de-como-executar-o-projeto-localmente)
@@ -297,6 +308,7 @@ services:
     depends_on:
       - redis
       - db
+      - mongo
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/api-vendas
       SPRING_DATASOURCE_USERNAME: postgres
@@ -304,6 +316,8 @@ services:
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
       REDIS_HOST: redis
       REDIS_PORT: 6379
+      MONGO_DB_HOST: mongo
+      MONGO_DB_PORT: 27017
   #No redis nao iremos criar volume pois nao precisamos persistir os dados a principio
   redis: #https://cloudinfrastructureservices.co.uk/run-redis-with-docker-compose/
     image: redis:latest
