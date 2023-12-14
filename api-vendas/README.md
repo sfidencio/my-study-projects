@@ -21,8 +21,9 @@
 >Não estamos utilizando o ResponseEntity<T>  para retornar os dados, pois o Spring já faz isso por nós automaticamente.
 
 >[!TIP]
->Para executar a aplicação diretamente na IDE (IntelliJ IDEA), basta executar a classe Application.java, que esta no pacote `br.com.sfidencio.api.vendas`, ou seja, no pacote raiz do projeto. 
- 
+>Para executar a aplicação diretamente na IDE (IntelliJ IDEA), basta executar a classe Application.java, que esta no pacote `br.com.sfidencio.api.vendas`, conforme imagem abaixo:
+> ![img_1.png](img_1.png)
+
 >[!TIP] 
 >Executando o perfil de desenvolvimento, o banco de dados utilizado é o H2(InMemory), logo é uma dependência satisfeita e que sobe junto com a aplicação, todavia, para as dependências redis e mongo, é necessário subir os containers manualmente, ou seja, via docker, conforme descrito abaixo.
 > + Para subir o container do redis, execute o comando abaixo:
