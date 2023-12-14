@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 @RestController
 @Log4j2
@@ -56,5 +57,11 @@ public class ProdutoControllerImp implements ProdutoController {
             throws NotFoundException {
         log.info("Consultando todos os produtos paginados");
         return this.produtoService.listarProdutosPaginado(numeroPagina, tamanhoPagina);
+    }
+
+
+    public static void main(String[] args) {
+        Pattern p = Pattern.compile("^[a-zA-Z0-9]*$");
+        System.out.println(p.matcher("1234567890").matches());
     }
 }
