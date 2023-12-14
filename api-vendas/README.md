@@ -17,7 +17,7 @@
 >[!CAUTION]
 > Exemplos de utilização do `redis-cache`, foi implementado apenas na funcionalidade de Clientes, ou seja, apenas na classe ClienteController.java, no entanto, é possível implementar em todas as classes de controller, basta seguir o exemplo da classe ClienteController.java, e as dicas de uso do `redis-cache` ao longo desta documentação.
 
->[!WARNING]
+>[!TIP]
 >Não estamos utilizando o ResponseEntity<T>  para retornar os dados, pois o Spring já faz isso por nós automaticamente.
 
 >[!WARNING]
