@@ -66,7 +66,7 @@
 - [Implementando Multi-Stage Build no Docker](#implementando-multi-stage-build-no-docker)
 - [Implementando Swagger](#implementando-swagger)
 - [Implementando MongoDB no projeto](#implementando-mongodb-no-projeto)
-- 
+- [Entendendo os padrões de regex](#entendendo-os-padrões-de-regex)
 
 
 > Este projeto aborda os seguintes tópicos:
@@ -739,7 +739,7 @@ clienteVIPRespository.deleteById("id");
 >Explorando o dockerignore:
 > + https://shisho.dev/blog/posts/how-to-use-dockerignore/
 
-#Entendendo os padrões de regex:
+### Entendendo os padrões de regex:
 > + https://www.regular-expressions.info/posixbrackets.html
 
 ```text 
