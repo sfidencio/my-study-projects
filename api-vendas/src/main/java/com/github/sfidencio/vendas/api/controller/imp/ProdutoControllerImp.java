@@ -58,10 +58,4 @@ public class ProdutoControllerImp implements ProdutoController {
         log.info("Consultando todos os produtos paginados");
         return this.produtoService.listarProdutosPaginado(numeroPagina, tamanhoPagina);
     }
-
-
-    public static void main(String[] args) {
-        Pattern p = Pattern.compile("^[a-zA-Z0-9]*$");
-        System.out.println(p.matcher("1234567890").matches());
-    }
 }

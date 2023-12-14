@@ -5,9 +5,9 @@
 > Tarefas a serem implementadas (Tanto requisitos funcionais quanto requisitos não funcionais):
 > + [ ] Implementar validação do nome do cliente usando Regex, apenas para exemplo.
 > + [ ] Implementar alguns testes unitários utilizando JUnit 5. (O correto é tentar cobrir o máximo possível de cenários, mas como o foco é apenas estudo, vamos implementar apenas alguns testes unitários, para exemplificar).
+> + [ ] Implementar exemplo de AOP (Aspect Oriented Programming), para exemplificar como `logar` os parametros de entrada e após o retorno de execução de um método, logico que isso é apenas um exemplo de uso.
 > + [ ] Implementar integração com ChatGPT3, para exemplificar como consumir uma API externa.
 > + [ ] Implementar integração com API de CEP, para exemplificar como consumir uma API externa.
-> + [ ] Implementar integração com API de Cotação de Moedas, para exemplificar como consumir uma API externa.
 
 > Informações Gerais
 
@@ -39,7 +39,21 @@
 + ```bash
   docker run --rm -d --name mongo -p 27017:27017 mongo
   ```
- 
+
+>[!TIP]
+> Usando junit5 no springboot 3, basta adicionar a dependencia abaixo no pom.xml:
+> + https://howtodoinjava.com/spring-boot/junit-with-spring-boot/
+
+>[!TIP]
+> Executando junit5 sem springboot, basta adicionar a dependencia abaixo no pom.xml:
+> ```xml
+> <dependency>
+>   <groupId>org.junit.jupiter</groupId>
+>   <artifactId>junit-jupiter-engine</artifactId>
+>  <version>5.8.1</version>
+>  <scope>test</scope>
+> </dependency>
+> ```
 
 >[!IMPORTANT]
 > Índice
@@ -52,6 +66,7 @@
 - [Implementando Multi-Stage Build no Docker](#implementando-multi-stage-build-no-docker)
 - [Implementando Swagger](#implementando-swagger)
 - [Implementando MongoDB no projeto](#implementando-mongodb-no-projeto)
+- 
 
 
 > Este projeto aborda os seguintes tópicos:
@@ -723,6 +738,38 @@ clienteVIPRespository.deleteById("id");
 
 >Explorando o dockerignore:
 > + https://shisho.dev/blog/posts/how-to-use-dockerignore/
+
+#Entendendo os padrões de regex:
+> + https://www.regular-expressions.info/posixbrackets.html
+
+```text 
+Os padrões de regex são sequências de caracteres que definem um conjunto de regras para procurar, validar ou manipular strings de texto. Eles são compostos por uma combinação de caracteres literais (que correspondem a si mesmos) e metacaracteres (símbolos especiais que representam classes de caracteres, quantificadores, âncoras, entre outros). Aqui estão alguns dos padrões mais comuns de regex:
+Caracteres Literais: São os caracteres que correspondem a si mesmos. Por exemplo, o padrão "abc" corresponderá à sequência de caracteres "abc" em uma string.
+
+Metacaracteres:
+
+. (ponto): Corresponde a qualquer caractere, exceto quebras de linha.
+\d: Corresponde a qualquer dígito de 0 a 9.
+\w: Corresponde a qualquer caractere alfanumérico (letras, números e sublinhados).
+\s: Corresponde a qualquer espaço em branco (espaço, tabulação, quebra de linha, etc.).
+\b: Corresponde a uma fronteira de palavra.
+^: Âncora que corresponde ao início de uma string.
+$: Âncora que corresponde ao final de uma string.
+[]: Define uma classe de caracteres, correspondendo a qualquer caractere dentro dos colchetes.
+|: Operador lógico "ou", correspondendo a um padrão ou outro.
+Quantificadores:
+
+*: Corresponde a zero ou mais ocorrências do padrão anterior.
++: Corresponde a uma ou mais ocorrências do padrão anterior.
+?: Corresponde a zero ou uma ocorrência do padrão anterior.
+{n}: Corresponde exatamente a n ocorrências do padrão anterior.
+{n,}: Corresponde a pelo menos n ocorrências do padrão anterior.
+{n,m}: Corresponde a pelo menos n e no máximo m ocorrências do padrão anterior.
+Grupos e Captura:
+
+(): Define um grupo de captura, permitindo que você extraia partes específicas de uma correspondência.
+Estes são apenas alguns exemplos de padrões de regex. Expressões regulares podem se tornar bastante complexas e poderosas, permitindo a criação de padrões altamente específicos para manipulação de texto. É importante estudar e praticar para se tornar proficientes no uso de regex.
+```
 
 >[!IMPORTANT]
 >Referências utilizadas em todo o projeto:
