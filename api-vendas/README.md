@@ -793,16 +793,24 @@ Estes são apenas alguns exemplos de padrões de regex. Expressões regulares po
         </dependency>
 ```
 
-+ Criamos uma classe de Log, chamada `LogAspect.java`, no pacote `infra.log`, na raiz do projeto, e adicionamos a anotação `@Aspect` na classe, e a anotação `@EnableAspectJAutoProxy` na classe `Application.java`, na raiz do projeto.
++ Criamos uma classe de Log, chamada `LogAspect.java`, no pacote `infra.log`, na raiz do projeto, e adicionamos a anotação `@Aspect` na classe, e a anotação `@EnableAspectJAutoProxy` na classe `AspectLog.java`, no pacote `infra.log`.
 + A classe `LogAspect.java`, é responsavel por interceptar todas as chamadas aos endpoints da aplicação, e gerar um log de entrada e saida.
 + Utilizamos a anotação `@AfterReturning`, para interceptar o retorno dos endpoints, e gerar o log de saida.
 + Utilizamos a anotação `@Before`, para interceptar a entrada dos endpoints, e gerar o log de entrada.
 + Utilizamos a anotação `@Pointcut`, para definir o ponto de corte, ou seja, o ponto onde o AOP irá interceptar as chamadas aos endpoints.
 + Utilizamos a classe  `JoinPoint`, para recuperar informações sobre o ponto de corte, ou seja, o ponto onde o AOP irá interceptar as chamadas aos endpoints.
++ Dicas e macetes sobre AOP:
+  + https://www.amitph.com/spring-aop-before-advice/
 
 > [!WARNING]
 > Lembre-se que o AOP intercepta não só metódos de endpoints, mas também metódos de classes de serviços, ou seja, qualquer metódo que seja publico e que esteja anotado com `@Pointcut`, será interceptado pelo AOP.
-    
+
+> [!TIP]
+> Ao subir a aplicação, percebera que o AOP intercepta todas as chamadas aos endpoints, e gera um log de entrada e saida, conforme exemplo abaixo:
+```text
+2023-12-15T02:38:35.050-03:00  INFO 54421 --- [nio-8080-exec-1] c.g.s.vendas.infra.config.log.LogAspect  : Depois da execução do método List com.github.sfidencio.vendas.api.controller.imp.ClienteControllerImp.consultarTodos() com o resultado [ClienteResponse[id=1, nome=Fulano., cpf=71509956085, email=cliente2@gmail.com, pedidos=null], ClienteResponse[id=2, nome=Ciclano., cpf=71509956085, email=cliente2@gmail.com, pedidos=null], ClienteResponse[id=3, nome=Ciclano., cpf=71509956085, email=cliente2@gmail.com, pedidos=null], ClienteResponse[id=4, nome=Ciclano., cpf=71509956085, email=cliente2@gmail.com, pedidos=null]]
+
+ ```   
 
 
 

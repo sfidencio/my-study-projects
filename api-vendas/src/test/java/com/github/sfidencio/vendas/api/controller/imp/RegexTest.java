@@ -1,7 +1,6 @@
 package com.github.sfidencio.vendas.api.controller.imp;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.util.regex.Pattern;

@@ -5,16 +5,18 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
 @Log4j2
+@EnableAspectJAutoProxy
 public class LogAspect {
 
-    @Before("execution(* com.github.sfidencio.vendas.api.controller.*.*(..))")
-    public void logBefore(JoinPoint joinPoint, Object result) {
-        log.info("Antes da execução do método {} com o resultado {}", joinPoint.getSignature(), result);
+    @Before(value = "execution(* com.github.sfidencio.vendas.api.controller.*.*(..))")
+    public void logBefore(JoinPoint joinPoint) {
+        log.info("Antes da execução do método {} ", joinPoint.getArgs());
     }
 
     @AfterReturning(value = "execution(* com.github.sfidencio.vendas.api.controller.*.*(..))", returning = "result")
