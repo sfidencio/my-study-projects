@@ -804,7 +804,7 @@ Estes são apenas alguns exemplos de padrões de regex. Expressões regulares po
   + https://www.amitph.com/spring-aop-before-advice/
 
 > [!WARNING]
-> Lembre-se que o AOP intercepta não só metódos de endpoints, mas também metódos de classes de serviços, ou seja, qualquer metódo que seja publico e que esteja anotado com `@Pointcut`, será interceptado pelo AOP.
+> Lembre-se que o AOP intercepta não só metódos de endpoints, mas também metódos de classes de serviços, ou seja, qualquer metódo que seja publico e que esteja anotado com `@Pointcut`, será interceptado pelo AOP. Em nossos exemplos não utilizamos a anotação `@Pointcut`, mas é possivel utiliza-la, e definir o ponto de corte, ou seja, o ponto onde o AOP irá interceptar as chamadas aos endpoints. Preferimos utilizar expressões regulares, e não poluir as classes com anotações do AOP.
 
 > [!TIP]
 > Ao subir a aplicação, percebera que o AOP intercepta todas as chamadas aos endpoints, e gera um log de entrada e saida, conforme exemplo abaixo:
