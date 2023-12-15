@@ -799,6 +799,7 @@ Estes são apenas alguns exemplos de padrões de regex. Expressões regulares po
 + Utilizamos a anotação `@Before`, para interceptar a entrada dos endpoints, e gerar o log de entrada.
 + Temos anotação `@Pointcut`, para definir o ponto de corte, ou seja, o ponto onde o AOP irá interceptar as chamadas aos endpoints.
 + Utilizamos a classe  `JoinPoint`, para recuperar informações sobre o ponto de corte, ou seja, o ponto onde o AOP irá interceptar as chamadas aos endpoints.
++ Observe atentamente as expressões regulares, pois elas são responsaveis por definir o ponto de corte, ou seja, o ponto onde o AOP irá interceptar as chamadas aos endpoints.
 + Dicas e macetes sobre AOP:
   + https://www.amitph.com/spring-aop-before-advice/
 
