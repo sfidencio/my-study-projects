@@ -795,9 +795,9 @@ Estes são apenas alguns exemplos de padrões de regex. Expressões regulares po
 
 + Criamos uma classe de Log, chamada `LogAspect.java`, no pacote `infra.log`, na raiz do projeto, e adicionamos a anotação `@Aspect` na classe, e a anotação `@EnableAspectJAutoProxy` na classe `AspectLog.java`, no pacote `infra.log`.
 + A classe `LogAspect.java`, é responsavel por interceptar todas as chamadas aos endpoints da aplicação, e gerar um log de entrada e saida.
-+ Utilizamos a anotação `@AfterReturning`, para interceptar o retorno dos endpoints, e gerar o log de saida.
++ Utilizamos a anotação `@AfterReturning`, para interceptar o retorno dos endpoints, e gerar o log de saida, pois é possivel interceptar o retorno da chamada do método, e manipular o retorno, ou seja, é possivel alterar o retorno do método, ou simplesmente gerar um log de saida.
 + Utilizamos a anotação `@Before`, para interceptar a entrada dos endpoints, e gerar o log de entrada.
-+ Utilizamos a anotação `@Pointcut`, para definir o ponto de corte, ou seja, o ponto onde o AOP irá interceptar as chamadas aos endpoints.
++ Temos anotação `@Pointcut`, para definir o ponto de corte, ou seja, o ponto onde o AOP irá interceptar as chamadas aos endpoints.
 + Utilizamos a classe  `JoinPoint`, para recuperar informações sobre o ponto de corte, ou seja, o ponto onde o AOP irá interceptar as chamadas aos endpoints.
 + Dicas e macetes sobre AOP:
   + https://www.amitph.com/spring-aop-before-advice/
