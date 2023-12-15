@@ -807,7 +807,7 @@ Estes são apenas alguns exemplos de padrões de regex. Expressões regulares po
 > Lembre-se que o AOP intercepta não só metódos de endpoints, mas também metódos de classes de serviços, ou seja, qualquer metódo que seja publico e que esteja anotado com `@Pointcut`, será interceptado pelo AOP. Em nossos exemplos não utilizamos a anotação `@Pointcut`, mas é possivel utiliza-la, e definir o ponto de corte, ou seja, o ponto onde o AOP irá interceptar as chamadas aos endpoints. Preferimos utilizar expressões regulares, e não poluir as classes com anotações do AOP.
 
 > [!TIP]
-> Ao subir a aplicação, percebera que o AOP intercepta todas as chamadas aos endpoints, e gera um log de entrada e saida, conforme exemplo abaixo:
+> Ao subir a aplicação, iremos notar que o AOP intercepta todas as chamadas aos endpoints, e gera um log de entrada e saida, conforme exemplo abaixo:
 ```text
 2023-12-15T02:38:35.050-03:00  INFO 54421 --- [nio-8080-exec-1] c.g.s.vendas.infra.config.log.LogAspect  : Depois da execução do método List com.github.sfidencio.vendas.api.controller.imp.ClienteControllerImp.consultarTodos() com o resultado [ClienteResponse[id=1, nome=Fulano., cpf=71509956085, email=cliente2@gmail.com, pedidos=null], ClienteResponse[id=2, nome=Ciclano., cpf=71509956085, email=cliente2@gmail.com, pedidos=null], ClienteResponse[id=3, nome=Ciclano., cpf=71509956085, email=cliente2@gmail.com, pedidos=null], ClienteResponse[id=4, nome=Ciclano., cpf=71509956085, email=cliente2@gmail.com, pedidos=null]]
 
