@@ -3,9 +3,9 @@
 
 >[!IMPORTANT] 
 > Tarefas a serem implementadas (Tanto requisitos funcionais quanto requisitos não funcionais):
-> + [ ] Implementar validação do nome do cliente usando Regex, apenas para exemplo.
+> + [x] Implementar validação do nome do cliente usando Regex, apenas para exemplo.
 > + [ ] Implementar alguns testes unitários utilizando JUnit 5. (O correto é tentar cobrir o máximo possível de cenários, mas como o foco é apenas estudo, vamos implementar apenas alguns testes unitários, para exemplificar).
-> + [ ] Implementar exemplo de AOP (Aspect Oriented Programming), para exemplificar como `logar` os parametros de entrada e após o retorno de execução de um método, logico que isso é apenas um exemplo de uso.
+> + [x] Implementar exemplo de AOP (Aspect Oriented Programming), para exemplificar como `logar` os parametros de entrada e após o retorno de execução de um método, logico que isso é apenas um exemplo de uso.
 > + [ ] Implementar integração com ChatGPT3, para exemplificar como consumir uma API externa.
 > + [ ] Implementar integração com API de CEP, para exemplificar como consumir uma API externa.
 
@@ -741,6 +741,8 @@ clienteVIPRespository.deleteById("id");
 
 ### Entendendo os padrões de regex:
 > + https://www.regular-expressions.info/posixbrackets.html
+> + https://regex101.com/
+>   + Temos aqui um excelente site par validar nossas expressões regulares.
 
 ```text 
 Os padrões de regex são sequências de caracteres que definem um conjunto de regras para procurar, validar ou manipular strings de texto. Eles são compostos por uma combinação de caracteres literais (que correspondem a si mesmos) e metacaracteres (símbolos especiais que representam classes de caracteres, quantificadores, âncoras, entre outros). Aqui estão alguns dos padrões mais comuns de regex:
@@ -770,6 +772,38 @@ Grupos e Captura:
 (): Define um grupo de captura, permitindo que você extraia partes específicas de uma correspondência.
 Estes são apenas alguns exemplos de padrões de regex. Expressões regulares podem se tornar bastante complexas e poderosas, permitindo a criação de padrões altamente específicos para manipulação de texto. É importante estudar e praticar para se tornar proficientes no uso de regex.
 ```
+
+>![TIP] 
+> Exemplo de implementação de Regex:
+> + Verifique o arquivo RegexTest.java, na pasta test, na raiz do projeto.
+> + Verifique a classe Cliente.java, na pasta model, na raiz do projeto, especificamente no campo nome.
+
+
+
+### Implementando AOP(Aspect Oriented Programming) no projeto:
+
+> Para implementar o AOP, basta adionarmos a dependencia abaixo no pom.xml:
+```xml
+        <!--AOP-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+            <version>x.y.z</version>
+        </dependency>
+```
+
+> Criamos uma classe de Log, chamada `LogAspect.java`, no pacote `infra.log`, na raiz do projeto, e adicionamos a anotação `@Aspect` na classe, e a anotação `@EnableAspectJAutoProxy` na classe `Application.java`, na raiz do projeto.
+> A classe `LogAspect.java`, é responsavel por interceptar todas as chamadas aos endpoints da aplicação, e gerar um log de entrada e saida.
+> Utilizamos a anotação `@AfterReturning`, para interceptar o retorno dos endpoints, e gerar o log de saida.
+> Utilizamos a anotação `@Before`, para interceptar a entrada dos endpoints, e gerar o log de entrada.
+> Utilizamos a anotação `@Pointcut`, para definir o ponto de corte, ou seja, o ponto onde o AOP irá interceptar as chamadas aos endpoints.
+> Utilizamos a classe  `JoinPoint`, para recuperar informações sobre o ponto de corte, ou seja, o ponto onde o AOP irá interceptar as chamadas aos endpoints.
+
+> [!WARNING]
+> Lembre-se que o AOP intercepta não só metódos de endpoints, mas também metódos de classes de serviços, ou seja, qualquer metódo que seja publico e que esteja anotado com `@Pointcut`, será interceptado pelo AOP.
+    
+
+
 
 >[!IMPORTANT]
 >Referências utilizadas em todo o projeto:

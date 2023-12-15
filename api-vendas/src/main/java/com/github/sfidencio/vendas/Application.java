@@ -1,6 +1,5 @@
 package com.github.sfidencio.vendas;
 
-import com.github.sfidencio.vendas.domain.integration.ClienteVIP;
 import com.github.sfidencio.vendas.infra.repository.ClienteRepository;
 import com.github.sfidencio.vendas.infra.repository.PedidoRepository;
 import com.github.sfidencio.vendas.infra.repository.ProdutoRepository;
@@ -12,17 +11,17 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.data.redis.core.RedisTemplate;
 
-import java.util.List;
 import java.util.UUID;
-import java.util.regex.Pattern;
 
 @SpringBootApplication
 @Log4j2
 @EnableCaching
 @EnableMongoRepositories
+@EnableAspectJAutoProxy
 public class Application {
     //@PersistenceContext
     //private EntityManager entityManager;

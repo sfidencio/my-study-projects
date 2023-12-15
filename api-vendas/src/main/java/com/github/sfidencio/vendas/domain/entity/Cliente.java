@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -30,6 +31,7 @@ public class Cliente implements Serializable {
     @Column(name = "NOME", nullable = false)
     @NotEmpty(message = "{cliente.nome.obrigatorio}")
     @NotNull(message = "{cliente.nome.obrigatorio}")
+    @Pattern(regexp= "^[A-Z][a-z\\s]+[.]$", message = "{cliente.nome.invalido}") //https://regex101.com/r/4jZCj1/1
     private String nome;
     @Column(name = "CPF", length = 11, nullable = false)
     @CPF(message = "{cliente.cpf.invalido}")
