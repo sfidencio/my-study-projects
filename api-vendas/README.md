@@ -4,6 +4,8 @@
 >[!IMPORTANT] 
 > Tarefas a serem implementadas (Tanto requisitos funcionais quanto requisitos não funcionais):
 > + [x] Implementar validação do nome do cliente usando Regex, apenas para exemplo.
+> + [ ] Explorar serialização e deserialização de Datas(LocalDateTime) e (Enums - Simples e Complexo)
+>   - [ ] https://www.baeldung.com/jackson-serialize-enums   
 > + [ ] Implementar alguns testes unitários utilizando JUnit 5. (O correto é tentar cobrir o máximo possível de cenários, mas como o foco é apenas estudo, vamos implementar apenas alguns testes unitários, para exemplificar).
 > + [x] Implementar exemplo de AOP (Aspect Oriented Programming), para exemplificar como `logar` os parametros de entrada e após o retorno de execução de um método, logico que isso é apenas um exemplo de uso.
 > + [ ] Implementar integração com ChatGPT3, para exemplificar como consumir uma API externa.
