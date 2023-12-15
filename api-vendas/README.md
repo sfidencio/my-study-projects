@@ -67,6 +67,7 @@
 - [Implementando Swagger](#implementando-swagger)
 - [Implementando MongoDB no projeto](#implementando-mongodb-no-projeto)
 - [Entendendo os padrões de regex](#entendendo-os-padrões-de-regex)
+- [Implementando AOP](#implementando-aop)
 
 
 > Este projeto aborda os seguintes tópicos:
