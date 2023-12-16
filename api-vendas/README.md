@@ -777,30 +777,24 @@ Estes são apenas alguns exemplos de padrões de regex. Expressões regulares po
 ```
 
 >Exemplo de implementação de Regex usando teste unitário - validando o ddd do telefone:
-> ```java
-/*
-*final var pattern = "^[0-9]{2}";
-*Aqui vamos utilizar grupo de captura para pegar o valor do ddd
-*final var pattern = "^\\(([0-9]{2})\\)";
-*
-* poderia ser assim tambem
-* final var pattern2 = "^(\\([\\d]{2}\\))";
-*
-* Entendendo os grupos de captura
-* final var pattern = "^(\\([\\d]{2}\\))[\\d]{5}-[\\d]{4}";
-* ^ - inicio da string
-* ( - inicio de um grupo de captura
-* \\( - aceita somente o caracter (
-* [\\d]{2} - aceita somente dois digitos
-* \\) - aceita somente o caracter )
-* ) - fim de um grupo de captura
-* [\\d]{5} - aceita somente cinco digitos
-* - - aceita somente o caracter -
-* [\\d]{4} - aceita somente quatro digitos
-* $ - fim da string
-*
-*/
+
+
+```java
 @Test
+/*
+ *Deveria permitir numero telefone cujo ddd possua dois digitos apenas
+ * ^ -> Inicio da expressão
+ * ( -> Inicio do grupo de captura
+ * \\( -> Caractere de escape para o parenteses
+ * [\\d]{2} -> Qualquer digito de 0 a 9, e o quantificador {2} que indica que o digito pode aparecer duas vezes
+ * \\) -> Caractere de escape para o parenteses
+ * ) -> Fim do grupo de captura
+ * 
+ * [\\d]{5} -> Qualquer digito de 0 a 9, e o quantificador {5} que indica que o digito pode aparecer cinco vezes
+ * - -> Caractere de escape para o hifen
+ * [\\d]{4} -> Qualquer digito de 0 a 9, e o quantificador {4} que indica que o digito pode aparecer quatro vezes
+ * $ -> Fim da expressão
+ */
 void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas() {
   final var pattern3 = "^(\\([\\d]{2}\\))[\\d]{5}-[\\d]{4}";
   final var matcher = Pattern.compile(pattern3);
@@ -809,7 +803,7 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas() {
 ```  
 
 
->[!TIP] 
+>[!TIP]
 > Exemplo de implementação de Regex:
 > + Verifique o arquivo RegexTest.java, na pasta test, na raiz do projeto.
 > + Verifique a classe Cliente.java, na pasta model, na raiz do projeto, especificamente no campo nome.
@@ -819,6 +813,7 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas() {
 ### Implementando AOP(Aspect Oriented Programming) no projeto:
 
 > Para implementar o AOP, basta adionarmos a dependencia abaixo no pom.xml:
+
 ```xml
         <!--AOP-->
         <dependency>
