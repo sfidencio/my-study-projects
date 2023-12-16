@@ -131,4 +131,33 @@ public class RegexTest {
         Assertions.assertFalse(patternObject.matcher("1X2Joao").matches());
     }
 
+    /*
+     *final var pattern = "^[0-9]{2}";
+     *Aqui vamos utilizar grupo de captura para pegar o valor do ddd
+     *final var pattern = "^\\(([0-9]{2})\\)";
+     *
+     * poderia ser assim tambem
+     * final var pattern2 = "^(\\([\\d]{2}\\))";
+     *
+     * Entendendo os grupos de captura
+     * final var pattern = "^(\\([\\d]{2}\\))[\\d]{5}-[\\d]{4}";
+     * ^ - inicio da string
+     * ( - inicio de um grupo de captura
+     * \\( - aceita somente o caracter (
+     * [\\d]{2} - aceita somente dois digitos
+     * \\) - aceita somente o caracter )
+     * ) - fim de um grupo de captura
+     * [\\d]{5} - aceita somente cinco digitos
+     * - - aceita somente o caracter -
+     * [\\d]{4} - aceita somente quatro digitos
+     * $ - fim da string
+     *
+     */
+    @Test
+    void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas() {
+        final var pattern3 = "^(\\([\\d]{2}\\))[\\d]{5}-[\\d]{4}";
+        final var matcher = Pattern.compile(pattern3);
+        Assertions.assertTrue(matcher.matcher("(011)99999-9999").matches());
+    }
+
 }
