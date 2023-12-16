@@ -780,7 +780,7 @@ Estes são apenas alguns exemplos de padrões de regex. Expressões regulares po
 
 
 ```java
-@Test
+
 /*
  *Deveria permitir numero telefone cujo ddd possua dois digitos apenas
  * ^ -> Inicio da expressão
@@ -795,6 +795,7 @@ Estes são apenas alguns exemplos de padrões de regex. Expressões regulares po
  * [\\d]{4} -> Qualquer digito de 0 a 9, e o quantificador {4} que indica que o digito pode aparecer quatro vezes
  * $ -> Fim da expressão
  */
+@Test
 void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas() {
   final var pattern3 = "^(\\([\\d]{2}\\))[\\d]{5}-[\\d]{4}";
   final var matcher = Pattern.compile(pattern3);
@@ -806,9 +807,17 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas() {
 >[!TIP]
 > Exemplo de implementação de Regex:
 > + Verifique o arquivo RegexTest.java, na pasta test, na raiz do projeto.
-> + Verifique a classe Cliente.java, na pasta model, na raiz do projeto, especificamente no campo nome.
+> + Verifique a classe Cliente.java, na pasta model, na raiz do projeto, especificamente no campo nome. Estamos utilizando anotação do pacote javax.validation.constraints, com a anotação @Pattern.
+
+>Exemplo
+> ```java
+> @Pattern(regexp = "^[A-Za-z\\s]+$", message = "Nome deve conter apenas letras")
+> private final String nome;
+> ```
 
 
+
+```java
 
 ### Implementando AOP(Aspect Oriented Programming) no projeto:
 
