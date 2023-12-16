@@ -799,6 +799,7 @@ Estes são apenas alguns exemplos de padrões de regex. Expressões regulares po
 void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas() {
   final var pattern3 = "^(\\([\\d]{2}\\))[\\d]{5}-[\\d]{4}";
   final var matcher = Pattern.compile(pattern3);
+  //Caso queria validar espaço entre o ddd e o numero do telefone, basta adicionar o \\s, conforme exemplo abaixo:
   Assertions.assertTrue(matcher.matcher("(011)99999-9999").matches());
 }
 ```  
