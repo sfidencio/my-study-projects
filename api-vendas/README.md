@@ -48,7 +48,7 @@
 > + https://howtodoinjava.com/spring-boot/junit-with-spring-boot/
 
 >[!TIP]
-> Executando junit5 sem springboot, basta adicionar a dependencia abaixo no pom.xml:
+> Executando `junit 5` sem springboot, basta adicionar a dependencia abaixo no pom.xml:
 > ```xml
 > <dependency>
 >   <groupId>org.junit.jupiter</groupId>
