@@ -11,6 +11,7 @@
 > + [x] Implementar integração com API de CEP, para exemplificar como consumir uma API externa.
 > + [x] Implementando Scheduler com Spring, para exemplificar como agendar tarefas.
 >   + Procure pela classe `CancelaPedidoOldScheduler.java` para entender como implementamos o Scheduler.
+> + [ ] Explorar melhor o nivel de maturidade com uso do `spring-boot-starter-hateoas`. No final deste guia temos um excelente artigo sobre o assunto.
 
 > Informações Gerais
 
