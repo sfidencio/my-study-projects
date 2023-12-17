@@ -72,8 +72,7 @@
 - [Entendendo os padrões de regex](#entendendo-os-padrões-de-regex)
 - [Implementando AOP(Aspect Oriented Programming) no projeto](#implementando-aopaspect-oriented-programming-no-projeto)
 - [Explorando o uso do data type BigDecimal](#explorando-o-uso-do-data-type-bigdecimal)
-- [Explorando o uso do RestTemplate para consumir API externa de CEP](#explorando-o-uso-do-resttemplate-para-consumir-api-externa-de-cep)
-
+- [Explorando o uso do RestTemplate para consumir API externa](#explorando-o-uso-do-resttemplate-para-consumir-api-externa)
 
 > Este projeto aborda os seguintes tópicos:
 >    - Requisitos (MVP)
@@ -828,8 +827,9 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espa
 > + Exemplo de implementação de BigDecimal via teste unitário:
 > + Verifique o arquivo ExplorandoBigDecimal.java, na pasta test, na raiz do projeto.
 
-### Explorando o uso do RestTemplate para consumo de API externa - Consulta CEP:
+### Explorando o uso do RestTemplate para consumo de API externa:
 > + https://www.baeldung.com/rest-template
+> + Consultando CEP via API externa:
 
 >[!IMPORTANT]
 > + Implementado no projeto, basta analisar as classes/interfaces CEP.java, CEPService.java, CEPController.java, CEPControllerImp.java.
