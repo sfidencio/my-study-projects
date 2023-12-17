@@ -826,7 +826,6 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espa
 > + https://www.baeldung.com/java-bigdecimal-biginteger
 > + https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html
 
-> + Exemplo de implementação de BigDecimal via teste unitário:
 > + Verifique o arquivo ExplorandoBigDecimal.java, na pasta test, na raiz do projeto.
 
 ### Explorando RestTemplate:
