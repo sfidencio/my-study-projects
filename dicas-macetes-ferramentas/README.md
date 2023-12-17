@@ -10,6 +10,9 @@
     - https://www.jetbrains.com/guide/go/tips/select-all-occurrences-in-a-file/#:~:text=Do%20you%20want%20to%20select,were%20all%20the%20same%20one.
         - selecionar todas as ocorrencias de uma palavra: `ctrl + shift + alt + j`
 
+- Dicas de como designar um tipo ENUM para deserializar uma string vazia
+  - [Dicas de como designar um tipo ENUM para deserializar uma string vazia](#dicas-de-como-designar-um-tipo-enum-para-deserializar-uma-string-vazia)
+
 # Dicas IntelliJ - Manipulação de arquivos json por exemplo
 
 >Pressupomos que precisamos extrair apenas o campo "id" do arquivo abaixo, com ajuda da IDE + Regex podemos fazer isso facilmente:
@@ -63,3 +66,64 @@
 >   ```
 >   Pronto, agora é só copiar e colar onde precisar.
 
+### Dicas de como designar um tipo ENUM para deserializar uma string vazia (Spring Boot)
+> 1. Primeiro crie um tipo ENUM com um atributo do tipo String, e um construtor que recebe esse atributo, exemplo:
+> ```java
+>     public enum TipoEnum {
+>       TIPO_1("tipo_1"),
+>       EMPTY("");   
+>    
+>       private String tipo;
+>   
+>       TipoEnum(String tipo) {
+>       this.tipo = tipo;
+>       }
+>    
+>       public String getTipo() {
+>       return tipo;
+>       }
+>     }
+>       ```
+
+>2. Agora crie um deserializer para esse tipo ENUM, que espera uma string vazia da response, exemplo:
+> ```java
+>    public class TipoEnumDeserializer extends JsonDeserializer<TipoEnum> {
+> 
+>      @Override
+>     public TipoEnum deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
+>        String tipo = jsonParser.getValueAsString();
+>       if (StringUtils.isEmpty(tipo)) {
+>        return TipoEnum.EMPTY;
+>      }
+>     return TipoEnum.valueOf(tipo);
+>    }
+> }
+> ```
+
+>3. Agora vamos registrar esse deserializer ObjectMapper para ser injetado no contexto, exemplo:
+>4. ```java
+>   @Bean
+>   public ObjectMapper objectMapper() {
+>   ObjectMapper objectMapper = new ObjectMapper();
+>   SimpleModule module = new SimpleModule();
+>   module.addDeserializer(TipoEnum.class, new TipoEnumDeserializer());
+>   objectMapper.registerModule(module);
+>   return objectMapper;
+>   }
+>   ```
+
+>5. Pronto, agora é só usar o tipo ENUM no seu DTO, exemplo:
+>6. ```java
+>   public class MyDTO {
+>   @JsonDeserialize(using = TipoEnumDeserializer.class)
+>   private TipoEnum tipo;
+>   }
+>   ```
+
+>   E o tipo ENUM será deserializado corretamente, mesmo que a response venha com uma string vazia.
+>7. Exemplo de response:
+>8. ```json
+>   {
+>   "tipo": ""
+>   }
+>   ```
