@@ -18,4 +18,5 @@ public class CEPControllerImp implements CEPController {
     public CEP consultar(@PathVariable String cep) {
         return this.cepService.buscar(cep);
     }
+
 }

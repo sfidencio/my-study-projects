@@ -3,7 +3,7 @@ package com.github.sfidencio.vendas;
 import com.github.sfidencio.vendas.infra.repository.ClienteRepository;
 import com.github.sfidencio.vendas.infra.repository.PedidoRepository;
 import com.github.sfidencio.vendas.infra.repository.ProdutoRepository;
-import com.github.sfidencio.vendas.infra.repository.integration.ClienteVIPRespository;
+import com.github.sfidencio.vendas.infra.repository.ClienteVIPRespository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

@@ -888,6 +888,88 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espa
 
  ```   
 
+### Implementando testes unitários com `Junit 5` , `Mockito` e `MockMvc`:
+> + https://howtodoinjava.com/spring-boot2/testing/spring-boot-mockito-junit-example/
+> + https://www.baeldung.com/mockito-junit-5-extension
+
+
+> Dependências SpringBoot3 + Junit5 + Mockito + MockMvc:
+```xml
+        <!--SpringBoot3 + Junit5 + Mockito + MockMvc-->
+<!--Dependency tests in spring-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+ 
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.8.1</version>
+      <scope>test</scope>
+    </dependency>
+```
+
+> Exemplo de teste unitário com `mockito` e `junit5` sem subir o contexto do spring:
+```java
+@ExtendWith(MockitoExtension.class)
+class ClienteControllerImpTest {
+    @Mock
+    private ClienteService clienteService;
+    @InjectMocks
+    private ClienteControllerImp clienteControllerImp;
+    @Test
+    void deveria_cadastrar_cliente() {
+        final var clienteRequest = new ClienteRequest("Fulano", "71509956085", "fulano@gmail.com");
+        final var clienteResponse = new ClienteResponse(1L, "Fulano", "71509956085", "fulano@gmail.com");
+        when(clienteService.cadastrarCliente(any(ClienteRequest.class))).thenReturn(clienteResponse);
+        final var response = clienteControllerImp.cadastrarCliente(clienteRequest);
+        assertEquals(clienteResponse, response);
+    }
+}
+```
+
+> Exemplo de teste unitário com `mockito` e `junit5` subindo o contexto do spring:
+
+>[!TIP]
+> A anotação `@SpringBootTest` é responsavel por subir o contexto do spring, ou seja, subir a aplicação, e a anotação `@MockBean` é responsavel por criar um mock do bean, ou seja, criar um mock do serviço, pois não queremos testar o serviço, mas sim o controller, logo, precisamos criar um mock do serviço, para que o controller possa ser testado de forma isolada. Com uso dessa anotação, ele já encapsula o `@ExtendWith(MockitoExtension.class)`, ou seja, não precisamos mais usar o `@ExtendWith(MockitoExtension.class)`, pois o `@SpringBootTest` já encapsula o `@ExtendWith(SpringExtension.class)`.
+
+>[!TIP]
+> É possivel também mockar beans do spring, ou seja, criar mocks de beans do spring, para isso, basta usar a anotação `@MockBean`, conforme exemplo abaixo:
+```java
+@MockBean
+private ClienteService clienteService;
+```
+>[!TIP]
+> Subindo teste sem o spring, ou seja, sem subir o contexto do spring:
+```java
+@ExtendWith(MockitoExtension.class)
+class ClienteControllerImpTest {
+    @Mock
+    private ClienteService clienteService;
+    @InjectMocks
+    private ClienteControllerImp clienteControllerImp;
+    @Test
+    void deveria_cadastrar_cliente() {
+        final var clienteRequest = new ClienteRequest("Fulano", "71509956085", "fulano@gmail.com");
+        final var clienteResponse = new ClienteResponse(1L, "Fulano", "71509956085", "fulano@gmail.com");
+        when(clienteService.cadastrarCliente(any(ClienteRequest.class))).thenReturn(clienteResponse); 
+        final var response = clienteControllerImp.cadastrarCliente(clienteRequest);
+        assertEquals(clienteResponse, response);
+    }
+}
+```
+
+        
+
 
 ### Referências gerais do projeto
 
