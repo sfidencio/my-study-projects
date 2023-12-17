@@ -81,7 +81,7 @@
 > 1. Primeiro crie um tipo ENUM com um atributo do tipo String, e um construtor que recebe esse atributo, exemplo:
 
 ```java
-     public enum TipoEnum {
+ public enum TipoEnum {
     TIPO_1("tipo_1"),
     EMPTY("");
 
