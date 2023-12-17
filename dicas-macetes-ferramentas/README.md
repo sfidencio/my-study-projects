@@ -43,13 +43,13 @@
 > Com arquivo acima aberto na IDE podemos fazer o seguinte:
 > - selecione com mouse o campo "id" de um dos objetos, da seguinte forma:
     >
-- ![img_1.png](img_1.png)
+- ![img_1.png](img/img_1.png)
 >   - O segredo é, tem que ter um padrão, e esse padrão tem que se repetir em todos os objetos, no caso acima o padrão
       é: `"id".
 >   - Caso esse padrão não se repita, não tem como fazer isso, pois a IDE não vai conseguir identificar o padrão.
 > - pressione `ctrl + shift + alt + j` para selecionar todas as ocorrencias de "id"
 > - Deve ficar da seguinte forma a seleção:
-> - ![img_2.png](img_2.png)
+> - ![img_2.png](img/img_2.png)
 > - Macete:
     >
 - Uma vez que o padrão de seleção foi identificado, então com `shift` pressionado, continue a seleção usando as setas do
