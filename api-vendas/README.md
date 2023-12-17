@@ -71,7 +71,7 @@
 - [Implementando MongoDB no projeto](#implementando-mongodb-no-projeto)
 - [Entendendo os padrões de regex](#entendendo-os-padrões-de-regex)
 - [Explorando o uso do dataType BigDecimal](#explorando-o-uso-do-datatype-bigdecimal)
-- [Explorando o uso do ResTemplate paa consumo de API externa](#explorando-o-uso-do-restemplate-paa-consumo-de-api-externa)
+- [Explorando RestTemplate](#explorando-resttemplate)
 - [Implementando AOP](#implementando-aop)
 
 > Este projeto aborda os seguintes tópicos:
@@ -829,7 +829,7 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espa
 > + Exemplo de implementação de BigDecimal via teste unitário:
 > + Verifique o arquivo ExplorandoBigDecimal.java, na pasta test, na raiz do projeto.
 
-### Explorando o uso do RestTemplate para consumo de API externa:
+### Explorando RestTemplate:
 > + https://www.baeldung.com/rest-template
 > + Consultando CEP via API externa:
 
