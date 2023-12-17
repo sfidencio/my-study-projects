@@ -3,6 +3,7 @@ package com.github.sfidencio.vendas.api.controller.imp;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegexTest {
@@ -155,9 +156,28 @@ public class RegexTest {
      */
     @Test
     void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas() {
-        final var pattern3 = "^(\\([\\d]{2}\\))[\\d]{5}-[\\d]{4}";
-        final var matcher = Pattern.compile(pattern3);
-        Assertions.assertTrue(matcher.matcher("(011)99999-9999").matches());
+        String pattern3 = "^(\\([\\d]{2}\\))[\\d]{5}-[\\d]{4}";
+        Pattern pattern = Pattern.compile(pattern3);
+        Matcher patternMatcher = pattern.matcher("(11)99999-9999");
+        //Verifica se o padrao foi encontrado -> aqui passa
+        Assertions.assertTrue(patternMatcher.find());
+        //Verifica o unico grupo de captura -->  aqui falha.
+        // porque esperamos 011, e para esse grupo estamos pegando (11), pois e 2 digitos apenas
+        //Experimente trocar no `expected` abaixo que esta (011) para (11) e veja que o teste passa
+        Assertions.assertEquals("(11)", patternMatcher.group(1));
     }
 
+    @Test
+    void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espaco_entre_ddd_e_telefone() {
+        //Caso queria validar espaço entre o ddd e o numero do telefone, basta adicionar o \\s, conforme exemplo abaixo:
+        final var pattern3 = "^(\\([\\d]{2}\\)[\\s]{1})[\\d]{5}-[\\d]{4}";
+        final var matcher = Pattern.compile(pattern3);
+        final var numero = "(11) 99999-9999";
+        final var patternMatcher = matcher.matcher(numero);
+        //Encontra o padrao
+        Assertions.assertTrue(patternMatcher.find());
+        Assertions.assertTrue(patternMatcher.matches());
+        //Verifica o unico grupo de captura
+        Assertions.assertTrue(patternMatcher.group(1).equals("(11) "));
+    }
 }

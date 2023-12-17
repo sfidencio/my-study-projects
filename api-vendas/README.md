@@ -4,12 +4,12 @@
 >[!IMPORTANT] 
 > Tarefas a serem implementadas (Tanto requisitos funcionais quanto requisitos não funcionais):
 > + [x] Implementar validação do nome do cliente usando Regex, apenas para exemplo.
-> + [ ] Explorar serialização e deserialização de Datas(LocalDateTime) e (Enums - Simples e Complexo)
->   - [ ] https://www.baeldung.com/jackson-serialize-enums   
+> + [x] Implementar o estudo do dataType BigDecimal, para exemplificar como usar.
 > + [ ] Implementar alguns testes unitários utilizando JUnit 5. (O correto é tentar cobrir o máximo possível de cenários, mas como o foco é apenas estudo, vamos implementar apenas alguns testes unitários, para exemplificar).
 > + [x] Implementar exemplo de AOP (Aspect Oriented Programming), para exemplificar como `logar` os parametros de entrada e após o retorno de execução de um método, logico que isso é apenas um exemplo de uso.
 > + [ ] Implementar integração com ChatGPT3, para exemplificar como consumir uma API externa.
 > + [ ] Implementar integração com API de CEP, para exemplificar como consumir uma API externa.
+> + [ ] Implementando Scheduler com Spring, para exemplificar como agendar tarefas.
 
 > Informações Gerais
 
@@ -70,6 +70,7 @@
 - [Implementando MongoDB no projeto](#implementando-mongodb-no-projeto)
 - [Entendendo os padrões de regex](#entendendo-os-padrões-de-regex)
 - [Implementando AOP(Aspect Oriented Programming) no projeto](#implementando-aopaspect-oriented-programming-no-projeto)
+- [Explorando o uso do data type BigDecimal](#explorando-o-uso-do-data-type-bigdecimal)
 
 
 > Este projeto aborda os seguintes tópicos:
@@ -788,6 +789,7 @@ Estes são apenas alguns exemplos de padrões de regex. Expressões regulares po
  * \\( -> Caractere de escape para o parenteses
  * [\\d]{2} -> Qualquer digito de 0 a 9, e o quantificador {2} que indica que o digito pode aparecer duas vezes
  * \\) -> Caractere de escape para o parenteses
+ * \\s -> Caractere de escape para o espaço
  * ) -> Fim do grupo de captura
  * 
  * [\\d]{5} -> Qualquer digito de 0 a 9, e o quantificador {5} que indica que o digito pode aparecer cinco vezes
@@ -796,17 +798,17 @@ Estes são apenas alguns exemplos de padrões de regex. Expressões regulares po
  * $ -> Fim da expressão
  */
 @Test
-void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas() {
-  final var pattern3 = "^(\\([\\d]{2}\\))[\\d]{5}-[\\d]{4}";
+void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espaco_entre_ddd_e_telefone() {
+  final var pattern3 = "^(\\([\\d]{2}\\)\\s)[\\d]{5}-[\\d]{4}";
   final var matcher = Pattern.compile(pattern3);
   //Caso queria validar espaço entre o ddd e o numero do telefone, basta adicionar o \\s, conforme exemplo abaixo:
-  Assertions.assertTrue(matcher.matcher("(011)99999-9999").matches());
+  Assertions.assertTrue(matcher.matcher("(11) 99999-9999").matches());
 }
 ```  
 
 
 >[!TIP]
-> Exemplo de implementação de Regex:
+> Exemplo de implementação de Regex via teste unitário:
 > + Verifique o arquivo RegexTest.java, na pasta test, na raiz do projeto.
 > + Verifique a classe Cliente.java, na pasta model, na raiz do projeto, especificamente no campo nome. Estamos utilizando anotação do pacote javax.validation.constraints, com a anotação @Pattern.
 
@@ -815,6 +817,14 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas() {
 > @Pattern(regexp = "^[A-Za-z\\s]+$", message = "Nome deve conter apenas letras")
 > private final String nome;
 > ```
+
+
+### Explorando o uso do dataType BigDecimal:
+> + https://www.baeldung.com/java-bigdecimal-biginteger
+> + https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html
+
+> + Exemplo de implementação de BigDecimal via teste unitário:
+> + Verifique o arquivo ExplorandoBigDecimal.java, na pasta test, na raiz do projeto.
 
 
 
