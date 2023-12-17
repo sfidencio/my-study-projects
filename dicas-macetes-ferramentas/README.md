@@ -7,8 +7,7 @@
     - https://github.com/joshnh/Git-Commands
 - Dicas IntelliJ
     - https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html
-    - https://www.jetbrains.com/guide/go/tips/select-all-occurrences-in-a-file/#:~:text=Do%20you%20want%20to%20select,were%20all%20the%20same%20one.
-        - selecionar todas as ocorrencias de uma palavra: `ctrl + shift + alt + j`
+    - Selecionar todas as ocorrencias de uma palavra: `ctrl + shift + alt + j`
 
 - Dicas Java e Frameworks:
   - [Dicas de como designar um tipo ENUM para deserializar uma string vazia](#dicas-de-como-designar-um-tipo-enum-para-deserializar-uma-string-vazia)
