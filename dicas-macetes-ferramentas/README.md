@@ -139,9 +139,6 @@ public class JacksonConfig {
 ```
 
 > 6. E o tipo ENUM será deserializado corretamente, mesmo que a response venha com uma string vazia.
-
-> 7.Exemplo de response:
-
 ```json
 {
   "tipo": ""
