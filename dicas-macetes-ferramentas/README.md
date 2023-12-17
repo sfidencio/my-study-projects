@@ -10,7 +10,7 @@
     - https://www.jetbrains.com/guide/go/tips/select-all-occurrences-in-a-file/#:~:text=Do%20you%20want%20to%20select,were%20all%20the%20same%20one.
         - selecionar todas as ocorrencias de uma palavra: `ctrl + shift + alt + j`
 
-- Dicas de como designar um tipo ENUM para deserializar uma string vazia
+- Dicas Java e Frameworks:
   - [Dicas de como designar um tipo ENUM para deserializar uma string vazia](#dicas-de-como-designar-um-tipo-enum-para-deserializar-uma-string-vazia)
 
 # Dicas IntelliJ - Manipulação de arquivos json por exemplo
