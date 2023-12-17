@@ -63,7 +63,6 @@
 - [Guia explicativo de como executar o projeto localmente](#guia-explicativo-de-como-executar-o-projeto-localmente)
 - [Guia explicativo de como dockerizar o projeto em seguinda executá-lo localmente sem o docker-compose](#guia-explicativo-de-como-dockerizar-o-projeto-em-seguinda-executa-lo-localmente-sem-o-docker-compose)
 - [Guia explicando como dockerizar o projeto em seguinda executá-lo localmente com o docker-compose](#guia-explicando-como-dockerizar-o-projeto-em-seguinda-executa-lo-localmente-com-o-docker-compose)
-- [Referências](#referências)
 - [Spring com Redis](#spring-com-redis)
 - [Configurando Banner do Spring](#configurando-banner-do-spring)
 - [Implementando Multi-Stage Build no Docker](#implementando-multi-stage-build-no-docker)
@@ -73,6 +72,7 @@
 - [Explorando o uso do dataType BigDecimal](#explorando-o-uso-do-datatype-bigdecimal)
 - [Explorando RestTemplate](#explorando-resttemplate)
 - [Implementando AOP](#implementando-aop)
+- [Referencias gerais do projeto](#referencias-gerais-do-projeto)
 
 > Este projeto aborda os seguintes tópicos:
 >    - Requisitos (MVP)
@@ -888,9 +888,10 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espa
  ```   
 
 
+### Referências gerais do projeto
 
 >[!IMPORTANT]
->Referências utilizadas em todo o projeto:
+Referências utilizadas em todo o projeto:
 
 >Tutoriais e cursos gratuitos: 
 >+ https://tpbabparn.medium.com/spring-boot-3-1-integrated-docker-compose-on-development-environment-spring-webflux-example-1ddcbfe052f
