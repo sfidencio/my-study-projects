@@ -70,9 +70,9 @@
 - [Implementando Swagger](#implementando-swagger)
 - [Implementando MongoDB no projeto](#implementando-mongodb-no-projeto)
 - [Entendendo os padrões de regex](#entendendo-os-padrões-de-regex)
-- [Implementando AOP(Aspect Oriented Programming) no projeto](#implementando-aopaspect-oriented-programming-no-projeto)
-- [Explorando o uso do data type BigDecimal](#explorando-o-uso-do-data-type-bigdecimal)
-- [Explorando o uso do RestTemplate para consumir API externa](#explorando-o-uso-do-resttemplate-para-consumir-api-externa)
+- [Explorando o uso do dataType BigDecimal](#explorando-o-uso-do-datatype-bigdecimal)
+- [Explorando o uso do ResTemplate paa consumo de API externa](#explorando-o-uso-do-restemplate-paa-consumo-de-api-externa)
+- [Implementando AOP (Aspect Oriented Programming) no projeto](#implementando-aop-aspect-oriented-programming-no-projeto)
 
 > Este projeto aborda os seguintes tópicos:
 >    - Requisitos (MVP)
@@ -852,11 +852,6 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espa
  }
 ```
 
-
-
-
-
-```java
 
 ### Implementando AOP(Aspect Oriented Programming) no projeto:
 
