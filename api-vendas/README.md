@@ -72,7 +72,7 @@
 - [Explorando o uso do dataType BigDecimal](#explorando-o-uso-do-datatype-bigdecimal)
 - [Explorando RestTemplate](#explorando-resttemplate)
 - [Implementando AOP](#implementando-aop)
-- [Referencias gerais do projeto](#referencias-gerais-do-projeto)
+- [Referências gerais do projeto](#referências-gerais-do-projeto)
 
 > Este projeto aborda os seguintes tópicos:
 >    - Requisitos (MVP)
