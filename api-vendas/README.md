@@ -721,7 +721,9 @@ public CommandLineRunner executarTesteMongoDB(@Autowired ClienteVIPRespository c
 
 >Para excluir registros via repositorio, basta usar o metodo deleteById, conforme exemplo abaixo:
 ```java
-clienteVIPRespository.deleteById("id");
+public void excluirClienteVIP(String id) {
+    clienteVIPRespository.deleteById("id");
+}
 ```
 >[!TIP]
 > Temos um exemplo de utilização do mongodb com springboot, agora caso queira implementar as demais funcionalidades de exclusão, atualização e consulta, basta seguir o exemplo acima, e consultar a documentação do spring data mongodb, os links descritos no final deste documento.
