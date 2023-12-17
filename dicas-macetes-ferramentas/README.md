@@ -10,8 +10,8 @@
     - Selecionar todas as ocorrencias de uma palavra: `ctrl + shift + alt + j`
 
 - Dicas Java e Frameworks:
-  - [Dicas de como designar um tipo ENUM para deserializar uma string vazia](#dicas-de-como-designar-um-tipo-enum-para-deserializar-uma-string-vazia)
-
+  - [Dicas de como designar um tipo ENUM para deserializar uma string vazia (Spring Boot)](#dicas-de-como-designar-um-tipo-enum-para-deserializar-uma-string-vazia-spring-boot)
+  
 # Dicas IntelliJ - Manipulação de arquivos json por exemplo
 
 >Pressupomos que precisamos extrair apenas o campo "id" do arquivo abaixo, com ajuda da IDE + Regex podemos fazer isso facilmente:
