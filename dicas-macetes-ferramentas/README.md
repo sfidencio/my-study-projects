@@ -100,7 +100,8 @@
 > 2. Agora crie um deserializer para esse tipo ENUM, que espera uma string vazia da response, exemplo:
 
 ```java
-    public class TipoEnumDeserializer extends JsonDeserializer<TipoEnum> {
+@Component
+public class TipoEnumDeserializer extends JsonDeserializer<TipoEnum> {
     @Override
     public TipoEnum deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
         String tipo = jsonParser.getValueAsString();
@@ -115,14 +116,16 @@
 > 3. Agora vamos registrar esse deserializer ObjectMapper para ser injetado no contexto, exemplo:
 
 ```java
-
-@Bean
-public ObjectMapper objectMapper() {
-    ObjectMapper objectMapper = new ObjectMapper();
-    SimpleModule module = new SimpleModule();
-    module.addDeserializer(TipoEnum.class, new TipoEnumDeserializer());
-    objectMapper.registerModule(module);
-    return objectMapper;
+@Configuration
+public class JacksonConfig {
+    @Bean
+    public ObjectMapper objectMapper() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        SimpleModule module = new SimpleModule();
+        module.addDeserializer(TipoEnum.class, new TipoEnumDeserializer());
+        objectMapper.registerModule(module);
+        return objectMapper;
+    }
 }
 ```
 
