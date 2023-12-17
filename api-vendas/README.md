@@ -72,6 +72,7 @@
 - [Entendendo os padrões de regex](#entendendo-os-padrões-de-regex)
 - [Implementando AOP(Aspect Oriented Programming) no projeto](#implementando-aopaspect-oriented-programming-no-projeto)
 - [Explorando o uso do data type BigDecimal](#explorando-o-uso-do-data-type-bigdecimal)
+- [Explorando o uso do RestTemplate para consumir API externa de CEP](#explorando-o-uso-do-resttemplate-para-consumir-api-externa-de-cep)
 
 
 > Este projeto aborda os seguintes tópicos:
@@ -830,12 +831,12 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espa
 ### Explorando o uso do RestTemplate para consumo de API externa - Consulta CEP:
 > + https://www.baeldung.com/rest-template
 
-[!IMPORTANT]
+>[!IMPORTANT]
 > + Implementado no projeto, basta analisar as classes/interfaces CEP.java, CEPService.java, CEPController.java, CEPControllerImp.java.
 
 > + A url de acionamento do endpoint é: http://localhost:8080/base/v1/api/cep/consulta/{cep}, onde {cep} é o cep que desejamos consultar.
-
 > + Vai retornar algo do tipo
+
 ```json
 {
    "cep": "01001-000",
