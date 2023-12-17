@@ -143,7 +143,7 @@ public class JacksonConfig {
 > 7.Exemplo de response:
 
 ```json
-   {
+{
   "tipo": ""
 }
 ```
