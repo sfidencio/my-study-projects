@@ -834,7 +834,7 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espa
 > + Consultando CEP via API externa:
 
 >[!IMPORTANT]
-> + Implementado no projeto, basta analisar as classes/interfaces CEP.java, CEPService.java, CEPController.java, CEPControllerImp.java.
+> + Basta analisar as classes/interfaces CEP.java, CEPService.java, CEPController.java, CEPControllerImp.java.
 
 > + A url de acionamento do endpoint é: http://localhost:8080/base/v1/api/cep/consulta/{cep}, onde {cep} é o cep que desejamos consultar.
 > + Vai retornar algo do tipo
