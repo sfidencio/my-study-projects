@@ -9,9 +9,9 @@
 > + [x] Implementar exemplo de AOP (Aspect Oriented Programming), para exemplificar como `logar` os parametros de entrada e após o retorno de execução de um método, logico que isso é apenas um exemplo de uso.
 > + [ ] Implementar integração com ChatGPT3, para exemplificar como consumir uma API externa.
 > + [x] Implementar integração com API de CEP, para exemplificar como consumir uma API externa.
-> + [x] Implementando Scheduler com Spring, para exemplificar como agendar tarefas.
+> + [x] Implementar Scheduler com Spring, para exemplificar como agendar tarefas.
 >   + Procure pela classe `CancelaPedidoOldScheduler.java` para entender como implementamos o Scheduler.
-> + [ ] Apesar de ja termos implementando, vale explorar melhor o nivel de maturidade com uso do `spring-boot-starter-hateoas`. No final deste guia temos um excelente artigo sobre o assunto.
+> + [ ] Implementar - apesar de ja termos implementando, vale explorar melhor o nivel de maturidade com uso do `spring-boot-starter-hateoas`. No final deste guia temos um excelente artigo sobre o assunto.
 
 > Informações Gerais
 
