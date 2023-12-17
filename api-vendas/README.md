@@ -72,7 +72,7 @@
 - [Entendendo os padrões de regex](#entendendo-os-padrões-de-regex)
 - [Explorando o uso do dataType BigDecimal](#explorando-o-uso-do-datatype-bigdecimal)
 - [Explorando o uso do ResTemplate paa consumo de API externa](#explorando-o-uso-do-restemplate-paa-consumo-de-api-externa)
-- [Implementando AOP (Aspect Oriented Programming) no projeto](#implementando-aop-aspect-oriented-programming-no-projeto)
+- [Implementando AOP](#implementando-aop)
 
 > Este projeto aborda os seguintes tópicos:
 >    - Requisitos (MVP)
@@ -855,7 +855,7 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espa
 ```
 
 
-### Implementando AOP(Aspect Oriented Programming) no projeto:
+### Implementando AOP:
 
 > Para implementar o AOP, basta adionarmos a dependencia abaixo no pom.xml:
 
