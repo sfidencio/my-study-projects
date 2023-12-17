@@ -2,7 +2,7 @@
 # api-vendas
 
 >[!IMPORTANT] 
-> Tarefas a serem implementadas (Tanto requisitos funcionais quanto requisitos não funcionais):
+> TODO List -  (non-functional requirements and functional requirements)
 > + [x] Implementar validação do nome do cliente usando Regex, apenas para exemplo.
 > + [x] Implementar o estudo do dataType BigDecimal, para exemplificar como usar.
 > + [ ] Implementar alguns testes unitários utilizando JUnit 5. (O correto é tentar cobrir o máximo possível de cenários, mas como o foco é apenas estudo, vamos implementar apenas alguns testes unitários, para exemplificar).
