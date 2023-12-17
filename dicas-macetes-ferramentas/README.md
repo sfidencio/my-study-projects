@@ -129,7 +129,7 @@ public class JacksonConfig {
 }
 ```
 
-> 5. Pronto, agora é só usar o tipo ENUM no seu DTO, exemplo:
+> 5. Pronto, agora é só usar o tipo ENUM no seu DTO que vai ser feito "binding" na `response`, exemplo:
 
 ```java
    public class MyDTO {
