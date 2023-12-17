@@ -8,8 +8,9 @@
 > + [ ] Implementar alguns testes unitários utilizando JUnit 5. (O correto é tentar cobrir o máximo possível de cenários, mas como o foco é apenas estudo, vamos implementar apenas alguns testes unitários, para exemplificar).
 > + [x] Implementar exemplo de AOP (Aspect Oriented Programming), para exemplificar como `logar` os parametros de entrada e após o retorno de execução de um método, logico que isso é apenas um exemplo de uso.
 > + [ ] Implementar integração com ChatGPT3, para exemplificar como consumir uma API externa.
-> + [ ] Implementar integração com API de CEP, para exemplificar como consumir uma API externa.
-> + [ ] Implementando Scheduler com Spring, para exemplificar como agendar tarefas.
+> + [x] Implementar integração com API de CEP, para exemplificar como consumir uma API externa.
+> + [x] Implementando Scheduler com Spring, para exemplificar como agendar tarefas.
+>   + Procure pela classe `CancelaPedidoOldScheduler.java` para entender como implementamos o Scheduler.
 
 > Informações Gerais
 
@@ -825,6 +826,32 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espa
 
 > + Exemplo de implementação de BigDecimal via teste unitário:
 > + Verifique o arquivo ExplorandoBigDecimal.java, na pasta test, na raiz do projeto.
+
+### Explorando o uso do RestTemplate para consumo de API externa - Consulta CEP:
+> + https://www.baeldung.com/rest-template
+
+[!IMPORTANT]
+> + Implementado no projeto, basta analisar as classes/interfaces CEP.java, CEPService.java, CEPController.java, CEPControllerImp.java.
+
+> + A url de acionamento do endpoint é: http://localhost:8080/base/v1/api/cep/consulta/{cep}, onde {cep} é o cep que desejamos consultar.
+
+> + Vai retornar algo do tipo
+```json
+{
+   "cep": "01001-000",
+   "logradouro": "Praça da Sé",
+   "complemento": "lado ímpar",
+   "bairro": "Sé",
+   "localidade": "São Paulo",
+   "uf": "SP",
+   "ibge": "3550308",
+   "gia": "1004",
+   "ddd": "11",
+   "siafi": "7107"
+ }
+```
+
+
 
 
 

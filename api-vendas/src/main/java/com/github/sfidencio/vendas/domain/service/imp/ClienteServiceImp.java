@@ -3,7 +3,7 @@ package com.github.sfidencio.vendas.domain.service.imp;
 import com.github.sfidencio.vendas.api.dto.ClienteRequest;
 import com.github.sfidencio.vendas.api.dto.ClienteResponse;
 import com.github.sfidencio.vendas.domain.entity.Cliente;
-import com.github.sfidencio.vendas.domain.integration.ClienteVIP;
+import com.github.sfidencio.vendas.domain.entity.mongodb.ClienteVIP;
 import com.github.sfidencio.vendas.domain.service.ClienteService;
 import com.github.sfidencio.vendas.infra.config.exceptions.NotFoundException;
 import com.github.sfidencio.vendas.infra.repository.ClienteRepository;

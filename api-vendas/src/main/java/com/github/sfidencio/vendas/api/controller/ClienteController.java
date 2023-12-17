@@ -2,7 +2,7 @@ package com.github.sfidencio.vendas.api.controller;
 
 import com.github.sfidencio.vendas.api.dto.ClienteRequest;
 import com.github.sfidencio.vendas.api.dto.ClienteResponse;
-import com.github.sfidencio.vendas.domain.integration.ClienteVIP;
+import com.github.sfidencio.vendas.domain.entity.mongodb.ClienteVIP;
 import com.github.sfidencio.vendas.infra.config.exceptions.NotFoundException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
