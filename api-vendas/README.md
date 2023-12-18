@@ -877,6 +877,7 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espa
 + Observe atentamente as expressões regulares, pois elas são responsaveis por definir o ponto de corte, ou seja, o ponto onde o AOP irá interceptar as chamadas aos endpoints.
 + Dicas e macetes sobre AOP:
   + https://www.amitph.com/spring-aop-before-advice/
+  + https://www.naiyerasif.com/post/2020/09/13/logging-methods-with-aspectj-in-a-spring-application/
 
 > [!WARNING]
 > Lembre-se que o AOP intercepta não só metódos de endpoints, mas também metódos de classes de serviços, ou seja, qualquer metódo que seja publico e que esteja anotado com `@Pointcut`, será interceptado pelo AOP. Em nossos exemplos não utilizamos a anotação `@Pointcut`, mas é possivel utiliza-la, e definir o ponto de corte, ou seja, o ponto onde o AOP irá interceptar as chamadas aos endpoints. Preferimos utilizar expressões regulares, e não poluir as classes com anotações do AOP.
