@@ -8,13 +8,17 @@ import com.github.sfidencio.vendas.infra.repository.ClienteRepository;
 import com.github.sfidencio.vendas.infra.repository.ClienteVIPRespository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Optional;
+
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
@@ -34,8 +38,17 @@ class ClienteServiceImpTest {
     }
 
     @Test
-    void testFindCliente() throws NotFoundException {
-        when(this.clienteRepository.findById(any(Integer.class))).thenReturn(java.util.Optional.of(new Cliente(1, "Fulano", "12345678901", "fulano@gmail.com", null)));
+    @Order(1)
+    void deveria_cadastrar_cliente_com_sucesso() throws NotFoundException {
+        when(this.clienteRepository.save(any(Cliente.class))).thenReturn(new Cliente(1, "Fulano", "12345678901", "fulano@gmail.com", null));
+        clienteService.salvar(any());
+        verify(this.clienteRepository).save(any(Cliente.class));
+    }
+
+    @Test
+    @Order(2)
+    void deveria_retornar_cliente_cadastrado() throws NotFoundException {
+        when(this.clienteRepository.findById(any(Integer.class))).thenReturn(Optional.of(new Cliente(1, "Fulano", "12345678901", "fulano@gmail.com", null)));
         var resultado = this.clienteService.buscarClienteEPedidos(1);
         Assertions.assertEquals(1, resultado.id());
     }

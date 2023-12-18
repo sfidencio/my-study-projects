@@ -1,4 +1,4 @@
-package com.github.sfidencio.vendas.api.controller.imp;
+package com.github.sfidencio.vendas.estudo;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

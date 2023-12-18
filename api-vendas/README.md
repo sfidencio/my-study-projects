@@ -898,6 +898,7 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espa
 ```xml
         <!--SpringBoot3 + Junit5 + Mockito + MockMvc-->
 <!--Dependency tests in spring-->
+<dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
@@ -917,7 +918,10 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espa
       <version>5.8.1</version>
       <scope>test</scope>
     </dependency>
+</dependencies>
 ```
+
+
 
 > Exemplo de teste unitário com `mockito` e `junit5` sem subir o contexto do spring:
 ```java

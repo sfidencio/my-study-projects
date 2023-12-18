@@ -1,4 +1,4 @@
-package com.github.sfidencio.vendas.api.controller.imp;
+package com.github.sfidencio.vendas.estudo;
 
 
 import java.math.BigDecimal;

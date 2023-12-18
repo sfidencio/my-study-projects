@@ -1,4 +1,4 @@
-package com.github.sfidencio.vendas;
+package com.github.sfidencio.vendas.estudo;
 
 import com.github.sfidencio.vendas.api.dto.ClienteRequest;
 import com.github.sfidencio.vendas.domain.entity.Cliente;
