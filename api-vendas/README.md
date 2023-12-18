@@ -897,7 +897,7 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espa
 
 > Dependências SpringBoot3 + Junit5 + Mockito + MockMvc:
 ```xml
-        <!--SpringBoot3 + Junit5 + Mockito + MockMvc-->
+<!--SpringBoot3 + Junit5 + Mockito + MockMvc-->
 <!--Dependency tests in spring-->
 <dependencies>
     <dependency>
