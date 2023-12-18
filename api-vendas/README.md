@@ -73,6 +73,7 @@
 - [Explorando o uso do dataType BigDecimal](#explorando-o-uso-do-datatype-bigdecimal)
 - [Explorando RestTemplate](#explorando-resttemplate)
 - [Implementando AOP](#implementando-aop)
+- [Implementando testes unitários](#implementando-testes-unitários)
 - [Referências gerais do projeto](#referências-gerais-do-projeto)
 
 > Este projeto aborda os seguintes tópicos:
@@ -889,7 +890,7 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espa
 
  ```   
 
-### Implementando testes unitários com `Junit 5` , `Mockito` e `MockMvc`:
+### Implementando testes unitários:
 > + https://howtodoinjava.com/spring-boot2/testing/spring-boot-mockito-junit-example/
 > + https://www.baeldung.com/mockito-junit-5-extension
 
