@@ -5,13 +5,13 @@
 > TODO List -  (non-functional requirements and functional requirements)
 > + [x] Implementar validação do nome do cliente usando Regex, apenas para exemplo.
 > + [x] Implementar o estudo do dataType BigDecimal, para exemplificar como usar.
-> + [ ] Implementar alguns testes unitários utilizando JUnit 5. (O correto é tentar cobrir o máximo possível de cenários, mas como o foco é apenas estudo, vamos implementar apenas alguns testes unitários, para exemplificar).
+> + [x] Implementar alguns testes unitários utilizando JUnit 5. (O correto é tentar cobrir o máximo possível de cenários, mas como o foco é apenas estudo, vamos implementar apenas alguns testes unitários, para exemplificar).
 > + [x] Implementar exemplo de AOP (Aspect Oriented Programming), para exemplificar como `logar` os parametros de entrada e após o retorno de execução de um método, logico que isso é apenas um exemplo de uso.
 > + [ ] Implementar integração com ChatGPT3, para exemplificar como consumir uma API externa.
 > + [x] Implementar integração com API de CEP, para exemplificar como consumir uma API externa.
 > + [x] Implementar Scheduler com Spring, para exemplificar como agendar tarefas.
 >   + Procure pela classe `CancelaPedidoOldScheduler.java` para entender como implementamos o Scheduler.
-> + [ ] Implementar - apesar de ja termos implementando, vale explorar melhor o nivel de maturidade com uso do `spring-boot-starter-hateoas`. No final deste guia temos um excelente artigo sobre o assunto.
+> + [ ] Implementar - Evoluir o entendimento sobre implementação do  `spring-boot-starter-hateoas`. No final deste guia temos um excelente artigo sobre o assunto.
 
 > Informações Gerais
 
