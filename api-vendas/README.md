@@ -124,7 +124,7 @@ mvn dependency:tree
 #   Guia explicativo de como executar o projeto localmente
 
 > [!WARNING]
-Certifique-se de que o Java 17 esteja instalado e configurado na sua máquina local, apache-maven, git, docker e etc. Por padrão, o projeto está configurado para executar o perfil de desenvolvimento, ou seja, o banco de dados H2 será utilizado.
+> Certifique-se de que o Java 17 esteja instalado e configurado na sua máquina local, apache-maven, git, docker e etc. Por padrão, o projeto está configurado para executar o perfil de desenvolvimento, ou seja, o banco de dados H2 será utilizado.
 
 
 ### Abra o terminal e execute o comando abaixo para clonar o projeto:
@@ -985,7 +985,6 @@ class ClienteControllerImpTest {
 > + https://www.baeldung.com/lombok-with-annotations
 
 ```java
-//
 @With
 public record ClienteRequest(String nome, String cpf, String email) {
 }
@@ -1000,6 +999,16 @@ public class Pessoa {
   private String nome;
   private int idade;
 }
+
+
+public class Application {
+  public static void main(String[] args) {
+    var pessoa = Pessoa("João", 30);
+    System.out.println(pessoa.getNome()); // Retorna "João"
+  }
+}
+
+
 ```
 
 
@@ -1133,8 +1142,8 @@ public class ExemploCleanup {
 
 ### Referências gerais do projeto
 
->[!IMPORTANT]
-Referências utilizadas em todo o projeto:
+> [!IMPORTANT]
+> Referências utilizadas em todo o projeto:
 
 >Tutoriais e cursos gratuitos: 
 >+ https://tpbabparn.medium.com/spring-boot-3-1-integrated-docker-compose-on-development-environment-spring-webflux-example-1ddcbfe052f
