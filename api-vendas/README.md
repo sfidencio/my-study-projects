@@ -48,6 +48,11 @@
   ```
 
 >[!TIP]
++ Corrigindo erro "Share is only supported for boot loader classes because bootstrap classpath has been appended" no IntelliJ IDEA, na execução dos testes unitários:
++ ![img.png](img.png)
+
+
+>[!TIP]
 > Usando junit5 no springboot 3, basta adicionar a dependencia abaixo no pom.xml:
 > + https://howtodoinjava.com/spring-boot/junit-with-spring-boot/
 
