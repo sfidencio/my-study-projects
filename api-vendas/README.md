@@ -980,15 +980,28 @@ class ClienteControllerImpTest {
 
         
 
-### Explorando o lombok:
+### Explorando o lombok
 > + https://projectlombok.org
 > + https://www.baeldung.com/lombok-with-annotations
 
 ```java
+//
 @With
 public record ClienteRequest(String nome, String cpf, String email) {
 }
 ```
+> [!TIP]
+> Uso uso do @Value para gerar automaticamente um construtor imutável para a classe:
+```java
+import lombok.Value;
+
+@Value
+public class Pessoa {
+  private String nome;
+  private int idade;
+}
+```
+
 
 ```java
 //Uso do @Getter e @Setter para gerar automaticamente os métodos getters e setters para os campos de uma classe:
