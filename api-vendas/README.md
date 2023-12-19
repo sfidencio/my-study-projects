@@ -14,6 +14,7 @@
 > + [ ] Implementar - Evoluir o entendimento sobre implementação do  `spring-boot-starter-hateoas`. No final deste guia temos um excelente artigo sobre o assunto.
 > + [ ] Implementar migration flyway, para exemplificar como usar.
 > + [ ] Implementar para fins de estudo o MapStruct e ModelMapper, e tambem testes com jackson-databind/gson, para exemplificar como usar. 
+> + [ ] Explorando @With do Lombok, para exemplificar como usar.
 
 > Informações Gerais
 
@@ -77,6 +78,7 @@
 - [Implementando AOP](#implementando-aop)
 - [Implementando testes unitários](#implementando-testes-unitários)
 - [Referências gerais do projeto](#referências-gerais-do-projeto)
+- 
 
 > Este projeto aborda os seguintes tópicos:
 >    - Requisitos (MVP)
@@ -977,6 +979,143 @@ class ClienteControllerImpTest {
 ```
 
         
+
+### Explorando o lombok:
+> + https://projectlombok.org/features/With
+> + https://www.baeldung.com/lombok-with-annotations
+
+```java
+@With
+public record ClienteRequest(String nome, String cpf, String email) {
+}
+```
+
+```java
+//Uso do @Getter e @Setter para gerar automaticamente os métodos getters e setters para os campos de uma classe:
+
+import lombok.Getter;
+import lombok.Setter;
+
+public class Pessoa {
+  @Getter @Setter
+  private String nome;
+  @Getter @Setter
+  private int idade;
+}
+
+//Uso do @AllArgsConstructor para gerar automaticamente um construtor que recebe todos os campos da classe como parâmetros:
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
+public class Pessoa {
+  private String nome;
+  private int idade;
+}
+
+//Uso do @NoArgsConstructor para gerar automaticamente um construtor sem parâmetros:
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+public class Pessoa {
+  private String nome;
+  private int idade;
+}
+
+//Uso do @Data para gerar automaticamente os métodos getters, setters, equals, hashCode e toString para todos os campos da classe:
+        
+import lombok.Data;
+
+@Data
+public class Pessoa {
+  private String nome;
+  private int idade;
+}
+
+//Uso do @Builder para gerar automaticamente um padrão de construção fluente para a classe:
+import lombok.Builder;
+
+@Builder
+public class Pessoa {
+  private String nome;
+  private int idade;
+}
+//Estes são alguns exemplos de como usar as anotações do Lombok em diferentes cenários. É importante notar que o Lombok pode ser uma ferramenta poderosa para reduzir a quantidade de código boilerplate em uma aplicação Java.
+
+
+//Claro! Aqui estão algumas opções avançadas do Lombok com exemplos detalhados de uso:
+//Uso do @Builder com padrão de construção personalizado:
+import lombok.Builder;
+import lombok.Singular;
+import java.util.List;
+
+@Builder
+public class Pessoa {
+  private String nome;
+  private int idade;
+  @Singular private List<String> habilidades;
+}
+
+//Uso
+Pessoa pessoa = Pessoa.builder()
+        .nome("João")
+        .idade(30)
+        .habilidade("Java")
+        .habilidade("SQL")
+        .build();
+        Neste exemplo, o @Builder é usado para gerar um padrão de construção fluente para a classe Pessoa. O uso de @Singular com a lista de habilidades permite adicionar elementos à lista individualmente.
+
+//Uso do @EqualsAndHashCode com opções personalizadas:
+import lombok.EqualsAndHashCode;
+
+@EqualsAndHashCode(of = {"nome", "idade"})
+public class Pessoa {
+  private String nome;
+  private int idade;
+}
+
+//Uso
+Pessoa pessoa1 = new Pessoa("João", 30);
+Pessoa pessoa2 = new Pessoa("Maria", 25);
+System.out.println(pessoa1.equals(pessoa2)); // Retorna false
+
+//Neste exemplo, o @EqualsAndHashCode é usado para gerar automaticamente os métodos equals() e hashCode() com base nos campos "nome" e "idade" da classe Pessoa.
+//Uso do @ToString com opções personalizadas:
+import lombok.ToString;
+
+@ToString(exclude = "idade")
+public class Pessoa {
+  private String nome;
+  private int idade;
+}
+
+
+//Uso
+Pessoa pessoa = new Pessoa("João", 30);
+System.out.println(pessoa); // Retorna "Pessoa(nome=João)"
+
+//Neste exemplo, o @ToString é usado para gerar automaticamente o método toString() para a classe Pessoa, excluindo o campo "idade" da representação gerada.
+//Uso do @Cleanup para fechar recursos automaticamente:
+
+import lombok.Cleanup;
+import java.io.*;
+
+public class ExemploCleanup {
+  public void lerArquivo(String nomeArquivo) throws IOException {
+    @Cleanup FileReader reader = new FileReader(nomeArquivo);
+    BufferedReader br = new BufferedReader(reader);
+    String linha;
+    while ((linha = br.readLine()) != null) {
+      System.out.println(linha);
+    }
+  }
+}
+
+//Neste exemplo, o @Cleanup é usado para fechar automaticamente o recurso FileReader após o uso, evitando a necessidade de chamar explicitamente o método close().
+//Estas são algumas das opções avançadas do Lombok com exemplos detalhados de uso. Elas podem ser úteis para personalizar o comportamento das anotações e simplificar o código.
+
+
+
+```
 
 
 ### Referências gerais do projeto
