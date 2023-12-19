@@ -10,8 +10,10 @@
 > + [ ] Implementar integração com ChatGPT3, para exemplificar como consumir uma API externa.
 > + [x] Implementar integração com API de CEP, para exemplificar como consumir uma API externa.
 > + [x] Implementar Scheduler com Spring, para exemplificar como agendar tarefas.
->   + Procure pela classe `CancelaPedidoOldScheduler.java` para entender como implementamos o Scheduler.
+>   - Procure pela classe `CancelaPedidoOldScheduler.java` para entender como implementamos o Scheduler.
 > + [ ] Implementar - Evoluir o entendimento sobre implementação do  `spring-boot-starter-hateoas`. No final deste guia temos um excelente artigo sobre o assunto.
+> + [ ] Implementar migration flyway, para exemplificar como usar.
+> + [ ] Implementar para fins de estudo o MapStruct e ModelMapper, e tambem testes com jackson-databind/gson, para exemplificar como usar. 
 
 > Informações Gerais
 
