@@ -27,8 +27,8 @@
 > - https://stackoverflow.com/questions/60087520/changing-the-acceptance-key-autosuggest-accept-zsh-shell-on-mac
 
 
-![img.png](img.png)
-![img.png](img/img.png)
+>![img.png](img/img.png)
+>![img_1.png](img/img_1.png)
 
 
 >[!TIP]
