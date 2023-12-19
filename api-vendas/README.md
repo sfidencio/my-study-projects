@@ -32,8 +32,7 @@
 
 >[!TIP]
 >Para executar a aplicação diretamente na IDE (IntelliJ IDEA), basta executar a classe Application.java, que esta no pacote `br.com.sfidencio.api.vendas`, conforme imagem abaixo:
-
-![img_1.png](img_1.png)
+![img_3.png](img/img_3.png)
 
 
 >[!TIP] 
@@ -50,7 +49,7 @@
 
 >[!TIP]
 + Corrigindo erro "Share is only supported for boot loader classes because bootstrap classpath has been appended" no IntelliJ IDEA, na execução dos testes unitários:
-+ ![img.png](img.png)
++![img.png](img.png)
 
 
 >[!TIP]
