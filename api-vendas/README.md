@@ -48,8 +48,8 @@
   ```
 
 >[!TIP]
-+ Corrigindo erro "Share is only supported for boot loader classes because bootstrap classpath has been appended" no IntelliJ IDEA, na execução dos testes unitários:
-+![img.png](img.png)
+>Corrigindo erro "Share is only supported for boot loader classes because bootstrap classpath has been appended" no IntelliJ IDEA, na execução dos testes unitários:
+![img.png](img.png)
 
 
 >[!TIP]
