@@ -43,3 +43,9 @@
 >`wsl --export Ubuntu-22.04 backup.vhdx --vhd`
 >
 >https://www.xda-developers.com/how-back-up-restore-wsl/
+
+>[!CAUTION]
+>Caso tenha problemas com a instalação do do tema powerlevel10k no `Debian`, poderá seguir a instalação diretamente na página do projeto aqui.
+
+> + https://github.com/romkatv/powerlevel10k/blob/master/README.md#oh-my-zsh
+> + https://beebom.com/how-install-zsh-and-oh-my-zsh-linux/
