@@ -33,7 +33,7 @@
 >[!TIP]
 >Para executar a aplicação diretamente na IDE (IntelliJ IDEA), basta executar a classe Application.java, que esta no pacote `br.com.sfidencio.api.vendas`, conforme imagem abaixo:
 
-![img_3.png](img/img_3.png)
+![img_1.png](img_1.png)
 
 
 >[!TIP] 
