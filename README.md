@@ -13,7 +13,7 @@
 - [explorando-jdbc-template](explorando-jdbc-template)
 - [estudo-inicial-spring](estudo-inicial-spring)
 - [explorando-clean-code](explorando-clean-code)
-- [explorando-configuracao-ambiente-wsl2-ubuntu-shell-zshrc](explorando-configuracao-ambiente-wsl2-ubuntu-shell-zshrc)
+- [explorando-configuracao-ambiente-windows-wsl2-ubuntu-shell-zshrc](explorando-configuracao-ambiente-windows-wsl2-ubuntu-shell-zshrc)
 - [dicas-macetes-ferramentas](dicas-macetes-ferramentas)
 
 > [!NOTE]
