@@ -984,13 +984,29 @@ class ClienteControllerImpTest {
 > + https://projectlombok.org
 > + https://www.baeldung.com/lombok-with-annotations
 
+> [!TIP]
+> Uso uso do @With para gerar automaticamente um construtor imutável para a classe:
+
+```java
+import lombok.With;
+
+public class Pessoa {
+  @With private String nome;
+  @With private int idade;
+}
+```
+ou
+
+
 ```java
 @With
 public record ClienteRequest(String nome, String cpf, String email) {
 }
 ```
 > [!TIP]
-> Uso uso do @Value para gerar automaticamente um construtor imutável para a classe:
+> Uso uso do @Value para gerar automaticamente um construtor imutável para a classe, trata-se de uma variante de @Data
+
+
 ```java
 import lombok.Value;
 
