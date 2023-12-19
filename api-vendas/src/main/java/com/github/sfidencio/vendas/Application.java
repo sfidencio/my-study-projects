@@ -125,7 +125,7 @@ public class Application {
         };
     }
 
-    @Bean("executarTestRedisCache")
+    /*@Bean("executarTestRedisCache")
     public CommandLineRunner executarTestRedisCache(@Autowired RedisTemplate redisTemplate) {
         return args -> {
             //Salvando no Redis - Poderiamos implementar manualmente o cache, mas o Spring já faz isso para nós com o Redis
@@ -139,20 +139,20 @@ public class Application {
             //Resetando redis ou limpando o cache
             redisTemplate.getConnectionFactory().getConnection().flushAll();
         };
-    }
+    }*/
 
-    @Bean("executarTesteMongoDB")
+   /* @Bean("executarTesteMongoDB")
     public CommandLineRunner executarTesteMongoDB(@Autowired ClienteVIPRespository clienteVIPRespository) {
         return args -> {
             if (clienteVIPRespository.count() > 0) clienteVIPRespository.deleteAll();
 
-            /*var fulano = new ClienteVIP(null, "fulano", "12345678901", "fulano@gmail");
-            var beltrano = new ClienteVIP(null, "beltrano", "12345678901", "beltrano@gmail");
-            var list = List.of(fulano, beltrano);
-            clienteVIPRespository.saveAll(list);
-            System.out.println(clienteVIPRespository.findAll());
-            */
+            //var fulano = new ClienteVIP(null, "fulano", "12345678901", "fulano@gmail");
+            //var beltrano = new ClienteVIP(null, "beltrano", "12345678901", "beltrano@gmail");
+            //var list = List.of(fulano, beltrano);
+            //clienteVIPRespository.saveAll(list);
+            //System.out.println(clienteVIPRespository.findAll());
+
 
         };
-    }
+    }*/
 }
