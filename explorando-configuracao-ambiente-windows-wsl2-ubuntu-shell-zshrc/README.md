@@ -26,7 +26,7 @@
 > - https://github.com/zsh-users/zsh-autosuggestions/issues/532
 > - https://stackoverflow.com/questions/60087520/changing-the-acceptance-key-autosuggest-accept-zsh-shell-on-mac
 
->![img.png](img/img.png)
+>![img.png](img.png)
 
 
 >[!TIP]
