@@ -981,7 +981,7 @@ class ClienteControllerImpTest {
         
 
 ### Explorando o lombok:
-> + https://projectlombok.org/features/With
+> + https://projectlombok.org
 > + https://www.baeldung.com/lombok-with-annotations
 
 ```java
@@ -1039,9 +1039,8 @@ public class Pessoa {
   private String nome;
   private int idade;
 }
+
 //Estes são alguns exemplos de como usar as anotações do Lombok em diferentes cenários. É importante notar que o Lombok pode ser uma ferramenta poderosa para reduzir a quantidade de código boilerplate em uma aplicação Java.
-
-
 //Claro! Aqui estão algumas opções avançadas do Lombok com exemplos detalhados de uso:
 //Uso do @Builder com padrão de construção personalizado:
 import lombok.Builder;
@@ -1062,7 +1061,8 @@ Pessoa pessoa = Pessoa.builder()
         .habilidade("Java")
         .habilidade("SQL")
         .build();
-        Neste exemplo, o @Builder é usado para gerar um padrão de construção fluente para a classe Pessoa. O uso de @Singular com a lista de habilidades permite adicionar elementos à lista individualmente.
+
+//Neste exemplo, o @Builder é usado para gerar um padrão de construção fluente para a classe Pessoa. O uso de @Singular com a lista de habilidades permite adicionar elementos à lista individualmente.
 
 //Uso do @EqualsAndHashCode com opções personalizadas:
 import lombok.EqualsAndHashCode;
