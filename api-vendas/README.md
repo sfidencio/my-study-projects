@@ -14,7 +14,7 @@
 > + [ ] Implementar - Evoluir o entendimento sobre implementação do  `spring-boot-starter-hateoas`. No final deste guia temos um excelente artigo sobre o assunto.
 > + [ ] Implementar migration flyway, para exemplificar como usar.
 > + [ ] Implementar para fins de estudo o MapStruct e ModelMapper, e tambem testes com jackson-databind/gson, para exemplificar como usar. 
-> + [ ] Explorando @With do Lombok, para exemplificar como usar.
+> + [x] Explorando lombok, para exemplificar como usar.
 
 > Informações Gerais
 
@@ -78,7 +78,7 @@
 - [Implementando AOP](#implementando-aop)
 - [Implementando testes unitários](#implementando-testes-unitários)
 - [Referências gerais do projeto](#referências-gerais-do-projeto)
-- 
+- [Explorando lombok](#explorando-lombok)
 
 > Este projeto aborda os seguintes tópicos:
 >    - Requisitos (MVP)
