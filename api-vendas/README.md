@@ -78,7 +78,7 @@
 - [Implementando AOP](#implementando-aop)
 - [Implementando testes unitários](#implementando-testes-unitários)
 - [Referências gerais do projeto](#referências-gerais-do-projeto)
-- [Explorando lombok](#explorando-lombok)
+- [Explorando o lombok](#explorando-o-lombok)
 
 > Este projeto aborda os seguintes tópicos:
 >    - Requisitos (MVP)
