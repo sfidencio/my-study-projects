@@ -15,6 +15,7 @@
 > + [ ] Implementar migration flyway, para exemplificar como usar.
 > + [ ] Implementar para fins de estudo o MapStruct e ModelMapper, e tambem testes com jackson-databind/gson, para exemplificar como usar. 
 > + [x] Explorando lombok, para exemplificar como usar.
+> + [ ] Detalhar implementação do padrão de data e hora ISO 8601 - yyyy-MM-dd'T'HH:mm:ss.SSSZ
 
 > Informações Gerais
 
