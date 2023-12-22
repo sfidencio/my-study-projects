@@ -1,4 +1,4 @@
-package com.github.sfidencio.vendas.infra.repository;
+package com.github.sfidencio.vendas.infra.repository.relational;
 
 import com.github.sfidencio.vendas.domain.entity.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -6,8 +6,8 @@ import com.github.sfidencio.vendas.domain.entity.Cliente;
 import com.github.sfidencio.vendas.domain.entity.mongodb.ClienteVIP;
 import com.github.sfidencio.vendas.domain.service.ClienteService;
 import com.github.sfidencio.vendas.infra.config.exceptions.NotFoundException;
-import com.github.sfidencio.vendas.infra.repository.ClienteRepository;
-import com.github.sfidencio.vendas.infra.repository.ClienteVIPRespository;
+import com.github.sfidencio.vendas.infra.repository.relational.ClienteRepository;
+import com.github.sfidencio.vendas.infra.repository.mongo.ClienteVIPRespository;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 

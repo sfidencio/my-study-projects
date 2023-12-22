@@ -1,4 +1,4 @@
-package com.github.sfidencio.vendas.infra.repository;
+package com.github.sfidencio.vendas.infra.repository.mongo;
 
 import com.github.sfidencio.vendas.domain.entity.mongodb.ClienteVIP;
 import org.springframework.data.mongodb.repository.MongoRepository;

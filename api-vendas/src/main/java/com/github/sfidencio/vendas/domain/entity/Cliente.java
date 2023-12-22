@@ -31,7 +31,9 @@ public class Cliente implements Serializable {
     @Column(name = "NOME", nullable = false)
     @NotEmpty(message = "{cliente.nome.obrigatorio}")
     @NotNull(message = "{cliente.nome.obrigatorio}")
-    @Pattern(regexp= "^[A-Z][a-z\\s]+[.]$", message = "{cliente.nome.invalido}") //https://regex101.com/r/4jZCj1/1
+    //Ex: Joao Carlos.
+    //^[A-Z][a-z\s]+[A-Z][a-z]+[.]{1}$- https://regex101.com/r/4jZCj1/1
+    //@Pattern(regexp= "^[A-Z][a-z]+$", message = "{cliente.nome.invalido}") //https://regex101.com/r/4jZCj1/1
     private String nome;
     @Column(name = "CPF", length = 11, nullable = false)
     @CPF(message = "{cliente.cpf.invalido}")

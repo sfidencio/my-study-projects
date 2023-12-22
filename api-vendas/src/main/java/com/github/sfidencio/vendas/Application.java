@@ -1,9 +1,8 @@
 package com.github.sfidencio.vendas;
 
-import com.github.sfidencio.vendas.infra.repository.ClienteRepository;
-import com.github.sfidencio.vendas.infra.repository.PedidoRepository;
-import com.github.sfidencio.vendas.infra.repository.ProdutoRepository;
-import com.github.sfidencio.vendas.infra.repository.ClienteVIPRespository;
+import com.github.sfidencio.vendas.infra.repository.relational.ClienteRepository;
+import com.github.sfidencio.vendas.infra.repository.relational.PedidoRepository;
+import com.github.sfidencio.vendas.infra.repository.relational.ProdutoRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -12,14 +11,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-import org.springframework.data.redis.core.RedisTemplate;
-
-import java.util.UUID;
 
 @SpringBootApplication
 @Log4j2
 @EnableCaching
-@EnableMongoRepositories
+@EnableMongoRepositories(basePackages = "com.github.sfidencio.vendas.infra.repository.mongo", mongoTemplateRef = "mongoTemplate")
 public class Application {
     //@PersistenceContext
     //private EntityManager entityManager;

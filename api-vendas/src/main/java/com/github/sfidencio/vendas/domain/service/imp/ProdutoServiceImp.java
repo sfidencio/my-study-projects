@@ -5,7 +5,7 @@ import com.github.sfidencio.vendas.api.dto.ProdutoResponse;
 import com.github.sfidencio.vendas.domain.entity.Produto;
 import com.github.sfidencio.vendas.domain.service.ProdutoService;
 import com.github.sfidencio.vendas.infra.config.exceptions.NotFoundException;
-import com.github.sfidencio.vendas.infra.repository.ProdutoRepository;
+import com.github.sfidencio.vendas.infra.repository.relational.ProdutoRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

@@ -4,7 +4,7 @@ import com.github.sfidencio.vendas.api.dto.ClienteRequest;
 import com.github.sfidencio.vendas.domain.entity.Cliente;
 import com.github.sfidencio.vendas.domain.service.imp.ClienteServiceImp;
 import com.github.sfidencio.vendas.infra.config.exceptions.NotFoundException;
-import com.github.sfidencio.vendas.infra.repository.ClienteRepository;
+import com.github.sfidencio.vendas.infra.repository.relational.ClienteRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
