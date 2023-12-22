@@ -49,3 +49,6 @@
 
 > + https://github.com/romkatv/powerlevel10k/blob/master/README.md#oh-my-zsh
 > + https://beebom.com/how-install-zsh-and-oh-my-zsh-linux/
+
+>[!TIP]
+> + Não esquecer de habilitar o docker para subir no boot do Debian/Ubuntu. https://docs.docker.com/engine/install/linux-postinstall/ 
