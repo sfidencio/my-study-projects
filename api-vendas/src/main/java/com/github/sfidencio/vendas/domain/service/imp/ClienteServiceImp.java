@@ -3,11 +3,9 @@ package com.github.sfidencio.vendas.domain.service.imp;
 import com.github.sfidencio.vendas.api.dto.ClienteRequest;
 import com.github.sfidencio.vendas.api.dto.ClienteResponse;
 import com.github.sfidencio.vendas.domain.entity.Cliente;
-import com.github.sfidencio.vendas.domain.entity.mongodb.ClienteVIP;
 import com.github.sfidencio.vendas.domain.service.ClienteService;
 import com.github.sfidencio.vendas.infra.config.exceptions.NotFoundException;
 import com.github.sfidencio.vendas.infra.repository.relational.ClienteRepository;
-import com.github.sfidencio.vendas.infra.repository.mongo.ClienteVIPRespository;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -17,11 +15,9 @@ import java.util.List;
 public class ClienteServiceImp implements ClienteService {
 
     private final ClienteRepository clienteRepository;
-    private final ClienteVIPRespository clienteVIPRespository;
 
-    public ClienteServiceImp(ClienteRepository clienteRepository, ClienteVIPRespository clienteVIPRespository) {
+    public ClienteServiceImp(ClienteRepository clienteRepository) {
         this.clienteRepository = clienteRepository;
-        this.clienteVIPRespository = clienteVIPRespository;
     }
 
 
@@ -55,20 +51,7 @@ public class ClienteServiceImp implements ClienteService {
         this.clienteRepository.deleteById(id);
     }
 
-    @Override
-    public ClienteVIP buscarClienteVIP(String id) throws NotFoundException {
-        return this.clienteVIPRespository.findById(id).orElseThrow(() -> new NotFoundException("Cliente VIP não encontrado"));
-    }
 
-    @Override
-    public void salvarClienteVIP(ClienteVIP clienteVIP) {
-        this.clienteVIPRespository.save(clienteVIP);
-    }
-
-    @Override
-    public List<ClienteVIP> buscarTodosClientesVIP() {
-        return this.clienteVIPRespository.findAll();
-    }
 
     /*@Override
     public List<Cliente> buscarPorNome(String nome) {

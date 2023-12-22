@@ -36,16 +36,8 @@ class ClienteServiceImpTest {
     @Order(0)
     void deveria_cadastrar_cliente_com_sucesso() throws NotFoundException {
         this.clienteService.salvar(new ClienteRequest(null, "Joao Carlos.", "79681821076", "fulano@gmail.com"));
-        //this.clienteRepository.save(new Cliente(null, "Joao Carlos.", "79681821076", "fulano@gmail.com", null));
     }
 
-    /*@Test
-    @Order(1)
-    void deveria_obter_cliente_cadastro_com_sucesso() throws NotFoundException {
-        //var cliente = this.clienteRepository.findById(1);
-        var cliente = this.clienteService.buscarClienteEPedidos(1);
-        Assertions.assertEquals("Joao Carlos.", cliente.nome());
-    }*/
 
     @Test
     @Order(1)

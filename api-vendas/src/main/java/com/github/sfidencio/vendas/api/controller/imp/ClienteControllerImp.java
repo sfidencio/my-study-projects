@@ -5,6 +5,7 @@ import com.github.sfidencio.vendas.api.dto.ClienteRequest;
 import com.github.sfidencio.vendas.api.dto.ClienteResponse;
 import com.github.sfidencio.vendas.domain.entity.mongodb.ClienteVIP;
 import com.github.sfidencio.vendas.domain.service.ClienteService;
+import com.github.sfidencio.vendas.domain.service.ClienteVIPService;
 import com.github.sfidencio.vendas.infra.config.exceptions.NotFoundException;
 import jakarta.validation.Valid;
 import lombok.extern.log4j.Log4j2;
@@ -29,6 +30,8 @@ public class ClienteControllerImp implements ClienteController {
 
     @Autowired
     private ClienteService clienteService;
+    @Autowired
+    private ClienteVIPService clienteVIPService;
 
 
     @Override
@@ -82,17 +85,17 @@ public class ClienteControllerImp implements ClienteController {
 
     @Override
     public void salvarClienteVIP(ClienteVIP request) {
-        this.clienteService.salvarClienteVIP(request);
+        this.clienteVIPService.salvarClienteVIP(request);
     }
 
     @Override
     public ClienteVIP consultarClienteVIP(String id) throws NotFoundException {
-        return this.clienteService.buscarClienteVIP(id);
+        return this.clienteVIPService.buscarClienteVIP(id);
     }
 
     @Override
     public List<ClienteVIP> consultarTodosClientesVIP() {
-        return this.clienteService.buscarTodosClientesVIP();
+        return this.clienteVIPService.buscarTodosClientesVIP();
     }
 
 }

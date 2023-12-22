@@ -14,7 +14,8 @@
 > + [ ] Implementar - Evoluir o entendimento sobre implementação do  `spring-boot-starter-hateoas`. No final deste guia temos um excelente artigo sobre o assunto.
 > + [ ] Implementar migration flyway, para exemplificar como usar.
 > + [ ] Implementar para fins de estudo o MapStruct e ModelMapper, e tambem testes com jackson-databind/gson, para exemplificar como usar. 
-> + [x] Explorando lombok, para exemplificar como usar.
+> + [x] implementar lombok, para exemplificar como usar.
+> + [ ] Implementar api fake com wiremock, para exemplificar como usar.
 
 > Informações Gerais
 
