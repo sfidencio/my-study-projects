@@ -11,8 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.cache.CacheManager;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.ArgumentMatchers.anyInt;
@@ -23,6 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
+@ActiveProfiles("test")
 //@WebMvcTest(ClienteController.class)
 @AutoConfigureMockMvc
 public class ClienteControllerImpTest {
@@ -30,9 +31,6 @@ public class ClienteControllerImpTest {
     private MockMvc mockMvc;
     @MockBean
     private ClienteService clienteService;
-
-    @Autowired
-    private CacheManager cacheManager;
 
 
     private final String URL = "/v1/api/clientes";
@@ -46,6 +44,7 @@ public class ClienteControllerImpTest {
         this.clienteResponse = new ClienteResponse(1, "Joao Carlos", "79681821076", "fulano@gmail.com", null);
         this.clienteRequest = new ClienteRequest(null, "Joao Carlos", "79681821076", "fulano@gmail.com");
     }
+
 
     @Test
     @Order(1)
@@ -71,4 +70,6 @@ public class ClienteControllerImpTest {
                 .andExpect(jsonPath("$.email").value("fulano@gmail.com."));
 
     }
+
+
 }

@@ -1104,8 +1104,10 @@ class ClienteControllerImpTest {
 }
 ```
 
-> [!TIP]
-> Teste de integração com banco de dados em memória, usando o H2:
+
+### Teste de integração:
+
+> + Testando camada de serviço com banco de dados H2:
 
 ```java
 package com.github.sfidencio.vendas.domain.service.imp.integration;
@@ -1146,6 +1148,13 @@ class ClienteServiceImpTest {
 
 }
 ```
+
+> + Testando controller com banco de dados H2:
+ 
+ 
+
+
+```java
 
 ### Explorando o lombok
 
