@@ -989,8 +989,9 @@ class ClienteControllerImpTest {
 ```java
 package com.github.sfidencio.vendas.domain.service.imp.integration;
 
-import com.github.sfidencio.vendas.domain.entity.Cliente;
-import com.github.sfidencio.vendas.infra.repository.relational.ClienteRepository;
+import com.github.sfidencio.vendas.api.dto.ClienteRequest;
+import com.github.sfidencio.vendas.domain.service.ClienteService;
+import com.github.sfidencio.vendas.infra.config.exceptions.NotFoundException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -1005,32 +1006,23 @@ import org.springframework.test.context.ActiveProfiles;
 class ClienteServiceImpTest {
 
   @Autowired
-  private ClienteRepository clienteRepository;
+  private ClienteService clienteService;
 
+
+  @Test
+  @Order(0)
+  void deveria_cadastrar_cliente_com_sucesso() throws NotFoundException {
+    this.clienteService.salvar(new ClienteRequest(null, "Joao Carlos.", "79681821076", "fulano@gmail.com"));
+  }
 
   @Test
   @Order(1)
-  void deveria_cadastrar_cliente_com_sucesso() {
-    this.clienteRepository.save(new Cliente(null, "Joao Carlos.", "79681821076", "fulano@gmail.com", null));
+  void deveria_alterar_cliente_cadastrado() throws NotFoundException {
+    this.clienteService.alterar(new ClienteRequest(1, "Joao Pedro", "79681821076", "fulano@gmail.com"), 1);
+    var cliente = this.clienteService.buscarClienteEPedidos(1);
+    Assertions.assertEquals("Joao Pedro", cliente.nome());
   }
 
-  @Test
-  @Order(2)
-  void deveria_obter_cliente_cadastro_com_sucesso() {
-    var cliente = this.clienteRepository.findById(1);
-    Assertions.assertEquals("Joao Carlos.", cliente.get().getNome());
-  }
-
-  @Test
-  @Order(3)
-  void deveria_alterar_cliente_cadastrado() {
-    var cliente = this.clienteRepository.findById(1);
-    cliente.ifPresent(c -> {
-      c.setNome("Joao Carlos.");
-      this.clienteRepository.save(c);
-    });
-    Assertions.assertEquals("Joao Carlos.", cliente.get().getNome());
-  }
 }
 ```
 
