@@ -1,8 +1,10 @@
-package com.github.sfidencio.exemplo1.openclosed;
+package com.github.sfidencio.exemplo1.dip;
+
+import com.github.sfidencio.exemplo1.dip.db.DatabaseFake;
 
 public class CalculadoraTeste {
     public static void main(String[] args) {
-        CalculadoraService calculadora = new CalculadoraService();
+        CalculadoraService calculadora = new CalculadoraService(new DatabaseFake());
         imprimirResultado(calculadora.calcular(new Divisao(), 9, 8));
         imprimirResultado(calculadora.calcular(new Soma(), 9, 8));
         imprimirResultado(calculadora.calcular(new Subtracao(), 9, 8));

@@ -1,12 +1,16 @@
 
 # explorando-clean-code
 
-> Este projeto aborda os seguintes tópicos:
-- Refactoring
-- POO
-  - Coesão 
-  - Acomplamento
-  - Polimorfismo
-- Princípios SOLID
+> [!IMPORTANT] Este projeto aborda os seguintes tópicos:
+- Diretamente
+  - Clean Code
+-Indiretamente
+  - SOLID
+    - Single Responsability Principle
   - Design Patterns
     - Strategy
+  - TDD
+  - POO
+    - Coesão
+    - Acomplamento
+    - Polimorfismo

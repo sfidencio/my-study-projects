@@ -1,4 +1,4 @@
-package com.github.sfidencio.exemplo1.openclosed;
+package com.github.sfidencio.exemplo1.dip;
 
 public final class Multiplicacao implements Calculadora {
     @Override

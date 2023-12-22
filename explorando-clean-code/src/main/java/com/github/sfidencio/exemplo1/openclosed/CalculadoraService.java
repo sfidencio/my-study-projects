@@ -1,6 +1,6 @@
-package com.github.sfidencio.exemplo1.proposta2;
+package com.github.sfidencio.exemplo1.openclosed;
 
-import com.github.sfidencio.exemplo1.proposta2.openclosed.Calculadora;
+import com.github.sfidencio.exemplo1.openclosed.Calculadora;
 
 public class CalculadoraService {
 

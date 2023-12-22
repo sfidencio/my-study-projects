@@ -1,4 +1,4 @@
-package com.github.sfidencio.exemplo1.proposta2.openclosed;
+package com.github.sfidencio.exemplo1.openclosed;
 
 public sealed interface Calculadora permits Soma, Subtracao, Multiplicacao, Divisao {
 

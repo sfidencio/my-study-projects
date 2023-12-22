@@ -1,9 +1,4 @@
-package com.github.sfidencio.exemplo1.proposta2;
-
-import com.github.sfidencio.exemplo1.proposta2.openclosed.Divisao;
-import com.github.sfidencio.exemplo1.proposta2.openclosed.Multiplicacao;
-import com.github.sfidencio.exemplo1.proposta2.openclosed.Soma;
-import com.github.sfidencio.exemplo1.proposta2.openclosed.Subtracao;
+package com.github.sfidencio.exemplo1.openclosed;
 
 public class CalculadoraTeste {
     public static void main(String[] args) {

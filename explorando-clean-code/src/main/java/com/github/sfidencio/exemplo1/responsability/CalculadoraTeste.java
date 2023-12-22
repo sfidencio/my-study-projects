@@ -1,4 +1,4 @@
-package com.github.sfidencio.exemplo1.original;
+package com.github.sfidencio.exemplo1.responsability;
 
 public class CalculadoraTeste {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.github.sfidencio.exemplo1.proposta2.openclosed;
+package com.github.sfidencio.exemplo1.openclosed;
 
 public final class Soma implements Calculadora {
     @Override
