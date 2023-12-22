@@ -964,7 +964,7 @@ class ClienteControllerImpTest {
 private ClienteService clienteService;
 ```
 >[!TIP]
-> Subindo teste sem o spring, ou seja, sem subir o contexto do spring:
+> Subindo teste mockado sem o spring, ou seja, sem subir o contexto do spring:
 ```java
 @ExtendWith(MockitoExtension.class)
 class ClienteControllerImpTest {
