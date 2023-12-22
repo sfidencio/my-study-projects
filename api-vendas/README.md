@@ -1,43 +1,55 @@
-
 # api-vendas
 
->[!IMPORTANT] 
+> [!IMPORTANT]
 > TODO List -  (non-functional requirements and functional requirements)
 > + [x] Implementar validação do nome do cliente usando Regex, apenas para exemplo.
 > + [x] Implementar o estudo do dataType BigDecimal, para exemplificar como usar.
-> + [x] Implementar alguns testes unitários utilizando JUnit 5. (O correto é tentar cobrir o máximo possível de cenários, mas como o foco é apenas estudo, vamos implementar apenas alguns testes unitários, para exemplificar).
-> + [x] Implementar exemplo de AOP (Aspect Oriented Programming), para exemplificar como `logar` os parametros de entrada e após o retorno de execução de um método, logico que isso é apenas um exemplo de uso.
+> + [x] Implementar alguns testes unitários utilizando JUnit 5. (O correto é tentar cobrir o máximo possível de
+    cenários, mas como o foco é apenas estudo, vamos implementar apenas alguns testes unitários, para exemplificar).
+> + [x] Implementar exemplo de AOP (Aspect Oriented Programming), para exemplificar como `logar` os parametros de
+    entrada e após o retorno de execução de um método, logico que isso é apenas um exemplo de uso.
 > + [ ] Implementar integração com ChatGPT3, para exemplificar como consumir uma API externa.
 > + [x] Implementar integração com API de CEP, para exemplificar como consumir uma API externa.
 > + [x] Implementar Scheduler com Spring, para exemplificar como agendar tarefas.
->   - Procure pela classe `CancelaPedidoOldScheduler.java` para entender como implementamos o Scheduler.
-> + [ ] Implementar - Evoluir o entendimento sobre implementação do  `spring-boot-starter-hateoas`. No final deste guia temos um excelente artigo sobre o assunto.
+    >
+- Procure pela classe `CancelaPedidoOldScheduler.java` para entender como implementamos o Scheduler.
+> + [ ] Implementar - Evoluir o entendimento sobre implementação do  `spring-boot-starter-hateoas`. No final deste guia
+    temos um excelente artigo sobre o assunto.
 > + [ ] Implementar migration flyway, para exemplificar como usar.
-> + [ ] Implementar para fins de estudo o MapStruct e ModelMapper, e tambem testes com jackson-databind/gson, para exemplificar como usar. 
+> + [ ] Implementar para fins de estudo o MapStruct e ModelMapper, e tambem testes com jackson-databind/gson, para
+    exemplificar como usar.
 > + [x] implementar lombok, para exemplificar como usar.
 > + [ ] Implementar api fake com wiremock, para exemplificar como usar.
 
 > Informações Gerais
 
->[!CAUTION]
-> Este projeto é apenas para estudo, não deve ser usado em produção, a menos que você saiba o que esta fazendo e faça os ajustes necessários.
+> [!CAUTION]
+> Este projeto é apenas para estudo, não deve ser usado em produção, a menos que você saiba o que esta fazendo e faça os
+> ajustes necessários.
 
->[!CAUTION]
-> Anotações de personalização das páginas do Swagger, foi implementado apenas na funcionalidade de Clientes, ou seja, apenas na classe ClienteController.java, no entanto, é possível implementar em todas as classes de controller, basta seguir o exemplo da classe ClienteController.java.
+> [!CAUTION]
+> Anotações de personalização das páginas do Swagger, foi implementado apenas na funcionalidade de Clientes, ou seja,
+> apenas na classe ClienteController.java, no entanto, é possível implementar em todas as classes de controller, basta
+> seguir o exemplo da classe ClienteController.java.
 
->[!CAUTION]
-> Exemplos de utilização do `redis-cache`, foi implementado apenas na funcionalidade de Clientes, ou seja, apenas na classe ClienteController.java, no entanto, é possível implementar em todas as classes de controller, basta seguir o exemplo da classe ClienteController.java, e as dicas de uso do `redis-cache` ao longo desta documentação.
+> [!CAUTION]
+> Exemplos de utilização do `redis-cache`, foi implementado apenas na funcionalidade de Clientes, ou seja, apenas na
+> classe ClienteController.java, no entanto, é possível implementar em todas as classes de controller, basta seguir o
+> exemplo da classe ClienteController.java, e as dicas de uso do `redis-cache` ao longo desta documentação.
 
->[!WARNING]
->Não estamos utilizando o ResponseEntity<T>  para retornar os dados, pois o Spring já faz isso por nós automaticamente.
+> [!WARNING]
+> Não estamos utilizando o ResponseEntity<T>  para retornar os dados, pois o Spring já faz isso por nós automaticamente.
 
->[!TIP]
->Para executar a aplicação diretamente na IDE (IntelliJ IDEA), basta executar a classe Application.java, que esta no pacote `br.com.sfidencio.api.vendas`, conforme imagem abaixo:
+> [!TIP]
+> Para executar a aplicação diretamente na IDE (IntelliJ IDEA), basta executar a classe Application.java, que esta no
+> pacote `br.com.sfidencio.api.vendas`, conforme imagem abaixo:
 ![img_3.png](img/img_3.png)
 
 
->[!TIP] 
->Executando o perfil de desenvolvimento, o banco de dados utilizado é o H2(InMemory), logo é uma dependência satisfeita e que sobe junto com a aplicação, todavia, para as dependências redis e mongo, é necessário subir os containers manualmente, ou seja, via docker, conforme descrito abaixo.
+> [!TIP]
+> Executando o perfil de desenvolvimento, o banco de dados utilizado é o H2(InMemory), logo é uma dependência satisfeita
+> e que sobe junto com a aplicação, todavia, para as dependências redis e mongo, é necessário subir os containers
+> manualmente, ou seja, via docker, conforme descrito abaixo.
 
 + Para subir o container do redis, execute o comando abaixo:
 + ```bash
@@ -48,16 +60,17 @@
   docker run --rm -d --name mongo -p 27017:27017 mongo
   ```
 
->[!TIP]
->Corrigindo erro "Share is only supported for boot loader classes because bootstrap classpath has been appended" no IntelliJ IDEA, na execução dos testes unitários:
+> [!TIP]
+> Corrigindo erro "Share is only supported for boot loader classes because bootstrap classpath has been appended" no
+> IntelliJ IDEA, na execução dos testes unitários:
 ![img.png](img.png)
 
 
->[!TIP]
+> [!TIP]
 > Usando junit5 no springboot 3, basta adicionar a dependencia abaixo no pom.xml:
 > + https://howtodoinjava.com/spring-boot/junit-with-spring-boot/
 
->[!TIP]
+> [!TIP]
 > Executando `junit 5` sem springboot, basta adicionar a dependencia abaixo no pom.xml:
 > ```xml
 > <dependency>
@@ -68,8 +81,9 @@
 > </dependency>
 > ```
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Índice
+
 - [Guia explicativo de como executar o projeto localmente](#guia-explicativo-de-como-executar-o-projeto-localmente)
 - [Guia explicativo de como dockerizar o projeto em seguinda executá-lo localmente sem o docker-compose](#guia-explicativo-de-como-dockerizar-o-projeto-em-seguinda-executa-lo-localmente-sem-o-docker-compose)
 - [Guia explicando como dockerizar o projeto em seguinda executá-lo localmente com o docker-compose](#guia-explicando-como-dockerizar-o-projeto-em-seguinda-executa-lo-localmente-com-o-docker-compose)
@@ -88,12 +102,15 @@
 
 > Este projeto aborda os seguintes tópicos:
 >    - Requisitos (MVP)
->        - Cadastro de Clientes
+       >
+- Cadastro de Clientes
 >        - Cadastro de Produtos
 >        - Registro de Pedidos
->            - Cancelamento de Pedidos
+           >
+- Cancelamento de Pedidos
 >    - Tecnologias Utilizadas
->        - Java 17
+       >
+- Java 17
 >        - Spring Boot
 >        - PostgreSQL
 >        - H2 Database
@@ -103,7 +120,8 @@
 >        - Docker
 >        - Git
 >    - Abordagens/Boas Práticas
->        - DTO Pattern + Record Pattern (new feature do Java 17)
+       >
+- DTO Pattern + Record Pattern (new feature do Java 17)
 >        - Domain Driven Design
 >        - Testes Unitários
 >        - Clean Code
@@ -116,87 +134,93 @@
 >        - Cache com Redis
 >        - Versionamento de API
 >        - Documentação de API com Swagger
->        - Uso do @JsonManagedReference e @JsonBackReference para evitar recursividade infinita em relacionamentos bidirecionais
-
-
+>        - Uso do @JsonManagedReference e @JsonBackReference para evitar recursividade infinita em relacionamentos
+           bidirecionais
 
 # Dicas e macetes
+
 > [!IMPORTANT]
 > Visualizar dependências de uma lib no maven:
+
 ```bash
 mvn dependency:tree
 ```
 
-#   Guia explicativo de como executar o projeto localmente
+# Guia explicativo de como executar o projeto localmente
 
 > [!WARNING]
-> Certifique-se de que o Java 17 esteja instalado e configurado na sua máquina local, apache-maven, git, docker e etc. Por padrão, o projeto está configurado para executar o perfil de desenvolvimento, ou seja, o banco de dados H2 será utilizado.
-
+> Certifique-se de que o Java 17 esteja instalado e configurado na sua máquina local, apache-maven, git, docker e etc.
+> Por padrão, o projeto está configurado para executar o perfil de desenvolvimento, ou seja, o banco de dados H2 será
+> utilizado.
 
 ### Abra o terminal e execute o comando abaixo para clonar o projeto:
+
 ```bash
 git clone git@github.com:sfidencio/my-study-projects.git
 ```
+
 ### Acessando o diretório raiz do projeto:
+
 ```
 cd api-vendas
 ```
 
-
 #### Limpando e instalando dependências, bem como o artefato final, ou seja, o .jar:
+
 ```bash
 mvn clean install
 ```
 
-
 #### Executando o projeto:
+
 ```bash
 mvn spring-boot:run
 ```
 
-
 > [!IMPORTANT]
-> Caso tenha executado com sucesso a aplicação, deverá aparecer a seguinte mensagem -> Started Application in 2.11 seconds (process running for 2.3)
+> Caso tenha executado com sucesso a aplicação, deverá aparecer a seguinte mensagem -> Started Application in 2.11
+> seconds (process running for 2.3)
 
 > [!IMPORTANT]
 > As coleções do postman, estão na pasta `collections`, na raiz do projeto. Basta realizar a importação no postman.
 
-
 ### Realizando teste de cadastro de cliente via curl:
+
 ```bash
 curl -kvs http://localhost:8080/base/v1/api/clientes/salvar --data '{"nome":"Fulano","cpf":"41909644099", "email":"fulano@gmail.com" }' -H "Content-Type: application/json"  -X POST
 ```
 
-
 ### Consultando cliente via curl:
+
 ```bash
 curl -kvs http://localhost:8080/base/v1/api/clientes/consulta/1 -H "Content-Type: application/json"  -X GET
 ```
 
-
 > [!IMPORTANT]
 > Pronto, agora abra o projeto no IntelliJ IDEA e divirta-se!
 
-
-#   Guia explicativo de como dockerizar o projeto em seguinda executa-lo localmente sem o docker-compose
-
+# Guia explicativo de como dockerizar o projeto em seguinda executa-lo localmente sem o docker-compose
 
 ### Criando arquivo Dockerfile e o arquivo docker-compose.yml
 
+> [!IMPORTANT]
+> Atualizamos o Dockerfile-api-vendas, para não precisar mais executar o comando `mvn clean install` manualmente, pois
+> esse processo é feito automaticamente pelo docker, conforme descrito abaixo.
+
+
 
 > [!IMPORTANT]
-> Atualizamos o Dockerfile-api-vendas, para não precisar mais executar o comando `mvn clean install` manualmente, pois esse processo é feito automaticamente pelo docker, conforme descrito abaixo.
-
-
-
-> [!IMPORTANT]
-> Optamos por configurar o Multi-Stage Build no Docker, pois o build é feito em duas etapas, sendo a primeira etapa, responsavel por gerar o artefato final, ou seja, o .jar, e a segunda etapa, responsavel por gerar a imagem final, ou seja, a imagem que será usada para subir o container.
-> A diferença entre o build sem multi-stage, é que o build com multi-stage gera uma imagem menor, pois o build é feito em duas etapas, sendo a primeira etapa, responsavel por gerar o artefato final, ou seja, o .jar, e a segunda etapa, responsavel por gerar a imagem final, ou seja, a imagem que será usada para subir o container.
+> Optamos por configurar o Multi-Stage Build no Docker, pois o build é feito em duas etapas, sendo a primeira etapa,
+> responsavel por gerar o artefato final, ou seja, o .jar, e a segunda etapa, responsavel por gerar a imagem final, ou
+> seja, a imagem que será usada para subir o container.
+> A diferença entre o build sem multi-stage, é que o build com multi-stage gera uma imagem menor, pois o build é feito
+> em duas etapas, sendo a primeira etapa, responsavel por gerar o artefato final, ou seja, o .jar, e a segunda etapa,
+> responsavel por gerar a imagem final, ou seja, a imagem que será usada para subir o container.
 > O arquivo Dockerfile-api-vendas, sem o multi-stage, esta na pasta docker/default, na raiz do projeto.
 
->Esse arquivo construirá imagem customizada para a aplicação api-vendas, gerando um .jar.
+> Esse arquivo construirá imagem customizada para a aplicação api-vendas, gerando um .jar.
 
->Dockerfile-api-vendas
+> Dockerfile-api-vendas
 
 ```dockerfile
 #Stage 1
@@ -222,7 +246,7 @@ COPY --from=stage1 /app/target/*.jar /app/app.jar
 CMD ["java","-Dspring.profiles.active=production", "-jar", "app.jar"]
 ```
 
->Dockerfile-redis
+> Dockerfile-redis
 
 > Esse arquivo construirá imagem customizada para o redis, que será usado para cache.
 
@@ -236,12 +260,12 @@ COPY ../redis.conf /usr/local/etc/redis/redis.conf
 CMD [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
 ```
 
-
 ### Acesse o diretório raiz do projeto(root), via terminal, e execute o comando abaixo para criar a imagem customizada
->[!WARNING]
-> Onde está `sfidencio` deverá ser substituído pelo seu usuário do dockerhub, e pressupondo que você já tenha uma conta no docker hub e tenha feito login previamente.
-> Caso não tenha feito login o comando e `docker login` e informe seu usuário e senha.
 
+> [!WARNING]
+> Onde está `sfidencio` deverá ser substituído pelo seu usuário do dockerhub, e pressupondo que você já tenha uma conta
+> no docker hub e tenha feito login previamente.
+> Caso não tenha feito login o comando e `docker login` e informe seu usuário e senha.
 
 ```bash
 docker build -f docker/Dockerfile-api-vendas-multi-stage --platform linux/amd64 -t sfidencio/api-vendas:latest .
@@ -253,42 +277,39 @@ docker build -f docker/Dockerfile-api-vendas-multi-stage --platform linux/amd64 
 docker run --rm -it --name myapp -p 8080:8080 sfidencio/api-vendas:latest
 ```
 
-
 ### Executando imagem customizada em background "-d", visto que a opcao "-rm" remove o container ao finalizar
 
 ```bash
 docker run --rm -d --name myapp -p 8080:8080 sfidencio/api-vendas:latest
 ```
 
->[!TIP]
+> [!TIP]
 > Caso seja necessario verificar os logs do container, execute o comando abaixo:
+
 ```bash
 docker logs myapp
 ```
 
->[!TIP]
+> [!TIP]
 > Caso seja necessario parar o container, execute o comando abaixo:
+
 ```bash
 docker stop myapp
 ```
 
 ### Acessando aplicação - Cadastrando Cliente
 
-
 ```bash
 curl -kvs http://localhost:8080/base/v1/api/clientes/salvar --data '{"nome":"Fulano","cpf":"41909644099", "email":"fulano@gmail.com" }' -H "Content-Type: application/json"  -X POST
 ```
 
-
 ### Acessando aplicação - Consultado cliente com id-> 1
-
 
 ```bash
 curl -kvs http://localhost:8080/base/v1/api/clientes/consulta/1 -H "Content-Type: application/json"  -X GET
 ```
 
 ### Acessando aplicação - Listando todos Clientes Cadastrados
-
 
 ```bash
 curl -kvs http://localhost:8080/base/v1/api/clientes/consulta-todos-clientes -H "Content-Type: application/json"  -X GET
@@ -301,22 +322,33 @@ docker exec -it myapp sh
 ```
 
 # Guia explicando como dockerizar o projeto em seguinda executa-lo localmente com o docker-compose
+
 > [!IMPORTANT]
-> Executar sempre um `mvn clean install`, pois o docker-compose irá criar a imagem customizada e subir o container, e se não tivermos o .jar, o container não sobe.
+> Executar sempre um `mvn clean install`, pois o docker-compose irá criar a imagem customizada e subir o container, e se
+> não tivermos o .jar, o container não sobe.
 
->[!IMPORTANT]
-> Nesse cenario, o docker-compose.yml deverá estar na raiz do projeto, ou seja, no mesmo diretório onde está o Dockerfile.
+> [!IMPORTANT]
+> Nesse cenario, o docker-compose.yml deverá estar na raiz do projeto, ou seja, no mesmo diretório onde está o
+> Dockerfile.
 
->[!IMPORTANT]
-> Vamos subir o banco de dados postgres e a aplicação em containers, isso implica que teremos que mudar o profile de `development` para `production`, pois a aplicação não estará mais usando o banco de dados H2, mas sim o postgres. Altere o Dockerfile na linha `-Dspring.profiles.active=development` para `-Dspring.profiles.active=production`.
+> [!IMPORTANT]
+> Vamos subir o banco de dados postgres e a aplicação em containers, isso implica que teremos que mudar o profile
+> de `development` para `production`, pois a aplicação não estará mais usando o banco de dados H2, mas sim o postgres.
+> Altere o Dockerfile na linha `-Dspring.profiles.active=development` para `-Dspring.profiles.active=production`.
 
->[!TIP]
-> Observe que estamos usando variaveis de ambiente no arquivo docker-compose.yml, ou seja, as variaveis de ambiente são passadas para a aplicação via docker-compose.yml, e a aplicação as recebe via System.getenv("NOME_DA_VARIAVEL_DE_AMBIENTE") ou @Value("${NOME_DA_VARIAVEL_DE_AMBIENTE}") ou dentro do arquivo application.yaml ou application.properties no seguinte formato(Exemplo apenas): `spring.datasource.url=${SPRING_DATASOURCE_URL}`.
+> [!TIP]
+> Observe que estamos usando variaveis de ambiente no arquivo docker-compose.yml, ou seja, as variaveis de ambiente são
+> passadas para a aplicação via docker-compose.yml, e a aplicação as recebe via System.getenv("
+> NOME_DA_VARIAVEL_DE_AMBIENTE") ou @Value("${NOME_DA_VARIAVEL_DE_AMBIENTE}") ou dentro do arquivo application.yaml ou
+> application.properties no seguinte formato(Exemplo apenas): `spring.datasource.url=${SPRING_DATASOURCE_URL}`.
 
->docker-compose.yml
+> docker-compose.yml
 
->[!TIP]
-> Fique atento quanto a configuração das variaveis de ambiente, as mais importantes foram externalizadas no docker-compose.yml. Essas variaveis são "injetadas" no conteiner em execução, e recuperadas via application.yaml ou application.properties. Observe a seção environment do arquivo docker-compose.yml, e a seção environment do arquivo docker-compose.yaml.
+> [!TIP]
+> Fique atento quanto a configuração das variaveis de ambiente, as mais importantes foram externalizadas no
+> docker-compose.yml. Essas variaveis são "injetadas" no conteiner em execução, e recuperadas via application.yaml ou
+> application.properties. Observe a seção environment do arquivo docker-compose.yml, e a seção environment do arquivo
+> docker-compose.yaml.
 
 ```yaml
 version: '3.7'
@@ -401,38 +433,42 @@ volumes:
     driver: local
 ```
 
->[!TIP]
-> Observe bem a estrutura do arquivo docker-compose.yml, pois é muito importante para o funcionamento correto do projeto.
+> [!TIP]
+> Observe bem a estrutura do arquivo docker-compose.yml, pois é muito importante para o funcionamento correto do
+> projeto.
 
 
->[!TIP]
+> [!TIP]
 > O arquivo docker-compose.yml é composto por 3 seções, sendo elas: services, networks e volumes.
 
 
->[!TIP]
+> [!TIP]
 > A seção services é composta por 2 serviços, sendo eles: db e app.
 
 
->[!TIP]
+> [!TIP]
 > A seção networks é composta por 1 rede, sendo ela: myapp. A aplicação e o banco de dados estarão na mesma rede.
 
 
->[!TIP]
-> O parâmetro `depends_on` é muito importante, pois ele garante que o banco de dados esteja no ar antes da aplicação subir.
+> [!TIP]
+> O parâmetro `depends_on` é muito importante, pois ele garante que o banco de dados esteja no ar antes da aplicação
+> subir.
 
 
->[!TIP]
-> A seção volumes é composta por 1 volume, sendo ele: `postgres-data`. Esse volume é responsável por persistir os dados do banco de dados postgres, pois o container é efêmero(imutável), ou seja, se o container for derrubado, os dados serão perdidos, logo a gravação dos dados é feita no volume, que esta "fora" do container.
+> [!TIP]
+> A seção volumes é composta por 1 volume, sendo ele: `postgres-data`. Esse volume é responsável por persistir os dados
+> do banco de dados postgres, pois o container é efêmero(imutável), ou seja, se o container for derrubado, os dados serão
+> perdidos, logo a gravação dos dados é feita no volume, que esta "fora" do container.
 
->[!TIP]
-> O volume é criado automaticamente pelo docker-compose, caso não exista. 
+> [!TIP]
+> O volume é criado automaticamente pelo docker-compose, caso não exista.
 
->[!TIP]
-> Assim como .gitignore, o .dockerignore é muito importante, pois ele é responsável por ignorar arquivos e diretórios que não devem ser copiados para dentro do container, ou seja, o .dockerignore é responsável por otimizar o build da imagem, pois ele não copia arquivos e diretórios desnecessários para dentro do container.
-
+> [!TIP]
+> Assim como .gitignore, o .dockerignore é muito importante, pois ele é responsável por ignorar arquivos e diretórios
+> que não devem ser copiados para dentro do container, ou seja, o .dockerignore é responsável por otimizar o build da
+> imagem, pois ele não copia arquivos e diretórios desnecessários para dentro do container.
 
 ### Subindo aplicação no docker localmente usando docker-compose aliado ao Dockerfile, em background "-d"
-
 
 ```bash
 sudo docker-compose up --build -d
@@ -444,84 +480,101 @@ ou
 sudo docker compose up --build -d
 ```
 
->Após subir os conteinerers, via docker-compose.
+> Após subir os conteinerers, via docker-compose.
 
 ![img.png](img/img.png)
 
 
 
->[!WARNING]
->Repita os testes de cadastro de clientes, consulta e listagem via curl, conforme descrito acima, pois o banco de dados H2 não será mais utilizado, mas sim o postgres.
+> [!WARNING]
+> Repita os testes de cadastro de clientes, consulta e listagem via curl, conforme descrito acima, pois o banco de dados
+> H2 não será mais utilizado, mas sim o postgres.
 
 ### Parando containers
-
 
 ```bash
 sudo docker-compose down
 ```
 
-ou 
+ou
 
 ```bash
 sudo docker compose down
 ```
 
-
-
 # Spring com Redis
+
 ## Tutorial basico de como usar o Redis via CLI
+
 > [!IMPORTANT]
 > Para executar o redis standalone via docker, execute o comando abaixo:
+
 ```bash
 docker run --rm -d --name redis -p 6379:6379 redis
 ```
->Acesse o container do Redis
+
+> Acesse o container do Redis
+
 ```bash
 docker exec -it redis bash
 ```
->Execute o comando abaixo para acessar o Redis CLI (Dentro do Container)
+
+> Execute o comando abaixo para acessar o Redis CLI (Dentro do Container)
+
 ```bash
 redis-cli
 ```
 
->[!WARNING]
+> [!WARNING]
 > Todos comandos abaixo devem ser executados dentro do redis-cli.
->Teste Redis
+> Teste Redis
+
 ```bash
 ping
 ```
 
->Visualizar todas as chaves
+> Visualizar todas as chaves
+
 ```bash
 KEYS *
 ```
->Visualizar valor da chave
+
+> Visualizar valor da chave
+
 ```bash
 GET <chave>
 ```
->Incluir chave e valor
+
+> Incluir chave e valor
+
 ```bash
 SET <chave> <valor>
 ```
->Excluir chave
+
+> Excluir chave
+
 ```bash
 DEL <chave>
 ```
->Caso queira limpar o Redis, execute o comando abaixo:
+
+> Caso queira limpar o Redis, execute o comando abaixo:
+
 ```bash
 FLUSHALL
 ```
->[!WARNING]
-> Ate aqui, usamos do redis-cli.
 
+> [!WARNING]
+> Ate aqui, usamos do redis-cli.
 
 ## Algumas observações quanto a utilização do Redis no Spring
 
 > [!IMPORTANT]
-> Na classe Application.java, temos um exemplo, via `CommandLineRunner`, de como realizar operacoes basicas no Redis, utilizando a classe Helper, `RedisTemplate`.
+> Na classe Application.java, temos um exemplo, via `CommandLineRunner`, de como realizar operacoes basicas no Redis,
+> utilizando a classe Helper, `RedisTemplate`.
 
 > [!TIP]
 > Para utilizar o Redis no Spring, precisamos adicionar a dependencia abaixo no pom.xml:
+
 ```xml
 <dependency>
     <groupId>org.springframework.boot</groupId>
@@ -529,8 +582,10 @@ FLUSHALL
     <version>x.y.z</version>
 </dependency>
 ```
+
 > [!TIP]
-> As principais configurações de `bootstrap` do Redis, estão no arquivo application.yaml ou application.properties, e na classe RedisConfig.java.
+> As principais configurações de `bootstrap` do Redis, estão no arquivo application.yaml ou application.properties, e na
+> classe RedisConfig.java.
 
 ```java
 @Configuration
@@ -557,17 +612,28 @@ public class RedisConfig {
     }
 }
 ```
-> [!TIP]
-> Observem que estamos usando o `GenericJackson2JsonRedisSerializer`, para serializar os dados em json, pois o Redis não aceita serializar objetos em java, apenas em json.
 
 > [!TIP]
-> Estamos defindo o TTL global em 1 dia, e para cada cache, estamos definindo um TTL especifico, ou seja, o TTL global é sobrescrito pelo TTL especifico de cada cache. Essa configuração, é recuperada quando informamos a anotação `@Cacheable` o atributo `cacheName`, exemplo: `@Cacheable(cacheNames = "produto")`.
+> Observem que estamos usando o `GenericJackson2JsonRedisSerializer`, para serializar os dados em json, pois o Redis não
+> aceita serializar objetos em java, apenas em json.
 
 > [!TIP]
-> Vale ressaltar que o valor default do cache esta sendo definido via SPEL(Spring Expression Language), ou seja, estamos recuperando o valor da variavel de ambiente `myapp.cache.ttl`, caso não exista, o valor default é 60 segundos/minutos/horas, vai depender da unidade de medida que você definir no Duration.ofSeconds(this.ttl).
+> Estamos defindo o TTL global em 1 dia, e para cada cache, estamos definindo um TTL especifico, ou seja, o TTL global é
+> sobrescrito pelo TTL especifico de cada cache. Essa configuração, é recuperada quando informamos a anotação `@Cacheable`
+> o atributo `cacheName`, exemplo: `@Cacheable(cacheNames = "produto")`.
 
 > [!TIP]
-> Vale ressaltar que, o redis pode ser utilizado via `@Annotations`, ou via `RedisTemplate`, ou via `RedisRepository`, enfim, existem varias formas de utilizar o Redis no Spring. No entanto, a mais usual é via `@Annonations`, pois não precisamos manipular o `RedisTemplate` diretamente, ou seja, o Spring faz isso por nós, todavia, temos um exemplo de como utilizar o `RedisTemplate` na classe principal da aplicação, ou seja, na classe `Application.java`, temos um exemplo, via `CommandLineRunner`, de como realizar operacões basicas no Redis, utilizando a classe Helper, `RedisTemplate`.
+> Vale ressaltar que o valor default do cache esta sendo definido via SPEL(Spring Expression Language), ou seja, estamos
+> recuperando o valor da variavel de ambiente `myapp.cache.ttl`, caso não exista, o valor default é 60
+> segundos/minutos/horas, vai depender da unidade de medida que você definir no Duration.ofSeconds(this.ttl).
+
+> [!TIP]
+> Vale ressaltar que, o redis pode ser utilizado via `@Annotations`, ou via `RedisTemplate`, ou via `RedisRepository`,
+> enfim, existem varias formas de utilizar o Redis no Spring. No entanto, a mais usual é via `@Annonations`, pois não
+> precisamos manipular o `RedisTemplate` diretamente, ou seja, o Spring faz isso por nós, todavia, temos um exemplo de
+> como utilizar o `RedisTemplate` na classe principal da aplicação, ou seja, na classe `Application.java`, temos um
+> exemplo, via `CommandLineRunner`, de como realizar operacões basicas no Redis, utilizando a classe
+> Helper, `RedisTemplate`.
 
 > [!TIP]
 > Para configurar banner do spring, acesse o link abaixo:
@@ -585,9 +651,12 @@ spring:
 ```
 
 # Implementando Swagger
+
 ## Guia explicativo de como implementar o Swagger no projeto
+
 > [!IMPORTANT]
 > Para implementar o Swagger, basta adionarmos a dependencia abaixo no pom.xml:
+
 ```xml
       <!--Enable Swagger-->
         <dependency>
@@ -602,8 +671,9 @@ spring:
 > http://localhost:8080/base/swagger-ui.html
 
 
->[!IMPORTANT]
->Se não utilizarmos nenhuma das configurações descritas abaixos, o Swagger irá documentar todos os endpoints da aplicação, inclusive os endpoints do Spring Boot Actuator, ou seja, endpoints de monitoramento da aplicação.
+> [!IMPORTANT]
+> Se não utilizarmos nenhuma das configurações descritas abaixos, o Swagger irá documentar todos os endpoints da
+> aplicação, inclusive os endpoints do Spring Boot Actuator, ou seja, endpoints de monitoramento da aplicação.
 
 > [!TIP]
 > Algumas `@Annotations` básicas do Swagger para **personalizar** a documentação da API:
@@ -611,15 +681,16 @@ spring:
 > + `@Operation` -> Usado para descrever o endpoint, ou seja, descrever o que o endpoint faz.
 > + `@Parameter` -> Usado para descrever os parametros do endpoint, ou seja, descrever o que cada parametro faz.
 > + `@ApiResponse` -> Usado para descrever o retorno do endpoint, ou seja, descrever o que o endpoint retorna.
-> + `@ApiResponses` -> Usado para descrever os possiveis retornos do endpoint, ou seja, descrever o que o endpoint pode retornar.
-
-
+> + `@ApiResponses` -> Usado para descrever os possiveis retornos do endpoint, ou seja, descrever o que o endpoint pode
+    retornar.
 
 # Implementando MongoDB no projeto
+
 ## Guia explicativo de como implementar  o MongoDB no projeto
 
 > [!IMPORTANT]
 > Para implementar o MongoDB, basta adionarmos a dependencia abaixo no pom.xml:
+
 ```xml
         <!--MongoDB-->
         <dependency>
@@ -628,8 +699,10 @@ spring:
             <version>x.y.z</version>
         </dependency>
 ```
+
 > [!IMPORTANT]
 > Configuração do MongoDB no arquivo application.yaml ou application.properties:
+
 ```yaml
 spring:
   data:
@@ -637,52 +710,63 @@ spring:
       uri: mongodb://localhost:27017/api-vendas
 ```
 
->Executando o MongoDB via docker:
+> Executando o MongoDB via docker:
+
 ```bash
 docker run --rm -d --name mongo -p 27017:27017 mongo
 ```
->Cadastrando cliente Vip (MongoDB) via curl:
+
+> Cadastrando cliente Vip (MongoDB) via curl:
+
 ```bash
 curl -kvs http://localhost:8080/base/v1/api/clientes/salva-cliente-vip --data '{nome":"Fulano","cpf":"41909644099", "email":"fulano@gmail.com" }' -H "Content-Type: application/json"  -X POST
 ```
->Consultando todos os clientes VIP (MongoDB) via curl:
+
+> Consultando todos os clientes VIP (MongoDB) via curl:
+
 ```bash
 curl -kvs http://localhost:8080/base/v1/api/clientes/consulta-todos-clientes-vip -H "Content-Type: application/json"  -X GET
 ```
 
->Acessando o container do MongoDB
+> Acessando o container do MongoDB
+
 ```bash
 docker exec -it mongodb bash
 ```
 
->Acessando o mongoDB via CLI (Dentro do Container)
+> Acessando o mongoDB via CLI (Dentro do Container)
+
 ```bash
 mongosh
 ```
 
->Visualizar todas as bases de dados
+> Visualizar todas as bases de dados
+
 ```bash
 show dbs
 ```
 
->Visualizar todas as coleções
+> Visualizar todas as coleções
+
 ```bash
 show collections
 ```
 
->Consultando cliente Vip (MongoDB) via CLI (Dentro do Container)
+> Consultando cliente Vip (MongoDB) via CLI (Dentro do Container)
+
 ```bash
 use api-vendas
 db.cliente.find()
 ```
 
->Apagando base de dados api-vendas (MongoDB) via CLI (Dentro do Container)
+> Apagando base de dados api-vendas (MongoDB) via CLI (Dentro do Container)
+
 ```bash
 use api-vendas
 db.dropDatabase()
 ```
 
->Apagando todos os dados da coleção clientesVIP (MongoDB) via CLI (Dentro do Container)
+> Apagando todos os dados da coleção clientesVIP (MongoDB) via CLI (Dentro do Container)
 > [!WARNING]
 > DeprecationWarning: Collection.remove() is deprecated. Use deleteOne, deleteMany, findOneAndDelete, or bulkWrite.
 
@@ -696,7 +780,7 @@ ou
 db.cliente.deleteMany()
 ```
 
->Mapeando entidade Cliente para o MongoDB
+> Mapeando entidade Cliente para o MongoDB
 
 ```java
 import org.springframework.data.mongodb.core.mapping.FieldType;
@@ -707,13 +791,17 @@ public record ClienteVIP(@MongoId(FieldType.OBJECT_ID) String id, String nome, S
 }
 ```
 
->Criando repositorio para o MongoDB
+> Criando repositorio para o MongoDB
+
 ```java
+
 @Repository
 public interface ClienteVIPRepository extends MongoRepository<ClienteVIP, String> {
 }
 ```
->Exemplo de como salvar cliente Vip (MongoDB) via repositorio
+
+> Exemplo de como salvar cliente Vip (MongoDB) via repositorio
+
 ```java
 @Bean("executarTesteMongoDB")
 public CommandLineRunner executarTesteMongoDB(@Autowired ClienteVIPRespository clienteVIPRespository) {
@@ -731,23 +819,28 @@ public CommandLineRunner executarTesteMongoDB(@Autowired ClienteVIPRespository c
 }
 ```
 
->Para excluir registros via repositorio, basta usar o metodo deleteById, conforme exemplo abaixo:
+> Para excluir registros via repositorio, basta usar o metodo deleteById, conforme exemplo abaixo:
+
 ```java
 public void excluirClienteVIP(String id) {
     clienteVIPRespository.deleteById("id");
 }
 ```
->[!TIP]
-> Temos um exemplo de utilização do mongodb com springboot, agora caso queira implementar as demais funcionalidades de exclusão, atualização e consulta, basta seguir o exemplo acima, e consultar a documentação do spring data mongodb, os links descritos no final deste documento.
 
-
+> [!TIP]
+> Temos um exemplo de utilização do mongodb com springboot, agora caso queira implementar as demais funcionalidades de
+> exclusão, atualização e consulta, basta seguir o exemplo acima, e consultar a documentação do spring data mongodb, os
+> links descritos no final deste documento.
 
 ### Implementando Multi-Stage Build no Docker
+
 > [!TIP]
 > Para implementar o multi-stage build no docker, "mineramos" informações dos links abaixo:
-> A diferença entre o build sem multi-stage, é que o build com multi-stage gera uma imagem menor, pois o build é feito em duas etapas, sendo a primeira etapa, responsavel por gerar o artefato final, ou seja, o .jar, e a segunda etapa, responsavel por gerar a imagem final, ou seja, a imagem que será usada para subir o container.
+> A diferença entre o build sem multi-stage, é que o build com multi-stage gera uma imagem menor, pois o build é feito
+> em duas etapas, sendo a primeira etapa, responsavel por gerar o artefato final, ou seja, o .jar, e a segunda etapa,
+> responsavel por gerar a imagem final, ou seja, a imagem que será usada para subir o container.
 
->Explorando o multi-stage build do docker: (Implementado no projeto depois)
+> Explorando o multi-stage build do docker: (Implementado no projeto depois)
 > + https://ionutbanu.medium.com/build-spring-boot-docker-image-using-multi-stage-dockerfile-2-13b9f1e89393
 > + https://www.harness.io/blog/how-to-create-multi-stage-docker-builds-with-harness-continuous-delivery
 > + https://docs.docker.com/develop/develop-images/multistage-build/
@@ -755,13 +848,15 @@ public void excluirClienteVIP(String id) {
 > + https://www.harness.io/blog/how-to-create-multi-stage-docker-builds-with-harness-continuous-delivery
 > + https://ionutbanu.medium.com/build-spring-boot-docker-image-using-multi-stage-dockerfile-2-13b9f1e89393
 
->Explorando o dockerignore:
+> Explorando o dockerignore:
 > + https://shisho.dev/blog/posts/how-to-use-dockerignore/
 
 ### Entendendo os padrões de regex:
+
 > + https://www.regular-expressions.info/posixbrackets.html
 > + https://regex101.com/
->   + Temos aqui um excelente site par validar nossas expressões regulares.
+    >
++ Temos aqui um excelente site par validar nossas expressões regulares.
 
 ```text 
 Os padrões de regex são sequências de caracteres que definem um conjunto de regras para procurar, validar ou manipular strings de texto. Eles são compostos por uma combinação de caracteres literais (que correspondem a si mesmos) e metacaracteres (símbolos especiais que representam classes de caracteres, quantificadores, âncoras, entre outros). Aqui estão alguns dos padrões mais comuns de regex:
@@ -792,8 +887,7 @@ Grupos e Captura:
 Estes são apenas alguns exemplos de padrões de regex. Expressões regulares podem se tornar bastante complexas e poderosas, permitindo a criação de padrões altamente específicos para manipulação de texto. É importante estudar e praticar para se tornar proficientes no uso de regex.
 ```
 
->Exemplo de implementação de Regex usando teste unitário - validando o ddd do telefone:
-
+> Exemplo de implementação de Regex usando teste unitário - validando o ddd do telefone:
 
 ```java
 
@@ -821,33 +915,35 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espa
 }
 ```  
 
-
->[!TIP]
+> [!TIP]
 > Exemplo de implementação de Regex via teste unitário:
 > + Verifique o arquivo RegexTest.java, na pasta test, na raiz do projeto.
-> + Verifique a classe Cliente.java, na pasta model, na raiz do projeto, especificamente no campo nome. Estamos utilizando anotação do pacote javax.validation.constraints, com a anotação @Pattern.
+> + Verifique a classe Cliente.java, na pasta model, na raiz do projeto, especificamente no campo nome. Estamos
+    utilizando anotação do pacote javax.validation.constraints, com a anotação @Pattern.
 
->Exemplo
+> Exemplo
 > ```java
 > @Pattern(regexp = "^[A-Za-z\\s]+$", message = "Nome deve conter apenas letras")
 > private final String nome;
 > ```
 
-
 ### Explorando o uso do dataType BigDecimal:
+
 > + https://www.baeldung.com/java-bigdecimal-biginteger
 > + https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html
 
 > + Verifique o arquivo ExplorandoBigDecimal.java, na pasta test, na raiz do projeto.
 
 ### Explorando RestTemplate:
+
 > + https://www.baeldung.com/rest-template
 > + Consultando CEP via API externa:
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > + Basta analisar as classes/interfaces CEP.java, CEPService.java, CEPController.java, CEPControllerImp.java.
 
-> + A url de acionamento do endpoint é: http://localhost:8080/base/v1/api/cep/consulta/{cep}, onde {cep} é o cep que desejamos consultar.
+> + A url de acionamento do endpoint é: http://localhost:8080/base/v1/api/cep/consulta/{cep}, onde {cep} é o cep que
+    desejamos consultar.
 > + Vai retornar algo do tipo
 
 ```json
@@ -865,7 +961,6 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espa
  }
 ```
 
-
 ### Implementando AOP:
 
 > Para implementar o AOP, basta adionarmos a dependencia abaixo no pom.xml:
@@ -879,33 +974,49 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espa
         </dependency>
 ```
 
-+ Criamos uma classe de Log, chamada `LogAspect.java`, no pacote `infra.log`, na raiz do projeto, e adicionamos a anotação `@Aspect` na classe, e a anotação `@EnableAspectJAutoProxy` na classe `AspectLog.java`, no pacote `infra.log`.
-+ A classe `LogAspect.java`, é responsavel por interceptar todas as chamadas aos endpoints da aplicação, e gerar um log de entrada e saida.
-+ Utilizamos a anotação `@AfterReturning`, para interceptar o retorno dos endpoints, e gerar o log de saida, pois é possivel interceptar o retorno da chamada do método, e manipular o retorno, ou seja, é possivel alterar o retorno do método, ou simplesmente gerar um log de saida.
++ Criamos uma classe de Log, chamada `LogAspect.java`, no pacote `infra.log`, na raiz do projeto, e adicionamos a
+  anotação `@Aspect` na classe, e a anotação `@EnableAspectJAutoProxy` na classe `AspectLog.java`, no
+  pacote `infra.log`.
++ A classe `LogAspect.java`, é responsavel por interceptar todas as chamadas aos endpoints da aplicação, e gerar um log
+  de entrada e saida.
++ Utilizamos a anotação `@AfterReturning`, para interceptar o retorno dos endpoints, e gerar o log de saida, pois é
+  possivel interceptar o retorno da chamada do método, e manipular o retorno, ou seja, é possivel alterar o retorno do
+  método, ou simplesmente gerar um log de saida.
 + Utilizamos a anotação `@Before`, para interceptar a entrada dos endpoints, e gerar o log de entrada.
-+ Temos anotação `@Pointcut`, para definir o ponto de corte, ou seja, o ponto onde o AOP irá interceptar as chamadas aos endpoints.
-+ Utilizamos a classe  `JoinPoint`, para recuperar informações sobre o ponto de corte, ou seja, o ponto onde o AOP irá interceptar as chamadas aos endpoints.
-+ Observe atentamente as expressões regulares, pois elas são responsaveis por definir o ponto de corte, ou seja, o ponto onde o AOP irá interceptar as chamadas aos endpoints.
++ Temos anotação `@Pointcut`, para definir o ponto de corte, ou seja, o ponto onde o AOP irá interceptar as chamadas aos
+  endpoints.
++ Utilizamos a classe  `JoinPoint`, para recuperar informações sobre o ponto de corte, ou seja, o ponto onde o AOP irá
+  interceptar as chamadas aos endpoints.
++ Observe atentamente as expressões regulares, pois elas são responsaveis por definir o ponto de corte, ou seja, o ponto
+  onde o AOP irá interceptar as chamadas aos endpoints.
 + Dicas e macetes sobre AOP:
-  + https://www.amitph.com/spring-aop-before-advice/
-  + https://www.naiyerasif.com/post/2020/09/13/logging-methods-with-aspectj-in-a-spring-application/
+    + https://www.amitph.com/spring-aop-before-advice/
+    + https://www.naiyerasif.com/post/2020/09/13/logging-methods-with-aspectj-in-a-spring-application/
 
 > [!WARNING]
-> Lembre-se que o AOP intercepta não só metódos de endpoints, mas também metódos de classes de serviços, ou seja, qualquer metódo que seja publico e que esteja anotado com `@Pointcut`, será interceptado pelo AOP. Em nossos exemplos não utilizamos a anotação `@Pointcut`, mas é possivel utiliza-la, e definir o ponto de corte, ou seja, o ponto onde o AOP irá interceptar as chamadas aos endpoints. Preferimos utilizar expressões regulares, e não poluir as classes com anotações do AOP.
+> Lembre-se que o AOP intercepta não só metódos de endpoints, mas também metódos de classes de serviços, ou seja,
+> qualquer metódo que seja publico e que esteja anotado com `@Pointcut`, será interceptado pelo AOP. Em nossos exemplos
+> não utilizamos a anotação `@Pointcut`, mas é possivel utiliza-la, e definir o ponto de corte, ou seja, o ponto onde o
+> AOP irá interceptar as chamadas aos endpoints. Preferimos utilizar expressões regulares, e não poluir as classes com
+> anotações do AOP.
 
 > [!TIP]
-> Ao subir a aplicação, iremos notar que o AOP intercepta todas as chamadas aos endpoints, e gera um log de entrada e saida, conforme exemplo abaixo:
+> Ao subir a aplicação, iremos notar que o AOP intercepta todas as chamadas aos endpoints, e gera um log de entrada e
+> saida, conforme exemplo abaixo:
+
 ```text
 2023-12-15T02:38:35.050-03:00  INFO 54421 --- [nio-8080-exec-1] c.g.s.vendas.infra.config.log.LogAspect  : Depois da execução do método List com.github.sfidencio.vendas.api.controller.imp.ClienteControllerImp.consultarTodos() com o resultado [ClienteResponse[id=1, nome=Fulano., cpf=71509956085, email=cliente2@gmail.com, pedidos=null], ClienteResponse[id=2, nome=Ciclano., cpf=71509956085, email=cliente2@gmail.com, pedidos=null], ClienteResponse[id=3, nome=Ciclano., cpf=71509956085, email=cliente2@gmail.com, pedidos=null], ClienteResponse[id=4, nome=Ciclano., cpf=71509956085, email=cliente2@gmail.com, pedidos=null]]
 
  ```   
 
 ### Implementando testes unitários:
+
 > + https://howtodoinjava.com/spring-boot2/testing/spring-boot-mockito-junit-example/
 > + https://www.baeldung.com/mockito-junit-5-extension
 
 
 > Dependências SpringBoot3 + Junit5 + Mockito + MockMvc:
+
 ```xml
 <!--SpringBoot3 + Junit5 + Mockito + MockMvc-->
 <!--Dependency tests in spring-->
@@ -932,9 +1043,8 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espa
 </dependencies>
 ```
 
-
-
 > Exemplo de teste unitário com `mockito` e `junit5` sem subir o contexto do spring:
+
 ```java
 @ExtendWith(MockitoExtension.class)
 class ClienteControllerImpTest {
@@ -955,17 +1065,27 @@ class ClienteControllerImpTest {
 
 > Exemplo de teste unitário com `mockito` e `junit5` subindo o contexto do spring:
 
->[!TIP]
-> A anotação `@SpringBootTest` é responsavel por subir o contexto do spring, ou seja, subir a aplicação, e a anotação `@MockBean` é responsavel por criar um mock do bean, ou seja, criar um mock do serviço, pois não queremos testar o serviço, mas sim o controller, logo, precisamos criar um mock do serviço, para que o controller possa ser testado de forma isolada. Com uso dessa anotação, ele já encapsula o `@ExtendWith(MockitoExtension.class)`, ou seja, não precisamos mais usar o `@ExtendWith(MockitoExtension.class)`, pois o `@SpringBootTest` já encapsula o `@ExtendWith(SpringExtension.class)`.
+> [!TIP]
+> A anotação `@SpringBootTest` é responsavel por subir o contexto do spring, ou seja, subir a aplicação, e a
+> anotação `@MockBean` é responsavel por criar um mock do bean, ou seja, criar um mock do serviço, pois não queremos
+> testar o serviço, mas sim o controller, logo, precisamos criar um mock do serviço, para que o controller possa ser
+> testado de forma isolada. Com uso dessa anotação, ele já encapsula o `@ExtendWith(MockitoExtension.class)`, ou seja, não
+> precisamos mais usar o `@ExtendWith(MockitoExtension.class)`, pois o `@SpringBootTest` já encapsula
+> o `@ExtendWith(SpringExtension.class)`.
 
->[!TIP]
-> É possivel também mockar beans do spring, ou seja, criar mocks de beans do spring, para isso, basta usar a anotação `@MockBean`, conforme exemplo abaixo:
+> [!TIP]
+> É possivel também mockar beans do spring, ou seja, criar mocks de beans do spring, para isso, basta usar a
+> anotação `@MockBean`, conforme exemplo abaixo:
+
 ```java
+
 @MockBean
 private ClienteService clienteService;
 ```
->[!TIP]
+
+> [!TIP]
 > Subindo teste mockado sem o spring, ou seja, sem subir o contexto do spring:
+
 ```java
 @ExtendWith(MockitoExtension.class)
 class ClienteControllerImpTest {
@@ -984,7 +1104,7 @@ class ClienteControllerImpTest {
 }
 ```
 
->[!TIP] 
+> [!TIP]
 > Teste de integração com banco de dados em memória, usando o H2:
 
 ```java
@@ -1027,10 +1147,8 @@ class ClienteServiceImpTest {
 }
 ```
 
-
-        
-
 ### Explorando o lombok
+
 > + https://projectlombok.org
 > + https://www.baeldung.com/lombok-with-annotations
 
@@ -1041,21 +1159,24 @@ class ClienteServiceImpTest {
 import lombok.With;
 
 public class Pessoa {
-  @With private String nome;
-  @With private int idade;
+    @With
+    private String nome;
+    @With
+    private int idade;
 }
 ```
+
 ou
 
-
 ```java
+
 @With
 public record ClienteRequest(String nome, String cpf, String email) {
 }
 ```
+
 > [!TIP]
 > Uso uso do @Value para gerar automaticamente um construtor imutável para a classe, trata-se de uma variante de @Data
-
 
 ```java
 import lombok.Value;
@@ -1076,7 +1197,6 @@ public class Application {
 
 
 ```
-
 
 ```java
 //Uso do @Getter e @Setter para gerar automaticamente os métodos getters e setters para os campos de uma classe:
@@ -1205,13 +1325,12 @@ public class ExemploCleanup {
 
 ```
 
-
 ### Referências gerais do projeto
 
 > [!IMPORTANT]
 > Referências utilizadas em todo o projeto:
 
->Tutoriais e cursos gratuitos: 
+> Tutoriais e cursos gratuitos:
 >+ https://tpbabparn.medium.com/spring-boot-3-1-integrated-docker-compose-on-development-environment-spring-webflux-example-1ddcbfe052f
 >+ https://springhow.com/spring-boot-and-postgres-using-docker-compose/
 >+ https://www.baeldung.com/ops/docker-compose-links-depends-on
@@ -1227,15 +1346,16 @@ public class ExemploCleanup {
 >+ https://www.baeldung.com/spring-custom-validation-message-source
 >+ https://reflectoring.io/bean-validation-with-spring-boot/
 >+ https://medium.com/yildiztech/decoding-i18n-challenges-in-spring-boot-3-exploring-internationalization-895a4ac627df
->+ https://medium.com/@seonggil/creating-a-maturity-level-3-rest-api-with-hateoas-fcd76d1b2db9 (**Implementing HATEOAS**)
+>+ https://medium.com/@seonggil/creating-a-maturity-level-3-rest-api-with-hateoas-fcd76d1b2db9 (**Implementing HATEOAS
+   **)
 >+ https://www.baeldung.com/spring-data-jpa-pagination-sorting
 >+ https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
 >+ https://spring.io/guides/gs/accessing-data-jpa/
 >+ https://spring.io
 >+ https://hibernate.org
 >+ https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/record.html
- 
->Referências utilizadas para implementar o cache com Redis:
+
+> Referências utilizadas para implementar o cache com Redis:
 >+ https://www.baeldung.com/spring-boot-redis-cache
 >+ https://www.digitalocean.com/community/tutorials/spring-boot-redis-cache
 >+ https://www.bezkoder.com/spring-boot-redis-cache-example/
@@ -1246,25 +1366,25 @@ public class ExemploCleanup {
 >+ https://www.baeldung.com/spring-boot-evict-cache (Limpando o cache de várias formas)
 >+ https://medium.com/@aedemirsen/cache-structure-in-spring-boot-projects-with-redis-2c5751bca9eb
 
->Guia sobre utilização do Banner do Spring:
+> Guia sobre utilização do Banner do Spring:
 >+ https://devops.datenkollektiv.de/banner.txt/index.html
 
->Guia sobre configuração do redis no docker:
+> Guia sobre configuração do redis no docker:
 >+ https://cloudinfrastructureservices.co.uk/run-redis-with-docker-compose/ (Configuração mais completa)
 >+ https://medium.com/nerd-for-tech/setting-up-a-standalone-redis-instance-2721a7318037
 >+ https://zomro.com/blog/faq/301-kak-ustanovit-redis-v-docker
->+ https://devopscell.com/docker/docker-compose/volumes/2018/01/16/volumes-in-docker-compose.html 
+>+ https://devopscell.com/docker/docker-compose/volumes/2018/01/16/volumes-in-docker-compose.html
 >+ https://stackoverflow.com/questions/57528077/docker-compose-with-name-other-than-dockerfile
 
->Guia sobre implementação do Swagger:
+> Guia sobre implementação do Swagger:
 >+ https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api
 >+ https://medium.com/@f.s.a.kuzman/using-swagger-3-in-spring-boot-3-c11a483ea6dc#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IjBhZDFmZWM3ODUwNGY0NDdiYWU2NWJjZjVhZmFlZGI2NWVlYzllODEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIyMTYyOTYwMzU4MzQtazFrNnFlMDYwczJ0cDJhMmphbTRsamRjbXMwMHN0dGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiIyMTYyOTYwMzU4MzQtazFrNnFlMDYwczJ0cDJhMmphbTRsamRjbXMwMHN0dGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTYyMjM2MzYyOTQ3MzM2MjE0ODUiLCJlbWFpbCI6InNmaWRlbmNpb0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzAyMzM5MDE1LCJuYW1lIjoiU2ViYXN0acOjbyBGaWTDqm5jaW8iLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSzVGM2MycUJFbDFIT2xsOVYtUWkxRzRMOE1FcEQ0MWN2MnNYdzRUX3d1NkxTTT1zOTYtYyIsImdpdmVuX25hbWUiOiJTZWJhc3Rpw6NvIiwiZmFtaWx5X25hbWUiOiJGaWTDqm5jaW8iLCJsb2NhbGUiOiJwdC1CUiIsImlhdCI6MTcwMjMzOTMxNSwiZXhwIjoxNzAyMzQyOTE1LCJqdGkiOiI2M2Q0MGE1ZGM5ZDcwYzVmYmUxZGFmMmE5ZGM2ODJhZWU2ZTEyZjE5In0.p2Jpb1_zl-GfPki_m_hz8Xz4jsJxMxgS8wNM7ajqHPvgQq2ecGr8T8u2n5ZlbLh7LCDPxK3X9RY6CRCDp5uXqEZB2fdJ3-N9rvce4XDkSrzw90Qm_J2PPohOBLSY3EtbV3AOmeX8piWg-hxSzSBdUZI9SSomf0mJgPPv4EopfUQnqS7kISllewhs_JAKD6O_VYUbfy_jcmMMsHDzUQCem_4dBgn0d7r3DJE3snYzBtmzCqQuLih5ioiBB_g7MRQ-4SbfMyOwhwubKD96QV9VJxGpHoxvOTbYZKKhebg0vycHL--H0woaWLrgGcw0ajaPxeZLzuDutEw1b-YuaZPAJg
 
->Guia sobre implementação do MongoDB junto com o Spring:
+> Guia sobre implementação do MongoDB junto com o Spring:
 >+ https://www.mongodb.com/compatibility/spring-boot
 >+ https://docs.spring.io/spring-data/mongodb/reference/index.html
 
->Guia sobre implementação de validações usando Regex aliado com @Valid:
+> Guia sobre implementação de validações usando Regex aliado com @Valid:
 >+ https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
 >+ https://www.baeldung.com/java-regex-validate-phone-numbers
 >+ https://www.javatpoint.com/spring-mvc-regular-expression-validation

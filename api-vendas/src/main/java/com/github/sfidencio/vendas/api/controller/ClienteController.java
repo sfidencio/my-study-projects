@@ -19,6 +19,7 @@ import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 @EnableCaching
 @Tag(name = "Cliente", description = "API de Cliente")
 @RequestMapping(value = "/v1/api/clientes", produces = "application/json")
@@ -32,7 +33,7 @@ public interface ClienteController {
     })
     @GetMapping("/consulta/{id}")
     @ResponseStatus(HttpStatus.OK)
-    @Cacheable(value = "cliente", key = "#id",cacheNames = "cliente")
+    @Cacheable(value = "cliente", key = "#id", cacheNames = "cliente")
     ClienteResponse consultar(@PathVariable Integer id) throws NotFoundException;
 
     @Operation(summary = "Salva cliente", description = "Salva cliente")
@@ -41,9 +42,9 @@ public interface ClienteController {
             @ApiResponse(responseCode = "422", description = "Erro de negócio"),
             @ApiResponse(responseCode = "500", description = "Erro interno do servidor")
     })
-    @PostMapping("/salvar")
+    @PostMapping("/salva")
     @ResponseStatus(HttpStatus.CREATED)
-    //@CacheEvict(value = "cliente", allEntries = true, cacheNames = "cliente")
+        //@CacheEvict(value = "cliente", allEntries = true, cacheNames = "cliente")
     void salvar(@RequestBody @Valid ClienteRequest clienteRequest) throws NotFoundException;
 
     @Operation(summary = "Atualiza cliente", description = "Atualiza cliente")
@@ -53,9 +54,9 @@ public interface ClienteController {
             @ApiResponse(responseCode = "404", description = "Cliente não encontrado"),
             @ApiResponse(responseCode = "500", description = "Erro interno do servidor")
     })
-    @PutMapping("/atualizar/{id}")
+    @PutMapping("/atualiza/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @CachePut(value = "cliente", key = "#id",cacheNames = "cliente")
+    @CachePut(value = "cliente", key = "#id", cacheNames = "cliente")
     void atualizar(@RequestBody @Valid ClienteRequest clienteRequest, @PathVariable("id") Integer id);
 
 
@@ -65,13 +66,13 @@ public interface ClienteController {
             @ApiResponse(responseCode = "404", description = "Cliente não encontrado"),
             @ApiResponse(responseCode = "500", description = "Erro interno do servidor")
     })
-    @DeleteMapping("/excluir/{id}")
+    @DeleteMapping("/exclui/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @CacheEvict(value = "cliente", key = "#id",cacheNames = "cliente")
+    @CacheEvict(value = "cliente", key = "#id", cacheNames = "cliente")
     void excluir(@PathVariable Integer id) throws NotFoundException;
 
     @GetMapping("/consulta-todos-clientes")
-    @Cacheable(value = "cliente", key = "#root.method.name",cacheNames = "cliente")
+    @Cacheable(value = "cliente", key = "#root.method.name", cacheNames = "cliente")
     @ResponseStatus(HttpStatus.OK)
     List<ClienteResponse> consultarTodos();
 

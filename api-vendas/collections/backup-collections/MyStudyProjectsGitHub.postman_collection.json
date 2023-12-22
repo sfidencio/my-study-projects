@@ -1,732 +1,732 @@
 {
-	"info": {
-		"_postman_id": "0c9892ab-b4a0-475a-af8d-bc080014e3de",
-		"name": "MyStudyProjectsGitHub",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "5447460"
-	},
-	"item": [
-		{
-			"name": "api-vendas-explorando-spring-jpa",
-			"item": [
-				{
-					"name": "Produto",
-					"item": [
-						{
-							"name": "Salvar Produto",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"descricao\": \"Produto 1\",\n  \"preco\": 2.20\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:8080/base/v1/api/produtos/salvar",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"base",
-										"v1",
-										"api",
-										"produtos",
-										"salvar"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Atualizar Produto",
-							"request": {
-								"method": "PUT",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"descricao\": \"Produto 1\",\n  \"preco\": 2.20\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:8080/base/v1/api/produtos/atualizar/:id",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"base",
-										"v1",
-										"api",
-										"produtos",
-										"atualizar",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "1"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Consulta Produto",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:8080/base/v1/api/produtos/consulta-todos-produtos",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"base",
-										"v1",
-										"api",
-										"produtos",
-										"consulta-todos-produtos"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Consulta por ID",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:8080/base/v1/api/produtos/consulta/1",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"base",
-										"v1",
-										"api",
-										"produtos",
-										"consulta",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Consulta Produto Paginada",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:8080/base/v1/api/produtos/consulta/paginada/:numeroPagina/:tamanhoPagina",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"base",
-										"v1",
-										"api",
-										"produtos",
-										"consulta",
-										"paginada",
-										":numeroPagina",
-										":tamanhoPagina"
-									],
-									"variable": [
-										{
-											"key": "numeroPagina",
-											"value": "0"
-										},
-										{
-											"key": "tamanhoPagina",
-											"value": "2"
-										}
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Cliente",
-					"item": [
-						{
-							"name": "VIP",
-							"item": [
-								{
-									"name": "Consulta Cliente VIP",
-									"event": [
-										{
-											"listen": "prerequest",
-											"script": {
-												"exec": [
-													"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
-													"    console.log(response.json());",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										},
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													""
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:8080/base/v1/api/clientes/consulta-cliente-vip/:id",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "8080",
-											"path": [
-												"base",
-												"v1",
-												"api",
-												"clientes",
-												"consulta-cliente-vip",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "id",
-													"value": "657a1770a846ee2967df3f2c"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Consulta Todos Clientes VIP",
-									"event": [
-										{
-											"listen": "prerequest",
-											"script": {
-												"exec": [
-													"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
-													"    console.log(response.json());",
-													"});"
-												],
-												"type": "text/javascript"
-											}
-										},
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													""
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "http://localhost:8080/base/v1/api/clientes/consulta-todos-clientes-vip",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "8080",
-											"path": [
-												"base",
-												"v1",
-												"api",
-												"clientes",
-												"consulta-todos-clientes-vip"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Salvar Cliente VIP",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": " /*{\n    \"nome\": \"Beltrano\",\n    \"cpf\": \"71509956085\",\n    \"email\" : \"beltrano@gmail.com\"\n}\n\n {\n    \"nome\": \"Ciclano\",\n    \"cpf\": \"71509956085\",\n    \"email\" : \"ciclano@gmail.com\"\n}\n\n*/\n\n {\n    \"nome\": \"Fulano\",\n    \"cpf\": \"71509956085\",\n    \"email\" : \"fulano@gmail.com\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "http://localhost:8080/base/v1/api/clientes/salva-cliente-vip",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "8080",
-											"path": [
-												"base",
-												"v1",
-												"api",
-												"clientes",
-												"salva-cliente-vip"
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						},
-						{
-							"name": "Consulta Cliente",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
-											"    console.log(response.json());",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								},
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:8080/base/v1/api/clientes/consulta/:id",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"base",
-										"v1",
-										"api",
-										"clientes",
-										"consulta",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "1"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Consulta Todos Clientes",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:8080/base/v1/api/clientes/consulta-todos-clientes",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"base",
-										"v1",
-										"api",
-										"clientes",
-										"consulta-todos-clientes"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Excluindo Cliente",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:8080/base/v1/api/clientes/excluir/:id",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"base",
-										"v1",
-										"api",
-										"clientes",
-										"excluir",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "1"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Consulta Cliente - Maturity",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:8080/base/v1/api/clientes/consulta-maturity/:id",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"base",
-										"v1",
-										"api",
-										"clientes",
-										"consulta-maturity",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "1"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Salva Cliente",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": " {\n    \"nome\": \"Cliente 2\",\n    \"cpf\": \"71509956085\",\n    \"email\": \"cliente2@gmail.com\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:8080/base/v1/api/clientes/salvar",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"base",
-										"v1",
-										"api",
-										"clientes",
-										"salvar"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Atualiza Cliente",
-							"request": {
-								"method": "PUT",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": " {\n    \"nome\": \"Cliente 1 - Alterado\",\n    \"cpf\": \"71509956085\",\n    \"email\": \"cliente1@gmail.com\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:8080/base/v1/api/clientes/atualizar/:id",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"base",
-										"v1",
-										"api",
-										"clientes",
-										"atualizar",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "2"
-										}
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Pedido",
-					"item": [
-						{
-							"name": "Salvar Pedido",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "[{\n  \"descricao\": \"Pedido 1\",\n  \"cliente\": {\n    \"id\": 1\n  },\n  \"itens\": [\n    {\n      \"produto\": {\n        \"id\": 1\n      },\n      \"quantidade\": 5\n    },\n    {\n      \"produto\": {\n        \"id\": 2\n      },\n      \"quantidade\": 9\n    },\n    {\n      \"produto\": {\n        \"id\": 3\n      },\n      \"quantidade\": 20\n    },\n    {\n      \"produto\": {\n        \"id\": 4\n      },\n      \"quantidade\": 40\n    }\n  ]\n},\n  {\n    \"descricao\": \"Pedido 2\",\n    \"cliente\": {\n      \"id\": 2\n    },\n    \"itens\": [\n      {\n        \"produto\": {\n          \"id\": 4\n        },\n        \"quantidade\": 5\n      },\n      {\n        \"produto\": {\n          \"id\": 3\n        },\n        \"quantidade\": 9\n      },\n      {\n        \"produto\": {\n          \"id\": 2\n        },\n        \"quantidade\": 20\n      },\n      {\n        \"produto\": {\n          \"id\": 1\n        },\n        \"quantidade\": 40\n      }\n    ]\n  },\n  {\n    \"descricao\": \"Pedido 3\",\n    \"cliente\": {\n      \"id\": 1\n    },\n    \"itens\": [\n      {\n        \"produto\": {\n          \"id\": 3\n        },\n        \"quantidade\": 4\n      },\n      {\n        \"produto\": {\n          \"id\": 4\n        },\n        \"quantidade\": 6\n      },\n      {\n        \"produto\": {\n          \"id\": 2\n        },\n        \"quantidade\": 15\n      },\n      {\n        \"produto\": {\n          \"id\": 1\n        },\n        \"quantidade\": 90\n      }\n    ]\n  }\n]",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:8080/base/v1/api/pedidos/salvar",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"base",
-										"v1",
-										"api",
-										"pedidos",
-										"salvar"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Consulta Todos Pedidos",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"descricao\": \"Pedido 1\",\n  \"cliente\": {\n    \"id\": 1\n  },\n  \"itens\": [\n    {\n      \"produto\": {\n        \"id\": 1,\n        \"descricao\": \"Produto 1\",\n        \"preco\": 10.20\n      },\n      \"quantidade\": 10,\n      \"valorUnitario\": 10.20\n    }\n  ]\n\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:8080/base/v1/api/pedidos/consulta-todos",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"base",
-										"v1",
-										"api",
-										"pedidos",
-										"consulta-todos"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Consulta Pedidos Pendentes",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"descricao\": \"Pedido 1\",\n  \"cliente\": {\n    \"id\": 1\n  },\n  \"itens\": [\n    {\n      \"produto\": {\n        \"id\": 1,\n        \"descricao\": \"Produto 1\",\n        \"preco\": 10.20\n      },\n      \"quantidade\": 10,\n      \"valorUnitario\": 10.20\n    }\n  ]\n\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:8080/base/v1/api/pedidos/consulta/pendentes",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"base",
-										"v1",
-										"api",
-										"pedidos",
-										"consulta",
-										"pendentes"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Consulta Pedidos Aprovados",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"descricao\": \"Pedido 1\",\n  \"cliente\": {\n    \"id\": 1\n  },\n  \"itens\": [\n    {\n      \"produto\": {\n        \"id\": 1,\n        \"descricao\": \"Produto 1\",\n        \"preco\": 10.20\n      },\n      \"quantidade\": 10,\n      \"valorUnitario\": 10.20\n    }\n  ]\n\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:8080/base/v1/api/pedidos/consulta/aprovados",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"base",
-										"v1",
-										"api",
-										"pedidos",
-										"consulta",
-										"aprovados"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Aprovar",
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:8080/base/v1/api/pedidos/aprova-pedido/2",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"base",
-										"v1",
-										"api",
-										"pedidos",
-										"aprova-pedido",
-										"2"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "explorando-rest-api-springboot",
-			"item": [
-				{
-					"name": "Hello",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true,
-						"disabledSystemHeaders": {
-							"content-type": true
-						}
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept-Language",
-								"value": "",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\": \"Teste\",\n    \"email\": \"teste@gmail.com\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/exemplo03",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"exemplo03"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		}
-	]
+  "info": {
+    "_postman_id": "0c9892ab-b4a0-475a-af8d-bc080014e3de",
+    "name": "MyStudyProjectsGitHub",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "5447460"
+  },
+  "item": [
+    {
+      "name": "api-vendas-explorando-spring-jpa",
+      "item": [
+        {
+          "name": "Produto",
+          "item": [
+            {
+              "name": "Salvar Produto",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"descricao\": \"Produto 1\",\n  \"preco\": 2.20\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/base/v1/api/produtos/salvar",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "base",
+                    "v1",
+                    "api",
+                    "produtos",
+                    "salvar"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Atualizar Produto",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"descricao\": \"Produto 1\",\n  \"preco\": 2.20\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/base/v1/api/produtos/atualizar/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "base",
+                    "v1",
+                    "api",
+                    "produtos",
+                    "atualizar",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Consulta Produto",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/base/v1/api/produtos/consulta-todos-produtos",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "base",
+                    "v1",
+                    "api",
+                    "produtos",
+                    "consulta-todos-produtos"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Consulta por ID",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/base/v1/api/produtos/consulta/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "base",
+                    "v1",
+                    "api",
+                    "produtos",
+                    "consulta",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Consulta Produto Paginada",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/base/v1/api/produtos/consulta/paginada/:numeroPagina/:tamanhoPagina",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "base",
+                    "v1",
+                    "api",
+                    "produtos",
+                    "consulta",
+                    "paginada",
+                    ":numeroPagina",
+                    ":tamanhoPagina"
+                  ],
+                  "variable": [
+                    {
+                      "key": "numeroPagina",
+                      "value": "0"
+                    },
+                    {
+                      "key": "tamanhoPagina",
+                      "value": "2"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Cliente",
+          "item": [
+            {
+              "name": "VIP",
+              "item": [
+                {
+                  "name": "Consulta Cliente VIP",
+                  "event": [
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "exec": [
+                          "pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+                          "    console.log(response.json());",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    },
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          ""
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "http://localhost:8080/base/v1/api/clientes/consulta-cliente-vip/:id",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "8080",
+                      "path": [
+                        "base",
+                        "v1",
+                        "api",
+                        "clientes",
+                        "consulta-cliente-vip",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "657a1770a846ee2967df3f2c"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Consulta Todos Clientes VIP",
+                  "event": [
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "exec": [
+                          "pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+                          "    console.log(response.json());",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    },
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          ""
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "http://localhost:8080/base/v1/api/clientes/consulta-todos-clientes-vip",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "8080",
+                      "path": [
+                        "base",
+                        "v1",
+                        "api",
+                        "clientes",
+                        "consulta-todos-clientes-vip"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Salvar Cliente VIP",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": " /*{\n    \"nome\": \"Beltrano\",\n    \"cpf\": \"71509956085\",\n    \"email\" : \"beltrano@gmail.com\"\n}\n\n {\n    \"nome\": \"Ciclano\",\n    \"cpf\": \"71509956085\",\n    \"email\" : \"ciclano@gmail.com\"\n}\n\n*/\n\n {\n    \"nome\": \"Fulano\",\n    \"cpf\": \"71509956085\",\n    \"email\" : \"fulano@gmail.com\"\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://localhost:8080/base/v1/api/clientes/salva-cliente-vip",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "8080",
+                      "path": [
+                        "base",
+                        "v1",
+                        "api",
+                        "clientes",
+                        "salva-cliente-vip"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "Consulta Cliente",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "exec": [
+                      "pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {",
+                      "    console.log(response.json());",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/base/v1/api/clientes/consulta/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "base",
+                    "v1",
+                    "api",
+                    "clientes",
+                    "consulta",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Consulta Todos Clientes",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/base/v1/api/clientes/consulta-todos-clientes",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "base",
+                    "v1",
+                    "api",
+                    "clientes",
+                    "consulta-todos-clientes"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Excluindo Cliente",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/base/v1/api/clientes/excluir/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "base",
+                    "v1",
+                    "api",
+                    "clientes",
+                    "excluir",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Consulta Cliente - Maturity",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/base/v1/api/clientes/consulta-maturity/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "base",
+                    "v1",
+                    "api",
+                    "clientes",
+                    "consulta-maturity",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Salva Cliente",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": " {\n    \"nome\": \"Cliente 2\",\n    \"cpf\": \"71509956085\",\n    \"email\": \"cliente2@gmail.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/base/v1/api/clientes/salvar",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "base",
+                    "v1",
+                    "api",
+                    "clientes",
+                    "salvar"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Atualiza Cliente",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": " {\n    \"nome\": \"Cliente 1 - Alterado\",\n    \"cpf\": \"71509956085\",\n    \"email\": \"cliente1@gmail.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/base/v1/api/clientes/atualizar/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "base",
+                    "v1",
+                    "api",
+                    "clientes",
+                    "atualizar",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "2"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Pedido",
+          "item": [
+            {
+              "name": "Salvar Pedido",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[{\n  \"descricao\": \"Pedido 1\",\n  \"cliente\": {\n    \"id\": 1\n  },\n  \"itens\": [\n    {\n      \"produto\": {\n        \"id\": 1\n      },\n      \"quantidade\": 5\n    },\n    {\n      \"produto\": {\n        \"id\": 2\n      },\n      \"quantidade\": 9\n    },\n    {\n      \"produto\": {\n        \"id\": 3\n      },\n      \"quantidade\": 20\n    },\n    {\n      \"produto\": {\n        \"id\": 4\n      },\n      \"quantidade\": 40\n    }\n  ]\n},\n  {\n    \"descricao\": \"Pedido 2\",\n    \"cliente\": {\n      \"id\": 2\n    },\n    \"itens\": [\n      {\n        \"produto\": {\n          \"id\": 4\n        },\n        \"quantidade\": 5\n      },\n      {\n        \"produto\": {\n          \"id\": 3\n        },\n        \"quantidade\": 9\n      },\n      {\n        \"produto\": {\n          \"id\": 2\n        },\n        \"quantidade\": 20\n      },\n      {\n        \"produto\": {\n          \"id\": 1\n        },\n        \"quantidade\": 40\n      }\n    ]\n  },\n  {\n    \"descricao\": \"Pedido 3\",\n    \"cliente\": {\n      \"id\": 1\n    },\n    \"itens\": [\n      {\n        \"produto\": {\n          \"id\": 3\n        },\n        \"quantidade\": 4\n      },\n      {\n        \"produto\": {\n          \"id\": 4\n        },\n        \"quantidade\": 6\n      },\n      {\n        \"produto\": {\n          \"id\": 2\n        },\n        \"quantidade\": 15\n      },\n      {\n        \"produto\": {\n          \"id\": 1\n        },\n        \"quantidade\": 90\n      }\n    ]\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/base/v1/api/pedidos/salvar",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "base",
+                    "v1",
+                    "api",
+                    "pedidos",
+                    "salvar"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Consulta Todos Pedidos",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"descricao\": \"Pedido 1\",\n  \"cliente\": {\n    \"id\": 1\n  },\n  \"itens\": [\n    {\n      \"produto\": {\n        \"id\": 1,\n        \"descricao\": \"Produto 1\",\n        \"preco\": 10.20\n      },\n      \"quantidade\": 10,\n      \"valorUnitario\": 10.20\n    }\n  ]\n\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/base/v1/api/pedidos/consulta-todos",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "base",
+                    "v1",
+                    "api",
+                    "pedidos",
+                    "consulta-todos"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Consulta Pedidos Pendentes",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"descricao\": \"Pedido 1\",\n  \"cliente\": {\n    \"id\": 1\n  },\n  \"itens\": [\n    {\n      \"produto\": {\n        \"id\": 1,\n        \"descricao\": \"Produto 1\",\n        \"preco\": 10.20\n      },\n      \"quantidade\": 10,\n      \"valorUnitario\": 10.20\n    }\n  ]\n\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/base/v1/api/pedidos/consulta/pendentes",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "base",
+                    "v1",
+                    "api",
+                    "pedidos",
+                    "consulta",
+                    "pendentes"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Consulta Pedidos Aprovados",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"descricao\": \"Pedido 1\",\n  \"cliente\": {\n    \"id\": 1\n  },\n  \"itens\": [\n    {\n      \"produto\": {\n        \"id\": 1,\n        \"descricao\": \"Produto 1\",\n        \"preco\": 10.20\n      },\n      \"quantidade\": 10,\n      \"valorUnitario\": 10.20\n    }\n  ]\n\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/base/v1/api/pedidos/consulta/aprovados",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "base",
+                    "v1",
+                    "api",
+                    "pedidos",
+                    "consulta",
+                    "aprovados"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Aprovar",
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/base/v1/api/pedidos/aprova-pedido/2",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "base",
+                    "v1",
+                    "api",
+                    "pedidos",
+                    "aprova-pedido",
+                    "2"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "explorando-rest-api-springboot",
+      "item": [
+        {
+          "name": "Hello",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true,
+            "disabledSystemHeaders": {
+              "content-type": true
+            }
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Teste\",\n    \"email\": \"teste@gmail.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/exemplo03",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "exemplo03"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
 }

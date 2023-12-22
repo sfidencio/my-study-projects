@@ -126,16 +126,16 @@ public class ExplorandoBigDecimal {
         var valor39 = new BigDecimal("1.147");
         var valor40 = new BigDecimal("1.148");
         var valor41 = new BigDecimal("1.149");
-        System.out.printf("Valor 32: %s\n", valor32.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 33: %s\n", valor33.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 34: %s\n", valor34.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 35: %s\n", valor35.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 36: %s\n", valor36.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 37: %s\n", valor37.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 38: %s\n", valor38.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 39: %s\n", valor39.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 40: %s\n", valor40.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 41: %s\n", valor41.setScale(2,RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 32: %s\n", valor32.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 33: %s\n", valor33.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 34: %s\n", valor34.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 35: %s\n", valor35.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 36: %s\n", valor36.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 37: %s\n", valor37.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 38: %s\n", valor38.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 39: %s\n", valor39.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 40: %s\n", valor40.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 41: %s\n", valor41.setScale(2, RoundingMode.HALF_EVEN));
 
         System.out.println("------------------------------------------------------------------------------------------------------------------");
         var valor42 = new BigDecimal("1.150");
@@ -148,16 +148,16 @@ public class ExplorandoBigDecimal {
         var valor49 = new BigDecimal("1.157");
         var valor50 = new BigDecimal("1.158");
         var valor51 = new BigDecimal("1.159");
-        System.out.printf("Valor 42: %s\n", valor42.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 43: %s\n", valor43.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 44: %s\n", valor44.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 45: %s\n", valor45.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 46: %s\n", valor46.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 47: %s\n", valor47.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 48: %s\n", valor48.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 49: %s\n", valor49.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 50: %s\n", valor50.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 51: %s\n", valor51.setScale(2,RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 42: %s\n", valor42.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 43: %s\n", valor43.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 44: %s\n", valor44.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 45: %s\n", valor45.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 46: %s\n", valor46.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 47: %s\n", valor47.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 48: %s\n", valor48.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 49: %s\n", valor49.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 50: %s\n", valor50.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 51: %s\n", valor51.setScale(2, RoundingMode.HALF_EVEN));
 
         System.out.println("------------------------------------------------------------------------------------------------------------------");
         var valor52 = new BigDecimal("1.260");
@@ -170,16 +170,16 @@ public class ExplorandoBigDecimal {
         var valor59 = new BigDecimal("1.267");
         var valor60 = new BigDecimal("1.268");
         var valor61 = new BigDecimal("1.269");
-        System.out.printf("Valor 52: %s\n", valor52.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 53: %s\n", valor53.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 54: %s\n", valor54.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 55: %s\n", valor55.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 56: %s\n", valor56.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 57: %s\n", valor57.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 58: %s\n", valor58.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 59: %s\n", valor59.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 60: %s\n", valor60.setScale(2,RoundingMode.HALF_EVEN));
-        System.out.printf("Valor 61: %s\n", valor61.setScale(2,RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 52: %s\n", valor52.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 53: %s\n", valor53.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 54: %s\n", valor54.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 55: %s\n", valor55.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 56: %s\n", valor56.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 57: %s\n", valor57.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 58: %s\n", valor58.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 59: %s\n", valor59.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 60: %s\n", valor60.setScale(2, RoundingMode.HALF_EVEN));
+        System.out.printf("Valor 61: %s\n", valor61.setScale(2, RoundingMode.HALF_EVEN));
 
         System.out.println("------------------------------------------------------------------------------------------------------------------");
 
@@ -187,8 +187,6 @@ public class ExplorandoBigDecimal {
         //Vamos exemplificar
         //var valor62 = new BigDecimal("1.264");
         //System.out.printf("Valor 62: %s\n", valor62.setScale(2,RoundingMode.UNNECESSARY));
-
-
 
 
     }

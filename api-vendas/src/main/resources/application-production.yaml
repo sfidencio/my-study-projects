@@ -25,9 +25,9 @@ spring:
       pool-name: VendasHikariCP
   jpa:
     open-in-view: false #https://vladmihalcea.com/the-open-session-in-view-anti-pattern/
-                        #Permite que o hibernate mantenha a sessao aberta ate o final da requisicao se 'true'
-                        #Para evitar o erro de lazy loading(LazyInitializationException),
-                        #Mas pode causar problemas de performance e Relacoes OneToMany e ManyToMany com Fetch LAZY
+      #Permite que o hibernate mantenha a sessao aberta ate o final da requisicao se 'true'
+      #Para evitar o erro de lazy loading(LazyInitializationException),
+    #Mas pode causar problemas de performance e Relacoes OneToMany e ManyToMany com Fetch LAZY
     show-sql: true
     properties:
       hibernate:

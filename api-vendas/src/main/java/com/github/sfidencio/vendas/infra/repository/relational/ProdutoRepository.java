@@ -14,7 +14,6 @@ public interface ProdutoRepository extends JpaRepository<Produto, Integer> {
     List<Produto> findByDescricaoLike(@Param("desc") String descricao);
 
 
-
     //Produto findOneByDescricao(String descricao);
 
 

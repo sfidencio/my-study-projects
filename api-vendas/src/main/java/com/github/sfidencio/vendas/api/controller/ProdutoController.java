@@ -25,13 +25,13 @@ public interface ProdutoController {
             @ApiResponse(responseCode = "422", description = "Erro de negócio"),
             @ApiResponse(responseCode = "500", description = "Erro interno do servidor")
     })
-    @PostMapping("/salvar")
+    @PostMapping("/salva")
     @ResponseStatus(HttpStatus.CREATED)
     void salvar(@Valid @RequestBody ProdutoRequest produtoRequest);
 
-    @PutMapping("/atualizar/{id}")
+    @PutMapping("/atualiza/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    void atualizar(@Valid @RequestBody ProdutoRequest produtoRequest,@PathVariable("id") Integer id) throws NotFoundException;
+    void atualizar(@Valid @RequestBody ProdutoRequest produtoRequest, @PathVariable("id") Integer id) throws NotFoundException;
 
     @Operation(summary = "Consulta um produto pelo id", description = "Consulta um produto pelo id")
     @ApiResponses(value = {

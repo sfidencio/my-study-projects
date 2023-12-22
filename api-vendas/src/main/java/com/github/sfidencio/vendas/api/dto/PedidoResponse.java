@@ -9,7 +9,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public record PedidoResponse(Integer id, String descricao, BigDecimal valorTotal, ClienteResponseSemRetornoDosPedidos cliente,
+public record PedidoResponse(Integer id, String descricao, BigDecimal valorTotal,
+                             ClienteResponseSemRetornoDosPedidos cliente,
                              LocalDate dataPedido, LocalDateTime horaPedido, List<ItemPedido> itensPedido,
                              StatusPedido statusPedido) {
     public Pedido toPedido() {

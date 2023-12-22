@@ -29,7 +29,7 @@ public class ClienteServiceImpTestWithoutLoadContextSpring {
     @Test
     void deveria_salvar_cliente() throws NotFoundException {
         when(this.clienteRepository.save(any(Cliente.class))).thenReturn(new Cliente(1, "Fulano", "12345678901", "fulano@gmail.com", null));
-        this.clienteServiceImp.salvar(new ClienteRequest(1, "Fulano", "12345678901","fulano@gmail.com"));
+        this.clienteServiceImp.salvar(new ClienteRequest(1, "Fulano", "12345678901", "fulano@gmail.com"));
         //verify(this.clienteRepository, times(1)).save(any(Cliente.class));
         //assertEquals(1, retorno.getId());
     }

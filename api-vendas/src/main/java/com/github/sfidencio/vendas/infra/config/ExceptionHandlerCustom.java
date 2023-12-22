@@ -57,7 +57,7 @@ public class ExceptionHandlerCustom {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
-    public List<Map<String,String>> handleExceptionMethodArgumentNotValid(MethodArgumentNotValidException e) {
+    public List<Map<String, String>> handleExceptionMethodArgumentNotValid(MethodArgumentNotValidException e) {
         BindingResult bindingResult = e.getBindingResult();
         return bindingResult.getFieldErrors().stream()
                 .map(fieldError -> new HashMap<>(Map.of(fieldError.getField(), Objects.requireNonNull(fieldError.getDefaultMessage()))))

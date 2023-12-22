@@ -11,7 +11,8 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 @Log4j2
-@EnableAspectJAutoProxy //Essa anotacao e para o Spring Boot conseguir fazer a injecao de dependencia, e o ideal e que ela esteja na classe Application.java
+@EnableAspectJAutoProxy
+//Essa anotacao e para o Spring Boot conseguir fazer a injecao de dependencia, e o ideal e que ela esteja na classe Application.java
 public class LogAspect {
 
     @Before(value = "execution(* com.github.sfidencio.vendas.api.controller.*.*(..))")

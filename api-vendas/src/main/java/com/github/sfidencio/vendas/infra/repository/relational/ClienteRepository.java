@@ -37,5 +37,4 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
     //Optional<Cliente> findByIdOrderByIdAsc(Integer integer);
 
 
-
 }

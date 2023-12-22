@@ -24,7 +24,7 @@ public interface PedidoController {
             @ApiResponse(responseCode = "422", description = "Erro de negócio"),
             @ApiResponse(responseCode = "500", description = "Erro interno do servidor")
     })
-    @PostMapping("/salvar")
+    @PostMapping("/salva")
     @ResponseStatus(HttpStatus.CREATED)
     void salvar(@RequestBody PedidoRequest pedidoRequest) throws NotFoundException;
 
