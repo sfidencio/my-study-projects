@@ -984,7 +984,7 @@ class ClienteControllerImpTest {
 ```
 
 >[!TIP] 
-> Teste unitário com h2, subindo o contexto do spring, ou seja, subindo a aplicação:
+> Teste de integração com banco de dados em memória, usando o H2:
 
 ```java
 package com.github.sfidencio.vendas.domain.service.imp.integration;
