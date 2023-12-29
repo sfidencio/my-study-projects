@@ -20,4 +20,4 @@
 > Cada repositorio possui um README.md informando o objetivo do projeto e instruções de como configurar/executar o referido projeto.
 
 > Artigos e tutoriais postados no linkedin
-> [Sobre SOLID](https://link-url-here.org](https://www.linkedin.com/pulse/finalmente-solid-sebasti%25C3%25A3o-fid%25C3%25AAncio-kdulf/?trackingId=nEk5w0b2RNeIXYnZTdnnmw%3D%3D)https://www.linkedin.com/pulse/finalmente-solid-sebasti%25C3%25A3o-fid%25C3%25AAncio-kdulf/?trackingId=nEk5w0b2RNeIXYnZTdnnmw%3D%3D)
+> [Sobre SOLID](https://www.linkedin.com/pulse/finalmente-solid-sebasti%25C3%25A3o-fid%25C3%25AAncio-kdulf/?trackingId=nEk5w0b2RNeIXYnZTdnnmw%3D%3D)
