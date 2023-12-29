@@ -10,6 +10,7 @@
     - Single Responsability Principle
   - Design Patterns
     - Strategy
+    - Chain of Responsability
   - TDD
   - POO
     - Coesão
