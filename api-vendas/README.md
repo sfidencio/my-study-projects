@@ -102,6 +102,7 @@
 - [Referências gerais do projeto](#referências-gerais-do-projeto)
 - [Explorando o lombok](#explorando-o-lombok)
 - [Explorando o MapStruct](#explorando-o-mapstruct)
+- [Explorando o ModelMapper](#explorando-o-modelmapper)
 
 > Este projeto aborda os seguintes tópicos:
 - Requisitos (MVP)
@@ -1366,7 +1367,31 @@ public class Application {
 
 ```
 
+### Explorando o ModelMapper
+> + https://modelmapper.org/
+> + https://www.baeldung.com/entity-to-and-from-dto-for-a-java-spring-application
+> + https://www.baeldung.com/entity-to-and-from-dto-for-a-java-spring-application#2-using-modelmapper
 
+> [!TIP]
+> O ModelMapper é uma biblioteca Java que mapeia objetos de um tipo para um tipo diferente. Ele analisa suas classes e interfaces para determinar como eles se relacionam entre si e gera um código de mapeamento para converter um objeto em outro. O ModelMapper é uma alternativa ao BeanUtils.copyProperties() e ao Apache Commons BeanUtils, que são usados para copiar propriedades de um objeto para outro.
+
+```java
+//Exemplo de uso do ModelMapper:
+
+import org.modelmapper.ModelMapper;
+
+public class Application {
+    public static void main(String[] args) {
+        var modelMapper = new ModelMapper();
+        var cliente = new Cliente("João", "12345678901", "fulano@gmail.com");
+        var clienteResponse = modelMapper.map(cliente, ClienteResponse.class);
+        System.out.println(clienteResponse.getNome()); // Retorna "João"
+    }
+}
+```
+
+> [!TIP]
+> No modelMapper, não precisamos criar uma interface, como no MapStruct, basta instanciar o modelMapper, e usar o método map, conforme exemplo acima. Ele usa reflection para fazer o mapeamento, ou seja, ele analisa suas classes e interfaces para determinar como eles se relacionam entre si e gera um código de mapeamento para converter um objeto em outro.
 
 
 ### Referências gerais do projeto
