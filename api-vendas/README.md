@@ -21,7 +21,7 @@
 > + [x] Implementar para fins de estudo o MapStruct e ModelMapper, e tambem testes com jackson-databind/gson, para
     exemplificar como usar.
 > + [x] implementar lombok, para exemplificar como usar.
-> + [ ] Implementar api fake com wiremock, para exemplificar como usar.
+> + [x] Implementar api fake com wiremock, para exemplificar como usar.
 > + [ ] Implementar integração com com travis-ci, inserindo as badges de cobertura de código e build.
 > + [ ] Implementar springboot-actuator e springboot-admin
 
@@ -107,6 +107,9 @@
 - [Explorando o ModelMapper](#explorando-o-modelmapper)
 - [Explorando o jackson-databind](#explorando-o-jackson-databind)
 - [Explorando o gson](#explorando-o-gson)
+- [Explorando o wiremock](#explorando-o-wiremock)
+- [Explorando mockserver](#explorando-mockserver)
+- [Mockando redis com lettuce](#mockando-redis-com-lettuce)
 
 > Este projeto aborda os seguintes tópicos:
 
@@ -1409,8 +1412,21 @@ public class Application {
 > [!TIP]
 > O ModelMapper é uma biblioteca Java que mapeia objetos de um tipo para um tipo diferente. Ele analisa suas classes e
 > interfaces para determinar como eles se relacionam entre si e gera um código de mapeamento para converter um objeto em
-> outro. O ModelMapper é uma alternativa ao BeanUtils.copyProperties() e ao Apache Commons BeanUtils, que são usados para
+> outro. O ModelMapper é uma alternativa ao BeanUtils.copyProperties() e ao Apache Commons BeanUtils, que são usados
+> para
 > copiar propriedades de um objeto para outro.
+
+> [!TIP]
+> Adicionando a dependencia do ModelMapper no pom.xml:
+
+```xml
+        <!--ModelMapper-->
+<dependency>
+    <groupId>org.modelmapper</groupId>
+    <artifactId>modelmapper</artifactId>
+    <version>x.y.z</version>
+</dependency>
+```
 
 ```java
 //Exemplo de uso do ModelMapper:
@@ -1441,6 +1457,18 @@ public class Application {
 > classes e interfaces para determinar como eles se relacionam entre si e gera um código de mapeamento para converter um
 > objeto em outro. O jackson-databind é uma alternativa ao BeanUtils.copyProperties() e ao Apache Commons BeanUtils, que
 > são usados para copiar propriedades de um objeto para outro.
+
+> [!TIP]
+> Adicionando a dependencia do jackson-databind no pom.xml:
+
+```xml
+        <!--jackson-databind-->
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>x.y.z</version>
+</dependency>
+```
 
 ```java
 //Exemplo de uso do jackson-databind:
@@ -1498,6 +1526,18 @@ public class Application {
 > outro. O gson é uma alternativa ao BeanUtils.copyProperties() e ao Apache Commons BeanUtils, que são usados para copiar
 > propriedades de um objeto para outro.
 
+> [!TIP]
+> Adicionando a dependencia do gson no pom.xml:
+
+```xml
+        <!--gson-->
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>x.y.z</version>
+</dependency>
+```
+
 ```java
 //Exemplo de uso do gson:
 
@@ -1539,6 +1579,213 @@ public class Application {
     }
 }
 ```
+
+### Explorando wiremock
+
+> + https://www.baeldung.com/introduction-to-wiremock
+> + https://www.baeldung.com/wiremock-stubbing
+> + https://www.baeldung.com/wiremock-verify-calls
+> + https://www.wiremock.org/docs/getting-started/
+
+> [!TIP]
+> O wiremock é uma biblica Java que permite simular chamadas a API's externas, ou seja, podemos simular chamadas a
+> API's.
+
+> [!TIP]
+> Adicionando a dependencia do wiremock no pom.xml:
+
+```xml
+        <!--wiremock-->
+<dependency>
+    <groupId>com.github.tomakehurst</groupId>
+    <artifactId>wiremock</artifactId>
+    <version>x.y.z</version>
+</dependency>
+```
+
+```java
+//Exemplo de uso do wiremock:
+
+import com.github.tomakehurst.wiremock.WireMockServer;
+import com.github.tomakehurst.wiremock.client.WireMock;
+import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
+
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
+
+class CEPServiceImpTest {
+
+    private WireMockServer wireMockServer;
+
+    @BeforeEach
+    void setUp() {
+        this.wireMockServer = new WireMockServer(WireMockConfiguration.options().port(8089));
+        this.wireMockServer.start();
+        WireMock.configureFor("localhost", 8089);
+    }
+
+    @AfterEach
+    void tearDown() {
+        this.wireMockServer.stop();
+    }
+
+    @Test
+    void deveria_consultar_cep_com_sucesso() {
+        final var cep = "01001-000";
+        final var body = "{\"cep\": \"01001-000\",\"logradouro\": \"Praça da Sé\",\"complemento\": \"lado ímpar\",\"bairro\": \"Sé\",\"localidade\": \"São Paulo\",\"uf\": \"SP\",\"ibge\": \"3550308\",\"gia\": \"1004\",\"ddd\": \"11\",\"siafi\": \"7107\"}";
+        stubFor(get(urlEqualTo("/ws/" + cep + "/json/"))
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.OK.value())
+                        .withHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
+                        .withBody(body)));
+        final var webClient = WebClient.create("http://localhost:8089/ws");
+        final var response = webClient.get()
+                .uri("/{cep}/json/", cep)
+                .retrieve()
+                .bodyToMono(String.class)
+                .block();
+        System.out.println(response);
+    }
+}
+```
+
+### Explorando mockserver
+> + https://www.baeldung.com/mockserver
+> + https://www.baeldung.com/mockserver-verify-calls
+> + https://www.mock-server.com/mock_server/running_mock_server.html
+
+> [!TIP]
+> O mockserver é uma biblica Java que permite simular chamadas a API's externas, ou seja, podemos simular chamadas a API's. O mockserver é uma alternativa ao wiremock.
+
+> [!TIP]
+> Adicionando a dependencia do mockserver no pom.xml:
+
+```xml
+        <!--mockserver-->
+<dependency>
+    <groupId>org.mock-server</groupId>
+    <artifactId>mockserver-netty</artifactId>
+    <version>x.y.z</version>
+</dependency>
+```
+
+```java
+//Exemplo de uso do mockserver:
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockserver.client.MockServerClient;
+import org.mockserver.integration.ClientAndServer;
+import org.mockserver.model.HttpRequest;
+import org.mockserver.model.HttpResponse;
+import org.mockserver.model.MediaType;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
+
+import static org.mockserver.model.HttpRequest.request;
+import static org.mockserver.model.HttpResponse.response;
+
+class CEPServiceImpTest {
+
+    private ClientAndServer mockServer;
+
+    @BeforeEach
+    void setUp() {
+        this.mockServer = ClientAndServer.startClientAndServer(8089);
+    }
+
+    @AfterEach
+    void tearDown() {
+        this.mockServer.stop();
+    }
+
+    @Test
+    void deveria_consultar_cep_com_sucesso() {
+        final var cep = "01001-000";
+        final var body = "{\"cep\": \"01001-000\",\"logradouro\": \"Praça da Sé\",\"complemento\": \"lado ímpar\",\"bairro\": \"Sé\",\"localidade\": \"São Paulo\",\"uf\": \"SP\",\"ibge\": \"3550308\",\"gia\": \"1004\",\"ddd\": \"11\",\"siafi\": \"7107\"}";
+        this.mockServer.when(request().withMethod("GET").withPath("/ws/" + cep + "/json/"))
+                .respond(response().withStatusCode(HttpStatus.OK.value()).withHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE).withBody(body));
+        final var webClient = WebClient.create("http://localhost:8089/ws");
+        final var response = webClient.get()
+                .uri("/{cep}/json/", cep)
+                .retrieve()
+                .bodyToMono(String.class)
+                .block();
+        System.out.println(response);
+    }
+}
+```
+
+
+### Mockando redis com lettuce
+
+> [!TIP]
+> O lettuce é uma biblioteca Java que permite simular chamadas ao redis, ou seja, podemos simular chamadas ao redis.
+> O lettuce é uma alternativa ao mockito.
+
+> [!TIP]
+> Adicionando a dependencia do lettuce no pom.xml:
+
+```xml
+        <!--lettuce-->
+<dependency>
+    <groupId>io.lettuce</groupId>
+    <artifactId>lettuce-core</artifactId>
+    <version>x.y.z</version>
+</dependency>
+```
+
+```java
+//Exemplo de uso do lettuce:
+
+import io.lettuce.core.RedisClient;
+import io.lettuce.core.api.StatefulRedisConnection;
+import io.lettuce.core.api.sync.RedisCommands;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+
+class CEPServiceImpTest {
+
+    private RedisClient redisClient;
+    private StatefulRedisConnection<String, String> connection;
+    private RedisCommands<String, String> syncCommands;
+
+    @BeforeEach
+    void setUp() {
+        this.redisClient = RedisClient.create("redis://localhost:6379");
+        this.connection = redisClient.connect();
+        this.syncCommands = connection.sync();
+    }
+
+    @AfterEach
+    void tearDown() {
+        this.connection.close();
+        this.redisClient.shutdown();
+    }
+
+    @Test
+    void deveria_consultar_cep_com_sucesso() {
+        final var cep = "01001-000";
+        final var body = "{\"cep\": \"01001-000\",\"logradouro\": \"Praça da Sé\",\"complemento\": \"lado ímpar\",\"bairro\": \"Sé\",\"localidade\": \"São Paulo\",\"uf\": \"SP\",\"ibge\": \"3550308\",\"gia\": \"1004\",\"ddd\": \"11\",\"siafi\": \"7107\"}";
+        this.syncCommands.set(cep, body);
+        final var response = this.syncCommands.get(cep);
+        System.out.println(response);
+    }
+}
+```
+
+
 
 
 > [!TIP]
