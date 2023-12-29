@@ -12,11 +12,13 @@
 > + [x] Implementar integração com API de CEP, para exemplificar como consumir uma API externa.
 > + [x] Implementar Scheduler com Spring, para exemplificar como agendar tarefas.
     >
+
 - Procure pela classe `CancelaPedidoOldScheduler.java` para entender como implementamos o Scheduler.
+
 > + [ ] Implementar - Evoluir o entendimento sobre implementação do  `spring-boot-starter-hateoas`. No final deste guia
     temos um excelente artigo sobre o assunto.
 > + [ ] Implementar migration flyway, para exemplificar como usar.
-> + [ ] Implementar para fins de estudo o MapStruct e ModelMapper, e tambem testes com jackson-databind/gson, para
+> + [x] Implementar para fins de estudo o MapStruct e ModelMapper, e tambem testes com jackson-databind/gson, para
     exemplificar como usar.
 > + [x] implementar lombok, para exemplificar como usar.
 > + [ ] Implementar api fake com wiremock, para exemplificar como usar.
@@ -103,38 +105,42 @@
 - [Explorando o lombok](#explorando-o-lombok)
 - [Explorando o MapStruct](#explorando-o-mapstruct)
 - [Explorando o ModelMapper](#explorando-o-modelmapper)
+- [Explorando o jackson-databind](#explorando-o-jackson-databind)
+- [Explorando o gson](#explorando-o-gson)
 
 > Este projeto aborda os seguintes tópicos:
+
 - Requisitos (MVP)
-  - Cadastro de Clientes
-  - Cadastro de Produtos
-  - Registro de Pedidos
-  - Cancelamento de Pedidos
+    - Cadastro de Clientes
+    - Cadastro de Produtos
+    - Registro de Pedidos
+    - Cancelamento de Pedidos
 - Tecnologias Utilizadas
-  - Java 17
-  - Spring Boot
-  - PostgreSQL
-  - H2 Database
-  - Lombok
-  - JPA/Hibernate
-  - JdbcTemplate
-  - Docker
-  - Git
-  - Abordagens/Boas Práticas
-  - DTO Pattern + Record Pattern (new feature do Java 17)
-  - Domain Driven Design
-  - Testes Unitários
-  - Clean Code
-  - Paginação de Resultados com Spring Data JPA
-  - HATEOAS
-  - Swagger
-  - Banner do Spring
-  - Tratamento de Erros
-  - Segurança
-  - Cache com Redis
-  - Versionamento de API
-  - Documentação de API com Swagger
-  - Uso do @JsonManagedReference e @JsonBackReference para evitar recursividade infinita em relacionamentos bidirecionais.
+    - Java 17
+    - Spring Boot
+    - PostgreSQL
+    - H2 Database
+    - Lombok
+    - JPA/Hibernate
+    - JdbcTemplate
+    - Docker
+    - Git
+    - Abordagens/Boas Práticas
+    - DTO Pattern + Record Pattern (new feature do Java 17)
+    - Domain Driven Design
+    - Testes Unitários
+    - Clean Code
+    - Paginação de Resultados com Spring Data JPA
+    - HATEOAS
+    - Swagger
+    - Banner do Spring
+    - Tratamento de Erros
+    - Segurança
+    - Cache com Redis
+    - Versionamento de API
+    - Documentação de API com Swagger
+    - Uso do @JsonManagedReference e @JsonBackReference para evitar recursividade infinita em relacionamentos
+      bidirecionais.
 
 # Dicas e macetes
 
@@ -456,7 +462,8 @@ volumes:
 
 > [!TIP]
 > A seção volumes é composta por 1 volume, sendo ele: `postgres-data`. Esse volume é responsável por persistir os dados
-> do banco de dados postgres, pois o container é efêmero(imutável), ou seja, se o container for derrubado, os dados serão
+> do banco de dados postgres, pois o container é efêmero(imutável), ou seja, se o container for derrubado, os dados
+> serão
 > perdidos, logo a gravação dos dados é feita no volume, que esta "fora" do container.
 
 > [!TIP]
@@ -575,6 +582,7 @@ FLUSHALL
 > Para utilizar o Redis no Spring, precisamos adicionar a dependencia abaixo no pom.xml:
 
 ```xml
+
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-data-redis</artifactId>
@@ -587,6 +595,7 @@ FLUSHALL
 > classe RedisConfig.java.
 
 ```java
+
 @Configuration
 @EnableRedisRepositories
 public class RedisConfig {
@@ -618,7 +627,8 @@ public class RedisConfig {
 
 > [!TIP]
 > Estamos defindo o TTL global em 1 dia, e para cada cache, estamos definindo um TTL especifico, ou seja, o TTL global é
-> sobrescrito pelo TTL especifico de cada cache. Essa configuração, é recuperada quando informamos a anotação `@Cacheable`
+> sobrescrito pelo TTL especifico de cada cache. Essa configuração, é recuperada quando informamos a
+> anotação `@Cacheable`
 > o atributo `cacheName`, exemplo: `@Cacheable(cacheNames = "produto")`.
 
 > [!TIP]
@@ -658,11 +668,11 @@ spring:
 
 ```xml
       <!--Enable Swagger-->
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-            <version>x.y.z</version>
-        </dependency>
+<dependency>
+    <groupId>org.springdoc</groupId>
+    <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+    <version>x.y.z</version>
+</dependency>
 ```
 
 > [!IMPORTANT]
@@ -692,11 +702,11 @@ spring:
 
 ```xml
         <!--MongoDB-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb</artifactId>
-            <version>x.y.z</version>
-        </dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-mongodb</artifactId>
+    <version>x.y.z</version>
+</dependency>
 ```
 
 > [!IMPORTANT]
@@ -802,19 +812,20 @@ public interface ClienteVIPRepository extends MongoRepository<ClienteVIP, String
 > Exemplo de como salvar cliente Vip (MongoDB) via repositorio
 
 ```java
+
 @Bean("executarTesteMongoDB")
 public CommandLineRunner executarTesteMongoDB(@Autowired ClienteVIPRespository clienteVIPRespository) {
-        return args -> {
+    return args -> {
         //Esse codigo apaga todos registros existens na coleção `cliente`    
         if (clienteVIPRespository.count() > 0) clienteVIPRespository.deleteAll();
-        
+
         //Realizamos o cadastro, e posteriormente a consulta de todos os clientes cadastrados
         var fulano = new ClienteVIP(null, "fulano", "12345678901", "fulano@gmail");
         var beltrano = new ClienteVIP(null, "beltrano", "12345678901", "beltrano@gmail");
         var list = List.of(fulano, beltrano);
         clienteVIPRespository.saveAll(list);
         System.out.println(clienteVIPRespository.findAll());
-        };
+    };
 }
 ```
 
@@ -855,6 +866,7 @@ public void excluirClienteVIP(String id) {
 > + https://www.regular-expressions.info/posixbrackets.html
 > + https://regex101.com/
     >
+
 + Temos aqui um excelente site par validar nossas expressões regulares.
 
 ```text 
@@ -899,7 +911,7 @@ Estes são apenas alguns exemplos de padrões de regex. Expressões regulares po
  * \\) -> Caractere de escape para o parenteses
  * \\s -> Caractere de escape para o espaço
  * ) -> Fim do grupo de captura
- * 
+ *
  * [\\d]{5} -> Qualquer digito de 0 a 9, e o quantificador {5} que indica que o digito pode aparecer cinco vezes
  * - -> Caractere de escape para o hifen
  * [\\d]{4} -> Qualquer digito de 0 a 9, e o quantificador {4} que indica que o digito pode aparecer quatro vezes
@@ -907,10 +919,10 @@ Estes são apenas alguns exemplos de padrões de regex. Expressões regulares po
  */
 @Test
 void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espaco_entre_ddd_e_telefone() {
-  final var pattern3 = "^(\\([\\d]{2}\\)\\s)[\\d]{5}-[\\d]{4}";
-  final var matcher = Pattern.compile(pattern3);
-  //Caso queria validar espaço entre o ddd e o numero do telefone, basta adicionar o \\s, conforme exemplo abaixo:
-  Assertions.assertTrue(matcher.matcher("(11) 99999-9999").matches());
+    final var pattern3 = "^(\\([\\d]{2}\\)\\s)[\\d]{5}-[\\d]{4}";
+    final var matcher = Pattern.compile(pattern3);
+    //Caso queria validar espaço entre o ddd e o numero do telefone, basta adicionar o \\s, conforme exemplo abaixo:
+    Assertions.assertTrue(matcher.matcher("(11) 99999-9999").matches());
 }
 ```  
 
@@ -947,17 +959,17 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espa
 
 ```json
 {
-   "cep": "01001-000",
-   "logradouro": "Praça da Sé",
-   "complemento": "lado ímpar",
-   "bairro": "Sé",
-   "localidade": "São Paulo",
-   "uf": "SP",
-   "ibge": "3550308",
-   "gia": "1004",
-   "ddd": "11",
-   "siafi": "7107"
- }
+  "cep": "01001-000",
+  "logradouro": "Praça da Sé",
+  "complemento": "lado ímpar",
+  "bairro": "Sé",
+  "localidade": "São Paulo",
+  "uf": "SP",
+  "ibge": "3550308",
+  "gia": "1004",
+  "ddd": "11",
+  "siafi": "7107"
+}
 ```
 
 ### Implementando AOP:
@@ -966,11 +978,11 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espa
 
 ```xml
         <!--AOP-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
-            <version>x.y.z</version>
-        </dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-aop</artifactId>
+    <version>x.y.z</version>
+</dependency>
 ```
 
 + Criamos uma classe de Log, chamada `LogAspect.java`, no pacote `infra.log`, na raiz do projeto, e adicionamos a
@@ -1021,23 +1033,23 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espa
 <!--Dependency tests in spring-->
 <dependencies>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <scope>test</scope>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <scope>test</scope>
     </dependency>
- 
+
     <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <version>5.8.1</version>
-      <scope>test</scope>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>5.8.1</version>
+        <scope>test</scope>
     </dependency>
-    
+
     <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.8.1</version>
-      <scope>test</scope>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>5.8.1</version>
+        <scope>test</scope>
     </dependency>
 </dependencies>
 ```
@@ -1045,12 +1057,14 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espa
 > Exemplo de teste unitário com `mockito` e `junit5` sem subir o contexto do spring:
 
 ```java
+
 @ExtendWith(MockitoExtension.class)
 class ClienteControllerImpTest {
     @Mock
     private ClienteService clienteService;
     @InjectMocks
     private ClienteControllerImp clienteControllerImp;
+
     @Test
     void deveria_cadastrar_cliente() {
         final var clienteRequest = new ClienteRequest("Fulano", "71509956085", "fulano@gmail.com");
@@ -1068,7 +1082,8 @@ class ClienteControllerImpTest {
 > A anotação `@SpringBootTest` é responsavel por subir o contexto do spring, ou seja, subir a aplicação, e a
 > anotação `@MockBean` é responsavel por criar um mock do bean, ou seja, criar um mock do serviço, pois não queremos
 > testar o serviço, mas sim o controller, logo, precisamos criar um mock do serviço, para que o controller possa ser
-> testado de forma isolada. Com uso dessa anotação, ele já encapsula o `@ExtendWith(MockitoExtension.class)`, ou seja, não
+> testado de forma isolada. Com uso dessa anotação, ele já encapsula o `@ExtendWith(MockitoExtension.class)`, ou seja,
+> não
 > precisamos mais usar o `@ExtendWith(MockitoExtension.class)`, pois o `@SpringBootTest` já encapsula
 > o `@ExtendWith(SpringExtension.class)`.
 
@@ -1086,23 +1101,24 @@ private ClienteService clienteService;
 > Subindo teste mockado sem o spring, ou seja, sem subir o contexto do spring:
 
 ```java
+
 @ExtendWith(MockitoExtension.class)
 class ClienteControllerImpTest {
     @Mock
     private ClienteService clienteService;
     @InjectMocks
     private ClienteControllerImp clienteControllerImp;
+
     @Test
     void deveria_cadastrar_cliente() {
         final var clienteRequest = new ClienteRequest("Fulano", "71509956085", "fulano@gmail.com");
         final var clienteResponse = new ClienteResponse(1L, "Fulano", "71509956085", "fulano@gmail.com");
-        when(clienteService.cadastrarCliente(any(ClienteRequest.class))).thenReturn(clienteResponse); 
+        when(clienteService.cadastrarCliente(any(ClienteRequest.class))).thenReturn(clienteResponse);
         final var response = clienteControllerImp.cadastrarCliente(clienteRequest);
         assertEquals(clienteResponse, response);
     }
 }
 ```
-
 
 ### Teste de integração:
 
@@ -1127,43 +1143,48 @@ import org.springframework.test.context.ActiveProfiles;
 @ActiveProfiles("test")
 class ClienteServiceImpTest {
 
-  @Autowired
-  private ClienteService clienteService;
+    @Autowired
+    private ClienteService clienteService;
 
 
-  @Test
-  @Order(0)
-  void deveria_cadastrar_cliente_com_sucesso() throws NotFoundException {
-    this.clienteService.salvar(new ClienteRequest(null, "Joao Carlos.", "79681821076", "fulano@gmail.com"));
-  }
+    @Test
+    @Order(0)
+    void deveria_cadastrar_cliente_com_sucesso() throws NotFoundException {
+        this.clienteService.salvar(new ClienteRequest(null, "Joao Carlos.", "79681821076", "fulano@gmail.com"));
+    }
 
-  @Test
-  @Order(1)
-  void deveria_alterar_cliente_cadastrado() throws NotFoundException {
-    this.clienteService.alterar(new ClienteRequest(1, "Joao Pedro", "79681821076", "fulano@gmail.com"), 1);
-    var cliente = this.clienteService.buscarClienteEPedidos(1);
-    Assertions.assertEquals("Joao Pedro", cliente.nome());
-  }
+    @Test
+    @Order(1)
+    void deveria_alterar_cliente_cadastrado() throws NotFoundException {
+        this.clienteService.alterar(new ClienteRequest(1, "Joao Pedro", "79681821076", "fulano@gmail.com"), 1);
+        var cliente = this.clienteService.buscarClienteEPedidos(1);
+        Assertions.assertEquals("Joao Pedro", cliente.nome());
+    }
 
 }
 ```
 
 > + Testando controller com banco de dados H2:
- 
- 
-
 
 ```java
 
-### Explorando o lombok
+###Explorando o
+lombok
 
-> + https://projectlombok.org
-> + https://www.baeldung.com/lombok-with-annotations
+>+https://projectlombok.org
+        >+https://www.baeldung.com/lombok-with-annotations
 
-> [!TIP]
-> Uso uso do @With para gerar automaticamente um construtor imutável para a classe:
+        >[!TIP]
+        >
+Uso uso do
+@With
+para gerar
+automaticamente um
+construtor imutável
+para a
+classe:
 
-```java
+        ```java
 import lombok.With;
 
 public class Pessoa {
@@ -1191,16 +1212,16 @@ import lombok.Value;
 
 @Value
 public class Pessoa {
-  private String nome;
-  private int idade;
+    private String nome;
+    private int idade;
 }
 
 
 public class Application {
-  public static void main(String[] args) {
-    var pessoa = Pessoa("João", 30);
-    System.out.println(pessoa.getNome()); // Retorna "João"
-  }
+    public static void main(String[] args) {
+        var pessoa = Pessoa("João", 30);
+        System.out.println(pessoa.getNome()); // Retorna "João"
+    }
 }
 
 
@@ -1213,10 +1234,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 public class Pessoa {
-  @Getter @Setter
-  private String nome;
-  @Getter @Setter
-  private int idade;
+    @Getter
+    @Setter
+    private String nome;
+    @Getter
+    @Setter
+    private int idade;
 }
 
 //Uso do @AllArgsConstructor para gerar automaticamente um construtor que recebe todos os campos da classe como parâmetros:
@@ -1224,8 +1247,8 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class Pessoa {
-  private String nome;
-  private int idade;
+    private String nome;
+    private int idade;
 }
 
 //Uso do @NoArgsConstructor para gerar automaticamente um construtor sem parâmetros:
@@ -1233,8 +1256,8 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 public class Pessoa {
-  private String nome;
-  private int idade;
+    private String nome;
+    private int idade;
 }
 
 //Uso do @Data para gerar automaticamente os métodos getters, setters, equals, hashCode e toString para todos os campos da classe:
@@ -1243,8 +1266,8 @@ import lombok.Data;
 
 @Data
 public class Pessoa {
-  private String nome;
-  private int idade;
+    private String nome;
+    private int idade;
 }
 
 //Uso do @Builder para gerar automaticamente um padrão de construção fluente para a classe:
@@ -1252,8 +1275,8 @@ import lombok.Builder;
 
 @Builder
 public class Pessoa {
-  private String nome;
-  private int idade;
+    private String nome;
+    private int idade;
 }
 
 //Estes são alguns exemplos de como usar as anotações do Lombok em diferentes cenários. É importante notar que o Lombok pode ser uma ferramenta poderosa para reduzir a quantidade de código boilerplate em uma aplicação Java.
@@ -1265,9 +1288,10 @@ import java.util.List;
 
 @Builder
 public class Pessoa {
-  private String nome;
-  private int idade;
-  @Singular private List<String> habilidades;
+    private String nome;
+    private int idade;
+    @Singular
+    private List<String> habilidades;
 }
 
 //Uso
@@ -1285,45 +1309,49 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(of = {"nome", "idade"})
 public class Pessoa {
-  private String nome;
-  private int idade;
+    private String nome;
+    private int idade;
 }
 
 //Uso
 Pessoa pessoa1 = new Pessoa("João", 30);
 Pessoa pessoa2 = new Pessoa("Maria", 25);
-System.out.println(pessoa1.equals(pessoa2)); // Retorna false
+System.out.
+
+println(pessoa1.equals(pessoa2)); // Retorna false
 
 //Neste exemplo, o @EqualsAndHashCode é usado para gerar automaticamente os métodos equals() e hashCode() com base nos campos "nome" e "idade" da classe Pessoa.
 //Uso do @ToString com opções personalizadas:
-import lombok.ToString;
+        import lombok.ToString;
 
 @ToString(exclude = "idade")
 public class Pessoa {
-  private String nome;
-  private int idade;
+    private String nome;
+    private int idade;
 }
 
 
 //Uso
 Pessoa pessoa = new Pessoa("João", 30);
-System.out.println(pessoa); // Retorna "Pessoa(nome=João)"
+System.out.
+
+println(pessoa); // Retorna "Pessoa(nome=João)"
 
 //Neste exemplo, o @ToString é usado para gerar automaticamente o método toString() para a classe Pessoa, excluindo o campo "idade" da representação gerada.
 //Uso do @Cleanup para fechar recursos automaticamente:
 
 import lombok.Cleanup;
-import java.io.*;
+import java.io .*;
 
 public class ExemploCleanup {
-  public void lerArquivo(String nomeArquivo) throws IOException {
-    @Cleanup FileReader reader = new FileReader(nomeArquivo);
-    BufferedReader br = new BufferedReader(reader);
-    String linha;
-    while ((linha = br.readLine()) != null) {
-      System.out.println(linha);
+    public void lerArquivo(String nomeArquivo) throws IOException {
+        @Cleanup FileReader reader = new FileReader(nomeArquivo);
+        BufferedReader br = new BufferedReader(reader);
+        String linha;
+        while ((linha = br.readLine()) != null) {
+            System.out.println(linha);
+        }
     }
-  }
 }
 
 //Neste exemplo, o @Cleanup é usado para fechar automaticamente o recurso FileReader após o uso, evitando a necessidade de chamar explicitamente o método close().
@@ -1333,47 +1361,56 @@ public class ExemploCleanup {
 
 ```
 
-
 ### Explorando o MapStruct
+
 > + https://mapstruct.org/
 > + https://www.baeldung.com/mapstruct
 > + https://www.baeldung.com/mapstruct-null-values-mapping
 
 > [!TIP]
-> O MapStruct é uma biblioteca Java que gera automaticamente código de mapeamento entre objetos Java. Ele analisa suas classes e interfaces para determinar como eles se relacionam entre si e gera um código de mapeamento para converter um objeto em outro. O MapStruct é uma alternativa ao BeanUtils.copyProperties() e ao Apache Commons BeanUtils, que são usados para copiar propriedades de um objeto para outro.
+> O MapStruct é uma biblioteca Java que gera automaticamente código de mapeamento entre objetos Java. Ele analisa suas
+> classes e interfaces para determinar como eles se relacionam entre si e gera um código de mapeamento para converter um
+> objeto em outro. O MapStruct é uma alternativa ao BeanUtils.copyProperties() e ao Apache Commons BeanUtils, que são
+> usados para copiar propriedades de um objeto para outro.
 
 ```java
 //Exemplo de uso do MapStruct:
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "spring") //Permite o spring injetar automaticamente a implementação do mapper, nao sendo necessario instanciar manualmente
+@Mapper(componentModel = "spring")
+//Permite o spring injetar automaticamente a implementação do mapper, nao sendo necessario instanciar manualmente
 public interface ClienteMapper {
-  //Instanciando manualmente
-  //ClienteMapper INSTANCE = Mappers.getMapper(ClienteMapper.class);
+    //Instanciando manualmente
+    //ClienteMapper INSTANCE = Mappers.getMapper(ClienteMapper.class);
 
-  @Mapping(target = "nome", source = "nome")
-  @Mapping(target = "cpf", source = "cpf")
-  @Mapping(target = "email", source = "email")
-  ClienteResponse toResponse(Cliente cliente);
+    @Mapping(target = "nome", source = "nome")
+    @Mapping(target = "cpf", source = "cpf")
+    @Mapping(target = "email", source = "email")
+    ClienteResponse toResponse(Cliente cliente);
 }
 
 public class Application {
-  public static void main(String[] args) {
-    var cliente = new Cliente("João", "12345678901", "fulano@gmail.com");
-    var clienteResponse = ClienteMapper.INSTANCE.toResponse(cliente);
-    System.out.println(clienteResponse.getNome()); // Retorna "João"
+    public static void main(String[] args) {
+        var cliente = new Cliente("João", "12345678901", "fulano@gmail.com");
+        var clienteResponse = ClienteMapper.INSTANCE.toResponse(cliente);
+        System.out.println(clienteResponse.getNome()); // Retorna "João"
 
 ```
 
 ### Explorando o ModelMapper
+
 > + https://modelmapper.org/
 > + https://www.baeldung.com/entity-to-and-from-dto-for-a-java-spring-application
 > + https://www.baeldung.com/entity-to-and-from-dto-for-a-java-spring-application#2-using-modelmapper
 
 > [!TIP]
-> O ModelMapper é uma biblioteca Java que mapeia objetos de um tipo para um tipo diferente. Ele analisa suas classes e interfaces para determinar como eles se relacionam entre si e gera um código de mapeamento para converter um objeto em outro. O ModelMapper é uma alternativa ao BeanUtils.copyProperties() e ao Apache Commons BeanUtils, que são usados para copiar propriedades de um objeto para outro.
+> O ModelMapper é uma biblioteca Java que mapeia objetos de um tipo para um tipo diferente. Ele analisa suas classes e
+> interfaces para determinar como eles se relacionam entre si e gera um código de mapeamento para converter um objeto em
+> outro. O ModelMapper é uma alternativa ao BeanUtils.copyProperties() e ao Apache Commons BeanUtils, que são usados para
+> copiar propriedades de um objeto para outro.
 
 ```java
 //Exemplo de uso do ModelMapper:
@@ -1390,9 +1427,124 @@ public class Application {
 }
 ```
 
-> [!TIP]
-> No modelMapper, não precisamos criar uma interface, como no MapStruct, basta instanciar o modelMapper, e usar o método map, conforme exemplo acima. Ele usa reflection para fazer o mapeamento, ou seja, ele analisa suas classes e interfaces para determinar como eles se relacionam entre si e gera um código de mapeamento para converter um objeto em outro.
+### Explorando o jackson-databind
 
+> + https://www.baeldung.com/jackson-object-mapper-tutorial
+> + https://www.baeldung.com/jackson-serialize-dates
+> + https://www.baeldung.com/jackson-serialize-enums
+> + https://www.baeldung.com/jackson-serialize-field-custom-criteria
+> + https://www.baeldung.com/jackson-serialize-dates
+
+
+> [!TIP]
+> O jackson-databind é uma biblioteca Java que mapeia objetos de um tipo para um tipo diferente. Ele analisa suas
+> classes e interfaces para determinar como eles se relacionam entre si e gera um código de mapeamento para converter um
+> objeto em outro. O jackson-databind é uma alternativa ao BeanUtils.copyProperties() e ao Apache Commons BeanUtils, que
+> são usados para copiar propriedades de um objeto para outro.
+
+```java
+//Exemplo de uso do jackson-databind:
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public class Application {
+    public static void main(String[] args) {
+        var objectMapper = new ObjectMapper();
+        var cliente = new Cliente("João", "12345678901", "fulano@gmail.com");
+        var clienteResponse = objectMapper.writeValueAsString(cliente);
+        System.out.println(clienteResponse);
+    }
+}
+```
+
+> [!TIP]
+> Retorna string no formato json:
+
+```json
+{
+  "nome": "João",
+  "cpf": "12345678901",
+  "email": "fulano@gmail.com"
+}
+
+```
+
+> [!TIP]
+> Parseando json para objeto:
+
+```java
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public class Application {
+    public static void main(String[] args) throws JsonProcessingException {
+        String clienteResponse = "{\"nome\":\"João\",\"cpf\":\"12345678901\",\"email\":\"fulano@gmail.com\"}";
+        var clienteResponse2 = objectMapper.readValue(clienteResponse, Cliente.class);
+        System.out.println(clienteResponse2.getNome());
+    }
+}
+```
+
+### Explorando o gson
+
+> + https://www.baeldung.com/gson
+> + https://www.baeldung.com/gson-optional
+> + https://www.baeldung.com/gson-serialize-nulls
+> + https://www.baeldung.com/gson-serialize-enums
+> + https://www.baeldung.com/gson-serialize-field-custom-criteria
+
+> [!TIP]
+> O gson é uma biblioteca Java que mapeia objetos de um tipo para um tipo diferente. Ele analisa suas classes e
+> interfaces para determinar como eles se relacionam entre si e gera um código de mapeamento para converter um objeto em
+> outro. O gson é uma alternativa ao BeanUtils.copyProperties() e ao Apache Commons BeanUtils, que são usados para copiar
+> propriedades de um objeto para outro.
+
+```java
+//Exemplo de uso do gson:
+
+import com.google.gson.Gson;
+
+public class Application {
+    public static void main(String[] args) {
+        var gson = new Gson();
+        var cliente = new Cliente("João", "12345678901", "fulano@gmail.com");
+        var clienteResponse = gson.toJson(cliente);
+        System.out.println(clienteResponse);
+    }
+}
+```
+
+> [!TIP]
+> Retorna string no formato json:
+
+```json
+{
+  "nome": "João",
+  "cpf": "12345678901",
+  "email": "fulano@gmal.com"
+}
+```
+
+> [!TIP]
+> Parseando json para objeto:
+
+```java
+import com.google.gson.Gson;
+
+public class Application {
+    public static void main(String[] args) {
+        var gson = new Gson();
+        String clienteResponse = "{\"nome\":\"João\",\"cpf\":\"12345678901\",\"email\":\"fulano@gmail.com\"}";
+        var clienteResponse2 = gson.fromJson(clienteResponse, Cliente.class);
+        System.out.println(clienteResponse2.getNome());
+    }
+}
+```
+
+
+> [!TIP]
+> No modelMapper, não precisamos criar uma interface, como no MapStruct, basta instanciar o modelMapper, e usar o método
+> map, conforme exemplo acima. Ele usa reflection para fazer o mapeamento, ou seja, ele analisa suas classes e interfaces
+> para determinar como eles se relacionam entre si e gera um código de mapeamento para converter um objeto em outro.
 
 ### Referências gerais do projeto
 
@@ -1400,6 +1552,7 @@ public class Application {
 > Referências utilizadas em todo o projeto:
 
 > Tutoriais e cursos gratuitos:
+
 + https://www.alura.com.br
 + https://tpbabparn.medium.com/spring-boot-3-1-integrated-docker-compose-on-development-environment-spring-webflux-example-1ddcbfe052f
 + https://springhow.com/spring-boot-and-postgres-using-docker-compose/
@@ -1417,7 +1570,7 @@ public class Application {
 + https://reflectoring.io/bean-validation-with-spring-boot/
 + https://medium.com/yildiztech/decoding-i18n-challenges-in-spring-boot-3-exploring-internationalization-895a4ac627df
 + https://medium.com/@seonggil/creating-a-maturity-level-3-rest-api-with-hateoas-fcd76d1b2db9 (**Implementing HATEOAS
-   **)
+  **)
 + https://www.baeldung.com/spring-data-jpa-pagination-sorting
 + https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
 + https://spring.io/guides/gs/accessing-data-jpa/
@@ -1426,6 +1579,7 @@ public class Application {
 + https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/record.html
 
 > Referências utilizadas para implementar o cache com Redis:
+
 + https://www.baeldung.com/spring-boot-redis-cache
 + https://www.digitalocean.com/community/tutorials/spring-boot-redis-cache
 + https://www.bezkoder.com/spring-boot-redis-cache-example/
@@ -1437,9 +1591,11 @@ public class Application {
 + https://medium.com/@aedemirsen/cache-structure-in-spring-boot-projects-with-redis-2c5751bca9eb
 
 > Guia sobre utilização do Banner do Spring:
+
 + https://devops.datenkollektiv.de/banner.txt/index.html
 
 > Guia sobre configuração do redis no docker:
+
 + https://cloudinfrastructureservices.co.uk/run-redis-with-docker-compose/ (Configuração mais completa)
 + https://medium.com/nerd-for-tech/setting-up-a-standalone-redis-instance-2721a7318037
 + https://zomro.com/blog/faq/301-kak-ustanovit-redis-v-docker
@@ -1447,14 +1603,17 @@ public class Application {
 + https://stackoverflow.com/questions/57528077/docker-compose-with-name-other-than-dockerfile
 
 > Guia sobre implementação do Swagger:
+
 + https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api
 + [Guia Implementação Swagger com Springboot 3](https://medium.com/@f.s.a.kuzman/using-swagger-3-in-spring-boot-3-c11a483ea6dc#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IjBhZDFmZWM3ODUwNGY0NDdiYWU2NWJjZjVhZmFlZGI2NWVlYzllODEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIyMTYyOTYwMzU4MzQtazFrNnFlMDYwczJ0cDJhMmphbTRsamRjbXMwMHN0dGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiIyMTYyOTYwMzU4MzQtazFrNnFlMDYwczJ0cDJhMmphbTRsamRjbXMwMHN0dGcuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTYyMjM2MzYyOTQ3MzM2MjE0ODUiLCJlbWFpbCI6InNmaWRlbmNpb0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNzAyMzM5MDE1LCJuYW1lIjoiU2ViYXN0acOjbyBGaWTDqm5jaW8iLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSzVGM2MycUJFbDFIT2xsOVYtUWkxRzRMOE1FcEQ0MWN2MnNYdzRUX3d1NkxTTT1zOTYtYyIsImdpdmVuX25hbWUiOiJTZWJhc3Rpw6NvIiwiZmFtaWx5X25hbWUiOiJGaWTDqm5jaW8iLCJsb2NhbGUiOiJwdC1CUiIsImlhdCI6MTcwMjMzOTMxNSwiZXhwIjoxNzAyMzQyOTE1LCJqdGkiOiI2M2Q0MGE1ZGM5ZDcwYzVmYmUxZGFmMmE5ZGM2ODJhZWU2ZTEyZjE5In0.p2Jpb1_zl-GfPki_m_hz8Xz4jsJxMxgS8wNM7ajqHPvgQq2ecGr8T8u2n5ZlbLh7LCDPxK3X9RY6CRCDp5uXqEZB2fdJ3-N9rvce4XDkSrzw90Qm_J2PPohOBLSY3EtbV3AOmeX8piWg-hxSzSBdUZI9SSomf0mJgPPv4EopfUQnqS7kISllewhs_JAKD6O_VYUbfy_jcmMMsHDzUQCem_4dBgn0d7r3DJE3snYzBtmzCqQuLih5ioiBB_g7MRQ-4SbfMyOwhwubKD96QV9VJxGpHoxvOTbYZKKhebg0vycHL--H0woaWLrgGcw0ajaPxeZLzuDutEw1b-YuaZPAJg)
 
 > Guia sobre implementação do MongoDB junto com o Spring:
+
 + https://www.mongodb.com/compatibility/spring-boot
 + https://docs.spring.io/spring-data/mongodb/reference/index.html
 
 > Guia sobre implementação de validações usando Regex aliado com @Valid:
+
 + https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
 + https://www.baeldung.com/java-regex-validate-phone-numbers
 + https://www.javatpoint.com/spring-mvc-regular-expression-validation
