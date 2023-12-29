@@ -1,7 +1,8 @@
 
 # explorando-clean-code
 
->[!IMPORTANT] Este projeto aborda os seguintes tópicos:
+>[!IMPORTANT]
+>Este projeto aborda os seguintes tópicos:
 - Diretamente
   - Clean Code
 -Indiretamente
