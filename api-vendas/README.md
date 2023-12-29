@@ -1375,44 +1375,44 @@ public class Application {
 > Referências utilizadas em todo o projeto:
 
 > Tutoriais e cursos gratuitos:
->+ https://www.alura.com.br
->+ https://tpbabparn.medium.com/spring-boot-3-1-integrated-docker-compose-on-development-environment-spring-webflux-example-1ddcbfe052f
->+ https://springhow.com/spring-boot-and-postgres-using-docker-compose/
->+ https://www.baeldung.com/ops/docker-compose-links-depends-on
->+ https://www.baeldung.com/spring-boot-docker-start-with-profile
->+ https://blog.devgenius.io/how-to-handle-constraint-violation-exception-using-controlleradvice-in-spring-boot-2f61147d19de
->+ https://reflectoring.io/bean-validation-with-spring-boot/
->+ https://www.javadevjournal.com/spring-boot/spring-custom-validation-message-source/
->+ https://www.baeldung.com/spring-valid-vs-validated
->+ https://salithachathuranga94.medium.com/validation-and-exception-handling-in-spring-boot-51597b580ffd
->+ https://www.udemy.com/user/dougllas-sousa/
->+ https://pt.stackoverflow.com/questions/207188/depend%C3%AAncia-circular-em-api-rest-com-spring-boot
->+ https://medium.com/@seonggil/creating-a-maturity-level-3-rest-api-with-hateoas-fcd76d1b2db9
->+ https://www.baeldung.com/spring-custom-validation-message-source
->+ https://reflectoring.io/bean-validation-with-spring-boot/
->+ https://medium.com/yildiztech/decoding-i18n-challenges-in-spring-boot-3-exploring-internationalization-895a4ac627df
->+ https://medium.com/@seonggil/creating-a-maturity-level-3-rest-api-with-hateoas-fcd76d1b2db9 (**Implementing HATEOAS
++ https://www.alura.com.br
++ https://tpbabparn.medium.com/spring-boot-3-1-integrated-docker-compose-on-development-environment-spring-webflux-example-1ddcbfe052f
++ https://springhow.com/spring-boot-and-postgres-using-docker-compose/
++ https://www.baeldung.com/ops/docker-compose-links-depends-on
++ https://www.baeldung.com/spring-boot-docker-start-with-profile
++ https://blog.devgenius.io/how-to-handle-constraint-violation-exception-using-controlleradvice-in-spring-boot-2f61147d19de
++ https://reflectoring.io/bean-validation-with-spring-boot/
++ https://www.javadevjournal.com/spring-boot/spring-custom-validation-message-source/
++ https://www.baeldung.com/spring-valid-vs-validated
++ https://salithachathuranga94.medium.com/validation-and-exception-handling-in-spring-boot-51597b580ffd
++ https://www.udemy.com/user/dougllas-sousa/
++ https://pt.stackoverflow.com/questions/207188/depend%C3%AAncia-circular-em-api-rest-com-spring-boot
++ https://medium.com/@seonggil/creating-a-maturity-level-3-rest-api-with-hateoas-fcd76d1b2db9
++ https://www.baeldung.com/spring-custom-validation-message-source
++ https://reflectoring.io/bean-validation-with-spring-boot/
++ https://medium.com/yildiztech/decoding-i18n-challenges-in-spring-boot-3-exploring-internationalization-895a4ac627df
++ https://medium.com/@seonggil/creating-a-maturity-level-3-rest-api-with-hateoas-fcd76d1b2db9 (**Implementing HATEOAS
    **)
->+ https://www.baeldung.com/spring-data-jpa-pagination-sorting
->+ https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
->+ https://spring.io/guides/gs/accessing-data-jpa/
->+ https://spring.io
->+ https://hibernate.org
->+ https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/record.html
++ https://www.baeldung.com/spring-data-jpa-pagination-sorting
++ https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
++ https://spring.io/guides/gs/accessing-data-jpa/
++ https://spring.io
++ https://hibernate.org
++ https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/record.html
 
 > Referências utilizadas para implementar o cache com Redis:
->+ https://www.baeldung.com/spring-boot-redis-cache
->+ https://www.digitalocean.com/community/tutorials/spring-boot-redis-cache
->+ https://www.bezkoder.com/spring-boot-redis-cache-example/
->+ https://redis.io/docs/connect/cli/
->+ https://premika-17.medium.com/implementing-redis-in-spring-boot-3d2756e5ab69
->+ https://medium.com/javarevisited/classcast-exception-when-using-redis-and-springboot-frameworks-in-conjunction-ea132dd0d7ea
->+ https://stackoverflow.com/questions/74557099/how-to-delete-all-data-from-redis-using-redistemplate-in-java
->+ https://www.baeldung.com/spring-boot-evict-cache (Limpando o cache de várias formas)
->+ https://medium.com/@aedemirsen/cache-structure-in-spring-boot-projects-with-redis-2c5751bca9eb
++ https://www.baeldung.com/spring-boot-redis-cache
++ https://www.digitalocean.com/community/tutorials/spring-boot-redis-cache
++ https://www.bezkoder.com/spring-boot-redis-cache-example/
++ https://redis.io/docs/connect/cli/
++ https://premika-17.medium.com/implementing-redis-in-spring-boot-3d2756e5ab69
++ https://medium.com/javarevisited/classcast-exception-when-using-redis-and-springboot-frameworks-in-conjunction-ea132dd0d7ea
++ https://stackoverflow.com/questions/74557099/how-to-delete-all-data-from-redis-using-redistemplate-in-java
++ https://www.baeldung.com/spring-boot-evict-cache (Limpando o cache de várias formas)
++ https://medium.com/@aedemirsen/cache-structure-in-spring-boot-projects-with-redis-2c5751bca9eb
 
 > Guia sobre utilização do Banner do Spring:
->+ https://devops.datenkollektiv.de/banner.txt/index.html
++ https://devops.datenkollektiv.de/banner.txt/index.html
 
 > Guia sobre configuração do redis no docker:
 + https://cloudinfrastructureservices.co.uk/run-redis-with-docker-compose/ (Configuração mais completa)
