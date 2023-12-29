@@ -20,6 +20,8 @@
     exemplificar como usar.
 > + [x] implementar lombok, para exemplificar como usar.
 > + [ ] Implementar api fake com wiremock, para exemplificar como usar.
+> + [ ] Implementar integração com com travis-ci, inserindo as badges de cobertura de código e build.
+> + [ ] Implementar springboot-actuator e springboot-admin
 
 > Informações Gerais
 
