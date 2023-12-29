@@ -101,6 +101,7 @@
 - [Implementando testes unitários](#implementando-testes-unitários)
 - [Referências gerais do projeto](#referências-gerais-do-projeto)
 - [Explorando o lombok](#explorando-o-lombok)
+- [Explorando o MapStruct](#explorando-o-mapstruct)
 
 > Este projeto aborda os seguintes tópicos:
 >    - Requisitos (MVP)
@@ -1336,12 +1337,50 @@ public class ExemploCleanup {
 
 ```
 
+
+### Explorando o MapStruct
+> + https://mapstruct.org/
+> + https://www.baeldung.com/mapstruct
+> + https://www.baeldung.com/mapstruct-null-values-mapping
+
+> [!TIP]
+> O MapStruct é uma biblioteca Java que gera automaticamente código de mapeamento entre objetos Java. Ele analisa suas classes e interfaces para determinar como eles se relacionam entre si e gera um código de mapeamento para converter um objeto em outro. O MapStruct é uma alternativa ao BeanUtils.copyProperties() e ao Apache Commons BeanUtils, que são usados para copiar propriedades de um objeto para outro.
+
+```java
+//Exemplo de uso do MapStruct:
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.factory.Mappers;
+
+@Mapper(componentModel = "spring") //Permite o spring injetar automaticamente a implementação do mapper, nao sendo necessario instanciar manualmente
+public interface ClienteMapper {
+  //Instanciando manualmente
+  //ClienteMapper INSTANCE = Mappers.getMapper(ClienteMapper.class);
+
+  @Mapping(target = "nome", source = "nome")
+  @Mapping(target = "cpf", source = "cpf")
+  @Mapping(target = "email", source = "email")
+  ClienteResponse toResponse(Cliente cliente);
+}
+
+public class Application {
+  public static void main(String[] args) {
+    var cliente = new Cliente("João", "12345678901", "fulano@gmail.com");
+    var clienteResponse = ClienteMapper.INSTANCE.toResponse(cliente);
+    System.out.println(clienteResponse.getNome()); // Retorna "João"
+
+```
+
+
+
+
 ### Referências gerais do projeto
 
 > [!IMPORTANT]
 > Referências utilizadas em todo o projeto:
 
 > Tutoriais e cursos gratuitos:
+>+ https://www.alura.com.br
 >+ https://tpbabparn.medium.com/spring-boot-3-1-integrated-docker-compose-on-development-environment-spring-webflux-example-1ddcbfe052f
 >+ https://springhow.com/spring-boot-and-postgres-using-docker-compose/
 >+ https://www.baeldung.com/ops/docker-compose-links-depends-on
