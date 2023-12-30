@@ -1,4 +1,4 @@
-package com.github.sfidencio.vendas.api.controller.imp.mock;
+package com.github.sfidencio.vendas.api.controller.imp.integration.withouttestconteiner;
 
 import jakarta.annotation.PreDestroy;
 import org.springframework.context.annotation.Bean;
@@ -15,7 +15,7 @@ public class EmbeddedRedisConfig {
 
     @Bean
     public RedisServer redisServer() throws IOException {
-        redisServer = new RedisServer(6379);
+        redisServer = new RedisServer(6378);
         redisServer.start();
         return redisServer;
     }

@@ -16,13 +16,13 @@ import org.springframework.test.context.ActiveProfiles;
 
 //Essas configuracoes funcionaria se nao tivessemos mongodb, redis e outrs
 //@DataJpaTest
-//@TestPropertySource(locations = "classpath:application-test.yaml")
+//@TestPropertySource(locations = "classpath:application-test1.yaml")
 
 //Essa anotação é para nao carregar o banco em memoria, mas sim o banco de dados real
 //@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 
 @Rollback(false)
-@ActiveProfiles("test")
+@ActiveProfiles("test2")
 class ClienteServiceImpTest {
 
     //@Autowired

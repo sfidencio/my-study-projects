@@ -24,7 +24,7 @@ import static org.mockito.Mockito.when;
 
 //@SpringBootTest
 @ExtendWith(MockitoExtension.class)
-@ActiveProfiles("test")
+@ActiveProfiles("test2")
 class ClienteServiceImpTest {
 
     @Mock

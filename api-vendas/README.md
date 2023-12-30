@@ -1169,8 +1169,8 @@ class ClienteServiceImpTest {
 
 > + Testando controller com banco de dados H2 e subindo as dependencias do spring utilizando testcontainers:
 
-
-
+> [!IMPORTANT]
+> MockMvc é uma estrutura de teste de unidade que simula o comportamento de um servlet, permitindo que você teste controladores em um ambiente isolado, sem a necessidade de iniciar um servidor real. RestAssured, por outro lado, é uma estrutura de teste de integração que permite testar APIs RESTful de forma fácil e legível. Enquanto o MockMvc é mais adequado para testar controladores e componentes específicos do Spring MVC, o RestAssured é mais voltado para testar APIs RESTful e suas respostas. Em resumo, o MockMvc é mais adequado para testes de unidade de componentes específicos, enquanto o RestAssured é mais adequado para testes de integração de APIs RESTful.
 
 
 ### Explorando o lombok
@@ -1640,7 +1640,7 @@ class CEPServiceImpTest {
         final var webClient = WebClient.create("http://localhost:8089/ws");
         final var response = webClient.get()
                 .uri("/{cep}/json/", cep)
-                .retrieve()
+                .retrieve
                 .bodyToMono(String.class)
                 .block();
         System.out.println(response);
