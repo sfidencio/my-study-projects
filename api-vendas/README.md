@@ -109,7 +109,7 @@
 - [Explorando o gson](#explorando-o-gson)
 - [Explorando o wiremock](#explorando-o-wiremock)
 - [Explorando mockserver](#explorando-mockserver)
-- [Mockando redis com lettuce](#mockando-redis-com-lettuce)
+
 
 > Este projeto aborda os seguintes tópicos:
 
@@ -1167,27 +1167,20 @@ class ClienteServiceImpTest {
 }
 ```
 
-> + Testando controller com banco de dados H2:
+> + Testando controller com banco de dados H2 e subindo as dependencias do spring utilizando testcontainers:
+
+
+
+
+
+### Explorando o lombok
+>+https://projectlombok.org
+>+https://www.baeldung.com/lombok-with-annotations
+
+>[!TIP]
+>Uso uso do @With para gerar automaticamente um construtor imutável para a classe:
 
 ```java
-
-###Explorando o
-lombok
-
->+https://projectlombok.org
-        >+https://www.baeldung.com/lombok-with-annotations
-
-        >[!TIP]
-        >
-Uso uso do
-@With
-para gerar
-automaticamente um
-construtor imutável
-para a
-classe:
-
-        ```java
 import lombok.With;
 
 public class Pessoa {
@@ -1724,68 +1717,6 @@ class CEPServiceImpTest {
     }
 }
 ```
-
-
-### Mockando redis com lettuce
-
-> [!TIP]
-> O lettuce é uma biblioteca Java que permite simular chamadas ao redis, ou seja, podemos simular chamadas ao redis.
-> O lettuce é uma alternativa ao mockito.
-
-> [!TIP]
-> Adicionando a dependencia do lettuce no pom.xml:
-
-```xml
-        <!--lettuce-->
-<dependency>
-    <groupId>io.lettuce</groupId>
-    <artifactId>lettuce-core</artifactId>
-    <version>x.y.z</version>
-</dependency>
-```
-
-```java
-//Exemplo de uso do lettuce:
-
-import io.lettuce.core.RedisClient;
-import io.lettuce.core.api.StatefulRedisConnection;
-import io.lettuce.core.api.sync.RedisCommands;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-
-class CEPServiceImpTest {
-
-    private RedisClient redisClient;
-    private StatefulRedisConnection<String, String> connection;
-    private RedisCommands<String, String> syncCommands;
-
-    @BeforeEach
-    void setUp() {
-        this.redisClient = RedisClient.create("redis://localhost:6379");
-        this.connection = redisClient.connect();
-        this.syncCommands = connection.sync();
-    }
-
-    @AfterEach
-    void tearDown() {
-        this.connection.close();
-        this.redisClient.shutdown();
-    }
-
-    @Test
-    void deveria_consultar_cep_com_sucesso() {
-        final var cep = "01001-000";
-        final var body = "{\"cep\": \"01001-000\",\"logradouro\": \"Praça da Sé\",\"complemento\": \"lado ímpar\",\"bairro\": \"Sé\",\"localidade\": \"São Paulo\",\"uf\": \"SP\",\"ibge\": \"3550308\",\"gia\": \"1004\",\"ddd\": \"11\",\"siafi\": \"7107\"}";
-        this.syncCommands.set(cep, body);
-        final var response = this.syncCommands.get(cep);
-        System.out.println(response);
-    }
-}
-```
-
-
 
 
 > [!TIP]

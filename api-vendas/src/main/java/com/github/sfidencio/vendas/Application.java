@@ -20,11 +20,6 @@ public class Application {
     //@PersistenceContext
     //private EntityManager entityManager;
 
-    static {
-        GenericContainer<?> redis =
-                new GenericContainer<>(DockerImageName.parse("redis:5.0.3-alpine")).withExposedPorts(6379);
-        redis.start();
-    }
 
 
     public static void main(String[] args) {
