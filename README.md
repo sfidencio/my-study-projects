@@ -21,3 +21,7 @@
 
 > Artigos e tutoriais postados no linkedin
 > [Sobre SOLID](https://www.linkedin.com/pulse/finalmente-solid-sebasti%25C3%25A3o-fid%25C3%25AAncio-kdulf/?trackingId=nEk5w0b2RNeIXYnZTdnnmw%3D%3D)
+
+>[!TIPS]
+>TODO
+> [] Implementar projeto de teste com spring-data-rest
