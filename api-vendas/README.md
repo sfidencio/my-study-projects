@@ -162,11 +162,11 @@ mvn dependency:tree
 >Exemplo de instalação do java
 
 ```bash
-#apt install openjdk-17-jdk 
+apt install openjdk-17-jdk 
 ```
 
 ```bash
-#sudo update-alternatives --config java
+sudo update-alternatives --config java
 ```
 
 
