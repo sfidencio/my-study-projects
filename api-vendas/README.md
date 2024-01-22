@@ -24,6 +24,7 @@
 > + [x] Implementar api fake com wiremock, para exemplificar como usar.
 > + [ ] Implementar integração com com travis-ci, inserindo as badges de cobertura de código e build.
 > + [ ] Implementar springboot-actuator e springboot-admin
+> + [x] Implementar escolhar de versões do java no linux ubuntu/debian
 
 > Informações Gerais
 
@@ -88,6 +89,7 @@
 > [!IMPORTANT]
 > Índice
 
+- [Guia de como escolher versao do java no linux](#guia-de-como-escolher-versao-do-java-no-linux)
 - [Guia explicativo de como executar o projeto localmente](#guia-explicativo-de-como-executar-o-projeto-localmente)
 - [Guia explicativo de como dockerizar o projeto em seguinda executá-lo localmente sem o docker-compose](#guia-explicativo-de-como-dockerizar-o-projeto-em-seguinda-executa-lo-localmente-sem-o-docker-compose)
 - [Guia explicando como dockerizar o projeto em seguinda executá-lo localmente com o docker-compose](#guia-explicando-como-dockerizar-o-projeto-em-seguinda-executa-lo-localmente-com-o-docker-compose)
@@ -153,6 +155,20 @@
 ```bash
 mvn dependency:tree
 ```
+
+# Guia de como escolher versao do java no linux
+> Estando no linux logado como usuário no-root.
+
+>Exemplo de instalação do java
+
+```bash
+#apt install openjdk-17-jdk 
+```
+
+```bash
+#sudo update-alternatives --config java
+```
+
 
 # Guia explicativo de como executar o projeto localmente
 
