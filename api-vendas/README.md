@@ -102,8 +102,8 @@
 - [Explorando o uso do dataType BigDecimal](#explorando-o-uso-do-datatype-bigdecimal)
 - [Explorando RestTemplate](#explorando-resttemplate)
 - [Implementando AOP](#implementando-aop)
-- [Implementando testes unitários](#implementando-testes-unitários)
-- [Referências gerais do projeto](#referências-gerais-do-projeto)
+- [Implementando testes automatizados](#implementando-testes-automatizados)
+- [Explorando AssertJ](#explorando-assertj)
 - [Explorando o lombok](#explorando-o-lombok)
 - [Explorando o MapStruct](#explorando-o-mapstruct)
 - [Explorando o ModelMapper](#explorando-o-modelmapper)
@@ -111,6 +111,7 @@
 - [Explorando o gson](#explorando-o-gson)
 - [Explorando o wiremock](#explorando-o-wiremock)
 - [Explorando mockserver](#explorando-mockserver)
+- [Referências gerais do projeto](#referências-gerais-do-projeto)
 
 
 > Este projeto aborda os seguintes tópicos:
@@ -1039,7 +1040,126 @@ void deveria_permitir_numero_telefone_cujo_ddd_possua_dois_digitos_apenas_e_espa
 
  ```   
 
-### Implementando testes unitários:
+### Implementando testes automatizados:
+
+> + O que é BDD? (Behavior Driven Development)
+>   + BDD é uma técnica de desenvolvimento de software que visa aprimorar a comunicação entre desenvolvedores, testadores e que torna os cenários de testes compreensiveis por pessoas de negócio. Costuma-se construi os testes antes de escrever código, e os testes são escritos em linguagem natural, ou seja, são escritos em linguagem de negocio, e não em linguagem de programação. O BDD é uma evolução do TDD, ou seja, do Test Driven Development, e tem como objetivo principal, aprimorar a comunicação entre desenvolvedores, testadores e pessoas de negocio, e garantir que o software atenda as necessidades do negocio.
+> + O que é TDD? (Test Driven Development)
+>   + TDD é uma técnica de desenvolvimento de software que visa aprimorar a qualidade do código, e garantir que o software atenda as necessidades do negocio. Costuma-se construir os testes antes de escrever código, e os testes são escritos em linguagem de programação, ou seja, são escritos em linguagem de negocio, e não em linguagem natural. O TDD é uma técnica de desenvolvimento de software que visa aprimorar a qualidade do código, e garantir que o software atenda as necessidades do negocio. As tecnicas de TDD são: Red, Green, Refactor, ou seja, primeiro escrevemos o teste, depois escrevemos o código que faz o teste passar, e por fim, refatoramos o código.
+
+
+> Exemplo de TDD:
+> + Primeiro escrevemos o teste, conforme exemplo abaixo:
+
+```java
+@Test
+void deveria_cadastrar_cliente() {
+    final var clienteRequest = new ClienteRequest("Fulano", "71509956085", "1");
+    final var clienteResponse = new ClienteResponse(1L, "Fulano", "71509956085", "1");
+    when(clienteService.cadastrarCliente(any(ClienteRequest.class))).thenReturn(clienteResponse);
+    final var response = clienteControllerImp.cadastrarCliente(clienteRequest);
+    assertEquals(clienteResponse, response);
+}
+```
+> Exemplo de BDD usando cucumber + Junit5:
+> Escrevendo cenário de teste no cumcumber, conforme exemplo abaixo:
+
+> Adicionando dependências do cucumber no pom.xml:
+
+```xml
+<dependencies>
+    <!-- Cucumber dependencies -->
+    <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-java</artifactId>
+        <version>6.10.4</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-junit</artifactId>
+        <version>6.10.4</version>
+        <scope>test</scope>
+    </dependency>
+    <!-- JUnit 5 dependencies -->
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>5.7.0</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>5.7.0</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
+```
+>Criando arquivo de feature, conforme exemplo abaixo:
+
+```gherkin
+Feature: Calculator Functionality
+
+  Scenario: Add two numbers
+    Given I have a calculator
+    When I add 5 and 7
+    Then the result should be 12
+
+  Scenario: Subtract two numbers
+    Given I have a calculator
+    When I subtract 10 from 15
+    Then the result should be 5
+```
+>Exemplo de implementação do cenário de teste acima, no cucumber + Junit5:
+```java
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CalculatorStepDefinitions {
+    private int firstNumber;
+    private int secondNumber;
+    private int result;
+
+    @Given("I have a calculator")
+    public void iHaveACalculator() {
+        // You can initialize your calculator here
+    }
+
+    @When("I add {int} and {int}")
+    public void iAddTwoNumbers(int num1, int num2) {
+        firstNumber = num1;
+        secondNumber = num2;
+        result = firstNumber + secondNumber;
+    }
+
+    @When("I subtract {int} from {int}")
+    public void iSubtractTwoNumbers(int num1, int num2) {
+        firstNumber = num2;
+        secondNumber = num1;
+        result = firstNumber - secondNumber;
+    }
+
+    @Then("the result should be {int}")
+    public void theResultShouldBe(int expectedResult) {
+        assertEquals(expectedResult, result);
+    }
+}
+
+```
+>Crie a classe de teste JUnit 5 para executar os cenários da feature:
+
+```java
+import io.cucumber.junit.platform.engine.Cucumber;
+import org.junit.jupiter.api.extension.ExtendWith;
+
+@ExtendWith(Cucumber.class)
+public class CalculatorTest {
+}
+```
+
 
 > + https://howtodoinjava.com/spring-boot2/testing/spring-boot-mockito-junit-example/
 > + https://www.baeldung.com/mockito-junit-5-extension
@@ -1187,6 +1307,32 @@ class ClienteServiceImpTest {
 
 > [!IMPORTANT]
 > MockMvc é uma estrutura de teste de unidade que simula o comportamento de um servlet, permitindo que você teste controladores em um ambiente isolado, sem a necessidade de iniciar um servidor real. RestAssured, por outro lado, é uma estrutura de teste de integração que permite testar APIs RESTful de forma fácil e legível. Enquanto o MockMvc é mais adequado para testar controladores e componentes específicos do Spring MVC, o RestAssured é mais voltado para testar APIs RESTful e suas respostas. Em resumo, o MockMvc é mais adequado para testes de unidade de componentes específicos, enquanto o RestAssured é mais adequado para testes de integração de APIs RESTful.
+
+### Explorando AssertJ
+> + https://joel-costigliola.github.io/assertj/
+
+> O AssertJ tem por finalidade facilitar a escrita de testes unitários, fornecendo uma API fluente e expressiva.
+
+>Exemplo1:
+> ```java
+> @Test
+> void deveria_cadastrar_cliente_com_sucesso() throws NotFoundException {
+>   this.clienteService.salvar(new ClienteRequest(null, "Joao Carlos.", "79681821076", ""));
+>   var cliente = this.clienteService.buscarClienteEPedidos(1);
+>   assertThat(cliente.nome()).isEqualTo("Joao Carlos.");
+>   assertThat(cliente.cpf()).isEqualTo("79681821076");
+> }
+> ```
+
+>Exemplo2:
+> ```java
+> @Test
+> void deveria_cadastrar_cliente_com_sucesso() throws NotFoundException {
+>   this.clienteService.salvar(new ClienteRequest(null, "Joao Carlos.", "79681821076", ""));
+>   var cliente = this.clienteService.buscarClienteEPedidos(1);
+>   assertThat(cliente).extracting("nome", "cpf").containsExactly("Joao Carlos.", "79681821076");
+> }
+> ```
 
 
 ### Explorando o lombok
