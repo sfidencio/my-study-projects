@@ -111,6 +111,7 @@
 - [Explorando o gson](#explorando-o-gson)
 - [Explorando o wiremock](#explorando-o-wiremock)
 - [Explorando mockserver](#explorando-mockserver)
+- [Explorando conceitos sobre Rest](#explorando-conceitos-sobre-rest)
 - [Referências gerais do projeto](#referências-gerais-do-projeto)
 
 
@@ -1259,6 +1260,91 @@ class ClienteControllerImpTest {
 }
 ```
 
+> Explorando o método verify do mockito:
+
+```java
+@ExtendWith(MockitoExtension.class)
+public class TestandoMockito {
+
+
+    // Aqui você pode escrever seus testes
+    // utilizando o Mockito
+    @Test
+    @DisplayName("Deve chamar o método size")
+    public void test_deve_chamar_metodo_size_pelo_menos_duas_vezes() {
+        List<Long> listaNumerosMockados = Mockito.mock(List.class);
+        Mockito.when(listaNumerosMockados.get(0)).thenReturn(10L);
+        Mockito.when(listaNumerosMockados.get(1)).thenReturn(20L);
+        Mockito.when(listaNumerosMockados.size()).thenReturn(200);
+        Assertions.assertThat(listaNumerosMockados.get(0)).isEqualTo(10L);
+        Assertions.assertThat(listaNumerosMockados.get(1)).isEqualTo(20L);
+        Assertions.assertThat(listaNumerosMockados.size()).isEqualTo(200);
+        Assertions.assertThat(listaNumerosMockados.size()).isEqualTo(200);
+
+        Mockito.verify(listaNumerosMockados, Mockito.times(2)).size();
+    }
+
+    @Test
+    @DisplayName("Nunca deveria chamar o método size")
+    public void test_nunca_deveria_chamar_metodo_size() {
+        List<Long> listaNumerosMockados = Mockito.mock(List.class);
+        Mockito.when(listaNumerosMockados.get(0)).thenReturn(10L);
+        Mockito.when(listaNumerosMockados.get(1)).thenReturn(20L);
+        //Mockito.when(listaNumerosMockados.size()).thenReturn(200);
+        Assertions.assertThat(listaNumerosMockados.get(0)).isEqualTo(10L);
+        Assertions.assertThat(listaNumerosMockados.get(1)).isEqualTo(20L);
+
+
+        //Assertions.assertThat(listaNumerosMockados.size()).isEqualTo(200);
+        //Assertions.assertThat(listaNumerosMockados.size()).isEqualTo(200);
+
+        Mockito.verify(listaNumerosMockados, Mockito.never()).size();
+    }
+
+    @Test
+    @DisplayName("Deve chamar os métodos na ordem correta")
+    public void test_explorando_ordem_metodo_verify() {
+        List<Long> listaNumerosMockados = Mockito.mock(List.class);
+        Mockito.when(listaNumerosMockados.get(0)).thenReturn(10L);
+        Mockito.when(listaNumerosMockados.get(1)).thenReturn(20L);
+        //Mockito.when(listaNumerosMockados.size()).thenReturn(200);
+        Assertions.assertThat(listaNumerosMockados.get(0)).isEqualTo(10L);
+        Assertions.assertThat(listaNumerosMockados.get(1)).isEqualTo(20L);
+
+
+        //Se mudarmos a ordem das assertivas, acima, o teste ja falha abaixo
+        InOrder inOrder = Mockito.inOrder(listaNumerosMockados);
+        inOrder.verify(listaNumerosMockados).get(0);
+        inOrder.verify(listaNumerosMockados).get(1);
+        inOrder.verify(listaNumerosMockados, Mockito.never()).size();
+        Mockito.verify(listaNumerosMockados, Mockito.never()).size();
+    }
+
+
+
+
+
+    //Teste de exceção no junit 5
+    @Test
+    @DisplayName("Deve lançar exceção")
+    public void test_deve_lancar_excecao() {
+        Assertions.assertThatThrownBy(() -> metodoQueLancaExcecao())
+                .isInstanceOf(RuntimeException.class)
+                .hasMessage("Exceção lançada");
+    }
+
+    private void metodoQueLancaExcecao() {
+        throw new RuntimeException("Exceção lançada");
+    }
+
+}
+
+```
+
+> [!TIP]
+> O Código funcional da classe `TestandoMockito.java`, está contido na pasta test, na raiz do projeto.
+
+
 ### Teste de integração:
 
 > + Testando camada de serviço com banco de dados H2:
@@ -1879,6 +1965,71 @@ class CEPServiceImpTest {
     }
 }
 ```
+
+### Explorando conceitos sobre Rest
+
+> + Rest(Representation State Transfer) é um estilo de arquitetura que define um conjunto de restrições para projetar serviços web. Os serviços web que aderem ao estilo de arquitetura REST são chamados de serviços web RESTful. O REST é um acrônimo para Representational State Transfer. Ele foi definido pela primeira vez por Roy Fielding em sua tese de doutorado.
+>  + Não é um pattern, mas sim um estilo de arquitetura ou guia.
+>  + Stateless, ou seja, não guarda estado, diferente de um serviço SOAP, que guarda estado.
+>    + Se compararmos com antigo EJB, que guardava estado, o REST é stateless, ou seja, não guarda estado.
+>    + Poderiamos no EJB, utilizar transação distribuida, ou seja, um serviço EJB poderia chamar outro serviço EJB, e ambos poderiam compartilhar a mesma transação, ou seja, se um falhasse, o outro também falharia, e vice-versa.
+>  + Interface uniforme, ou seja, os recursos são identificados por URIs, e as operações são identificadas por métodos HTTP.
+>    + GET, POST, PUT, DELETE, PATCH, OPTIONS, HEAD, TRACE, CONNECT
+>      + GET: Recuperar um recurso
+>      + POST: Criar um recurso
+>      + PUT: Atualizar um recurso
+>      + DELETE: Deletar um recurso
+>      + PATCH: Atualizar parcialmente um recurso
+>      + OPTIONS: Retornar os métodos HTTP suportados
+>      + HEAD: Retornar os cabeçalhos de resposta
+>      + TRACE: Retornar a requisição
+>      + CONNECT: Estabelecer um túnel para o servidor
+>  + Representação, ou seja, os recursos são representados por JSON, XML, HTML, ou qualquer outro formato.
+>  + HATEOAS(Hypermedia As The Engine Of Application State), ou seja, os recursos são representados por links, ou seja, um recurso pode conter links para outros recursos.
+>  + Funciona no modelo REQ/RES, ou seja, requisição e resposta, ou seja, o cliente faz uma requisição, e o servidor responde.
+>  + Possiveis códigos de resposta:
+>    + 1xx: Informacional
+>    + 2xx: Sucesso
+>      + 200: OK
+>      + 201: Criado
+>      + 204: Sem conteúdo
+>    + 3xx: Redirecionamento
+>    + 4xx: Erro do cliente
+>      + 400: Requisição inválida
+>      + 401: Não autorizado
+>      + 403: Proibido
+>      + 404: Não encontrado
+>      + 405: Método não permitido
+>      + 406: Não aceitável
+>      + 407: Autenticação de proxy necessária
+>      + 408: Tempo limite da solicitação
+>      + 409: Conflito
+>      + 410: Desaparecido
+>      + 411: Comprimento necessário
+>      + 412: Pré-condição falhou
+>      + 413: Entidade de solicitação muito grande
+>      + 414: Solicitação-URI muito longa
+>      + 415: Tipo de mídia não suportado
+>      + 416: Solicitação de intervalo não satisfatória
+>      + 422: Entidade não processável
+>    + 5xx: Erro do servidor
+>      + 500: Erro interno do servidor (Internal Server Error)
+>      + 501: Não implementado (Not Implemented)
+>      + 502: Gateway ruim (Bad Gateway)
+>      + 503: Serviço indisponível (Service Unavailable)
+>      + 504: Gateway de tempo limite (Gateway Timeout)
+>    + Exemplos de modelagem de recursos recomendados:
+>     + Verbo Http no recurso:
+>       + POST -> Salvar
+>         + /clientes
+>       + PUT -> Atualizar
+>         + /clientes/1
+>       + DELETE -> Remover
+>         + /clientes/1
+>       + GET -> Consultar
+>         + /clientes/1
+>       + GET -> Listar
+>         + /clientes
 
 
 > [!TIP]
