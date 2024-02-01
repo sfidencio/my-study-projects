@@ -1422,8 +1422,8 @@ class ClienteServiceImpTest {
 
 
 ### Explorando o lombok
->+https://projectlombok.org
->+https://www.baeldung.com/lombok-with-annotations
+> + https://projectlombok.org
+> + https://www.baeldung.com/lombok-with-annotations
 
 >[!TIP]
 >Uso uso do @With para gerar automaticamente um construtor imutável para a classe:
