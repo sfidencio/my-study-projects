@@ -1,4 +1,4 @@
-package com.github.sfidencio.vendas.api.controller.imp.integration.withouttestconteiner;
+package com.github.sfidencio.vendas.api.controller.imp.mock.webmvc;
 
 import jakarta.annotation.PreDestroy;
 import org.springframework.context.annotation.Bean;

@@ -1216,20 +1216,13 @@ class ClienteControllerImpTest {
 }
 ```
 
-> Exemplo de teste unitário com `mockito` e `junit5` subindo o contexto do spring:
-
-> [!TIP]
-> A anotação `@SpringBootTest` é responsavel por subir o contexto do spring, ou seja, subir a aplicação, e a
-> anotação `@MockBean` é responsavel por criar um mock do bean, ou seja, criar um mock do serviço, pois não queremos
-> testar o serviço, mas sim o controller, logo, precisamos criar um mock do serviço, para que o controller possa ser
-> testado de forma isolada. Com uso dessa anotação, ele já encapsula o `@ExtendWith(MockitoExtension.class)`, ou seja,
-> não
-> precisamos mais usar o `@ExtendWith(MockitoExtension.class)`, pois o `@SpringBootTest` já encapsula
-> o `@ExtendWith(SpringExtension.class)`.
+> [!WARNING]
+> A anotação `@SpringBootTest` é responsavel por subir o contexto do spring para realização de teste de integração.
+ 
 
 > [!TIP]
 > É possivel também mockar beans do spring, ou seja, criar mocks de beans do spring, para isso, basta usar a
-> anotação `@MockBean`, conforme exemplo abaixo:
+> anotação `@MockBean`, conforme exemplo abaixo (Permite isolamento de testes):
 
 ```java
 
@@ -1984,52 +1977,146 @@ class CEPServiceImpTest {
 >      + HEAD: Retornar os cabeçalhos de resposta
 >      + TRACE: Retornar a requisição
 >      + CONNECT: Estabelecer um túnel para o servidor
->  + Representação, ou seja, os recursos são representados por JSON, XML, HTML, ou qualquer outro formato.
->  + HATEOAS(Hypermedia As The Engine Of Application State), ou seja, os recursos são representados por links, ou seja, um recurso pode conter links para outros recursos.
->  + Funciona no modelo REQ/RES, ou seja, requisição e resposta, ou seja, o cliente faz uma requisição, e o servidor responde.
->  + Possiveis códigos de resposta:
->    + 1xx: Informacional
->    + 2xx: Sucesso
->      + 200: OK
->      + 201: Criado
->      + 204: Sem conteúdo
->    + 3xx: Redirecionamento
->    + 4xx: Erro do cliente
->      + 400: Requisição inválida
->      + 401: Não autorizado
->      + 403: Proibido
->      + 404: Não encontrado
->      + 405: Método não permitido
->      + 406: Não aceitável
->      + 407: Autenticação de proxy necessária
->      + 408: Tempo limite da solicitação
->      + 409: Conflito
->      + 410: Desaparecido
->      + 411: Comprimento necessário
->      + 412: Pré-condição falhou
->      + 413: Entidade de solicitação muito grande
->      + 414: Solicitação-URI muito longa
->      + 415: Tipo de mídia não suportado
->      + 416: Solicitação de intervalo não satisfatória
->      + 422: Entidade não processável
->    + 5xx: Erro do servidor
->      + 500: Erro interno do servidor (Internal Server Error)
->      + 501: Não implementado (Not Implemented)
->      + 502: Gateway ruim (Bad Gateway)
->      + 503: Serviço indisponível (Service Unavailable)
->      + 504: Gateway de tempo limite (Gateway Timeout)
->    + Exemplos de modelagem de recursos recomendados:
->     + Verbo Http no recurso:
->       + POST -> Salvar
->         + /clientes
->       + PUT -> Atualizar
->         + /clientes/1
->       + DELETE -> Remover
->         + /clientes/1
->       + GET -> Consultar
->         + /clientes/1
->       + GET -> Listar
->         + /clientes
+> + Representação, ou seja, os recursos são representados por JSON, XML, HTML, ou qualquer outro formato.
+>     + JSON: JavaScript Object Notation
+>       + Analisador ou parser de JSON mais simples, ou seja, mais facil de entender, e mais facil de ler.
+>       + Tipado
+>       + Tamanho menor
+>       + Mais rapido
+>       + Suporta objetos aninhados
+>         + Exemplo1:
+>           + ```json 
+>             {"nome": "Fulano", "cpf": "12345678901", "email": "fulano@gmail.com"}
+>             ```
+>           + Exemplo2 (ojeto único): para transformar em array, basta adicionar colchetes: [] envolvendo o objeto root.
+>             + ```json
+>               {
+>                 "nome": "Fulano", 
+>                 "cpf": "12345678901", 
+>                 "email": "fulano@gmail.com",
+>                 "endereco": [
+>                       {
+>                        "logradouro": "Rua 1",
+>                        "numero": 1, 
+>                        "complemento": "casa 1"
+>                       },
+>                       { 
+>                        "logradouro": "Rua 2",
+>                        "numero": 2, 
+>                        "complemento": "casa 2"
+>                       }
+>                 ]
+>               }
+>               ```
+>     + XML: Extensible Markup Language
+>       + Exemplos de formatos de representação:
+>       + ```xml
+>         <cliente>
+>            <nome>Fulano</nome>
+>           <cpf>12345678901</cpf>
+>           <email>fulano@gmail.com</email>
+>         </cliente>
+>         ```
+>     + HTML: HyperText Markup Language
+>     + CSV: Comma-Separated Values
+>   + HATEOAS(Hypermedia As The Engine Of Application State), ou seja, os recursos são representados por links, ou seja, um recurso pode conter links para outros recursos.
+>   + Funciona no modelo REQ/RES, ou seja, requisição e resposta, ou seja, o cliente faz uma requisição, e o servidor responde.
+>   + Possiveis códigos de resposta:
+>     + 1xx: Informacional
+>     + 2xx: Sucesso
+>       + 200: OK
+>       + 201: Criado
+>       + 204: Sem conteúdo
+>     + 3xx: Redirecionamento
+>     + 4xx: Erro do cliente
+>       + 400: Requisição inválida
+>       + 401: Não autorizado
+>       + 403: Proibido
+>       + 404: Não encontrado
+>       + 405: Método não permitido
+>       + 406: Não aceitável
+>       + 407: Autenticação de proxy necessária
+>       + 408: Tempo limite da solicitação
+>       + 409: Conflito
+>       + 410: Desaparecido
+>       + 411: Comprimento necessário
+>       + 412: Pré-condição falhou
+>       + 413: Entidade de solicitação muito grande
+>       + 414: Solicitação-URI muito longa
+>       + 415: Tipo de mídia não suportado
+>       + 416: Solicitação de intervalo não satisfatória
+>       + 422: Entidade não processável
+>     + 5xx: Erro do servidor
+>       + 500: Erro interno do servidor (Internal Server Error)
+>       + 501: Não implementado (Not Implemented)
+>       + 502: Gateway ruim (Bad Gateway)
+>       + 503: Serviço indisponível (Service Unavailable)
+>       + 504: Gateway de tempo limite (Gateway Timeout)
+>     + Exemplos de modelagem de recursos recomendados:
+>      + Verbo Http no recurso:
+>        + POST -> Salvar
+>          + /clientes
+>        + PUT -> Atualizar
+>          + /clientes/1
+>        + DELETE -> Remover
+>          + /clientes/1
+>        + GET -> Consultar
+>          + /clientes/1
+>        + GET -> Listar
+>          + /clientes
+>      + Exemplo de Sub-recursos:
+>        + /clientes/1/pedidos
+>        + /clientes/1/pedidos/1
+>        + /clientes/1/pedidos/1/itens
+>        + /clientes/1/pedidos/1/itens/1
+>        
+> 
+> + @RequestBody: Anotação que indica que o método deve processar o corpo da solicitação HTTP e vinculá-lo a um parâmetro de método.
+>   + Exemplo de url com corpo:
+>     + http://localhost:8080/clientes
+>     + Aqui temos um representação do clienteRequest no formato json:
+>     + ```json
+>       {
+>       "nome": "Fulano",
+>       "cpf": "12345678901",
+>       "email": "fulano@gmail.com"
+>       }
+>       ```
+>   + Exemplo em java:
+>     + ```java
+>       @PostMapping("/clientes")
+>       public ResponseEntity<ClienteResponse> salvar(@RequestBody ClienteRequest clienteRequest) {
+>           var cliente = this.clienteService.salvar(clienteRequest);
+>           var clienteResponse = this.clienteMapper.toResponse(cliente);
+>           return ResponseEntity.status(HttpStatus.CREATED).body(clienteResponse);
+>       }
+>       ```
+> + @PathVariable: Anotação que indica que um método de manipulador de solicitação deve vincular um parâmetro de método a uma variável de modelo de URI.
+>   + Exemplo de url com usando path variable:
+>   + http://localhost:8080/clientes/1
+>   + Exemplo em java:
+>     + ```java
+>       @GetMapping("/clientes/{id}")
+>       public ResponseEntity<ClienteResponse> buscarCliente(@PathVariable Long id) {
+>           var cliente = this.clienteService.buscarClienteEPedidos(id);
+>           var clienteResponse = this.clienteMapper.toResponse(cliente);
+>           return ResponseEntity.ok(clienteResponse);
+>       }
+>       ```
+> + @RequestParam: Anotação que indica que um parâmetro de método deve ser vinculado a um parâmetro de solicitação da web.
+>   + Exemplo de url com parametros:
+>   + http://localhost:8080/clientes?page=0&size=10
+>   + Exemplo em java:
+>     + ```java
+>       @GetMapping("/clientes")
+>       public ResponseEntity<Page<ClienteResponse>> listarClientes(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "10") Integer size) {
+>       var clientes = this.clienteService.listarClientes(page, size);
+>       var clientesResponse = clientes.map(this.clienteMapper::toResponse);
+>       return ResponseEntity.ok(clientesResponse);
+>       }
+>       ```
+> + Afinal, o que são rotas(routes)? 
+>   + Rotas são caminhos que o cliente pode acessar para interagir com a aplicação. Por exemplo, se o cliente deseja acessar a lista de clientes, ele acessa a rota /clientes. Se o cliente deseja acessar um cliente específico, ele acessa a rota /clientes/1. Se o cliente deseja acessar os pedidos de um cliente específico, ele acessa a rota /clientes/1/pedidos. E assim por diante.
 
 
 > [!TIP]
