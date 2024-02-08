@@ -45,13 +45,13 @@ git add . #adicionamos no stage
 git commit -m "msg de commit" # msg de commit
 ```
 ```bash
-git subtree push --prefix clientes-api/ heroku master # normal push
+git subtree push --prefix api-servicos/clientes-api/ heroku master # normal push
 ```
 
 ### Se ocorreu algum erro ou rejeição, podemos forçar o push, caso necessário:
 
 ```bash
-git push heroku 'git subtree split --prefix clientes-api/ branch':master --force # force push
+git push heroku 'git subtree split --prefix api-servicos/clientes-api/ branch':master --force # force push
 ```
 
 ### Depois, faça o push normal para o repositório do github, pois o push do passo 4 e 5, envia para o repos da aplicação no heroku:
@@ -89,7 +89,7 @@ git commit -m "Fazer Deploy"
 ```
 
 ```bash
-git subtree push --prefix clientes-app/ heroku master
+git subtree push --prefix api-servicos/clientes-app/ heroku master
 ```
 
 > [!TIP]
