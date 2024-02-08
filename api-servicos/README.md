@@ -1,22 +1,30 @@
-# Curso Full Stack: Agular9 + SpringBoot 2.2
+# api-servicos
+
+> [!IMPORTANT]
+> Este projeto foi desenvolvido com o intuito de ser um exemplo de aplicação fullstack, utilizando Angular 9 e Spring Boot, com deploy no Heroku.
 
 
-# Dicas de como foi feito o deploy no HEROKU, tanto do FRONT quanto do BACK!
-# JAVA
 
- -Versoes java heroku e upgrade de stack:   
- -https://devcenter.heroku.com/articles/java-support    
- -https://devcenter.heroku.com/articles/upgrading-to-the-latest-stack   
+### Dicas de como foi feito o deploy no HEROKU, tanto do FRONT quanto do BACK
+
+> JAVA
+> Versoes java heroku e upgrade de stack:   
+
+  - https://devcenter.heroku.com/articles/java-support    
+
+  - https://devcenter.heroku.com/articles/upgrading-to-the-latest-stack   
  
- -Caso receba erro de pom.xml não encontrado, ou incompatível, esse tutorial ajuda: (Deploy de subdiretorios)   
- -https://medium.com/@timanovsky/heroku-buildpack-to-support-deployment-from-subdirectory-e743c2c838dd
+  - Caso receba erro de pom.xml não encontrado, ou incompatível, esse tutorial ajuda: (Deploy de subdiretorios)   
 
--Banco de dados utilizado é o H2Database, executando em memória, não persistindo nada no FS(FileSystem).
+  - https://medium.com/@timanovsky/heroku-buildpack-to-support-deployment-from-subdirectory-e743c2c838dd
 
--Link de acesso ao Swagger da API, pode ser consumida via POSTMAN
-https://clientes-api-sfidencio.herokuapp.com/swagger-ui.html
+  - Banco de dados utilizado é o H2Database, executando em memória, não persistindo nada no FS(FileSystem).
 
--Para realizar deploy de sub-folders de um repositório GIT, deve seguir as dicas abaixo
+  - Link de acesso ao Swagger da API, pode ser consumida via POSTMAN https://clientes-api-sfidencio.herokuapp.com/swagger-ui.html
+
+
+### Realizando deploy da aplicação no Heroku
+  - Para realizar deploy de sub-folders de um repositório GIT, deve seguir as dicas abaixo
 
 1-Considere que a pasta .git esta na raiz do grupo de projetos, no caso ai temos o projeto clientes-api(Java/SpringBoot), clientes-app(Angular).
 
