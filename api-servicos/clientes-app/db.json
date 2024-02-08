@@ -1,0 +1,27 @@
+{
+  "clientes": [
+    {
+      "id": 1,
+      "nome": "Joao Canabrava",
+      "cpf": "01841415081",
+      "dataCadastro": "1986-02-12"
+    },
+    {
+      "id": 2,
+      "nome": "Cleber Ramos",
+      "cpf": "51510633081",
+      "dataCadastro": "1975-04-27"
+    },
+    {
+      "nome": "Joao Rosa",
+      "cpf": "82807353215",
+      "dataCadastro": "2022-06-20",
+      "apiId": "v1",
+      "id": 3
+    },
+    {
+      "apiId": "v1",
+      "id": 4
+    }
+  ]
+}

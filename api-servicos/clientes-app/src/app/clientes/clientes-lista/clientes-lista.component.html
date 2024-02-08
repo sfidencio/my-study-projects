@@ -1,0 +1,103 @@
+<app-home></app-home>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Listagem de Clientes</title>
+    <base href="/">
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="alert alert-success" role="alert" *ngIf="successExclusao == true">
+                Cliente excluído com sucesso!
+            </div>
+            <div class="alert alert-danger" role="alert" *ngFor="let erro of errors">
+                {{erro}}
+            </div>
+        </div>
+    </div>
+    <!--
+    Interpolacao {objeto.atributo}  <- unidirecional, apenas do componente para o template
+    PropertyBinding [objeto.atributo] <-  unidirecional, apenas do componente para o template tb
+    EventBinding (click)="realizarClick()" <- unidirecional, apenas do template para componente
+    Two-way-Data-Binding [(objeto.atributo)] <- é um junção dos 2, ou seja, do EventBinding + PropertyBinding  
+    -->
+    <div class="conteiner-fluid mt-0 mx-2 ml-2">
+       
+        <h1 class="mt-0 text-center">Listagem Clientes</h1>
+        <div class="card bg-light">
+            <div class="card-header" style="text-align: left;">
+                <div class="form-group col-sm-1 mt-0 mb-0">
+                    <!--<button type="button" id="salvar" class="btn btn-success" (click)="salvar()"><i class="fa fa-save"></i>Salvar</button>-->
+                    <button type="button" id="novo" class="btn btn-warning" (click)="novoCliente()"><i
+                            class="fa fa-plus"></i> Novo</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="form-group col-sm-12 table-responsive-sm">
+                        <table class="table table-condensed table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>CPF</th>
+                                    <th>Data Cadastro</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let cliente of clientes">
+                                    <td>{{cliente.id}}</td>
+                                    <td>{{cliente.nome}}</td>
+                                    <td>{{cliente.cpf! | mask: '000.000.000-99'}}</td>
+                                    <td>{{cliente.dataCadastro | date: 'dd/MM/yyyy'}}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary"
+                                            routerLink="/edit-cliente/{{ cliente.id }}"><i
+                                                class="fas fa-edit"></i></button>
+                                        <button (click)="prepararDelecao(cliente);" type="button" class="btn btn-danger"
+                                            data-toggle="modal" data-target="#exampleModal"><i
+                                                class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Confirma Exclusão?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Nome: {{clienteSelecionado.nome}}<br>
+                        CPF: {{clienteSelecionado.cpf}}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-danger" (click)="excluir();"
+                            data-dismiss="modal">Excluir</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Cadastro de Clientes</title>
+  <base href="/">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Brand 
+    <a class="navbar-brand" href="#">Logo</a>
+    -->
+
+    <ul class="navbar-nav">
+      <!-- Links 
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link 1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link 2</a>
+      </li>
+    -->
+
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Menu
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#" routerLink="/">Home</a>
+          <a class="dropdown-item" href="#" routerLink="/lista-cliente">Clientes</a>
+          <a class="dropdown-item" href="#" routerLink="/lista-prestacao-servicos">Prestação de Serviços</a>
+          <a class="dropdown-item" href="#" routerLink="/contatos">Contato (ReactiveForms/Material)</a>
+          <!--<a class="dropdown-item" href="#" (click)="efetuarLogoff($event)">Logoff</a>-->
+        </div>
+      </li>
+    </ul>
+    <button type="button" class="btn btn-danger" (click)="efetuarLogoff($event)">Logoff</button>
+   
+  </nav>
+  <div id="footer" style="color: black;">Usuário: {{obterUsuarioLogado()}}</div>
+</body>
+
+</html>

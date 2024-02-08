@@ -1,0 +1,110 @@
+<app-home></app-home>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Listagem de Prestação de Serviços</title>
+    <base href="/">
+</head>
+
+<body>
+    <form #consultaForm (submit)="onSubmit()">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="alert alert-success" role="alert" *ngIf="successExclusao == true">
+                    Prestação de Serviços excluída com sucesso!
+                </div>
+                <div class="alert alert-danger" role="alert" *ngFor="let erro of errors">
+                    {{erro}}
+                </div>
+            </div>
+        </div>
+        <!--
+    Interpolacao {objeto.atributo}  <- unidirecional, apenas do componente para o template
+    PropertyBinding [objeto.atributo] <-  unidirecional, apenas do componente para o template tb
+    EventBinding (click)="realizarClick()" <- unidirecional, apenas do template para componente
+    Two-way-Data-Binding [(objeto.atributo)] <- é um junção dos 2, ou seja, do EventBinding + PropertyBinding  
+    -->
+        <div class="conteiner-fluid mt-0 mx-2 ml-2">
+            <h1 class="mt-0 text-center">Listagem de Prestação de Serviços</h1>
+            <div class="card bg-light">
+                <div class="card-header" style="text-align: left;">
+                    <div class="card">
+                        <div class="card-header">
+                            Consulta Prestação de Serviços
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="form-group col-sm-6">
+                                    <label for="mes">Mês</label>
+                                    <select class="form-control" [(ngModel)]="mes"
+                                        [ngModelOptions]="{standalone: true}">
+                                        <option value="">Selecione...</option>
+                                        <option *ngFor="let m of meses" [ngValue]="m">
+                                            {{m}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="nome">Nome do Cliente</label>
+                                    <input type="text" class="form-control" id="descricao" [(ngModel)]="nome"
+                                        name="descricao">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="form-group col-sm-3 mt-2">
+                            <button type="submit" id="salvar" class="btn btn-primary"><i class="fa fa-search"></i>
+                                Pesquisar</button>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="card-body">
+                    <div class="form-group col-sm-1 mt-0 mb-0">
+                        <!--<button type="button" id="salvar" class="btn btn-success" (click)="salvar()"><i class="fa fa-save"></i>Salvar</button>-->
+                        <button type="button" id="novo" class="btn btn-warning" (click)="novaPrestacaoServicos()"><i
+                                class="fa fa-plus"></i> Novo</button>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="form-group col-sm-12 table-responsive-sm">
+                            <table class="table table-condensed table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Cliente</th>
+                                        <th>Descrição</th>
+                                        <th>Valor</th>
+                                        <th>Data Serviço</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let ps of prestacaoServicos">
+                                        <td>{{ps.id}}</td>
+                                        <td>{{ps.cliente.nome}}</td>
+                                        <td>{{ps.descricao}}</td>
+                                        <td>{{ps.valor | currency:'BRL'}}</td>
+                                        <td>{{ps.dataServico | date: 'dd/MM/yyyy'}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="alert alert-warning" role="alert" *ngIf="!isPossuiRegistro">
+                                Nenhum registro encontrado!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

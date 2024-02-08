@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-5">
+            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                <div class="card-header">
+                    <h3 class="text-center font-weight-ligth my-4">
+                        {{!cadastrando? 'Entrar - Clientes App': 'Cadastro de Novo Usuário  - Clientes App'}}
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-success" role="alert" *ngIf="mensagem">
+                        {{ mensagem }}
+                    </div>
+                    <div class="alert alert-danger mb-1" role="alert" *ngFor="let erro of errors">
+                        {{erro}}
+                      </div>
+                    <form #loginForm="ngForm" (submit)="onSubmit();">
+                        <div class="form-group">
+                            <label for="login" class="small mb-1">Login</label>
+                            <input autocomplete="off" placeholder="Entre com login" class="form-control py-4" type="text" name="login"
+                                id="login" [(ngModel)]="login" />
+                        </div>
+                        <div class="form-group">
+                            <label for="senha" class="small mb-1">Senha</label>
+                            <input placeholder="Entre com a senha" class="form-control py-4" type="password" name="senha"
+                                id="senha" [(ngModel)]="senha" />
+                        </div>
+                        <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                            <button type="submit" class="btn btn-primary" *ngIf="!cadastrando">Entrar</button>
+                            <button type="button" class="btn btn-success" *ngIf="cadastrando" (click)="cadastrar()">Cadastrar</button>
+                            <button type="button" (click)="cancelar($event)" class="btn btn-warning"
+                                *ngIf="cadastrando">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <div class="small">
+                        <!--
+                        <a href="#" (click)="prepararCadastro($event)">
+                            Não possui usuário? Cadastre-se!
+                        </a>
+                        -->
+                        <button type="button" (click)="prepararCadastro($event)" class="btn btn-link">Não possui
+                            cadastro? Cadastre-se!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

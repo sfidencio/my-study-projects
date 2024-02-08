@@ -1,0 +1,70 @@
+<app-home></app-home>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Cadastro de Clientes</title>
+  <base href="/">
+</head>
+
+<body>
+  <form #clienteForm="ngForm" (submit)="onSubmit()">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="alert alert-success" role="alert" *ngIf="success == true">
+          Cliente salvo com sucesso!
+        </div>
+        <div class="alert alert-danger mb-1" role="alert" *ngFor="let erro of errors">
+          {{erro}}
+        </div>
+      </div>
+    </div>
+    <!--
+    Interpolacao {objeto.atributo}  <- unidirecional, apenas do componente para o template
+    PropertyBinding [objeto.atributo] <-  unidirecional, apenas do componente para o template tb
+    EventBinding (click)="realizarClick()" <- unidirecional, apenas do template para componente
+    Two-way-Data-Binding [(objeto.atributo)] <- é um junção dos 2, ou seja, do EventBinding + PropertyBinding  
+    -->
+    <div class="conteiner-fluid mt-0 mx-2 ml-2">
+      <h1 class="mt-0 text-center">Manutenção de Clientes - {{cliente.nome}}</h1>
+      <div class="card bg-light">
+        <div class="card-header" style="text-align: center;"></div>
+        <div class="card-body">
+          <div class="row">
+            <div class="form-group col-sm-3" *ngIf="cliente.id">
+              <label for="id">ID</label>
+              <input type="text" class="form-control" disabled id="id" [ngModel]="cliente.id" name="id">
+            </div>
+            <div class="form-group col-sm">
+              <label for="nome">Nome</label>
+              <input type="text" class="form-control" id="nome" [(ngModel)]="cliente.nome" name="nome">
+            </div>
+            <div class="form-group col-sm">
+              <label for="cpf">CPF</label>
+              <input type="text" class="form-control" id="cpf" [(ngModel)]="cliente.cpf" name="cpf"
+                mask="000.000.000-99">
+            </div>
+            <div class="form-group col-sm">
+              <label for="dataCadastro">Data Cadastro</label>
+              <input type="date" class="form-control" id="dataCadastro" [(ngModel)]="cliente.dataCadastro"
+                name="dataCadastro">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-3 mt-2">
+          <button *ngIf="!cliente.id" type="submit" id="salvar" class="btn btn-success"><i class="fa fa-save"></i>Salvar</button>
+          <button *ngIf="cliente.id" type="submit" id="atualizar" class="btn btn-primary"><i class="fa fa-sync"></i>Atualizar</button>
+          <button type="button" routerLink="/lista-cliente" id="cancelar" class="btn btn-danger"><i
+              class="fas fa-ban"></i>
+            Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</body>
+
+</html>
