@@ -1,0 +1,26 @@
+#configure log
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    com.github.sfidencio: INFO
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+server:
+  port: 8080
+  servlet:
+    context-path: /api
