@@ -9,6 +9,9 @@
 
 > Referências:   
 
+  - https://devcenter.heroku.com/articles/heroku-cli
+     - Instalação do heroku no ubuntu/debian
+
   - https://devcenter.heroku.com/articles/java-support    
 
   - https://devcenter.heroku.com/articles/upgrading-to-the-latest-stack   
