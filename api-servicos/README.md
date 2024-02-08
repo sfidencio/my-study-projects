@@ -22,7 +22,7 @@
   - Link de acesso ao Swagger da API, pode ser consumida via POSTMAN https://clientes-api-sfidencio.herokuapp.com/swagger-ui.html
 
 
-### Realizando deploy da aplicação no Heroku
+### Realizando deploy da api no Heroku
 
 > Para realizar deploy de sub-folders de um repositório GIT, deve seguir as dicas abaixo:
 
