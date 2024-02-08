@@ -36,7 +36,7 @@
 > JAVA
 
 ```bash
-heroku git:remote -a clientes-api-sfidencio` # apontar para o repositório criado no dashboard do heroku
+heroku git:remote -a clientes-api-sfidencio # apontar para o repositório criado no dashboard do heroku
 ```
 ```bash
 git add . #adicionamos no stage
