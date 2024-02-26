@@ -1,10 +1,10 @@
 package com.github.sfidencio.infrastructure.repository;
 
+import com.github.sfidencio.domain.model.Livro;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.github.sfidencio.domain.model.Livro;
-
 @Repository
-public interface LivroRepository extends JpaRepository<Livro, Long>{ 
+public interface LivroRepository extends JpaRepository<Livro, Long> {
+    boolean existsByIsbn(String isbn);
 }

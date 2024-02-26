@@ -1,9 +1,9 @@
 package com.github.sfidencio.domain.services;
 
-import org.springframework.stereotype.Service;
-
 import com.github.sfidencio.domain.model.Livro;
+import com.github.sfidencio.infrastructure.exceptions.BusinessException;
 import com.github.sfidencio.infrastructure.repository.LivroRepository;
+import org.springframework.stereotype.Service;
 
 
 @Service
@@ -17,6 +17,8 @@ public class LivroServiceImp implements LivroService {
 
     @Override
     public Livro salvar(Livro livro) {
+        if (this.livroRepository.existsByIsbn(livro.getIsbn()))
+            throw new BusinessException("ISBN já cadastrado.");
         return this.livroRepository.save(livro);
     }
 
