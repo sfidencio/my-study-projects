@@ -15,6 +15,15 @@
         - Microserviços que consomem outros microserviços, e que por algum motivo, o microserviço consumido retorna uma
           string vazia, e o microserviço consumidor precisa deserializar essa string vazia para um tipo ENUM.
 
+- Instalação e Configuração do IntelliJ embarcado no WSL2
+    - https://dev.to/janetmutua/installing-jetbrains-toolbox-on-ubuntu-527f
+    - https://github.com/AppImage/AppImageKit/wiki/FUSE
+    - https://dev.to/wesleyotio/configurando-wsl2-com-intellij-2pl7
+
+- Quer evoluir funcionalidades em uma aplicação por meio de features?
+    - https://openfeature.dev/specification/
+ 
+
 # Dicas IntelliJ - Manipulação de arquivos json por exemplo
 
 > Pressupomos que precisamos extrair apenas o campo "id" do arquivo abaixo, com ajuda da IDE + Regex podemos fazer isso
