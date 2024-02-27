@@ -19,6 +19,7 @@
     - https://dev.to/janetmutua/installing-jetbrains-toolbox-on-ubuntu-527f
     - https://github.com/AppImage/AppImageKit/wiki/FUSE
     - https://dev.to/wesleyotio/configurando-wsl2-com-intellij-2pl7
+    - https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps#install-support-for-linux-gui-apps
 
 - Quer evoluir funcionalidades em uma aplicação por meio de features?
     - https://openfeature.dev/specification/
