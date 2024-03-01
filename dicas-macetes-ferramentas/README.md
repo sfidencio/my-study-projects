@@ -25,6 +25,31 @@
 
 - Quer evoluir funcionalidades em uma aplicação por meio de features?
     - https://openfeature.dev/specification/
+- Como enviar a URI do recurso recém-criado via POST/CREATED?
+    ```java
+  @PostMapping("/mesas/{id}/reservas")
+    @Transactional
+    public ResponseEntity<?> reservar(
+            @PathVariable(value = "id") Long mesaId,
+            @RequestBody ReservaMesaRequest request,
+            UriComponentsBuilder uriBuilder
+    ) {
+        // lógica para reservar a mesa
+
+        URI location = uriBuilder.path("/mesas/{id}/reservas/{reservaId}")
+                .buildAndExpand(mesa.getId(), reserva.getId())
+                .toUri();
+
+        return ResponseEntity.created(location).build();
+    }
+    
+    ``` 
+- Neste exemplo, a URI é construída com base no padrão /mesas/{id}/reservas/{reservaId}, onde {id} é o identificador da mesa e {reservaId} é o identificador da reserva. Ao chamar uriBuilder.path(...).buildAndExpand(...).toUri(), a URI é construída substituindo os placeholders pelos valores reais.
+Ao retornar ResponseEntity.created(location).build(), você está enviando uma resposta 201 CREATED com o cabeçalho Location contendo a URI do recurso recém-criado.
+Esse é um exemplo comum de uso de URI na resposta CREATED no Spring Boot para indicar a localização do recurso criado. 
+
+
+
  
 
 # Dicas IntelliJ - Manipulação de arquivos json por exemplo
