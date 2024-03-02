@@ -110,7 +110,7 @@ logging:
   level:
     # Default é INFO, mas pra facilitar troubleshooting, usa DEBUG e TRACE
     # Principalmente pra checar valores setados no banco de dados
-    # Nesse ceario mostra tudo de todos pacotes, nao precisa configurar detalhadamente cada pacote
+    # Nesse cenário mostra tudo de todos pacotes, nao precisa configurar detalhadamente cada pacote
     # TRACE ja inclui DEBUG e INFO
     root: ${LOG_LEVEL_ROOT:TRACE}
 ```
