@@ -60,8 +60,9 @@ Esse é um exemplo comum de uso de URI na resposta CREATED no Spring Boot para i
 
   @Convert(converter = MapConverter.class)
   private Map<String, String> valores;
+ ```
 
-  
+```java
 public class MapConverter implements AttributeConverter<Map<String, String>, String> {
     private final static ObjectMapper objectMapper = new ObjectMapper();
 
@@ -83,12 +84,8 @@ public class MapConverter implements AttributeConverter<Map<String, String>, Str
         }
     }
 }
-  ```
+```
   
-
-
-
- 
 
 # Dicas IntelliJ - Manipulação de arquivos json por exemplo
 
