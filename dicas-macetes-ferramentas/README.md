@@ -115,6 +115,8 @@ logging:
     root: ${LOG_LEVEL_ROOT:TRACE}
 ```
 
+# Lombok não funciona corretamente com MapStruct, quando envolve a feature `record`do java 17+? então veja o artigo abaixo:
+> https://springframework.guru/using-mapstruct-with-project-lombok/
 
 # Dicas IntelliJ - Manipulação de arquivos json por exemplo
 
