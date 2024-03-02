@@ -46,7 +46,45 @@
     ```
 - Neste exemplo, a URI é construída com base no padrão /mesas/{id}/reservas/{reservaId}, onde {id} é o identificador da mesa e {reservaId} é o identificador da reserva. Ao chamar uriBuilder.path(...).buildAndExpand(...).toUri(), a URI é construída substituindo os placeholders pelos valores reais.
 Ao retornar ResponseEntity.created(location).build(), você está enviando uma resposta 201 CREATED com o cabeçalho Location contendo a URI do recurso recém-criado.
-Esse é um exemplo comum de uso de URI na resposta CREATED no Spring Boot para indicar a localização do recurso criado. 
+Esse é um exemplo comum de uso de URI na resposta CREATED no Spring Boot para indicar a localização do recurso criado.
+
+- Como gravar json em um campo do tipo json do banco de dados.
+  ```java
+    @ColumnTransformer(write = "?::jsonb")
+    @Column(name = "field_json", nullable = false, columnDefinition = "jsonb")
+    private Map<String, String> valores;
+  ```
+
+- Criando o Mapper do que converte Map->Json vice-versa:
+  ```java
+
+  @Convert(converter = MapConverter.class)
+  private Map<String, String> valores;
+
+  
+public class MapConverter implements AttributeConverter<Map<String, String>, String> {
+    private final static ObjectMapper objectMapper = new ObjectMapper();
+
+    @Override
+    public String convertToDatabaseColumn(Map<String, String> attribute) {
+        try {
+            return objectMapper.writeValueAsString(attribute);
+        } catch (JsonProcessingException e) {
+            throw new IllegalArgumentException(e);
+        }
+    }
+
+    @Override
+    public Map<String, String> convertToEntityAttribute(String dbData) {
+        try {
+            return objectMapper.readValue(dbData, Map.class);
+        } catch (IOException e) {
+            throw new IllegalArgumentException(e);
+        }
+    }
+}
+  ```
+  
 
 
 
