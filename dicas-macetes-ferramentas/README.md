@@ -58,9 +58,11 @@ Esse é um exemplo comum de uso de URI na resposta CREATED no Spring Boot para i
 
 ```java
 
- @Convert(converter = MapConverter.class)
-  private Map<String, String> valores;
+//Uso
+@Convert(converter = MapConverter.class)
+private Map<String, String> valores;
 
+//Implementação do converter
 public class MapConverter implements AttributeConverter<Map<String, String>, String> {
     private final static ObjectMapper objectMapper = new ObjectMapper();
 
