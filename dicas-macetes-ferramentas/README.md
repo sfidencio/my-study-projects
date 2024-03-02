@@ -85,7 +85,22 @@ public class MapConverter implements AttributeConverter<Map<String, String>, Str
     }
 }
 ```
-  
+
+  - Dicas Lombok:
+      - O Lombok é uma biblioteca muito útil para reduzir a verbosidade do código Java, evitando a escrita de getters, setters, construtores, entre outros métodos padrão. Além das funcionalidades básicas, o Lombok oferece recursos avançados que podem ser configurados para atender às necessidades específicas do seu projeto.
+Aqui estão algumas configurações avançadas do Lombok que você pode utilizar:
+
+            - @Builder: A anotação @Builder gera um padrão Builder para a classe, permitindo a criação de objetos de forma mais fluente e legível.
+
+            - @SneakyThrows: A anotação @SneakyThrows permite lançar exceções verificadas sem a necessidade de declará-las no método ou no throws clause.
+
+            - @Synchronized: A anotação @Synchronized adiciona sincronização ao método ou bloco de código em que é aplicada.
+
+            - @Cleanup: A anotação @Cleanup é usada para garantir a limpeza de recursos automaticamente, como fechamento de streams.
+
+            - @AllArgsConstructor: A anotação @AllArgsConstructor gera um construtor que inicializa todos os campos da classe.
+
+    - Para habilitar esses recursos avançados do Lombok, você precisa configurar adequadamente o plugin do Lombok em sua IDE e adicionar as dependências corretas em seu projeto. Além disso, é importante estar ciente de como cada recurso funciona e como aplicá-los corretamente em suas classes.
 
 # Dicas IntelliJ - Manipulação de arquivos json por exemplo
 
