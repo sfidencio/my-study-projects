@@ -102,6 +102,20 @@ Aqui estão algumas configurações avançadas do Lombok que você pode utilizar
 
     - Para habilitar esses recursos avançados do Lombok, você precisa configurar adequadamente o plugin do Lombok em sua IDE e adicionar as dependências corretas em seu projeto. Além disso, é importante estar ciente de como cada recurso funciona e como aplicá-los corretamente em suas classes.
 
+# Dicas sobre Logging no java
+
+> Caso queira visualizar os log's em niveis de DEBUG e TRACE, sem a necessidade de configurar detalhadamente cada pacote, pasta setar no root.
+```yaml
+logging:
+  level:
+    # Default é INFO, mas pra facilitar troubleshooting, usa DEBUG e TRACE
+    # Principalmente pra checar valores setados no banco de dados
+    # Nesse ceario mostra tudo de todos pacotes, nao precisa configurar detalhadamente cada pacote
+    # TRACE ja inclui DEBUG e INFO
+    root: ${LOG_LEVEL_ROOT:TRACE}
+```
+
+
 # Dicas IntelliJ - Manipulação de arquivos json por exemplo
 
 > Pressupomos que precisamos extrair apenas o campo "id" do arquivo abaixo, com ajuda da IDE + Regex podemos fazer isso
