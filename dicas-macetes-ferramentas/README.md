@@ -54,16 +54,13 @@ Esse é um exemplo comum de uso de URI na resposta CREATED no Spring Boot para i
     @Column(name = "field_json", nullable = false, columnDefinition = "jsonb")
     private Map<String, String> valores;
   ```
-
-- Criando o Mapper do que converte Map->Json vice-versa: (Uso)
-  ```java
-  @Convert(converter = MapConverter.class)
-  private Map<String, String> valores;
- ``
-
 - Detalhes de implementação do Mapper: 
 
 ```java
+
+ @Convert(converter = MapConverter.class)
+  private Map<String, String> valores;
+
 public class MapConverter implements AttributeConverter<Map<String, String>, String> {
     private final static ObjectMapper objectMapper = new ObjectMapper();
 
