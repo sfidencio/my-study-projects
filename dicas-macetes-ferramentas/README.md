@@ -48,19 +48,20 @@
 Ao retornar ResponseEntity.created(location).build(), você está enviando uma resposta 201 CREATED com o cabeçalho Location contendo a URI do recurso recém-criado.
 Esse é um exemplo comum de uso de URI na resposta CREATED no Spring Boot para indicar a localização do recurso criado.
 
-- Como gravar json em um campo do tipo json do banco de dados.
+- Como gravar json em um campo do tipo json do banco de dados. (Uso)
   ```java
     @ColumnTransformer(write = "?::jsonb")
     @Column(name = "field_json", nullable = false, columnDefinition = "jsonb")
     private Map<String, String> valores;
   ```
 
-- Criando o Mapper do que converte Map->Json vice-versa:
+- Criando o Mapper do que converte Map->Json vice-versa: (Uso)
   ```java
-
   @Convert(converter = MapConverter.class)
   private Map<String, String> valores;
- ```
+ ``
+
+- Detalhes de implementação do Mapper: 
 
 ```java
 public class MapConverter implements AttributeConverter<Map<String, String>, String> {
