@@ -3,19 +3,20 @@
 > [!IMPORTANT]
 > Lista de artigos/dicas:
 
-- Dominando git
+# Dominando git
     - https://github.com/joshnh/Git-Commands
-- Dicas IntelliJ
+
+# Dicas IntelliJ
     - https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html
     - Selecionar todas as ocorrencias de uma palavra: `ctrl + shift + alt + j`
 
-- Dicas Java e Frameworks:
+# Dicas Java e Frameworks:
     - [Dicas de como designar um tipo ENUM para deserializar uma string vazia (Spring Boot)](#dicas-de-como-designar-um-tipo-enum-para-deserializar-uma-string-vazia-spring-boot)
       - Cenários de uso:
         - Microserviços que consomem outros microserviços, e que por algum motivo, o microserviço consumido retorna uma
           string vazia, e o microserviço consumidor precisa deserializar essa string vazia para um tipo ENUM.
 
-- Instalação e Configuração do IntelliJ embarcado no WSL2
+# Instalação e Configuração do IntelliJ embarcado no WSL2
     - https://dev.to/janetmutua/installing-jetbrains-toolbox-on-ubuntu-527f
     - https://github.com/AppImage/AppImageKit/wiki/FUSE
     - https://dev.to/wesleyotio/configurando-wsl2-com-intellij-2pl7
@@ -23,10 +24,11 @@
     - https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps#install-support-for-linux-gui-apps
         - Instalar o `x11-apps`.     
 
-- Quer evoluir funcionalidades em uma aplicação por meio de features?
+# Quer evoluir funcionalidades em uma aplicação por meio de features?
     - https://openfeature.dev/specification/
-- Como eu envio a URI do recurso recém-criado via verbo POST, e o status CREATED/201 no springboot?
-    ```java
+
+# Como eu envio a URI do recurso recém-criado via verbo POST, e o status CREATED/201 no springboot?
+   -  ```java
   @PostMapping("/mesas/{id}/reservas")
     @Transactional
     public ResponseEntity<?> reservar(
@@ -44,17 +46,18 @@
     }
     
     ```
-- Neste exemplo, a URI é construída com base no padrão /mesas/{id}/reservas/{reservaId}, onde {id} é o identificador da mesa e {reservaId} é o identificador da reserva. Ao chamar uriBuilder.path(...).buildAndExpand(...).toUri(), a URI é construída substituindo os placeholders pelos valores reais.
-Ao retornar ResponseEntity.created(location).build(), você está enviando uma resposta 201 CREATED com o cabeçalho Location contendo a URI do recurso recém-criado.
-Esse é um exemplo comum de uso de URI na resposta CREATED no Spring Boot para indicar a localização do recurso criado.
+  - Neste exemplo, a URI é construída com base no padrão /mesas/{id}/reservas/{reservaId}, onde {id} é o identificador da mesa e {reservaId} é o identificador da reserva. Ao chamar uriBuilder.path(...).buildAndExpand(...).toUri(), a URI é construída substituindo os placeholders pelos valores reais.
+  Ao retornar ResponseEntity.created(location).build(), você está enviando uma resposta 201 CREATED com o cabeçalho Location contendo a URI do recurso recém-criado.
+  Esse é um exemplo comum de uso de URI na resposta CREATED no Spring Boot para indicar a localização do recurso criado.
 
-- Como gravar json em um campo do tipo json do banco de dados. (Uso)
+# Como gravar json em um campo do tipo json do banco de dados. (Uso)
   ```java
     @ColumnTransformer(write = "?::jsonb")
     @Column(name = "field_json", nullable = false, columnDefinition = "jsonb")
     private Map<String, String> valores;
   ```
-- Detalhes de implementação do Mapper: 
+
+# Implementando um Mapper pra converter Map<?,?> para campo tipo json/text, usando JPA/hibernate: 
 
 ```java
 
@@ -86,19 +89,19 @@ public class MapConverter implements AttributeConverter<Map<String, String>, Str
 }
 ```
 
-  - Dicas Lombok:
-      - O Lombok é uma biblioteca muito útil para reduzir a verbosidade do código Java, evitando a escrita de getters, setters, construtores, entre outros métodos padrão. Além das funcionalidades básicas, o Lombok oferece recursos avançados que podem ser configurados para atender às necessidades específicas do seu projeto.
+# Dicas Lombok:
+    - O Lombok é uma biblioteca muito útil para reduzir a verbosidade do código Java, evitando a escrita de getters, setters, construtores, entre outros métodos padrão. Além das funcionalidades básicas, o Lombok oferece recursos avançados que podem ser configurados para atender às necessidades específicas do seu projeto.
 Aqui estão algumas configurações avançadas do Lombok que você pode utilizar:
 
-            - @Builder: A anotação @Builder gera um padrão Builder para a classe, permitindo a criação de objetos de forma mais fluente e legível.
+          - @Builder: A anotação @Builder gera um padrão Builder para a classe, permitindo a criação de objetos de forma mais fluente e legível.
 
-            - @SneakyThrows: A anotação @SneakyThrows permite lançar exceções verificadas sem a necessidade de declará-las no método ou no throws clause.
+          - @SneakyThrows: A anotação @SneakyThrows permite lançar exceções verificadas sem a necessidade de declará-las no método ou no throws clause.
 
-            - @Synchronized: A anotação @Synchronized adiciona sincronização ao método ou bloco de código em que é aplicada.
+          - @Synchronized: A anotação @Synchronized adiciona sincronização ao método ou bloco de código em que é aplicada.
 
-            - @Cleanup: A anotação @Cleanup é usada para garantir a limpeza de recursos automaticamente, como fechamento de streams.
+          - @Cleanup: A anotação @Cleanup é usada para garantir a limpeza de recursos automaticamente, como fechamento de streams.
 
-            - @AllArgsConstructor: A anotação @AllArgsConstructor gera um construtor que inicializa todos os campos da classe.
+          - @AllArgsConstructor: A anotação @AllArgsConstructor gera um construtor que inicializa todos os campos da classe.
 
     - Para habilitar esses recursos avançados do Lombok, você precisa configurar adequadamente o plugin do Lombok em sua IDE e adicionar as dependências corretas em seu projeto. Além disso, é importante estar ciente de como cada recurso funciona e como aplicá-los corretamente em suas classes.
 
@@ -115,13 +118,12 @@ logging:
     root: ${LOG_LEVEL_ROOT:TRACE}
 ```
 
-# Lombok não funciona corretamente com MapStruct, quando envolve a feature `record`do java 17+? então veja o artigo abaixo:
+# Lombok não funciona corretamente com MapStruct, quando envolve a feature `record` do java 17+? então veja o artigo abaixo:
 > https://springframework.guru/using-mapstruct-with-project-lombok/
 
 # Dicas IntelliJ - Manipulação de arquivos json por exemplo
 
-> Pressupomos que precisamos extrair apenas o campo "id" do arquivo abaixo, com ajuda da IDE + Regex podemos fazer isso
-> facilmente:
+- Pressupomos que precisamos extrair apenas o campo "id" do arquivo abaixo, com ajuda da IDE + Regex podemos fazer isso facilmente:
 
 ```json
 [
