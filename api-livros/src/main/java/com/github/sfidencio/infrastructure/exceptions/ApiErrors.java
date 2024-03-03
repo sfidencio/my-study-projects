@@ -1,12 +1,11 @@
 package com.github.sfidencio.infrastructure.exceptions;
 
+import lombok.Getter;
+import org.springframework.validation.BindingResult;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import org.springframework.validation.BindingResult;
-
-import lombok.Getter;
 
 @Getter
 public class ApiErrors {
