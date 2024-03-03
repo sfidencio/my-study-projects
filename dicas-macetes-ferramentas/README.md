@@ -1,10 +1,6 @@
 # dicas-macetes-ferramentas
 
 > [!IMPORTANT]
-> Lista de artigos/dicas:
-
-# Dominando git
-    - https://github.com/joshnh/Git-Commands
 
 # Dicas IntelliJ
     - https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html
@@ -289,3 +285,6 @@ git branch -d nome_da_branch
 ```bash
 git push origin --delete nome_da_branch
 ```
+
+#### Links sobre git
+    - https://github.com/joshnh/Git-Commands
