@@ -1,6 +1,7 @@
 # dicas-macetes-ferramentas
 
 > [!IMPORTANT]
+>Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
 # Dicas IntelliJ
     - https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html
