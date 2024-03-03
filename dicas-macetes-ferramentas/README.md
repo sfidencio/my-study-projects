@@ -253,6 +253,7 @@ public class JacksonConfig {
 ### Comandos git para associar o repositório local ao repositório remoto
 ```bash
 git remote add origin URL_DO_REPOSITORIO
+git remote -v 
 git branch -M main
 git push -u origin main
 ```
