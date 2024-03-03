@@ -125,7 +125,6 @@ logging:
 
   - https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html
   - Selecionar todas as ocorrencias de uma palavra: `ctrl + shift + alt + j`
-
   - Pressupomos que precisamos extrair apenas o campo "id" do arquivo abaixo, com ajuda da IDE + Regex podemos fazer isso facilmente:
 
 ```json
@@ -148,41 +147,37 @@ logging:
 ]
 ```
 
-> Com arquivo acima aberto na IDE podemos fazer o seguinte:
-> - selecione com mouse o campo "id" de um dos objetos, da seguinte forma:
-    >
-- ![img_1.png](img/img_1.png)
->   - O segredo é, tem que ter um padrão, e esse padrão tem que se repetir em todos os objetos, no caso acima o padrão
+- Com arquivo acima aberto na IDE podemos fazer o seguinte:
+-  selecione com mouse o campo "id" de um dos objetos, da seguinte forma:
+  - ![img_1.png](img/img_1.png)
+  - O segredo é, tem que ter um padrão, e esse padrão tem que se repetir em todos os objetos, no caso acima o padrão
       é: `"id".
->   - Caso esse padrão não se repita, não tem como fazer isso, pois a IDE não vai conseguir identificar o padrão.
-> - pressione `ctrl + shift + alt + j` para selecionar todas as ocorrencias de "id"
-> - Deve ficar da seguinte forma a seleção:
-> - ![img_2.png](img/img_2.png)
-> - Macete:
-    >
-- Uma vez que o padrão de seleção foi identificado, então com `shift` pressionado, continue a seleção usando as setas do
+ - Caso esse padrão não se repita, não tem como fazer isso, pois a IDE não vai conseguir identificar o padrão.
+ - pressione `ctrl + shift + alt + j` para selecionar todas as ocorrencias de "id"
+ - Deve ficar da seguinte forma a seleção:
+ - ![img_2.png](img/img_2.png)
+ - Uma vez que o padrão de seleção foi identificado, então com `shift` pressionado, continue a seleção usando as setas do
   teclado, para cima ou para baixo, até que todas as ocorrencias sejam selecionadas.
-> - pressione `ctrl + c` para copiar, e cole em outro arquivo, deve ficar da seguinte forma:
-> - ```text
->   "id": 1
->   "id": 2
->   "id": 3
-> - ```
-> - Pressione `ctrl + r` para abrir a janela de substituição, e no campo "Text to find" digite: `$`, em expressão
+ - pressione `ctrl + c` para copiar, e cole em outro arquivo, deve ficar da seguinte forma:
+  ```text
+   "id": 1
+   "id": 2
+   "id": 3
+  ```
+ - Pressione `ctrl + r` para abrir a janela de substituição, e no campo "Text to find" digite: `$`, em expressão
     regular, esse caracter indica que a ocorrência está no final da linha e no campo "Replace with" digite por
     exemplo: `;`, ou seja vamos inserir virgula no final.
-> - Deve ficar da seguinte forma:
-> - ```text
->   "id": 1,
->   "id": 2,
->   "id": 3,
->   ```
-    >   Finalmente, selecione todo texto e faça um "join" de linha, pressionando `ctrl + shift + j`, deve ficar da
-    seguinte forma:
-> - ```text
->   "id": 1, "id": 2, "id": 3,
->   ```
-    >   Pronto, agora é só copiar e colar onde precisar.
+ - Deve ficar da seguinte forma:
+  ```text
+   "id": 1,
+   "id": 2,
+   "id": 3,
+  ```
+ - Finalmente, selecione todo texto e faça um "join" de linha, pressionando `ctrl + shift + j`, deve ficar daseguinte forma:
+  ```text
+   "id": 1, "id": 2, "id": 3,
+  ```
+ - Pronto, agora é só copiar e colar onde precisar.
 
 ### Dicas de como designar um tipo ENUM para deserializar uma string vazia (Spring Boot)
 
