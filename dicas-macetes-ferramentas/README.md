@@ -7,15 +7,13 @@
 - [Quer evoluir funcionalidades em uma aplicação por meio de features?](#quer-evoluir-funcionalidades-em-uma-aplicação-por-meio-de-features)
 - [Como eu envio a URI do recurso recém-criado via verbo POST, e o status CREATED/201 no springboot?](#como-eu-envio-a-uri-do-recurso-recém-criado-via-verbo-post-e-o-status-created201-no-springboot)
 - [Como gravar json em um campo do tipo json do banco de dados. (Uso)](#como-gravar-json-em-um-campo-do-tipo-json-do-banco-de-dados-uso)
-- Implementando um Mapper pra converter Map<?,?> para campo tipo json/text, usando JPA/hibernate:
-- Dicas Lombok:
-- Dicas sobre Logging no java
-- Lombok não funciona corretamente com MapStruct, quando envolve a feature record do java 17+? então veja o artigo abaixo:
-- Dicas IntelliJ - Manipulação de arquivos json por exemplo
-- Dicas de como designar um tipo ENUM para deserializar uma string vazia (Spring Boot)
-- Básico do GIT
-
-
+- [Implementando um Mapper pra converter Map<?,?> para campo tipo json/text, usando JPA/hibernate:](#implementando-um-mapper-pra-converter-map-para-campo-tipo-jsontext-usando-jpahibernate)
+- [Dicas Lombok:](#dicas-lombok)
+- [Dicas sobre Logging no java](#dicas-sobre-logging-no-java)
+- [Lombok não funciona corretamente com MapStruct, quando envolve a feature record do java 17+? então veja o artigo abaixo:](#lombok-não-funciona-corretamente-com-mapstruct-quando-envolve-a-feature-record-do-java-17-então-veja-o-artigo-abaixo)
+- [Dicas IntelliJ - Manipulação de arquivos json por exemplo](#dicas-intellij---manipulação-de-arquivos-json-por-exemplo)
+- [Dicas de como designar um tipo ENUM para deserializar uma string vazia (Spring Boot)](#dicas-de-como-designar-um-tipo-enum-para-deserializar-uma-string-vazia-spring-boot)
+- [Básico do GIT](#básico-do-git)
 
 
 # Instalação e Configuração do IntelliJ embarcado no WSL2
