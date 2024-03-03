@@ -7,12 +7,6 @@
     - https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html
     - Selecionar todas as ocorrencias de uma palavra: `ctrl + shift + alt + j`
 
-# Dicas Java e Frameworks:
-    - [Dicas de como designar um tipo ENUM para deserializar uma string vazia (Spring Boot)](#dicas-de-como-designar-um-tipo-enum-para-deserializar-uma-string-vazia-spring-boot)
-      - Cenários de uso:
-        - Microserviços que consomem outros microserviços, e que por algum motivo, o microserviço consumido retorna uma
-          string vazia, e o microserviço consumidor precisa deserializar essa string vazia para um tipo ENUM.
-
 # Instalação e Configuração do IntelliJ embarcado no WSL2
     - https://dev.to/janetmutua/installing-jetbrains-toolbox-on-ubuntu-527f
     - https://github.com/AppImage/AppImageKit/wiki/FUSE
@@ -116,11 +110,13 @@ logging:
 ```
 
 # Lombok não funciona corretamente com MapStruct, quando envolve a feature `record` do java 17+? então veja o artigo abaixo:
-> https://springframework.guru/using-mapstruct-with-project-lombok/
+ - https://springframework.guru/using-mapstruct-with-project-lombok/
 
 # Dicas IntelliJ - Manipulação de arquivos json por exemplo
 
-- Pressupomos que precisamos extrair apenas o campo "id" do arquivo abaixo, com ajuda da IDE + Regex podemos fazer isso facilmente:
+  - https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html
+
+  - Pressupomos que precisamos extrair apenas o campo "id" do arquivo abaixo, com ajuda da IDE + Regex podemos fazer isso facilmente:
 
 ```json
 [
