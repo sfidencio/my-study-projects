@@ -3,9 +3,20 @@
 > [!IMPORTANT]
 >Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
-# Dicas IntelliJ
-    - https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html
-    - Selecionar todas as ocorrencias de uma palavra: `ctrl + shift + alt + j`
+- [Instalação e Configuração do IntelliJ embarcado no WSL2](#instalação-e-configuração-do-intellij-embarcado-no-wsl2)
+- [Quer evoluir funcionalidades em uma aplicação por meio de features?](#quer-evoluir-funcionalidades-em-uma-aplicação-por-meio-de-features)
+- [Como eu envio a URI do recurso recém-criado via verbo POST, e o status CREATED/201 no springboot?](#como-eu-envio-a-uri-do-recurso-recém-criado-via-verbo-post-e-o-status-created201-no-springboot)
+- [Como gravar json em um campo do tipo json do banco de dados. (Uso)](#como-gravar-json-em-um-campo-do-tipo-json-do-banco-de-dados-uso)
+- Implementando um Mapper pra converter Map<?,?> para campo tipo json/text, usando JPA/hibernate:
+- Dicas Lombok:
+- Dicas sobre Logging no java
+- Lombok não funciona corretamente com MapStruct, quando envolve a feature record do java 17+? então veja o artigo abaixo:
+- Dicas IntelliJ - Manipulação de arquivos json por exemplo
+- Dicas de como designar um tipo ENUM para deserializar uma string vazia (Spring Boot)
+- Básico do GIT
+
+
+
 
 # Instalação e Configuração do IntelliJ embarcado no WSL2
     - https://dev.to/janetmutua/installing-jetbrains-toolbox-on-ubuntu-527f
@@ -115,6 +126,7 @@ logging:
 # Dicas IntelliJ - Manipulação de arquivos json por exemplo
 
   - https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html
+  - Selecionar todas as ocorrencias de uma palavra: `ctrl + shift + alt + j`
 
   - Pressupomos que precisamos extrair apenas o campo "id" do arquivo abaixo, com ajuda da IDE + Regex podemos fazer isso facilmente:
 
