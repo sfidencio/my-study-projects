@@ -40,5 +40,18 @@ public class LivroRepositoryTest {
         assertThat(exists).isTrue();
     }
 
+    @Test
+    @DisplayName("Deve retornar falso quando nao existir um livro na base com o ISBN informado")
+    public void deveRetornarFalsoQuandoExistirLivroComISBN() {
+        //Cenario
+        var isbn = "123";
+        //var livro = Livro.builder().titulo("Meu Livro").autor("Fulano").isbn(isbn).build();
+        //this.entityManager.persist(livro);
+        //Execucao
+        var exists = this.repository.existsByIsbn(isbn);
+        //Verificacao
+        assertThat(exists).isFalse();
+    }
+
 
 }
