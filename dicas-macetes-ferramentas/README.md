@@ -295,3 +295,4 @@ git push origin --delete nome_da_branch
 
 # Implementando flayway
  -  [Implementando flayway](https://medium.com/hprog99/set-up-flyway-with-spring-boot-1b24b8abe56e)https://medium.com/hprog99/set-up-flyway-with-spring-boot-1b24b8abe56e
+ -  https://www.baeldung.com/database-migrations-with-flyway
