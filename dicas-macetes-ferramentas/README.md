@@ -14,6 +14,7 @@
 - [Dicas IntelliJ - Manipulação de arquivos json por exemplo](#dicas-intellij---manipulação-de-arquivos-json-por-exemplo)
 - [Dicas de como designar um tipo ENUM para deserializar uma string vazia (Spring Boot)](#dicas-de-como-designar-um-tipo-enum-para-deserializar-uma-string-vazia-spring-boot)
 - [Básico do GIT](#básico-do-git)
+- [Implementando flayway](#implementando-flayway)
 
 
 # Instalação e Configuração do IntelliJ embarcado no WSL2
@@ -290,3 +291,7 @@ git push origin --delete nome_da_branch
 
 #### Links sobre git
     - https://github.com/joshnh/Git-Commands
+
+
+# Implementando flayway
+ -  [Implementando flayway](https://medium.com/hprog99/set-up-flyway-with-spring-boot-1b24b8abe56e)https://medium.com/hprog99/set-up-flyway-with-spring-boot-1b24b8abe56e
