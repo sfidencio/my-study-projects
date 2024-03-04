@@ -311,3 +311,14 @@ spring:
     table: schema_version
     validate-on-migrate: true
 ```
+
+```xml
+         <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>${flyway.version}</version>
+        </dependency>
+```
+
+![image](https://github.com/sfidencio/my-study-projects/assets/660615/597247d5-77be-4294-8639-ffc5ca0836d8)
+
