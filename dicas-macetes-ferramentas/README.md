@@ -296,3 +296,18 @@ git push origin --delete nome_da_branch
 # Implementando flayway
  -  [Implementando flayway](https://medium.com/hprog99/set-up-flyway-with-spring-boot-1b24b8abe56e)https://medium.com/hprog99/set-up-flyway-with-spring-boot-1b24b8abe56e
  -  https://www.baeldung.com/database-migrations-with-flyway
+```yaml
+spring:
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    #url: jdbc:postgresql://localhost:5432/db
+    #user: postgres
+    #password: '1234'
+    baseline-version: 1
+    baseline-description: 'Baseline version'
+    locations: classpath:db/migration
+    schemas: public
+    table: schema_version
+    validate-on-migrate: true
+```
