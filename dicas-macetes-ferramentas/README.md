@@ -322,3 +322,8 @@ spring:
 
 ![image](https://github.com/sfidencio/my-study-projects/assets/660615/597247d5-77be-4294-8639-ffc5ca0836d8)
 
+```text
+V<version>__<description>.sql for versioned scripts
+U<version>__<description>.sql for undo scripts
+R__<description>.sql for repeatable scripts
+```
