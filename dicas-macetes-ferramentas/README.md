@@ -15,6 +15,7 @@
 - [Dicas de como designar um tipo ENUM para deserializar uma string vazia (Spring Boot)](#dicas-de-como-designar-um-tipo-enum-para-deserializar-uma-string-vazia-spring-boot)
 - [Básico do GIT](#básico-do-git)
 - [Implementando flayway](#implementando-flayway)
+- [Criando projeto springcloud em módulos](#criando-projeto-springcloud-em-modulos)
 
 
 # Instalação e Configuração do IntelliJ embarcado no WSL2
@@ -327,3 +328,81 @@ V<version>__<description>.sql for versioned scripts
 U<version>__<description>.sql for undo scripts
 R__<description>.sql for repeatable scripts
 ```
+
+
+# Criando projeto springcloud em módulos
+
+Implementar um projeto Spring Boot usando Spring Cloud Gateway e estruturando tudo em módulos do Java 9+ é uma excelente maneira de criar uma arquitetura de microserviços coesa e fácil de gerenciar. Abaixo, você encontrará um tutorial detalhado sobre como configurar esse tipo de projeto no IntelliJ IDEA.
+
+### Passo 1: Configurar o Ambiente
+1. Certifique-se de ter o JDK 11 ou superior instalado.
+2. Instale e configure o IntelliJ IDEA para usar o JDK correto.
+
+### Passo 2: Criar um Projeto Maven
+1. Abra o IntelliJ IDEA e crie um novo projeto selecionando "File" > "New" > "Project".
+2. Escolha "Maven" como tipo de projeto. Certifique-se de selecionar o SDK correto (JDK 11 ou superior).
+3. Na próxima tela, marque "Create from archetype" e não selecione nenhum arquétipo.
+4. Forneça o GroupId (por exemplo, `com.exemplo`) e o ArtifactId (por exemplo, `microservicos`) para o seu projeto. Clique em "Next" e depois em "Finish".
+
+### Passo 3: Estruturar o Projeto em Módulos
+1. No projeto recém-criado, clique com o botão direito na pasta raiz do projeto e selecione "New" > "Module" para adicionar um novo módulo.
+2. Selecione "Maven" e repita o processo de criação para cada módulo que você deseja adicionar (por exemplo, `gateway`, `produtos`, `auditoria-estoques`, `auditoria-precos`).
+3. Para cada módulo, forneça um `GroupId` (geralmente o mesmo do projeto principal) e um `ArtifactId` específico.
+
+### Passo 4: Configurar o Módulo Gateway
+1. No `pom.xml` do módulo `gateway`, adicione as dependências para o Spring Cloud Gateway e o Spring Boot:
+   ```xml
+   <dependencies>
+       <dependency>
+           <groupId>org.springframework.cloud</groupId>
+           <artifactId>spring-cloud-starter-gateway</artifactId>
+       </dependency>
+       <dependency>
+           <groupId>org.springframework.boot</groupId>
+           <artifactId>spring-boot-starter-webflux</artifactId>
+       </dependency>
+   </dependencies>
+
+   <dependencyManagement>
+       <dependencies>
+           <dependency>
+               <groupId>org.springframework.cloud</groupId>
+               <artifactId>spring-cloud-dependencies</artifactId>
+               <version>Hoxton.SR8</version>
+               <type>pom</type>
+               <scope>import</scope>
+           </dependency>
+       </dependencies>
+   </dependencyManagement>
+   ```
+2. Crie uma classe principal no módulo `gateway` com a anotação `@SpringBootApplication` e `@EnableEurekaClient` (se estiver usando Eureka como seu serviço de descoberta).
+3. Configure as rotas do gateway no `application.yml` ou `application.properties` do módulo `gateway`.
+
+### Passo 5: Configurar os Outros Módulos
+1. Para cada módulo de microserviço (`produtos`, `auditoria-estoques`, `auditoria-precos`), adicione as dependências necessárias do Spring Boot e quaisquer outras dependências específicas do projeto.
+2. Crie classes principais com a anotação `@SpringBootApplication` e configure adequadamente suas propriedades de aplicação.
+
+### Passo 6: Usar o Java Module System (Java 9+)
+1. Para cada módulo, incluindo o gateway, crie um arquivo `module-info.java` na raiz do diretório `src/main/java`.
+2. Declare as dependências do módulo e os módulos que ele requer, por exemplo:
+   ```java
+   module com.exemplo.gateway {
+       requires spring.boot;
+       requires spring.boot.autoconfigure;
+       requires spring.cloud.gateway;
+       // Adicione outros requires conforme necessário
+   }
+   ```
+3. Repita o processo para cada módulo, ajustando as dependências conforme necessário.
+
+### Passo 7: Executar e Testar
+1. Para executar o projeto, você pode usar o Maven ou executar diretamente pelo IntelliJ IDEA, clicando com o botão direito na classe principal de qualquer módulo e selecionando "Run".
+2. Teste o encaminhamento das requisições através do gateway para os microserviços correspondentes.
+
+### Considerações Finais
+- Certifique-se de que as configurações de rede e porta de cada microserviço não entrem em conflito.
+- A configuração detalhada das rotas do gateway e a comunicação entre os microserviços dependem das especificidades do seu projeto e das tecnologias Spring Cloud utilizadas.
+- Este tutorial é um ponto de partida. Personalize e expanda seu projeto conforme necessário.
+
+Com essas etapas, você terá uma base sólida para um projeto Spring Boot usando Spring Cloud Gateway, estruturado em módulos do Java 9+, tudo dentro de uma única janela do IntelliJ IDEA.
+
