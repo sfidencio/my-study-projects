@@ -1419,7 +1419,16 @@ class ClienteServiceImpTest {
 > + https://www.baeldung.com/lombok-with-annotations
 
 >[!TIP]
+>Uso do `@RequiredArgsConstructor`
+
+- O @RequiredArgsConstructor do Lombok é uma anotação que gera automaticamente um construtor com argumentos para a classe anotada. Essa anotação é útil para reduzir a verbosidade do código, eliminando a necessidade de escrever manualmente construtores com argumentos.
+
+- Ao usar o @RequiredArgsConstructor, o Lombok analisa os campos da classe e gera um construtor que aceita todos os campos marcados como final ou @NonNull. Isso significa que você não precisa escrever explicitamente o construtor com argumentos, o Lombok cuida disso para você.
+
+
+>[!TIP]
 >Uso uso do @With para gerar automaticamente um construtor imutável para a classe:
+
 
 ```java
 import lombok.With;
