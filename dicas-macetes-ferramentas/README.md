@@ -406,3 +406,45 @@ Implementar um projeto Spring Boot usando Spring Cloud Gateway e estruturando tu
 
 Com essas etapas, você terá uma base sólida para um projeto Spring Boot usando Spring Cloud Gateway, estruturado em módulos do Java 9+, tudo dentro de uma única janela do IntelliJ IDEA.
 
+### Caso os passos acima não funcione, tente fazer as seguintes adaptações:
+Para um projeto Spring Cloud Gateway utilizando a última versão do Spring Boot e Spring Cloud, você precisará adicionar as seguintes dependências ao arquivo `pom.xml` do seu módulo Gateway:
+
+1. **Spring Cloud Gateway Starter**:
+   - Fornece as dependências básicas para o Spring Cloud Gateway.
+   ```xml
+   <dependency>
+       <groupId>org.springframework.cloud</groupId>
+       <artifactId>spring-cloud-starter-gateway</artifactId>
+   </dependency>
+   ```
+
+2. **Spring Boot Starter Webflux**:
+   - O Spring Boot Starter Webflux é necessário para suportar a programação reativa no Spring Cloud Gateway.
+   ```xml
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-webflux</artifactId>
+   </dependency>
+   ```
+
+3. **Spring Cloud Starter Eureka Client** (opcional, se estiver utilizando Eureka para registro e descoberta de serviços):
+   - Adicione esta dependência se deseja que o gateway registre-se no servidor Eureka.
+   ```xml
+   <dependency>
+       <groupId>org.springframework.cloud</groupId>
+       <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+   </dependency>
+   ```
+
+4. **Spring Cloud Starter Config** (opcional, se estiver utilizando um servidor de configuração centralizado):
+   - Se deseja buscar a configuração do gateway de um servidor de configuração centralizado (como Spring Cloud Config), adicione esta dependência.
+   ```xml
+   <dependency>
+       <groupId>org.springframework.cloud</groupId>
+       <artifactId>spring-cloud-starter-config</artifactId>
+   </dependency>
+   ```
+
+Certifique-se de adicionar essas dependências ao arquivo `pom.xml` do seu módulo Gateway com as versões mais recentes do Spring Boot e Spring Cloud. Você pode verificar as versões mais recentes no site oficial do Spring (https://spring.io/projects) ou no repositório Maven Central (https://mvnrepository.com/).
+
+
