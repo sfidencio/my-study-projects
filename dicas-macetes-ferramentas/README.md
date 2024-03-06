@@ -15,7 +15,7 @@
 - [Dicas de como designar um tipo ENUM para deserializar uma string vazia (Spring Boot)](#dicas-de-como-designar-um-tipo-enum-para-deserializar-uma-string-vazia-spring-boot)
 - [Básico do GIT](#básico-do-git)
 - [Implementando flayway](#implementando-flayway)
-- [Criando projeto springcloud em módulos](#criando-projeto-springcloud-em-modulos)
+- [Criando projeto springcloud em modulos](#criando-projeto-springcloud-em-modulos)
 
 
 # Instalação e Configuração do IntelliJ embarcado no WSL2
@@ -330,7 +330,7 @@ R__<description>.sql for repeatable scripts
 ```
 
 
-# Criando projeto springcloud em módulos
+# Criando projeto springcloud em modulos
 
 Implementar um projeto Spring Boot usando Spring Cloud Gateway e estruturando tudo em módulos do Java 9+ é uma excelente maneira de criar uma arquitetura de microserviços coesa e fácil de gerenciar. Abaixo, você encontrará um tutorial detalhado sobre como configurar esse tipo de projeto no IntelliJ IDEA.
 
