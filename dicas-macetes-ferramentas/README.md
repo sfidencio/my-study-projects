@@ -27,6 +27,8 @@
         - Dica interessante sobre a disponibilização dos atalhos no windows. 
     - https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps#install-support-for-linux-gui-apps
         - Instalar o `x11-apps`.     
+# Implementação de Spring-HATEOS
+    - https://grapeup.com/blog/how-to-build-hypermedia-api-with-spring-hateoas/#
 
 # Quer evoluir funcionalidades em uma aplicação por meio de features?
     - https://openfeature.dev/specification/
