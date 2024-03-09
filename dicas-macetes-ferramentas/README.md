@@ -18,7 +18,7 @@
 - [Criando projeto springcloud em modulos](#criando-projeto-springcloud-em-modulos)
 - Use o jetbrainsToolbox, facita a gestão de ferramentas e permite usar a versão EAP do intelliJ ultimate.
     - https://www.jetbrains.com/toolbox-app/download/download-thanks.html?platform=windows
-- [Padrões de URI](#padroes-de-uri)
+- [Padrões de URI](#padrões-de-uri)
 
 
 # Instalação e Configuração do IntelliJ embarcado no WSL2
