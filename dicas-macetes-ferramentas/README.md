@@ -18,6 +18,7 @@
 - [Criando projeto springcloud em modulos](#criando-projeto-springcloud-em-modulos)
 - Use o jetbrainsToolbox, facita a gestão de ferramentas e permite usar a versão EAP do intelliJ ultimate.
     - https://www.jetbrains.com/toolbox-app/download/download-thanks.html?platform=windows
+- [Padrões de URI](#padroes-de-uri)
 
 
 # Instalação e Configuração do IntelliJ embarcado no WSL2
@@ -339,3 +340,43 @@ R__<description>.sql for repeatable scripts
 - https://medium.com/@AlexanderObregon/step-by-step-creating-your-first-spring-cloud-application-ef4dcfe277a4
   
 
+# Padrões de URI
+
+Sure! Here are some common URI patterns used in RESTful APIs along with examples:
+
+1. *Resource Collection URI:*
+   - Pattern: /resource
+   - Example: /users
+   - Description: Represents a collection of a specific type of resource.
+
+2. *Resource Element URI:*
+   - Pattern: /resource/{id}
+   - Example: /users/123
+   - Description: Represents a specific element within a collection, identified by its unique identifier.
+
+3. *Nested Resource URI:*
+   - Pattern: /resource/{id}/nested-resource
+   - Example: /users/123/orders
+   - Description: Represents a nested resource related to a specific resource element.
+
+4. *Resource Sub-collection URI:*
+   - Pattern: /resource/{id}/sub-resource
+   - Example: /users/123/addresses
+   - Description: Represents a sub-collection of resources related to a specific resource element.
+
+5. *Resource Action URI (Custom Actions):*
+   - Pattern: /resource/{id}/action
+   - Example: /users/123/reset-password
+   - Description: Represents a custom action or operation that can be performed on a specific resource element.
+
+6. *Search or Filter URI:*
+   - Pattern: /resource?parameter=value
+   - Example: /users?role=admin
+   - Description: Represents a search or filter operation on a collection of resources based on specified criteria.
+
+7. *Paginated Resource URI:*
+   - Pattern: /resource?page={page}&size={size}
+   - Example: /users?page=1&size=10
+   - Description: Represents paginated results for a collection of resources, allowing clients to navigate through large result sets.
+
+These URI patterns provide a structured and consistent way to design the endpoints of your RESTful API. By following these patterns, you can create a clear and intuitive API structure that is easy to understand and use. Remember to choose URI patterns that best fit the resources and operations of your API and document them properly for API consumers.
