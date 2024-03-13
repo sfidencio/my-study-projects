@@ -19,6 +19,7 @@
 - Use o jetbrainsToolbox, facita a gestão de ferramentas e permite usar a versão EAP do intelliJ ultimate.
     - https://www.jetbrains.com/toolbox-app/download/download-thanks.html?platform=windows
 - [Padrões de URI](#padrões-de-uri)
+- Instale o Git Copilot, e o tema Git Copilot Dark Them no InteliiJ, na seção plugins.
 
 
 # Instalação e Configuração do IntelliJ embarcado no WSL2
