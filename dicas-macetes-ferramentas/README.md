@@ -20,7 +20,7 @@
     - https://www.jetbrains.com/toolbox-app/download/download-thanks.html?platform=windows
 - [Padrões de URI](#padrões-de-uri)
 - Instale o Git Copilot, e o tema Git Copilot Dark Them no InteliiJ, na seção plugins.
-- Considere o uso do SDKMAN
+- Considere o uso do SDKMAN para gestão de versões da JDK no java.
 
 
 # Instalação e Configuração do IntelliJ embarcado no WSL2
