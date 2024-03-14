@@ -21,6 +21,8 @@
 - [Padrões de URI](#padrões-de-uri)
 - Instale o Git Copilot, e o tema Git Copilot Dark Them no InteliiJ, na seção plugins.
 - Considere o uso do SDKMAN para gestão de versões da JDK no java.
+    - https://sdkman.io/
+       
 
 
 # Instalação e Configuração do IntelliJ embarcado no WSL2
