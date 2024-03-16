@@ -22,6 +22,11 @@
 - Instale o Git Copilot, e o tema Git Copilot Dark Them no InteliiJ, na seção plugins.
 - Considere o uso do SDKMAN para gestão de versões da JDK no java.
     - https://sdkman.io/
+- Deploy continuo na AWS via github actions
+    - https://www.youtube.com/watch?v=mIuFF_ZP_60
+- Gerenciamento usuário com KeyCloak
+    - https://www.youtube.com/watch?v=wgdo5I53GQo    
+      
        
 
 
