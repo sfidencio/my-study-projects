@@ -22,6 +22,7 @@
 - Use o jetbrainsToolbox, facita a gestão de ferramentas e permite usar a versão EAP do intelliJ ultimate.
     - https://www.jetbrains.com/toolbox-app/download/download-thanks.html?platform=windows
 - [Padrões de URI](#padrões-de-uri)
+- [Entendendo Idempotêmcia](#entendendo-idempotência)
 - Instale o Git Copilot, e o tema Git Copilot Dark Them no InteliiJ, na seção plugins.
 - Considere o uso do SDKMAN para gestão de versões da JDK no java.
     - https://sdkman.io/
@@ -392,3 +393,61 @@ Sure! Here are some common URI patterns used in RESTful APIs along with examples
    - Description: Represents paginated results for a collection of resources, allowing clients to navigate through large result sets.
 
 These URI patterns provide a structured and consistent way to design the endpoints of your RESTful API. By following these patterns, you can create a clear and intuitive API structure that is easy to understand and use. Remember to choose URI patterns that best fit the resources and operations of your API and document them properly for API consumers.
+
+# Entendendo Idempotêmcia
+
+[14:09, 20/03/2024] Sebastião Fidêncio da SP: Os verbos HTTP que são idempotentes são GET, HEAD, PUT e DELETE. Isso significa que esses verbos podem ser executados várias vezes sem alterar o estado do servidor além da primeira requisição. Vou exemplificar o uso desses verbos idempotentes no Spring Boot:
+
+1. *GET*:
+   - O verbo GET é usado para recuperar informações do servidor e é idempotente, ou seja, fazer várias solicitações GET para o mesmo recurso não deve alterar o estado do servidor. Um exemplo de uso no Spring Boot seria:
+
+java
+@GetMapping("/api/books/{id}")
+public ResponseEntity<Book> getBookById(@PathVariable Long id) {
+    // Lógica para recuperar um livro com o ID fornecido
+    Book book = bookService.getBookById(id);
+    return ResponseEntity.ok(book);
+}
+
+
+2. *HEAD*:
+   - O verbo HEAD é semelhante ao GET, mas retorna apenas os cabeçalhos da resposta, sem o corpo da resposta. Também é idempotente. Um exemplo no Spring Boot seria semelhante ao método GET acima, mas retornando apenas os cabeçalhos.
+
+3. *PUT*:
+   - O verbo PUT é usado para atualizar um recurso no servidor e é idempotente, ou seja, a mesma solicitação PUT pode ser feita várias vezes sem efeitos colaterais. Um exemplo de uso no Spring Boot seria:
+
+java
+@PutMapping("/api/books/{id}")
+public ResponseEntity<Book> updateBook(@PathVariable Long id, @RequestBody Book updatedBook) {
+    // Lógica para atualizar o livro com o ID fornecido
+    Book book = bookService.updateBook(id, updatedBook);
+    return ResponseEntity.ok(book);
+}
+
+
+4. *DELETE*:
+   - O verbo DELETE é usado para remover um recurso do servidor e é idempotente, ou seja, excluir um recurso várias vezes não deve alterar o estado do servidor após a primeira requisição. Um exemplo de uso no Spring Boot seria:
+
+java
+@DeleteMapping("/api/books/{id}")
+public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
+    // Lógica para excluir o livro com o ID fornecido
+    bookService.deleteBook(id);
+    return ResponseEntity.noContent().build();
+}
+
+
+Esses são exemplos de como os verbos HTTP idempotentes (GET, HEAD, PUT e DELETE) podem ser utilizados no Spring Boot para realizar operações de leitura, atualização e exclusão de recursos de forma segura e consistente, sem causar efeitos colaterais indesejados no servidor.
+[14:13, 20/03/2024] Sebastião Fidêncio da SP: O método POST no protocolo HTTP não é considerado idempotente devido à sua natureza de criação ou modificação de recursos no servidor. A característica de idempotência de um método HTTP significa que realizar a mesma operação várias vezes produzirá o mesmo resultado, sem efeitos colaterais adicionais além da primeira requisição.
+
+Aqui estão algumas razões pelas quais o método POST não é idempotente:
+
+1. *Criação de Recursos*: O método POST é comumente usado para criar novos recursos no servidor. Cada vez que uma requisição POST é feita com os mesmos dados, um novo recurso é criado no servidor, resultando em um estado diferente a cada vez.
+
+2. *Efeitos Colaterais*: Uma requisição POST pode ter efeitos colaterais, como a geração de um identificador único para o recurso criado, a atualização de contadores ou a execução de ações específicas associadas à criação do recurso. Esses efeitos colaterais podem tornar as requisições POST não idempotentes.
+
+3. *Operações de Modificação*: Além da criação de recursos, o método POST também pode ser usado para realizar operações de modificação em recursos existentes, como atualizações parciais ou a execução de ações específicas. Essas operações podem alterar o estado do recurso a cada requisição.
+
+4. *Segurança e Integridade dos Dados*: Em alguns casos, é importante que certas operações não sejam idempotentes para garantir a segurança e a integridade dos dados. Por exemplo, uma transação financeira não deve ser idempotente para evitar cobranças duplicadas.
+
+Em resumo, o método POST no protocolo HTTP não é idempotente porque cada requisição POST pode resultar em uma mudança de estado no servidor, seja criando um novo recurso, modificando um recurso existente ou realizando ações específicas associadas à requisição. Portanto, é importante ter cuidado ao usar o método POST para garantir que as operações realizadas sejam apropriadas e não causem efeitos colaterais indesejados.
