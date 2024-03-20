@@ -265,7 +265,7 @@ git pull origin main
 ```bash
 git add .
 git commit -m "Mensagem do commit"
-git push origin main
+git push origin main/master
 ```
 ### Comandos git para criar uma nova branch
 ```bash
