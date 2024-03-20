@@ -396,7 +396,7 @@ These URI patterns provide a structured and consistent way to design the endpoin
 
 # Entendendo Idempotência
 
-[14:09, 20/03/2024] Sebastião Fidêncio da SP: Os verbos HTTP que são idempotentes são GET, HEAD, PUT e DELETE. Isso significa que esses verbos podem ser executados várias vezes sem alterar o estado do servidor além da primeira requisição. Vou exemplificar o uso desses verbos idempotentes no Spring Boot:
+Os verbos HTTP que são idempotentes são GET, HEAD, PUT e DELETE. Isso significa que esses verbos podem ser executados várias vezes sem alterar o estado do servidor além da primeira requisição. Vou exemplificar o uso desses verbos idempotentes no Spring Boot:
 
 1. *GET*:
    - O verbo GET é usado para recuperar informações do servidor e é idempotente, ou seja, fazer várias solicitações GET para o mesmo recurso não deve alterar o estado do servidor. Um exemplo de uso no Spring Boot seria:
@@ -438,7 +438,7 @@ public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
 
 
 Esses são exemplos de como os verbos HTTP idempotentes (GET, HEAD, PUT e DELETE) podem ser utilizados no Spring Boot para realizar operações de leitura, atualização e exclusão de recursos de forma segura e consistente, sem causar efeitos colaterais indesejados no servidor.
-[14:13, 20/03/2024] Sebastião Fidêncio da SP: O método POST no protocolo HTTP não é considerado idempotente devido à sua natureza de criação ou modificação de recursos no servidor. A característica de idempotência de um método HTTP significa que realizar a mesma operação várias vezes produzirá o mesmo resultado, sem efeitos colaterais adicionais além da primeira requisição.
+O método POST no protocolo HTTP não é considerado idempotente devido à sua natureza de criação ou modificação de recursos no servidor. A característica de idempotência de um método HTTP significa que realizar a mesma operação várias vezes produzirá o mesmo resultado, sem efeitos colaterais adicionais além da primeira requisição.
 
 Aqui estão algumas razões pelas quais o método POST não é idempotente:
 
