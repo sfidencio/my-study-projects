@@ -22,7 +22,7 @@
 - Use o jetbrainsToolbox, facita a gestão de ferramentas e permite usar a versão EAP do intelliJ ultimate.
     - https://www.jetbrains.com/toolbox-app/download/download-thanks.html?platform=windows
 - [Padrões de URI](#padrões-de-uri)
-- [Entendendo Idempotêmcia](#entendendo-idempotência)
+- [Entendendo Idempotência](#entendendo-idempotência)
 - Instale o Git Copilot, e o tema Git Copilot Dark Them no InteliiJ, na seção plugins.
 - Considere o uso do SDKMAN para gestão de versões da JDK no java.
     - https://sdkman.io/
@@ -394,7 +394,7 @@ Sure! Here are some common URI patterns used in RESTful APIs along with examples
 
 These URI patterns provide a structured and consistent way to design the endpoints of your RESTful API. By following these patterns, you can create a clear and intuitive API structure that is easy to understand and use. Remember to choose URI patterns that best fit the resources and operations of your API and document them properly for API consumers.
 
-# Entendendo Idempotêmcia
+# Entendendo Idempotência
 
 [14:09, 20/03/2024] Sebastião Fidêncio da SP: Os verbos HTTP que são idempotentes são GET, HEAD, PUT e DELETE. Isso significa que esses verbos podem ser executados várias vezes sem alterar o estado do servidor além da primeira requisição. Vou exemplificar o uso desses verbos idempotentes no Spring Boot:
 
