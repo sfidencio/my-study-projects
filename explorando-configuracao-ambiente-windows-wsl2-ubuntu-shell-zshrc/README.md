@@ -5,6 +5,8 @@
 >[!TIP]
 > Lista de artigos:
 
+  - https://www.baeldung.com/linux/bash-prompt-git
+    - Configuração simples do bash for linux para assumir o prompt git. 
   - https://github.com/deanbot/easy-wsl-oh-my-zsh-p10k
     - Este tutorial de instalação do zsh/oh-my-zsh-p10k, é o mais importante a ser seguido, pois da uma explicada de forma resumida como instalar o WSL2, e sobretudo a instalação e configuração do `Windows Terminal`. **(Recomendado)**
     - Instalação do `Windows Terminal`, que permite utilizar várias abas com diferentes interpretadores

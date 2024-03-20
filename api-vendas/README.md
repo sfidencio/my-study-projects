@@ -1387,6 +1387,13 @@ class ClienteServiceImpTest {
 > [!IMPORTANT]
 > MockMvc é uma estrutura de teste de unidade que simula o comportamento de um servlet, permitindo que você teste controladores em um ambiente isolado, sem a necessidade de iniciar um servidor real. RestAssured, por outro lado, é uma estrutura de teste de integração que permite testar APIs RESTful de forma fácil e legível. Enquanto o MockMvc é mais adequado para testar controladores e componentes específicos do Spring MVC, o RestAssured é mais voltado para testar APIs RESTful e suas respostas. Em resumo, o MockMvc é mais adequado para testes de unidade de componentes específicos, enquanto o RestAssured é mais adequado para testes de integração de APIs RESTful.
 
+- Alguns links de como implementar teste de integração com RestAssured
+    - https://virandoprogramador.com.br/rest-assured-com-spring-boot/
+    - https://www.baeldung.com/rest-assured-tutorial
+    - https://rieckpil.de/testing-spring-boot-applications-with-rest-assured/
+    - https://qaautomation.expert/2021/07/26/integration-testing-of-springboot-using-restassured/
+    - https://qaautomation.expert/2023/10/12/integration-of-rest-assured-with-junit5/
+
 ### Explorando AssertJ
 > + https://joel-costigliola.github.io/assertj/
 
@@ -1419,7 +1426,16 @@ class ClienteServiceImpTest {
 > + https://www.baeldung.com/lombok-with-annotations
 
 >[!TIP]
+>Uso do `@RequiredArgsConstructor`
+
+- O @RequiredArgsConstructor do Lombok é uma anotação que gera automaticamente um construtor com argumentos para a classe anotada. Essa anotação é útil para reduzir a verbosidade do código, eliminando a necessidade de escrever manualmente construtores com argumentos.
+
+- Ao usar o @RequiredArgsConstructor, o Lombok analisa os campos da classe e gera um construtor que aceita todos os campos marcados como final ou @NonNull. Isso significa que você não precisa escrever explicitamente o construtor com argumentos, o Lombok cuida disso para você.
+
+
+>[!TIP]
 >Uso uso do @With para gerar automaticamente um construtor imutável para a classe:
+
 
 ```java
 import lombok.With;
