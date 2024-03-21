@@ -17,7 +17,7 @@
 - [Dicas IntelliJ - Manipulação de arquivos json por exemplo](#dicas-intellij---manipulação-de-arquivos-json-por-exemplo)
 - [Dicas de como designar um tipo ENUM para deserializar uma string vazia (Spring Boot)](#dicas-de-como-designar-um-tipo-enum-para-deserializar-uma-string-vazia-spring-boot)
 - [Básico do GIT](#básico-do-git)
-- [Implementando flayway](#implementando-flayway)
+- [Implementando flyway](#implementando-flyway)
 - [Criando projeto springcloud em modulos](#criando-projeto-springcloud-em-modulos)
 - Use o jetbrainsToolbox, facita a gestão de ferramentas e permite usar a versão EAP do intelliJ ultimate.
     - https://www.jetbrains.com/toolbox-app/download/download-thanks.html?platform=windows
@@ -29,7 +29,8 @@
 - Deploy continuo na AWS via github actions
     - https://www.youtube.com/watch?v=mIuFF_ZP_60
 - Gerenciamento usuário com KeyCloak
-    - https://www.youtube.com/watch?v=wgdo5I53GQo    
+    - https://www.youtube.com/watch?v=wgdo5I53GQo
+- [Dicas git](#dicas-git)
       
        
 
@@ -312,7 +313,7 @@ git push origin --delete nome_da_branch
     - https://github.com/joshnh/Git-Commands
 
 
-# Implementando flayway
+# Implementando flyway
  -  [Implementando flayway](https://medium.com/hprog99/set-up-flyway-with-spring-boot-1b24b8abe56e)https://medium.com/hprog99/set-up-flyway-with-spring-boot-1b24b8abe56e
  -  https://www.baeldung.com/database-migrations-with-flyway
 ```yaml
@@ -451,3 +452,117 @@ Aqui estão algumas razões pelas quais o método POST não é idempotente:
 4. *Segurança e Integridade dos Dados*: Em alguns casos, é importante que certas operações não sejam idempotentes para garantir a segurança e a integridade dos dados. Por exemplo, uma transação financeira não deve ser idempotente para evitar cobranças duplicadas.
 
 Em resumo, o método POST no protocolo HTTP não é idempotente porque cada requisição POST pode resultar em uma mudança de estado no servidor, seja criando um novo recurso, modificando um recurso existente ou realizando ações específicas associadas à requisição. Portanto, é importante ter cuidado ao usar o método POST para garantir que as operações realizadas sejam apropriadas e não causem efeitos colaterais indesejados.
+
+### Dicas GIT
+https://www.horadecodar.com.br/2021/07/23/como-desfazer-um-git-merge-no-repositorio-local/ 
+
+# Como remover arquivos da área de stage 
+git status 
+git reset 
+
+# script .bashrc para log in mais rápido nas rotinas git:  
+var1=" https://USUARIO:SENHA@github/PROJETO.git" 
+
+# update pode ser qualquer nome, função do git fetch e git pull 
+alias update='git fetch $var1 && git pull $var1' 
+
+push pode ser qualquer nome, função do git push 
+alias push='git push $var1' 
+
+like 1 
+ 
+# Como desfazer modificações não salvas 
+
+git status 
+git reset 
+git clean -df 
+git checkout -- . 
+
+# Como desfazer o último commit  - desfazer último commit sem desfazer as modificações nos arquivos: 
+
+git status 
+git reset --soft HEAD~1 
+
+# Como deletar commits e também 
+
+# Modificações nos arquivos 
+# Voltar o projeto ao estado de um dado commit (deletar commits e alterações posteriores a esse commit) 
+
+git status 
+git reset --hard <código do commit> 
+
+
+# ATENÇÃO: ação destrutiva! 
+
+
+# Como atualizar o repositório local em relação ao remoto 
+
+git status 
+git pull <nome do remote> <nome do branch> 
+
+
+# Como resolver push rejeitado 
+# Não é permitido enviar um push se seu repositório local está atrasado em 
+# Relação ao histórico do repositório remoto! Por exemplo: 
+
+ git pull <nome do remote> <nome do branch> 
+
+# Você tem que atualizar o repositório local: 
+
+# Resolvendo conflito 
+
+ - Analise o código fonte 
+ - Faça as edições necessárias 
+ - Faça um novo commit 
+
+ 
+
+# Como sobrescrever um histórico no Github 
+git push -f <nome do remote> <nome do branch> 
+
+# ATENÇÃO: ação destrutiva! 
+   - Como apontar o projeto para outro 
+   - repositório remoto 
+
+git remote set-url origin git@github.com:seuusuario/seurepositorio.git 
+
+# Stash - Backup de Workspace  
+git stash push -m "my_stash" 
+git stash list 
+git stash pop stash@{n} 
+git stash apply stash@{n} -> aplicar stash e manter salvo 
+git stash apply my_stash 
+git restore . 
+
+   - https://ohshitgit.com/ 
+
+# Como alterar mensagens antigas de commit 
+git rebase -i HEAD~n 
+
+# Onde n e o numero de commits q deseja voltar 
+ 
+# Para altera o commit inicial e todos os outros 
+git rebase -i --root  
+
+# Continuar edição dos commits 
+git rebase --edit-todo 
+ 
+
+# Vai aparecer "pick"...e so alterar para "reword"..o texto do commit que deseja alterar,..fazendo isso salve, (ESC^wq!).. Logo, vai ser aberto o arquivo do commit especifico que colocaste "reword"..entao proceda com a alteracao. 
+ 
+
+# Caso queira alterar, somente o ultimo commit,..utilizo o --amend no commit assim: 
+
+git commit --amend  
+
+# Voltar commit preservando as modificações atuais. 
+git log –oneline  
+
+# Pega o hash md5 do commit desejado 
+
+git reset –mixed HASH_COMMIT  
+git add . && git commit –m "NUMERO_CAD: ...." --amend –no-edit 0362804 
+
+# Apagando e persistindo credenciais de acessos git 
+git config --global --unset credential.helper 
+git config --global credential.helper store 
