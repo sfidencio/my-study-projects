@@ -1,4 +1,4 @@
 package com.github.sfidencio.exemplo.application.exceptions.dto;
 
-public record ErrorMessageResponse(String field,Object valueRejected, String message) {
+public record ErrorMessageValidationFieldResponse(String field, Object valueRejected, String message) {
 }

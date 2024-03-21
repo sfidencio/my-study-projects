@@ -1,4 +1,4 @@
-package com.github.sfidencio.exemplo.domain;
+package com.github.sfidencio.exemplo.domain.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,4 +22,5 @@ public class Product {
     private Long id;
     private String description;
     private BigDecimal price;
+    private BigDecimal stock;
 }

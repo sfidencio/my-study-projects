@@ -14,7 +14,7 @@ import java.util.List;
 @Component
 @Aspect
 @RequiredArgsConstructor
-public class PerformValidationAOP {
+public class PerformValidation {
     @Qualifier("validProducts")
     private final List<ValidProduct> validProducts;
 
