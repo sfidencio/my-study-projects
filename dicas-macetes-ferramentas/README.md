@@ -453,17 +453,17 @@ Aqui estão algumas razões pelas quais o método POST não é idempotente:
 
 Em resumo, o método POST no protocolo HTTP não é idempotente porque cada requisição POST pode resultar em uma mudança de estado no servidor, seja criando um novo recurso, modificando um recurso existente ou realizando ações específicas associadas à requisição. Portanto, é importante ter cuidado ao usar o método POST para garantir que as operações realizadas sejam apropriadas e não causem efeitos colaterais indesejados.
 
-### Dicas GIT
+# Dicas GIT
 https://www.horadecodar.com.br/2021/07/23/como-desfazer-um-git-merge-no-repositorio-local/ 
 
-# Como remover arquivos da área de stage 
+### Como remover arquivos da área de stage 
 git status 
 git reset 
 
-# script .bashrc para log in mais rápido nas rotinas git:  
+### script .bashrc para log in mais rápido nas rotinas git:  
 var1=" https://USUARIO:SENHA@github/PROJETO.git" 
 
-# update pode ser qualquer nome, função do git fetch e git pull 
+### Update pode ser qualquer nome, função do git fetch e git pull 
 alias update='git fetch $var1 && git pull $var1' 
 
 push pode ser qualquer nome, função do git push 
@@ -471,45 +471,45 @@ alias push='git push $var1'
 
 like 1 
  
-# Como desfazer modificações não salvas 
+### Como desfazer modificações não salvas 
 
 git status 
 git reset 
 git clean -df 
 git checkout -- . 
 
-# Como desfazer o último commit  - desfazer último commit sem desfazer as modificações nos arquivos: 
+### Como desfazer o último commit  - desfazer último commit sem desfazer as modificações nos arquivos: 
 
 git status 
 git reset --soft HEAD~1 
 
-# Como deletar commits e também 
+### Como deletar commits e também 
 
-# Modificações nos arquivos 
-# Voltar o projeto ao estado de um dado commit (deletar commits e alterações posteriores a esse commit) 
+### Modificações nos arquivos 
+### Voltar o projeto ao estado de um dado commit (deletar commits e alterações posteriores a esse commit) 
 
 git status 
 git reset --hard <código do commit> 
 
 
-# ATENÇÃO: ação destrutiva! 
+### ATENÇÃO: ação destrutiva! 
 
 
-# Como atualizar o repositório local em relação ao remoto 
+### Como atualizar o repositório local em relação ao remoto 
 
 git status 
 git pull <nome do remote> <nome do branch> 
 
 
-# Como resolver push rejeitado 
-# Não é permitido enviar um push se seu repositório local está atrasado em 
-# Relação ao histórico do repositório remoto! Por exemplo: 
+### Como resolver push rejeitado 
+### Não é permitido enviar um push se seu repositório local está atrasado em 
+### Relação ao histórico do repositório remoto! Por exemplo: 
 
- git pull <nome do remote> <nome do branch> 
+git pull <nome do remote> <nome do branch> 
 
-# Você tem que atualizar o repositório local: 
+### Você tem que atualizar o repositório local: 
 
-# Resolvendo conflito 
+### Resolvendo conflito 
 
  - Analise o código fonte 
  - Faça as edições necessárias 
@@ -517,16 +517,16 @@ git pull <nome do remote> <nome do branch>
 
  
 
-# Como sobrescrever um histórico no Github 
+### Como sobrescrever um histórico no Github 
 git push -f <nome do remote> <nome do branch> 
 
-# ATENÇÃO: ação destrutiva! 
+### ATENÇÃO: ação destrutiva! 
    - Como apontar o projeto para outro 
    - repositório remoto 
 
 git remote set-url origin git@github.com:seuusuario/seurepositorio.git 
 
-# Stash - Backup de Workspace  
+### Stash - Backup de Workspace  
 git stash push -m "my_stash" 
 git stash list 
 git stash pop stash@{n} 
@@ -536,33 +536,33 @@ git restore .
 
    - https://ohshitgit.com/ 
 
-# Como alterar mensagens antigas de commit 
+### Como alterar mensagens antigas de commit 
 git rebase -i HEAD~n 
 
-# Onde n e o numero de commits q deseja voltar 
+### Onde n e o numero de commits q deseja voltar 
  
-# Para altera o commit inicial e todos os outros 
+### Para altera o commit inicial e todos os outros 
 git rebase -i --root  
 
-# Continuar edição dos commits 
+### Continuar edição dos commits 
 git rebase --edit-todo 
  
 
-# Vai aparecer "pick"...e so alterar para "reword"..o texto do commit que deseja alterar,..fazendo isso salve, (ESC^wq!).. Logo, vai ser aberto o arquivo do commit especifico que colocaste "reword"..entao proceda com a alteracao. 
+### Vai aparecer "pick"...e so alterar para "reword"..o texto do commit que deseja alterar,..fazendo isso salve, (ESC^wq!).. Logo, vai ser aberto o arquivo do commit especifico que colocaste "reword"..entao proceda com a alteracao. 
  
 
-# Caso queira alterar, somente o ultimo commit,..utilizo o --amend no commit assim: 
+### Caso queira alterar, somente o ultimo commit,..utilizo o --amend no commit assim: 
 
 git commit --amend  
 
-# Voltar commit preservando as modificações atuais. 
+### Voltar commit preservando as modificações atuais. 
 git log –oneline  
 
-# Pega o hash md5 do commit desejado 
+### Pega o hash md5 do commit desejado 
 
 git reset –mixed HASH_COMMIT  
 git add . && git commit –m "NUMERO_CAD: ...." --amend –no-edit 0362804 
 
-# Apagando e persistindo credenciais de acessos git 
+### Apagando e persistindo credenciais de acessos git 
 git config --global --unset credential.helper 
 git config --global credential.helper store 
