@@ -1,6 +1,7 @@
 package com.github.sfidencio.exemplo;
 
 import com.github.sfidencio.exemplo.domain.validators.ValidProduct;
+import com.github.sfidencio.exemplo.domain.validators.imp.CheckIfStockGreater100AndPriceLessThan525;
 import com.github.sfidencio.exemplo.domain.validators.imp.CheckIfStockInsufficient;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
@@ -25,7 +26,8 @@ public class ExemploAopAnnotationsJunit5Application {
 
     @Bean(name = "validProducts")
     public List<ValidProduct> validProducts() {
-        return List.of(new CheckIfStockInsufficient());
+        return List.of(new CheckIfStockInsufficient(),
+                new CheckIfStockGreater100AndPriceLessThan525());
     }
 
 }
