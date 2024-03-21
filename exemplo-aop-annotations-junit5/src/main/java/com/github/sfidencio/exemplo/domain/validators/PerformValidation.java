@@ -19,7 +19,8 @@ public class PerformValidation {
     private final List<ValidProduct> validProducts;
 
     @Before("@annotation(EnableBusinessValidation)")
-    public void performValidation(JoinPoint joinPoint) {
+    public void execute(JoinPoint joinPoint) {
+        System.out.printf("Performing validation on %s%n", joinPoint.getSignature().getName());
         Object object = joinPoint.getArgs()[0];
         if (object == null)
             throw new IllegalArgumentException("Object cannot be null");

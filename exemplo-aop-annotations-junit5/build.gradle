@@ -27,6 +27,9 @@ dependencies {
     //modelMapper
     implementation 'org.modelmapper:modelmapper:2.4.4'
     //validation
+    //restassured
+    implementation 'io.rest-assured:rest-assured'
+    //validation
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     //test
     implementation 'org.springframework.boot:spring-boot-starter-test'
