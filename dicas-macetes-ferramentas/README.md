@@ -1,4 +1,4 @@
-# dicas-macetes-ferramentas
+d# dicas-macetes-ferramentas
 
 > [!IMPORTANT]
 >Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
@@ -6,8 +6,22 @@
 - Pesquisar solução de código em vários repositórios do git, a partir de um único ponto?
    -https://sourcegraph.com/search (indexed)
 
-- Instalar SDKMan for MacOS - Gerenciar instalações JAVA
+- Dicas MacOS:
+   - Instalar SDKMan for MacOS - Gerenciar instalações JAVA
    -  https://sdkman.io/install
+   -  Repetição de teclas:
+      - Executar no terminal
+         - defaults write -g ApplePressAndHoldEnabled -bool false
+   - Instalar Shottr (PrintScreen, ScreenShots)
+      - https://shottr.cc/ 
+   - Trabalhar com Clipboard (Instalar o Maccy)
+      - https://maccy.app/
+   - Instalar rectangle para gestão de janelas
+      - https://rectangleapp.com/
+   - Configuração do ohMyzsh + PowerLevel(p10k)
+      - [https://github.com/sfidencio/my-study-projects/tree/master/explorando-configuracao-ambiente-windows-wsl2-ubuntu-shell-zshrc (procure](https://v-char.medium.com/now-let-customize-your-native-macos-terminal-with-oh-my-zsh-and-powerlevel10k-b48b9c30d39f)
+   - Configurando iTerm (Enable Transparency)
+      - https://iterm2.com/ 
 
 - [Instalação e Configuração do IntelliJ embarcado no WSL2](#instalação-e-configuração-do-intellij-embarcado-no-wsl2)
 - [Quer evoluir funcionalidades em uma aplicação por meio de features?](#quer-evoluir-funcionalidades-em-uma-aplicação-por-meio-de-features)

@@ -15,6 +15,8 @@
     - Este explica sobre a instalação do Docker no WSL2, e aborda sobre a configuração do `Windows Terminal` também.
   - https://medium.com/@gutoinfo.ribeiro/instalando-e-configurando-o-zsh-no-ubuntu-20-04-4ef8a2499ed5
     - Utilize este tutorial como guia para instalação do zshrc, apenas se tiver problemas com o primeiro tutorial, mas lembre-se, este aqui só irá abordar a instalação e configuração do zshrc no Linux.
+  - Configuração ajustada para o `MacOS`
+    - https://v-char.medium.com/now-let-customize-your-native-macos-terminal-with-oh-my-zsh-and-powerlevel10k-b48b9c30d39f 
 
 >[!WARNING]
 >Resumindo, não existe uma único tutorial que resolva todos os problemas, veja o que melhor te atende, seguindo as dicas acima.
