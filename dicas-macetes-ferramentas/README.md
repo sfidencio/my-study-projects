@@ -3,8 +3,11 @@
 > [!IMPORTANT]
 >Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
-- Pesquisar solução de código em vários repositórios do git, a partir de um único ponto?(indexed)
-   -https://sourcegraph.com/search
+- Pesquisar solução de código em vários repositórios do git, a partir de um único ponto?
+   -https://sourcegraph.com/search (indexed)
+
+- Instalar SDKMan for MacOS?
+   -  https://sdkman.io/install
 
 - [Instalação e Configuração do IntelliJ embarcado no WSL2](#instalação-e-configuração-do-intellij-embarcado-no-wsl2)
 - [Quer evoluir funcionalidades em uma aplicação por meio de features?](#quer-evoluir-funcionalidades-em-uma-aplicação-por-meio-de-features)
