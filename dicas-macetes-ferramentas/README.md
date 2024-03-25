@@ -17,7 +17,9 @@ d# dicas-macetes-ferramentas
    - Trabalhar com Clipboard (Instalar o Maccy)
       - https://maccy.app/
    - Instalar rectangle para gestão de janelas
-      - https://rectangleapp.com/   
+      - https://rectangleapp.com/
+   - Configuração do ohMyzsh + PowerLevel(p10k)
+      - [https://github.com/sfidencio/my-study-projects/tree/master/explorando-configuracao-ambiente-windows-wsl2-ubuntu-shell-zshrc (procure](https://v-char.medium.com/now-let-customize-your-native-macos-terminal-with-oh-my-zsh-and-powerlevel10k-b48b9c30d39f)
 
 - [Instalação e Configuração do IntelliJ embarcado no WSL2](#instalação-e-configuração-do-intellij-embarcado-no-wsl2)
 - [Quer evoluir funcionalidades em uma aplicação por meio de features?](#quer-evoluir-funcionalidades-em-uma-aplicação-por-meio-de-features)
