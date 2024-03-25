@@ -3,9 +3,7 @@ package com.github.sfidencio.api;
 import com.github.sfidencio.api.dto.LivroDTO;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
 
 public interface LivroController {
     /*
@@ -20,7 +18,12 @@ public interface LivroController {
      *
      * @throws JsonProcessingException
      */
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     LivroDTO criar(@Valid @RequestBody LivroDTO dto);
+
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    LivroDTO atualizar(@Valid @PathVariable Long id, @RequestBody LivroDTO dto);
 }

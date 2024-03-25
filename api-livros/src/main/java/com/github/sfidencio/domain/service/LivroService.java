@@ -1,4 +1,4 @@
-package com.github.sfidencio.domain.services;
+package com.github.sfidencio.domain.service;
 
 import com.github.sfidencio.domain.model.Livro;
 

@@ -8,7 +8,7 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class LivroDTO {
+public class    LivroDTO {
     private Long id;
     @NotEmpty(message = "Campo titulo é obrigatório")
     private String titulo;

@@ -3,7 +3,7 @@ package com.github.sfidencio.api;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.sfidencio.api.dto.LivroDTO;
 import com.github.sfidencio.domain.model.Livro;
-import com.github.sfidencio.domain.services.LivroService;
+import com.github.sfidencio.domain.service.LivroService;
 import com.github.sfidencio.infrastructure.exceptions.BusinessException;
 import lombok.extern.log4j.Log4j2;
 import org.hamcrest.Matchers;
@@ -39,7 +39,7 @@ public class LivroControllerTest {
     @Autowired
     private MockMvc mvc;
 
-    static final String API = "/v1/livros";
+    static final String API = "/api/v1/livros";
 
 
     @Test
@@ -74,6 +74,46 @@ public class LivroControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(json))
                 .andExpect(status().isCreated())
+                .andExpect(jsonPath("id").isNotEmpty())
+                .andExpect(jsonPath("titulo").value("Meu Livro"));
+
+        var jsonReturn = result.andReturn().getResponse().getContentAsString();
+        log.info("jsonReturn: {}", jsonReturn);
+
+    }
+
+    @Test
+    @DisplayName("Deve atualizar um livro com sucesso")
+    public void deveAtualizarLivroComSucesso() throws Exception {
+        var livro = Livro.builder()
+                .id(1L)
+                .titulo("Meu Livro")
+                .autor("Autor")
+                .isbn("123").build();
+
+        // Mockando o service ao salvar o livro
+        BDDMockito.given(this.livroService.salvar(Mockito.any(Livro.class))).willReturn(livro); // Aqui e um teste de
+        // controller, por isso
+        // utilizamos o
+        // BDDMockito.given
+        // Mockito.when(this.livroRepository.save(Mockito.any(Livro.class))).thenReturn(livro);
+        // -> mais utilizado no teste de service ou unitario
+
+        ObjectMapper mapper = new ObjectMapper();
+        // mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        var dto = LivroDTO.builder()
+                .id(1L)
+                .titulo("Meu Livro")
+                .autor("Autor")
+                .isbn("123")
+                .build();
+        String json = mapper.writeValueAsString(dto);
+
+        var result = this.mvc.perform(MockMvcRequestBuilders.put(API + "/1") // Use the correct method for performing the HTTP
+                        // POST request
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(json))
+                .andExpect(status().isOk())
                 .andExpect(jsonPath("id").isNotEmpty())
                 .andExpect(jsonPath("titulo").value("Meu Livro"));
 
