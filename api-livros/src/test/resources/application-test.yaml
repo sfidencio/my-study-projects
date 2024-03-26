@@ -20,7 +20,7 @@ spring:
     console:
       enabled: true
       path: /h2-console
-server:
-  port: 8080
-  servlet:
-    context-path: /api
+#server:
+#  port: 8080
+#  servlet:
+#    context-path: /api

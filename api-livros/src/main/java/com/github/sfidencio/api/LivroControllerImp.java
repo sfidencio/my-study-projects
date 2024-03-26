@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 //@RestController já inclui a anotação @Controller e @ResponseBody
 @RestController
-@RequestMapping("/v1/livros")
+@RequestMapping("/api/v1/livros")
 @Log4j2
 @RequiredArgsConstructor
 public class LivroControllerImp implements LivroController {
@@ -34,4 +34,18 @@ public class LivroControllerImp implements LivroController {
         var livroAtualizado = livroService.atualizar(livro);
         return this.modelMapper.map(livroAtualizado, LivroDTO.class);
     }
+
+    @Override
+    public LivroDTO buscarPorId(Long id) {
+        log.info("Buscando um livro por id {}", id);
+        var livro = livroService.buscarPorId(id);
+        return this.modelMapper.map(livro, LivroDTO.class);
+    }
+
+    @Override
+    public void excluir(Long id) {
+        log.info("Deletando um livro por id {}", id);
+        livroService.excluir(id);
+    }
+
 }

@@ -53,5 +53,55 @@ public class LivroRepositoryTest {
         assertThat(exists).isFalse();
     }
 
+    @Test
+    @DisplayName("Deve obter um livro por id")
+    public void deveObterLivroPorId() {
+        //Cenario
+        var livro = Livro.builder().titulo("Meu Livro").autor("Fulano").isbn("123").build();
+        this.entityManager.persist(livro);
+        //Execucao
+        var livroEncontrado = this.repository.findById(livro.getId());
+        //Verificacao
+        assertThat(livroEncontrado.isPresent()).isTrue();
+    }
 
+    @Test
+    @DisplayName("Deve salvar um livro")
+    public void deveSalvarLivro() {
+        //Cenario
+        var livro = Livro.builder().titulo("Meu Livro").autor("Fulano").isbn("123").build();
+        //Execucao
+        var livroSalvo = this.repository.save(livro);
+        //Verificacao
+        assertThat(livroSalvo.getId()).isNotNull();
+    }
+
+    @Test
+    @DisplayName("Deve deletar um livro")
+    public void deveDeletarLivro() {
+        //Cenario
+        var livro = Livro.builder().titulo("Meu Livro").autor("Fulano").isbn("123").build();
+        this.entityManager.persist(livro);
+        var livroEncontrado = this.entityManager.find(Livro.class, livro.getId());
+        //Execucao
+        this.repository.delete(livroEncontrado);
+        var livroDeletado = this.entityManager.find(Livro.class, livro.getId());
+        //Verificacao
+        assertThat(livroDeletado).isNull();
+    }
+
+    @Test
+    @DisplayName("Deve atualizar um livro")
+    public void deveAtualizarLivro() {
+        //Cenario
+        var livro = Livro.builder().titulo("Meu Livro").autor("Fulano").isbn("123").build();
+        this.entityManager.persist(livro);
+        var livroEncontrado = this.entityManager.find(Livro.class, livro.getId());
+        livroEncontrado.setTitulo("Meu Livro Atualizado");
+        //Execucao
+        this.repository.save(livroEncontrado);
+        var livroAtualizado = this.entityManager.find(Livro.class, livro.getId());
+        //Verificacao
+        assertThat(livroAtualizado.getTitulo()).isEqualTo("Meu Livro Atualizado");
+    }
 }

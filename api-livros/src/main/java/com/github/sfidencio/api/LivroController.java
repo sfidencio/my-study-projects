@@ -26,4 +26,12 @@ public interface LivroController {
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     LivroDTO atualizar(@Valid @PathVariable Long id, @RequestBody LivroDTO dto);
+
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    LivroDTO buscarPorId(@PathVariable Long id);
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    void excluir(@PathVariable Long id);
 }
