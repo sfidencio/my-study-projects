@@ -474,55 +474,71 @@ Em resumo, o método POST no protocolo HTTP não é idempotente porque cada requ
 https://www.horadecodar.com.br/2021/07/23/como-desfazer-um-git-merge-no-repositorio-local/ 
 
 ### Como remover arquivos da área de stage 
+```bash
 git status 
 git reset 
+```
 
 ### script .bashrc para log in mais rápido nas rotinas git:  
+```bash
 var1=" https://USUARIO:SENHA@github/PROJETO.git" 
+```
 
 ### Update pode ser qualquer nome, função do git fetch e git pull 
+```bash
 alias update='git fetch $var1 && git pull $var1' 
+```
 
 push pode ser qualquer nome, função do git push 
+```bash
 alias push='git push $var1' 
+```
 
 like 1 
  
 ### Como desfazer modificações não salvas 
 
+```bash
 git status 
 git reset 
 git clean -df 
 git checkout -- . 
+```
 
 ### Como desfazer o último commit  - desfazer último commit sem desfazer as modificações nos arquivos: 
 
+```bash
 git status 
 git reset --soft HEAD~1 
+```
 
 ### Como deletar commits e também 
 
 ### Modificações nos arquivos 
 ### Voltar o projeto ao estado de um dado commit (deletar commits e alterações posteriores a esse commit) 
 
+```bash
 git status 
 git reset --hard <código do commit> 
-
+```
 
 ### ATENÇÃO: ação destrutiva! 
 
 
 ### Como atualizar o repositório local em relação ao remoto 
 
+```bash
 git status 
 git pull <nome do remote> <nome do branch> 
-
+```
 
 ### Como resolver push rejeitado 
 ### Não é permitido enviar um push se seu repositório local está atrasado em 
 ### Relação ao histórico do repositório remoto! Por exemplo: 
 
+```bash
 git pull <nome do remote> <nome do branch> 
+```
 
 ### Você tem que atualizar o repositório local: 
 
@@ -535,35 +551,46 @@ git pull <nome do remote> <nome do branch>
  
 
 ### Como sobrescrever um histórico no Github 
+```bash
 git push -f <nome do remote> <nome do branch> 
+```
 
 ### ATENÇÃO: ação destrutiva! 
    - Como apontar o projeto para outro 
    - repositório remoto 
 
+```bash
 git remote set-url origin git@github.com:seuusuario/seurepositorio.git 
+```
 
 ### Stash - Backup de Workspace  
+```bash
 git stash push -m "my_stash" 
 git stash list 
 git stash pop stash@{n} 
 git stash apply stash@{n} -> aplicar stash e manter salvo 
 git stash apply my_stash 
 git restore . 
+```
 
    - https://ohshitgit.com/ 
 
 ### Como alterar mensagens antigas de commit 
+```bash
 git rebase -i HEAD~n 
+```
 
 ### Onde n e o numero de commits q deseja voltar 
  
 ### Para altera o commit inicial e todos os outros 
+```bash
 git rebase -i --root  
+```
 
 ### Continuar edição dos commits 
+```bash
 git rebase --edit-todo 
- 
+ ```
 
 ### Vai aparecer "pick"...e so alterar para "reword"..o texto do commit que deseja alterar,..fazendo isso salve, (ESC^wq!).. Logo, vai ser aberto o arquivo do commit especifico que colocaste "reword"..entao proceda com a alteracao. 
  
@@ -573,22 +600,30 @@ git rebase --edit-todo
 git commit --amend  
 
 ### Voltar commit preservando as modificações atuais. 
+```bash
 git log –oneline  
+```
 
 ### Pega o hash md5 do commit desejado 
 
+```bash
 git reset –mixed HASH_COMMIT  
-git add . && git commit –m "NUMERO_CAD: ...." --amend –no-edit 0362804 
+git add . && git commit –m "NUMERO_CAD: ...." --amend –no-edit 0362804
+```
 
 ### Apagando e persistindo credenciais de acessos git 
+```bash
 git config --global --unset credential.helper 
-git config --global credential.helper store 
+git config --global credential.helper store
+```
 
 # Vinculando repository GIT e empurrando codigo
 
+```bash
 git init
 git remote add origin <URL_do_repositorio_remoto>
 git add .
 git commit -m "Mensagem do commit"
 git push -u origin main
+```
 
