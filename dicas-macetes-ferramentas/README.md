@@ -1,10 +1,10 @@
 # dicas-macetes-ferramentas
 
 > [!IMPORTANT]
->Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
+> Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
 - Pesquisar solução de código em vários repositórios do git, a partir de um único ponto?
-   -https://sourcegraph.com/search (indexed)
+   - https://sourcegraph.com/search (indexed)
 
 - Dicas MacOS:
    - Instalar SDKMan for MacOS - Gerenciar instalações JAVA
