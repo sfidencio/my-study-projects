@@ -21,7 +21,12 @@
    - Configuração do ohMyzsh + PowerLevel(p10k)
       - [https://github.com/sfidencio/my-study-projects/tree/master/explorando-configuracao-ambiente-windows-wsl2-ubuntu-shell-zshrc (procure](https://v-char.medium.com/now-let-customize-your-native-macos-terminal-with-oh-my-zsh-and-powerlevel10k-b48b9c30d39f)
    - Configurando iTerm (Enable Transparency)
-      - https://iterm2.com/ 
+      - https://iterm2.com/
+   - Atalhos
+      - `Option + E` Acento agudo
+      - `Shift + 6` Acento circunflexo
+      - `Option + N` Til
+      - `Option + C` Cedilha 
 
 - [Instalação e Configuração do IntelliJ embarcado no WSL2](#instalação-e-configuração-do-intellij-embarcado-no-wsl2)
 - [Quer evoluir funcionalidades em uma aplicação por meio de features?](#quer-evoluir-funcionalidades-em-uma-aplicação-por-meio-de-features)
