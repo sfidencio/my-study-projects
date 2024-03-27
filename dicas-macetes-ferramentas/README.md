@@ -583,3 +583,12 @@ git add . && git commit –m "NUMERO_CAD: ...." --amend –no-edit 0362804
 ### Apagando e persistindo credenciais de acessos git 
 git config --global --unset credential.helper 
 git config --global credential.helper store 
+
+# Vinculando repository GIT e empurrando codigo
+
+git init
+git remote add origin <URL_do_repositorio_remoto>
+git add .
+git commit -m "Mensagem do commit"
+git push -u origin main
+
