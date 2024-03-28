@@ -5,7 +5,10 @@
 
 - Pesquisar solução de código em vários repositórios do git, a partir de um único ponto?
    - https://sourcegraph.com/search (indexed)
-
+     
+- Configurar Swagger SpringBoot usando SpringDoc (SpringFox Descontinuado)
+   - https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api
+     
 - Dicas MacOS:
    - Instalar SDKMan for MacOS - Gerenciar instalações JAVA
    -  https://sdkman.io/install
