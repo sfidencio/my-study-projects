@@ -7,7 +7,7 @@
    - https://sourcegraph.com/search (indexed)
      
 - Configurar Swagger SpringBoot usando SpringDoc (SpringFox Descontinuado)
-   - https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api
+   - https://www.bezkoder.com/spring-boot-swagger-3/
      
 - Dicas MacOS:
    - Instalar SDKMan for MacOS - Gerenciar instalações JAVA
