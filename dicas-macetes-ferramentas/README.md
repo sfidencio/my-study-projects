@@ -645,5 +645,5 @@ git push -u origin main
 
 ![image](https://github.com/sfidencio/my-study-projects/assets/660615/8de31309-ad8c-4202-a9b4-4c73dbe27ab3)
 
-> Observe que o `findByTituloContainingIgnoreCase`, pode incluir mais campos concatenando com `And`, temos essa flexibilidade usando QueryMethod.
+> Observe que o `findByTituloContainingIgnoreCase`, pode incluir mais campos concatenando com `And` ou `Or`, temos essa flexibilidade usando QueryMethod.
 
