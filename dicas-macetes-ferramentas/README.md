@@ -1,11 +1,14 @@
 # dicas-macetes-ferramentas
 
 > [!IMPORTANT]
->Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
+> Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
 - Pesquisar solução de código em vários repositórios do git, a partir de um único ponto?
-   -https://sourcegraph.com/search (indexed)
-
+   - https://sourcegraph.com/search (indexed)
+     
+- Configurar Swagger SpringBoot usando SpringDoc (SpringFox Descontinuado)
+   - https://www.bezkoder.com/spring-boot-swagger-3/
+     
 - Dicas MacOS:
    - Instalar SDKMan for MacOS - Gerenciar instalações JAVA
    -  https://sdkman.io/install
@@ -21,7 +24,12 @@
    - Configuração do ohMyzsh + PowerLevel(p10k)
       - [https://github.com/sfidencio/my-study-projects/tree/master/explorando-configuracao-ambiente-windows-wsl2-ubuntu-shell-zshrc (procure](https://v-char.medium.com/now-let-customize-your-native-macos-terminal-with-oh-my-zsh-and-powerlevel10k-b48b9c30d39f)
    - Configurando iTerm (Enable Transparency)
-      - https://iterm2.com/ 
+      - https://iterm2.com/
+   - Atalhos
+      - `Option + E` Acento agudo
+      - `Shift + 6` Acento circunflexo
+      - `Option + N` Til
+      - `Option + C` Cedilha 
 
 - [Instalação e Configuração do IntelliJ embarcado no WSL2](#instalação-e-configuração-do-intellij-embarcado-no-wsl2)
 - [Quer evoluir funcionalidades em uma aplicação por meio de features?](#quer-evoluir-funcionalidades-em-uma-aplicação-por-meio-de-features)
@@ -48,6 +56,7 @@
 - Gerenciamento usuário com KeyCloak
     - https://www.youtube.com/watch?v=wgdo5I53GQo
 - [Dicas GIT](#dicas-git)
+- [Paginacao Spring Data](#paginacao-spring-data)
       
        
 
@@ -474,55 +483,71 @@ Em resumo, o método POST no protocolo HTTP não é idempotente porque cada requ
 https://www.horadecodar.com.br/2021/07/23/como-desfazer-um-git-merge-no-repositorio-local/ 
 
 ### Como remover arquivos da área de stage 
+```bash
 git status 
 git reset 
+```
 
 ### script .bashrc para log in mais rápido nas rotinas git:  
+```bash
 var1=" https://USUARIO:SENHA@github/PROJETO.git" 
+```
 
 ### Update pode ser qualquer nome, função do git fetch e git pull 
+```bash
 alias update='git fetch $var1 && git pull $var1' 
+```
 
 push pode ser qualquer nome, função do git push 
+```bash
 alias push='git push $var1' 
+```
 
 like 1 
  
 ### Como desfazer modificações não salvas 
 
+```bash
 git status 
 git reset 
 git clean -df 
 git checkout -- . 
+```
 
 ### Como desfazer o último commit  - desfazer último commit sem desfazer as modificações nos arquivos: 
 
+```bash
 git status 
 git reset --soft HEAD~1 
+```
 
 ### Como deletar commits e também 
 
 ### Modificações nos arquivos 
 ### Voltar o projeto ao estado de um dado commit (deletar commits e alterações posteriores a esse commit) 
 
+```bash
 git status 
 git reset --hard <código do commit> 
-
+```
 
 ### ATENÇÃO: ação destrutiva! 
 
 
 ### Como atualizar o repositório local em relação ao remoto 
 
+```bash
 git status 
 git pull <nome do remote> <nome do branch> 
-
+```
 
 ### Como resolver push rejeitado 
 ### Não é permitido enviar um push se seu repositório local está atrasado em 
 ### Relação ao histórico do repositório remoto! Por exemplo: 
 
+```bash
 git pull <nome do remote> <nome do branch> 
+```
 
 ### Você tem que atualizar o repositório local: 
 
@@ -535,35 +560,46 @@ git pull <nome do remote> <nome do branch>
  
 
 ### Como sobrescrever um histórico no Github 
+```bash
 git push -f <nome do remote> <nome do branch> 
+```
 
 ### ATENÇÃO: ação destrutiva! 
    - Como apontar o projeto para outro 
    - repositório remoto 
 
+```bash
 git remote set-url origin git@github.com:seuusuario/seurepositorio.git 
+```
 
 ### Stash - Backup de Workspace  
+```bash
 git stash push -m "my_stash" 
 git stash list 
 git stash pop stash@{n} 
 git stash apply stash@{n} -> aplicar stash e manter salvo 
 git stash apply my_stash 
 git restore . 
+```
 
    - https://ohshitgit.com/ 
 
 ### Como alterar mensagens antigas de commit 
+```bash
 git rebase -i HEAD~n 
+```
 
 ### Onde n e o numero de commits q deseja voltar 
  
 ### Para altera o commit inicial e todos os outros 
+```bash
 git rebase -i --root  
+```
 
 ### Continuar edição dos commits 
+```bash
 git rebase --edit-todo 
- 
+ ```
 
 ### Vai aparecer "pick"...e so alterar para "reword"..o texto do commit que deseja alterar,..fazendo isso salve, (ESC^wq!).. Logo, vai ser aberto o arquivo do commit especifico que colocaste "reword"..entao proceda com a alteracao. 
  
@@ -573,13 +609,41 @@ git rebase --edit-todo
 git commit --amend  
 
 ### Voltar commit preservando as modificações atuais. 
+```bash
 git log –oneline  
+```
 
 ### Pega o hash md5 do commit desejado 
 
+```bash
 git reset –mixed HASH_COMMIT  
-git add . && git commit –m "NUMERO_CAD: ...." --amend –no-edit 0362804 
+git add . && git commit –m "NUMERO_CAD: ...." --amend –no-edit 0362804
+```
 
 ### Apagando e persistindo credenciais de acessos git 
+```bash
 git config --global --unset credential.helper 
-git config --global credential.helper store 
+git config --global credential.helper store
+```
+
+# Vinculando repository GIT e empurrando codigo
+
+```bash
+git init
+git remote add origin <URL_do_repositorio_remoto>
+git add .
+git commit -m "Mensagem do commit"
+git push -u origin main
+```
+
+# Paginacao Spring Data
+![image](https://github.com/sfidencio/my-study-projects/assets/660615/23d09292-31ff-44ef-a0d6-2cd0f34301aa)
+
+![image](https://github.com/sfidencio/my-study-projects/assets/660615/1e726608-241d-4e68-b6c2-a8cb4ddb2310)
+
+![image](https://github.com/sfidencio/my-study-projects/assets/660615/28ed5092-986b-4f9c-9b59-c330448549c1)
+
+![image](https://github.com/sfidencio/my-study-projects/assets/660615/8de31309-ad8c-4202-a9b4-4c73dbe27ab3)
+
+> Observe que o `findByTituloContainingIgnoreCase`, pode incluir mais campos concatenando com `And` ou `Or`, temos essa flexibilidade usando QueryMethod.
+
