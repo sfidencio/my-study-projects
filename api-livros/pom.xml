@@ -80,6 +80,21 @@
             <artifactId>modelmapper</artifactId>
             <version>2.4.4</version>
         </dependency>
+
+        <!--rest-assured-->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!--swagger-->
+        <!--https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api-->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.0.3</version>
+        </dependency>
+
     </dependencies>
 
     <build>

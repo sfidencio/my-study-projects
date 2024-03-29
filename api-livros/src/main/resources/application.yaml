@@ -24,4 +24,23 @@ spring:
 #  port: 8080
 #  servlet:
 #    context-path: /api
+api-livro:
+  openapi:
+    prod-url:
+      http://localhost:8080/
+    dev-url:
+      http://localhost:8080/
 
+#springdoc.api-docs.enabled=false
+#springdoc.swagger-ui.enabled=false
+
+#springdoc.swagger-ui.path=/bezkoder-documentation
+#springdoc.api-docs.path=/bezkoder-api-docs
+
+springdoc:
+  api-docs:
+    enabled: on
+    path: /api-docs
+  swagger-ui:
+    enabled: on
+    path: /swagger-ui
