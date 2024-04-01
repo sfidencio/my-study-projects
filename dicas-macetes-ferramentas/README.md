@@ -57,7 +57,7 @@
     - https://www.youtube.com/watch?v=wgdo5I53GQo
 - [Dicas GIT](#dicas-git)
 - [Paginacao Spring Data](#paginacao-spring-data)
-- [Junit 5 - Respeitar ordem de execução dos testes unitários](#junit-5-respeitar-ordem-de-execução-dos-testes-unitários)
+- [Respeitar ordem de execução dos testes unitários no Junit5](#respeitar-ordem-de-execução-dos-testes-unitários-no-junit5)
       
        
 
@@ -649,7 +649,7 @@ git push -u origin main
 > Observe que o `findByTituloContainingIgnoreCase`, pode incluir mais campos concatenando com `And` ou `Or`, temos essa flexibilidade usando QueryMethod.
 
 
-# Junit 5 - Respeitar ordem de execução dos testes unitários
+# Respeitar ordem de execução dos testes unitários no Junit5
 
 ```java
 
