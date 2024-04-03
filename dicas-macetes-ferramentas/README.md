@@ -3,6 +3,9 @@
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Implementando circuit break em ms springboot
+   - https://medium.com/@truongbui95/circuit-breaker-pattern-in-spring-boot-d2d258b75042 
+
 - Pesquisar solução de código em vários repositórios do git, a partir de um único ponto?
    - https://sourcegraph.com/search (indexed)
      
