@@ -69,9 +69,11 @@
           // Beans and configurations
       }
   ```
-  - Implementando LogInterceptor
+
+  
+- Implementando LogInterceptor
     ```java
-    import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -93,26 +95,8 @@ public class LogInterceptor implements HandlerInterceptor {
         logger.info("Response Status: " + response.getStatus());
     }
 }
-
-
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
 ```
 
-
-```java
-@Configuration
-public class WebConfig implements WebMvcConfigurer {
-
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new LogInterceptor());
-    }
-}
-
-```
        
 
 
