@@ -61,6 +61,53 @@
 - [Dicas GIT](#dicas-git)
 - [Paginacao Spring Data](#paginacao-spring-data)
 - [Respeitar ordem de execução dos testes unitários no Junit5](#respeitar-ordem-de-execução-dos-testes-unitários-no-junit5)
+- Implementando validação no jacoco (SpringBoot)
+   ```xml
+      <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <version>0.8.7</version>
+                        <executions>
+                            <execution>
+                                <id>default-prepare-agent</id>
+                                <goals>
+                                    <goal>prepare-agent</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>default-report</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>report</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>default-check</id>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                                <configuration>
+                                    <rules>
+                                        <rule>
+                                            <element>BUNDLE</element>
+                                            <limits>
+                                                <limit>
+                                                    <counter>COMPLEXITY</counter>
+                                                    <value>COVEREDRATIO</value>
+                                                    <minimum>0.60</minimum>
+                                                </limit>
+                                            </limits>
+                                        </rule>
+                                    </rules>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+   ```
+- Com a configuração acima, é possível validar a cobertura mínima de código:   
+   - Ao executar um `mvn verify`, no cenário acima, teremos uma exigência mínima de 60% de cobertura de código:
+      - `Rule violated for bundle api-livros: complexity covered ratio is 0.55, but expected minimum is 0.60`
+   
 - Load @Configuration based in config property in `YAML`
   ```java
       @Configuration
