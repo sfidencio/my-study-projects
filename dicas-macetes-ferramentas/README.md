@@ -61,6 +61,14 @@
 - [Dicas GIT](#dicas-git)
 - [Paginacao Spring Data](#paginacao-spring-data)
 - [Respeitar ordem de execução dos testes unitários no Junit5](#respeitar-ordem-de-execução-dos-testes-unitários-no-junit5)
+- Load @Configuration based in config property in `YAML`
+  ```java
+      @Configuration
+      @ConditionalOnProperty(name = "myapp.feature.enabled", havingValue = "true")
+      public class MyConfiguration {
+          // Beans and configurations
+      }
+  ```
       
        
 
