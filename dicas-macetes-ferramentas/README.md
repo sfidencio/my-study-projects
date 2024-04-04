@@ -3,6 +3,9 @@
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Implementando circuit break em ms springboot
+   - https://medium.com/@truongbui95/circuit-breaker-pattern-in-spring-boot-d2d258b75042 
+
 - Pesquisar solução de código em vários repositórios do git, a partir de um único ponto?
    - https://sourcegraph.com/search (indexed)
      
@@ -58,7 +61,97 @@
 - [Dicas GIT](#dicas-git)
 - [Paginacao Spring Data](#paginacao-spring-data)
 - [Respeitar ordem de execução dos testes unitários no Junit5](#respeitar-ordem-de-execução-dos-testes-unitários-no-junit5)
-      
+- Implementando validação no jacoco (SpringBoot)
+   ```xml
+      <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <version>0.8.7</version>
+                        <executions>
+                            <execution>
+                                <id>default-prepare-agent</id>
+                                <goals>
+                                    <goal>prepare-agent</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>default-report</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>report</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>default-check</id>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                                <configuration>
+                                    <rules>
+                                        <rule>
+                                            <element>BUNDLE</element>
+                                            <limits>
+                                                <limit>
+                                                    <counter>COMPLEXITY</counter>
+                                                    <value>COVEREDRATIO</value>
+                                                    <minimum>0.60</minimum>
+                                                </limit>
+                                            </limits>
+                                        </rule>
+                                    </rules>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+   ```
+- Com a configuração acima, é possível validar a cobertura mínima de código:   
+   - Ao executar um `mvn verify`, no cenário acima, teremos uma exigência mínima de 60% de cobertura de código:
+      - `Rule violated for bundle api-livros: complexity covered ratio is 0.55, but expected minimum is 0.60`
+   
+- Load @Configuration based in config property in `YAML`
+  ```java
+      @Configuration
+      @ConditionalOnProperty(name = "myapp.feature.enabled", havingValue = "true")
+      public class MyConfiguration {
+          // Beans and configurations
+      }
+  ```
+
+  
+- Implementando LogInterceptor
+
+```java
+public class LogInterceptor implements HandlerInterceptor {
+
+    private static final Logger logger = LoggerFactory.getLogger(LogInterceptor.class);
+
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        logger.info("Request URL: " + request.getRequestURL());
+        return true;
+    }
+
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        logger.info("Response Status: " + response.getStatus());
+    }
+}
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+@Configuration
+public class WebMvcConfig implements WebMvcConfigurer {
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new LogInterceptor());
+    }
+}
+
+```
+
        
 
 

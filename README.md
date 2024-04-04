@@ -25,3 +25,7 @@
 > [!TIP]
 > TODO:
 >  - [ ] Implementar projeto de teste com spring-data-rest
+>  - [ ] Implementar projeto de teste com spring-ai-chatgpt (nova feature do spring ecossistema)
+>  - [ ] Implementar projeto de teste spring cloud
+>  - [ ] Implementar projeto de teste GoLang
+>  - [ ] Implementar projeto que recebe os parametros QueryParam e um Map
