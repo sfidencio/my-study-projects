@@ -9,6 +9,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
@@ -17,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 @ExtendWith(SpringExtension.class)
 @ActiveProfiles("test")
-public class LivroServiceTest {
+class LivroServiceTest {
 
     @MockBean
     private LivroRepository repository;
@@ -198,5 +201,34 @@ public class LivroServiceTest {
         //Verificacao/Teste
         assertThat(livroEncontrado.getId()).isNotNull();
         assertThat(livroEncontrado.getTitulo()).isEqualTo("Meu Livro");
+    }
+
+    @Test
+    @DisplayName("Deve buscar todos livros por titulo com sucesso")
+    void deveBuscarTodosLivrosPorTituloComSucesso() {
+        //Cenario
+        Page<Livro> page = new PageImpl<>(java.util.List.of(Livro.builder()
+                .id(1L)
+                .titulo("Meu Livro")
+                .autor("Autor")
+                .isbn("123")
+                .build(), Livro.builder()
+                .id(2L)
+                .titulo("Meu Livro")
+                .autor("Autor")
+                .isbn("123")
+                .build()));
+
+        Mockito.when(this.repository.existsByIsbn(Mockito.any(String.class)))
+                .thenReturn(Boolean.FALSE);
+        Mockito.when(this.repository.findByTituloContainingIgnoreCase(Mockito.any(String.class), Mockito.any()))
+                .thenReturn(page);
+
+        //Execucao
+        Pageable pageable = Pageable.ofSize(5).withPage(0);
+        var livros = this.service.buscarTodos("Meu Livro", pageable);
+
+        //Verificacao/Teste
+        assertThat(livros).hasSizeGreaterThanOrEqualTo(2);
     }
 }

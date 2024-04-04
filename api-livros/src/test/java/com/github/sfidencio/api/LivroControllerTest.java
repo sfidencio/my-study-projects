@@ -16,6 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -28,7 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 //@ActiveProfiles("test")
 //@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Log4j2
-public class LivroControllerTest {
+class LivroControllerTest {
 
     //@LocalServerPort
     //private String port;
@@ -53,7 +55,7 @@ public class LivroControllerTest {
 
     @Test
     @DisplayName("Deve criar um livro com sucesso")
-    public void deveCriarLivroComSucesso() throws Exception {
+    void deveCriarLivroComSucesso() throws Exception {
         var livro = Livro.builder()
                 .id(1L)
                 .titulo("Meu Livro")
@@ -93,7 +95,7 @@ public class LivroControllerTest {
 
     @Test
     @DisplayName("Deve atualizar um livro com sucesso")
-    public void deveAtualizarLivroComSucesso() throws Exception {
+    void deveAtualizarLivroComSucesso() throws Exception {
         var livro = Livro.builder()
                 .id(1L)
                 .titulo("Meu Livro")
@@ -128,7 +130,7 @@ public class LivroControllerTest {
 
     @Test
     @DisplayName("Deve buscar um livro por id com sucess")
-    public void deveBuscarLivroPorIdComSucesso() throws Exception {
+    void deveBuscarLivroPorIdComSucesso() throws Exception {
         var livro = Livro.builder()
                 .id(1L)
                 .titulo("Meu Livro")
@@ -152,13 +154,7 @@ public class LivroControllerTest {
 
     @Test
     @DisplayName("Deve excluir um livro com sucesso")
-    public void deveExcluirLivroComSucesso() throws Exception {
-        var livro = Livro.builder()
-                .id(1L)
-                .titulo("Meu Livro")
-                .autor("Autor")
-                .isbn("123").build();
-
+    void deveExcluirLivroComSucesso() throws Exception {
         // Mockando o service ao salvar o livro
         BDDMockito.doNothing().when(this.livroService).excluir(Mockito.any(Long.class));
 
@@ -170,13 +166,7 @@ public class LivroControllerTest {
 
     @Test
     @DisplayName("Deve retornar erro ao tentar excluir um livro inexistente")
-    public void deveriaRetornarErroAoTentarExcluirLivroInexistente() throws Exception {
-        var livro = Livro.builder()
-                .id(1L)
-                .titulo("Meu Livro")
-                .autor("Autor")
-                .isbn("123").build();
-
+    void deveriaRetornarErroAoTentarExcluirLivroInexistente() throws Exception {
         // Mockando o service ao salvar o livro
         String mensagemErro = "Livro não encontrado.";
         BDDMockito.doThrow(new BusinessException(mensagemErro)).when(this.livroService).excluir(Mockito.any(Long.class));
@@ -194,13 +184,7 @@ public class LivroControllerTest {
 
     @Test
     @DisplayName("Deve retornar erro ao tentar atualizar um livro inexistente")
-    public void deveriaRetornarErroAoTentarAtualizarLivroInexistente() throws Exception {
-        var livro = Livro.builder()
-                .id(1L)
-                .titulo("Meu Livro")
-                .autor("Autor")
-                .isbn("123").build();
-
+    void deveriaRetornarErroAoTentarAtualizarLivroInexistente() throws Exception {
         // Mockando o service ao salvar o livro
         String mensagemErro = "Livro não encontrado.";
         BDDMockito.given(this.livroService.atualizar(Mockito.any(Livro.class)))
@@ -228,7 +212,7 @@ public class LivroControllerTest {
 
     @Test
     @DisplayName("Deve retornar erro do campo isbn nao preenchido")
-    public void deveriaRetornarErrosCasoCamposObrigatoriosNaoPreenchidos() throws Exception {
+    void deveriaRetornarErrosCasoCamposObrigatoriosNaoPreenchidos() throws Exception {
         /*var livro = Livro.builder()
                 .autor("Fulano")
                 .titulo("Meu livro")
@@ -256,7 +240,7 @@ public class LivroControllerTest {
 
     @Test
     @DisplayName("Deve retornar erro ao tentar criar um livro com isbn duplicado")
-    public void deveriaRetornarErroAoTentarCriarLivroComIsbnDuplicado() throws Exception {
+    void deveriaRetornarErroAoTentarCriarLivroComIsbnDuplicado() throws Exception {
         var livro = Livro.builder()
                 .id(1L)
                 .titulo("Meu Livro")
@@ -286,6 +270,53 @@ public class LivroControllerTest {
 
         var jsonReturn = result.andReturn().getResponse().getContentAsString();
         log.info("jsonReturn: {}", jsonReturn);
+    }
+
+    @Test
+    @DisplayName("Deve buscar todos os livros com sucesso retorna uma lista com 4 livros")
+   void deveBuscarTodosLivrosComSucessoComLista4Livros() throws Exception {
+
+        Page<Livro> page = new PageImpl<>(java.util.List.of(
+                new Livro(1L, "Meu Livro", "Autor", "123"),
+                new Livro(2L, "Meu Livro 2", "Autor 2", "1234"),
+                new Livro(3L, "Meu Livro 3", "Autor 3", "12345"),
+                new Livro(4L, "Meu Livro 4", "Autor 4", "123456")
+        ));
+
+
+        // Mockando o service ao salvar o livro
+        BDDMockito.given(this.livroService.buscarTodos(Mockito.any(String.class), Mockito.any()))
+                .willReturn(page);
+
+        var result = this.mvc.perform(MockMvcRequestBuilders.get(API)
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("content", Matchers.hasSize(4))
+                );
+
+        var jsonReturn = result.andReturn().getResponse().getContentAsString();
+        log.info("jsonReturn: {}", jsonReturn);
+
+    }
+
+    @Test
+    @DisplayName("Deve buscar todos os livros com sucesso retornando uma lista zerada")
+    void deveBuscarTodosLivrosComSucessoComListaVazia() throws Exception {
+
+        Page<Livro> page = new PageImpl<>(java.util.List.of());
+
+        // Mockando o service ao salvar o livro
+        BDDMockito.given(this.livroService.buscarTodos(Mockito.any(String.class), Mockito.any()))
+                .willReturn(page);
+
+        var result = this.mvc.perform(MockMvcRequestBuilders.get(API)
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("content", Matchers.hasSize(0)));
+
+        var jsonReturn = result.andReturn().getResponse().getContentAsString();
+        log.info("jsonReturn: {}", jsonReturn);
+
     }
 
 }

@@ -9,3 +9,4 @@
 - Clean Code
 - Integração contínua com travis-ci
 - Documentação com swagger
+- Validação de dados com Bean Validation respeitando a ordem de validação dos campos, com anotacoes customizadas.
