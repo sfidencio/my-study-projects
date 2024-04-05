@@ -28,6 +28,8 @@ dependencies {
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    implementation ("dev.openfeature:sdk:1.7.6")
+    implementation ("dev.openfeature.contrib.providers:flagd:0.7.0")
 }
 
 tasks.withType<Test> {
