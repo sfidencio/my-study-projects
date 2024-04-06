@@ -1,7 +1,31 @@
-# dicas-macetes-ferramentas
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class JacksonConfiguration {
+
+    @Bean
+    public ObjectMapper objectMapper() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(SerializationFeature.WRITE_NULL_MAP_VALUES, false);
+        return objectMapper;
+    }
+} 
+```
+
+dicas-macetes-ferramentas
 
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
+
+- Em caso de falhas na serialização de um objeto java no spring, deve criar uma classe de configuração com um método @Bean que retorne uma instância personalizada do ObjectMapper onde desabilita a configuração.
+
+```java 
+
+
+
 
 - Implementando circuit break em ms springboot
    - https://medium.com/@truongbui95/circuit-breaker-pattern-in-spring-boot-d2d258b75042 
