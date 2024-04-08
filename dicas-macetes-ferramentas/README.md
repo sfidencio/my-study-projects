@@ -4,7 +4,7 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
-- [Pilares XP](#pilares-xp]
+- [Pilares XP](#pilares-xp)
 
 - Em caso de falhas na serialização de um objeto java no spring, deve criar uma classe de configuração com um método @Bean que retorne uma instância personalizada do ObjectMapper onde desabilita a configuração:
 
