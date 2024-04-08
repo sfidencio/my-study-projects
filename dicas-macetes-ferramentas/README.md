@@ -5,7 +5,8 @@ dicas-macetes-ferramentas
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
 - Arquitetura Hexagonal
-    - https://reflectoring.io/spring-hexagonal/ 
+    - https://reflectoring.io/spring-hexagonal/
+    - https://www.baeldung.com/hexagonal-architecture-ddd-spring
 
 - Aventurando no GraalVM
     - https://medium.com/codex/optimising-performance-with-graalvm-a-guide-to-migrating-a-spring-boot-project-to-native-image-fbb2dcf5d405 
