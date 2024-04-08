@@ -45,10 +45,10 @@ public class CustomerController {
         return map;
     }
 
-    @GetMapping("/name/{name}")
+    /*@GetMapping("/name/{name}")
     public Object getCustomer2(@PathVariable("name") String name) {
         if (this.databaseFake.existsByName(name))
             return ResponseEntity.ok().build();
         return ResponseEntity.notFound().build();
-    }
+    }*/
 }
