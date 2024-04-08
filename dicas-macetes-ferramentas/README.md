@@ -4,6 +4,9 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Aventurando no GraalVM
+    - https://medium.com/codex/optimising-performance-with-graalvm-a-guide-to-migrating-a-spring-boot-project-to-native-image-fbb2dcf5d405 
+
 - [Pilares XP](#pilares-xp)
 
 - Em caso de falhas na serialização de um objeto java no spring, deve criar uma classe de configuração com um método @Bean que retorne uma instância personalizada do ObjectMapper onde desabilita ou habilita certas  configurações, exemplo:
