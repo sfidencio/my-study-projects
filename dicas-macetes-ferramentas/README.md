@@ -4,6 +4,8 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- [Pilares XP](#pilares-xp]
+
 - Em caso de falhas na serialização de um objeto java no spring, deve criar uma classe de configuração com um método @Bean que retorne uma instância personalizada do ObjectMapper onde desabilita a configuração:
 
 ```java 
@@ -776,3 +778,45 @@ class ClassXPTOTest {
 }
 
 ```
+
+
+# Pilares XP
+
+😀
+
+
+A metodologia XP (Extreme Programming) é uma abordagem ágil de desenvolvimento de software que enfatiza a colaboração, a comunicação, a simplicidade e a adaptação a mudanças. Aqui estão algumas práticas e princípios do XP que você pode aplicar ao programar em Java:
+
+### 1. **Programação em Pares (Pair Programming):**
+   - Trabalhe em equipe com outro programador para escrever código em conjunto.
+   - Compartilhe conhecimento, revise o código um do outro e resolva problemas em conjunto.
+
+### 2. **Test-Driven Development (TDD):**
+   - Escreva testes automatizados antes de implementar o código.
+   - Refatore e melhore o código continuamente para passar nos testes.
+
+### 3. **Integração Contínua (Continuous Integration):**
+   - Integre o código frequentemente para detectar problemas rapidamente.
+   - Utilize ferramentas de integração contínua, como Jenkins ou Travis CI.
+
+### 4. **Design Simples (Simple Design):**
+   - Mantenha o código simples e fácil de entender.
+   - Refatore o código regularmente para eliminar duplicação e manter a coesão.
+
+### 5. **Refatoração (Refactoring):**
+   - Melhore a estrutura do código sem alterar seu comportamento.
+   - Identifique e corrija código duplicado, complexo ou mal organizado.
+
+### 6. **Propriedade Coletiva do Código (Collective Code Ownership):**
+   - Todos os membros da equipe são responsáveis pelo código e podem modificá-lo.
+   - Encoraje a colaboração e revisão de código entre os membros da equipe.
+
+### 7. **Iterações Curtas (Short Iterations):**
+   - Trabalhe em iterações curtas e entregue valor de forma incremental.
+   - Receba feedback regularmente e ajuste o plano conforme necessário.
+
+### 8. **Comunicação Efetiva:**
+   - Mantenha uma comunicação clara e aberta com os membros da equipe.
+   - Realize reuniões curtas diárias (stand-ups) para compartilhar progresso e identificar obstáculos.
+
+Ao aplicar essas práticas e princípios do XP ao programar em Java, você pode melhorar a qualidade do código, aumentar a colaboração da equipe e entregar valor de forma mais eficiente. Lembre-se de adaptar as práticas do XP de acordo com as necessidades e contexto do seu projeto.
