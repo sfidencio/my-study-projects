@@ -464,6 +464,8 @@ git push origin --delete nome_da_branch
     - https://github.com/joshnh/Git-Commands
 
 ### Padrões de Commit(Semântico)
+- https://blog.geekhunter.com.br/o-que-e-commit-e-como-usar-commits-semanticos/
+
 Claro! Aqui estão alguns exemplos de como você pode fazer commits semânticos usando o Git:
 
 Adicionar uma nova funcionalidade:
@@ -492,6 +494,7 @@ Fazer uma refatoração no código:
 git add .
 git commit -m "refactor: Extrai lógica de autenticação para um novo serviço"
 ```
+
 # Implementando flyway
  -  [Implementando flayway](https://medium.com/hprog99/set-up-flyway-with-spring-boot-1b24b8abe56e)https://medium.com/hprog99/set-up-flyway-with-spring-boot-1b24b8abe56e
  -  https://www.baeldung.com/database-migrations-with-flyway
