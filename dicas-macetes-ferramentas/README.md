@@ -13,6 +13,8 @@ dicas-macetes-ferramentas
 
 - [Pilares XP](#pilares-xp)
 
+- [Pilares TDD](#pilares-tdd)
+
 - Em caso de falhas na serialização de um objeto java no spring, deve criar uma classe de configuração com um método @Bean que retorne uma instância personalizada do ObjectMapper onde desabilita ou habilita certas  configurações, exemplo:
 ```java 
 
@@ -830,3 +832,51 @@ A metodologia XP (Extreme Programming) é uma abordagem ágil de desenvolvimento
    - Realize reuniões curtas diárias (stand-ups) para compartilhar progresso e identificar obstáculos.
 
 Ao aplicar essas práticas e princípios do XP ao programar em Java, você pode melhorar a qualidade do código, aumentar a colaboração da equipe e entregar valor de forma mais eficiente. Lembre-se de adaptar as práticas do XP de acordo com as necessidades e contexto do seu projeto.
+
+# Pilares TDD
+    - https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html
+    - https://junit.org/junit5/docs/snapshot/user-guide/index.html#overview-getting-started-example-projects
+    - https://docs.spring.io/spring-boot/docs/current/reference/html/test-auto-configuration.html
+    - https://www.valuehost.com.br/blog/testes-unitarios/
+    - https://www.freecodecamp.org/portuguese/news/como-testar-servicos-endpoints-e-repositorios-com-o-springboot/
+
+
+
+
+### Conceitos
+
+Trata-se da verificação da menor parte testável de um software. Se o código for desenvolvido em uma linguagem que suporta um paradigma funcional, por exemplo, a menor parte será qualquer função. Já se tiver base na orientação a objetos, será um método de seu objeto/classe.
+
+### Boas Práticas
+Para escrever testes com qualidade, precisamos ter em mente três ideias centrais:
+
+Testes precisam ser confiáveis.
+
+Seus testes precisam dar a certeza de que eles não possuem bugs.
+
+Testes precisam ser legíveis.
+
+Os testes devem indicar claramente o que está acontecendo à primeira vista. Um teste que não dá pra saber o que está sendo testado não serve para nada.
+
+Testes precisam ser sustentáveis
+
+Os testes precisam seguir a escalabilidade do software que eles testam. Idealmente os testes devem ser imutáveis, portanto é importante garantir que eles se comportem da forma intencionada conforme o código é escalado
+
+### Primeiro Teste deve Falhar (TDD)
+
+Escreva um teste que falhe e faça ter sucesso com o código de produção, assim seus testes sempre devem ser escritos antes dos métodos de produção.
+É muito comum "furar" o TDD quando a implementação é algo muito simples. A verdade é que "furar" o TDD é uma má prática e acaba deixando o software vulnerável a erros que poderiam ter sido evitados. Isso auxilia a criação de testes confiáveis já que você sempre vai ver seu teste falhar e ter sucesso.
+
+### Nomes Auto Explicativos
+Código de testes deve ser mais legível que código de produção, então não há necessidade de nomear os métodos de teste de forma minimalista.
+Prefira nomear os testes da forma que fique o mais claro possível o que o teste está fazendo, mesmo que o nome fique grande e/ou não siga convenções nominais de métodos.
+
+Ex:  
+
+```java
+    @Test
+    @DisplayName("Dado que o pedido nao existe, quando tentar realizar pedido informando uma quantidade maior que o estoque disponivel, entao o sistema deve impedir o lancamento do pedido retornado erro")
+    void DadoQuePedidoNaoExisteQuandoTentarRealizarPedidoInformandoQuantidadeMaiorEstoqueDisponivelEntaoSistemaDeveImpedirLancamentoPedidoRetornandoErro(){
+        ...
+    }
+```
