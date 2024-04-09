@@ -4,9 +4,6 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
-- Jacoco (Covarage)
-    - https://www.baeldung.com/jacoco 
-
 - Arquitetura Hexagonal
     - https://reflectoring.io/spring-hexagonal/
     - https://www.baeldung.com/hexagonal-architecture-ddd-spring
@@ -93,6 +90,7 @@ public class JacksonConfiguration {
 - [Paginacao Spring Data](#paginacao-spring-data)
 - [Respeitar ordem de execução dos testes unitários no Junit5](#respeitar-ordem-de-execução-dos-testes-unitários-no-junit5)
 - Implementando validação no jacoco (SpringBoot)
+     - https://www.baeldung.com/jacoco  
    ```xml
       <plugin>
                         <groupId>org.jacoco</groupId>
