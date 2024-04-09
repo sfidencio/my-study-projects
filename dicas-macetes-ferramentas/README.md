@@ -468,29 +468,29 @@ Claro! Aqui estão alguns exemplos de como você pode fazer commits semânticos 
 
 Adicionar uma nova funcionalidade:
 ```bash
-$git add .
+git add .
 ```
 ```bash
-$git commit -m "feat(login): Adiciona validação de e-mail no formulário de login"
+git commit -m "feat(login): Adiciona validação de e-mail no formulário de login"
 ```
 Corrigir um bug:
 ```bash
-$git add .
+git add .
 ```
 ```bash
-$git commit -m "fix(api): Corrige erro de rota na API de usuários"
+git commit -m "fix(api): Corrige erro de rota na API de usuários"
 ```
 Atualizar a documentação:
 ```bash
-$git add .
+git add .
 ```
 ```bash
-$git commit -m "docs(readme): Atualiza instruções de instalação no README"
+git commit -m "docs(readme): Atualiza instruções de instalação no README"
 ```
 Fazer uma refatoração no código:
 ```bash
-$git add .
-$git commit -m "refactor: Extrai lógica de autenticação para um novo serviço"
+git add .
+git commit -m "refactor: Extrai lógica de autenticação para um novo serviço"
 ```
 # Implementando flyway
  -  [Implementando flayway](https://medium.com/hprog99/set-up-flyway-with-spring-boot-1b24b8abe56e)https://medium.com/hprog99/set-up-flyway-with-spring-boot-1b24b8abe56e
