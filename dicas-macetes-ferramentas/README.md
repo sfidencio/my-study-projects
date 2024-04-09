@@ -463,6 +463,23 @@ git push origin --delete nome_da_branch
 #### Links sobre git
     - https://github.com/joshnh/Git-Commands
 
+### Padrões de Commit(Semântico)
+Claro! Aqui estão alguns exemplos de como você pode fazer commits semânticos usando o Git:
+
+Adicionar uma nova funcionalidade:
+```bash
+$git add .
+```
+$git commit -m "feat(login): Adiciona validação de e-mail no formulário de login"
+Corrigir um bug:
+$git add .
+$git commit -m "fix(api): Corrige erro de rota na API de usuários"
+Atualizar a documentação:
+$git add .
+$git commit -m "docs(readme): Atualiza instruções de instalação no README"
+Fazer uma refatoração no código:
+$git add .
+$git commit -m "refactor: Extrai lógica de autenticação para um novo serviço"
 
 # Implementando flyway
  -  [Implementando flayway](https://medium.com/hprog99/set-up-flyway-with-spring-boot-1b24b8abe56e)https://medium.com/hprog99/set-up-flyway-with-spring-boot-1b24b8abe56e
@@ -839,9 +856,6 @@ Ao aplicar essas práticas e princípios do XP ao programar em Java, você pode 
     - https://docs.spring.io/spring-boot/docs/current/reference/html/test-auto-configuration.html
     - https://www.valuehost.com.br/blog/testes-unitarios/
     - https://www.freecodecamp.org/portuguese/news/como-testar-servicos-endpoints-e-repositorios-com-o-springboot/
-
-
-
 
 ### Conceitos
 
