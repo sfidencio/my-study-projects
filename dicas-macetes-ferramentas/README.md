@@ -4,6 +4,9 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Jacoco (Covarage)
+    - https://www.baeldung.com/jacoco 
+
 - Arquitetura Hexagonal
     - https://reflectoring.io/spring-hexagonal/
     - https://www.baeldung.com/hexagonal-architecture-ddd-spring
