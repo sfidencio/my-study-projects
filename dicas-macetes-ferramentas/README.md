@@ -834,7 +834,7 @@ A metodologia XP (Extreme Programming) é uma abordagem ágil de desenvolvimento
 Ao aplicar essas práticas e princípios do XP ao programar em Java, você pode melhorar a qualidade do código, aumentar a colaboração da equipe e entregar valor de forma mais eficiente. Lembre-se de adaptar as práticas do XP de acordo com as necessidades e contexto do seu projeto.
 
 # Pilares TDD
-    - [Mockito](#https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html)
+    - Mockito [Mockito](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html)
     - https://junit.org/junit5/docs/snapshot/user-guide/index.html#overview-getting-started-example-projects
     - https://docs.spring.io/spring-boot/docs/current/reference/html/test-auto-configuration.html
     - https://www.valuehost.com.br/blog/testes-unitarios/
