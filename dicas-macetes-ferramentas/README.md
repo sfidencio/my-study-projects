@@ -465,6 +465,7 @@ git push origin --delete nome_da_branch
 
 ### Padrões de Commit(Semântico)
 - https://blog.geekhunter.com.br/o-que-e-commit-e-como-usar-commits-semanticos/
+- https://luby.com.br/desenvolvimento/software/commits/
 
 Claro! Aqui estão alguns exemplos de como você pode fazer commits semânticos usando o Git:
 
