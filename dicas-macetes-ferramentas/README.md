@@ -880,3 +880,49 @@ Ex:
         ...
     }
 ```
+
+### Rodar Varias Vezes
+Teste antes de codificar, após codificar e teste mais uma vez após refatorar o código, não importa o quão pequena for a alteração.
+Adotando esse tipo de prática, você assegura que seu código não vai quebrar em nenhum momento e passar despercebido.
+
+### Teste uma Coisa por Vez
+Existem ferramentas de Teste Unitário que permitem que os métodos de teste tenham mais de um assert em si.
+Isso é considerado uma má prática porque prejudica a clareza do teste, aumenta a chance de ter bugs nos seus testes e torna debugar mais trabalhoso.
+
+Teste uma coisa só por vez.
+
+
+### Não Insira Lógica nos Testes
+Testes não devem conter lógica.
+Se o seu teste possui um if ou switch é porque você, provavelmente, está testando mais de uma coisa, e aumenta muito a chance de ter bugs no seu código de teste.
+
+### Simplicidade
+Quanto mais simples for a implementação, mais fácil e melhor será de manter em produção.
+Isso quer dizer que a maioria das aplicações funcionam melhor quando são mantidas simples ao invés de desnecessariamente complexas.
+
+### Testes Independentes
+Cada teste deve executar independentemente de outros.
+Haver dependências entre os testes os tornam mais propícios a bugs com a introdução de novos testes.
+
+### Mantenha Testes Antigos Inalterados
+Evite alterar ou remover qualquer teste que já esteja passando.
+A grande vantagem de utilizar o Teste Unitário, e por consequência o TDD, é a manutenção do código de testes que é executado após cada alteração no código de produção. Alterar ou remover testes que funcionam faz perder totalmente o propósito dos testes que foram construídos.
+
+### Ciclo de Desenvolvimento Red, Green, Refactor (TDD)
+Red — o desenvolvedor cria um teste que inicialmente não passará;
+ele adiciona a nova funcionalidade ao código;
+Green — o teste passa;
+Refactor — é feita a refatoração do código;
+passa para o próximo teste.
+Esse tipo de estratégia promove um feedback rápido sobre essa nova funcionalidade, além de dar um retorno sobre a possível quebra de outras funcionalidades do sistema. Dessa forma, o desenvolvedor ganha muito mais segurança para fazer as refatorações e para adicionar funcionalidades.
+
+### Anatomia
+Os testes devem ser criados levando em consideração que dadas tais condições (arrange), ao executar tal ação (act), tais resultados devem ser retornados (assert). Isso é chamado de AAA onde:
+
+Arrange: são definidos os parâmetros de entrada do teste.
+Act: ação executada com os parâmetros.
+Assert: validação dos resultados gerados pela ação.
+Esta forma de desenvolver o teste unitário é bem intuitiva, deixando claro cada passo do teste.
+
+
+
