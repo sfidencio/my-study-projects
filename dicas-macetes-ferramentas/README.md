@@ -30,6 +30,7 @@ dicas-macetes-ferramentas
       ```
     - Sempre lembrar de pegar a versão mais atualizada do plugin:
         - https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin
+        - https://docs.spring.io/spring-boot/docs/1.4.x/reference/html/howto-properties-and-configuration.html
     - Abaixo exemplo de uso no `application.yaml`:
       ```yaml
         versao:
