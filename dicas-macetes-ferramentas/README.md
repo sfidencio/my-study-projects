@@ -4,7 +4,7 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
-- Implementando leitura de variaveis do pom.xml dentro do application.properties ou application.yaml
+- Implementando leitura de variaveis do pom.xml dentro do `application.properties` ou `application.yaml`:
     - Add o plugin abaixo na seção de plugins:
       ```xml
        <plugin>
@@ -29,7 +29,13 @@ dicas-macetes-ferramentas
         </resources>
       ```
     - Sempre lembrar de pegar a versão mais atualizada do plugin:
-        - https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin 
+        - https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin
+    - Abaixo exemplo de uso no `application.yaml`:
+      ```yaml
+        versao:
+          mobile: @versao.mobile@
+          api: @versao.api@
+      ```
   
 - Install `vim` on MacOS
     - Define `vim` default editor in GIT
