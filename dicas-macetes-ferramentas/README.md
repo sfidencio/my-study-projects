@@ -3,6 +3,9 @@ dicas-macetes-ferramentas
 
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
+- Install VIM on MacOS
+    - Define `vim` default editor in GIT
+        - git config --global core.editor "vim" 
 
 - Arquitetura Hexagonal
     - https://reflectoring.io/spring-hexagonal/
