@@ -53,7 +53,7 @@ dicas-macetes-ferramentas
 
 - [Pilares TDD](#pilares-tdd)
 
-- [Falhas de Serialização e Deserialização](#falhas-de-serialização-e-deserialização)
+- [Falhas de Serializacao e Deserializacao](#falhas-de-serializacao-e-deserializacao)
 
 - Implementando circuit break em ms springboot
    - https://medium.com/@truongbui95/circuit-breaker-pattern-in-spring-boot-d2d258b75042 
@@ -975,9 +975,18 @@ Act: ação executada com os parâmetros.
 Assert: validação dos resultados gerados pela ação.
 Esta forma de desenvolver o teste unitário é bem intuitiva, deixando claro cada passo do teste.
 
-# Falhas de Serialização e Deserialização
+# Falhas de Serializacao e Deserializacao
 
 - Em caso de falhas na serialização de um objeto java no spring, deve criar uma classe de configuração com um método @Bean que retorne uma instância personalizada do ObjectMapper onde desabilita ou habilita certas  configurações, exemplo:
+
+    - SerializationFeature.WRITE_NULL_MAP_VALUES, false: Esta configuração indica que o ObjectMapper não deve incluir valores nulos ao serializar um objeto Java para JSON. Ou seja, se um campo de um objeto for nulo, ele não será incluído no JSON resultante.
+
+    - SerializationFeature.FAIL_ON_EMPTY_BEANS, false: Com esta configuração, o ObjectMapper não irá falhar se encontrar um objeto Java vazio durante a serialização. Em vez disso, ele simplesmente ignorará o objeto vazio e continuará o processo de serialização.
+
+    - DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false: Ao deserializar um JSON para um objeto Java, esta configuração indica que o ObjectMapper não deve falhar se encontrar propriedades desconhecidas no JSON que não correspondam às propriedades do objeto Java.
+
+    - DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true: Com esta configuração, o ObjectMapper irá interpretar uma string vazia como nula durante o processo de deserialização. Ou seja, se um campo em um JSON estiver vazio, ele será considerado nulo ao ser convertido para um objeto Java.
+      
 ```java 
 @Configuration
 public class JacksonConfiguration {
@@ -993,4 +1002,5 @@ public class JacksonConfiguration {
     }
 } 
 ```
+
 
