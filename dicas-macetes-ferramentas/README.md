@@ -53,23 +53,7 @@ dicas-macetes-ferramentas
 
 - [Pilares TDD](#pilares-tdd)
 
-- Em caso de falhas na serialização de um objeto java no spring, deve criar uma classe de configuração com um método @Bean que retorne uma instância personalizada do ObjectMapper onde desabilita ou habilita certas  configurações, exemplo:
-```java 
-
-@Configuration
-public class JacksonConfiguration {
-
-    @Bean
-    public ObjectMapper objectMapper() {
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.configure(SerializationFeature.WRITE_NULL_MAP_VALUES, false);
-        objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
-        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        objectMapper.configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true);
-        return objectMapper;
-    }
-} 
-```
+- [Falhas Serialização e Deserialização](#falhas-serializacao-deserializacao)
 
 - Implementando circuit break em ms springboot
    - https://medium.com/@truongbui95/circuit-breaker-pattern-in-spring-boot-d2d258b75042 
@@ -991,5 +975,22 @@ Act: ação executada com os parâmetros.
 Assert: validação dos resultados gerados pela ação.
 Esta forma de desenvolver o teste unitário é bem intuitiva, deixando claro cada passo do teste.
 
+# Falhas de Serialização e Deserialização
 
+- Em caso de falhas na serialização de um objeto java no spring, deve criar uma classe de configuração com um método @Bean que retorne uma instância personalizada do ObjectMapper onde desabilita ou habilita certas  configurações, exemplo:
+```java 
+@Configuration
+public class JacksonConfiguration {
+
+    @Bean
+    public ObjectMapper objectMapper() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(SerializationFeature.WRITE_NULL_MAP_VALUES, false);
+        objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        objectMapper.configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true);
+        return objectMapper;
+    }
+} 
+```
 
