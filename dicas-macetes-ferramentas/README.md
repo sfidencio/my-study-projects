@@ -53,7 +53,7 @@ dicas-macetes-ferramentas
 
 - [Pilares TDD](#pilares-tdd)
 
-- [Falhas de Serialização e Deserialização](#falhas-de-serializacao-deserializacao)
+- [Falhas de Serialização e Deserialização](#falhas-de-serializacão-e-deserializacão)
 
 - Implementando circuit break em ms springboot
    - https://medium.com/@truongbui95/circuit-breaker-pattern-in-spring-boot-d2d258b75042 
