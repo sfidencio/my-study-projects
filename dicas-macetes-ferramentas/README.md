@@ -4,6 +4,10 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Configuração de Logging SpringBoot (Considerando Profile):
+    - https://medium.com/codex/spring-boot-logging-da61911ce8e6 
+    - https://www.baeldung.com/spring-boot-logging 
+
 - Implementando leitura de variaveis do pom.xml dentro do `application.properties` ou `application.yaml`:
     - Add o plugin abaixo na seção de plugins:
       ```xml
