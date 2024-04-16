@@ -4,28 +4,60 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Configuração de Logging SpringBoot (Considerando Profile):
+    - https://medium.com/codex/spring-boot-logging-da61911ce8e6 
+    - https://www.baeldung.com/spring-boot-logging 
+
+- Implementando leitura de variaveis do pom.xml dentro do `application.properties` ou `application.yaml`:
+    - Add o plugin abaixo na seção de plugins:
+      ```xml
+       <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>3.3.1</version>
+            <configuration>
+                <delimiters>
+                    <delimiter>@</delimiter>
+                </delimiters>
+                <useDefaultDelimiters>false</useDefaultDelimiters>
+            </configuration>
+      </plugin>
+      ```
+    - Add o recurso abaixo na seção do `build`:
+      ```xml
+          <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+      ```
+    - Sempre lembrar de pegar a versão mais atualizada do plugin:
+        - https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin
+        - https://docs.spring.io/spring-boot/docs/1.4.x/reference/html/howto-properties-and-configuration.html
+    - Abaixo exemplo de uso no `application.yaml`:
+      ```yaml
+        versao:
+          mobile: @versao.mobile@
+          api: @versao.api@
+      ```
+  
+- Install `vim` on MacOS
+    - Define `vim` default editor in GIT
+        - ```bash git config --global core.editor "vim" ```
+
+- Arquitetura Hexagonal
+    - https://reflectoring.io/spring-hexagonal/
+    - https://www.baeldung.com/hexagonal-architecture-ddd-spring
+
 - Aventurando no GraalVM
     - https://medium.com/codex/optimising-performance-with-graalvm-a-guide-to-migrating-a-spring-boot-project-to-native-image-fbb2dcf5d405 
 
 - [Pilares XP](#pilares-xp)
 
-- Em caso de falhas na serialização de um objeto java no spring, deve criar uma classe de configuração com um método @Bean que retorne uma instância personalizada do ObjectMapper onde desabilita ou habilita certas  configurações, exemplo:
-```java 
+- [Pilares TDD](#pilares-tdd)
 
-@Configuration
-public class JacksonConfiguration {
-
-    @Bean
-    public ObjectMapper objectMapper() {
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.configure(SerializationFeature.WRITE_NULL_MAP_VALUES, false);
-        objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
-        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        objectMapper.configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true);
-        return objectMapper;
-    }
-} 
-```
+- [Falhas de Serializacao e Deserializacao](#falhas-de-serializacao-e-deserializacao)
 
 - Implementando circuit break em ms springboot
    - https://medium.com/@truongbui95/circuit-breaker-pattern-in-spring-boot-d2d258b75042 
@@ -86,6 +118,7 @@ public class JacksonConfiguration {
 - [Paginacao Spring Data](#paginacao-spring-data)
 - [Respeitar ordem de execução dos testes unitários no Junit5](#respeitar-ordem-de-execução-dos-testes-unitários-no-junit5)
 - Implementando validação no jacoco (SpringBoot)
+     - https://www.baeldung.com/jacoco  
    ```xml
       <plugin>
                         <groupId>org.jacoco</groupId>
@@ -456,6 +489,38 @@ git push origin --delete nome_da_branch
 #### Links sobre git
     - https://github.com/joshnh/Git-Commands
 
+### Padrões de Commit(Semântico)
+- https://blog.geekhunter.com.br/o-que-e-commit-e-como-usar-commits-semanticos/
+- https://luby.com.br/desenvolvimento/software/commits/
+
+Claro! Aqui estão alguns exemplos de como você pode fazer commits semânticos usando o Git:
+
+Adicionar uma nova funcionalidade:
+```bash
+git add .
+```
+```bash
+git commit -m "feat(login): Adiciona validação de e-mail no formulário de login"
+```
+Corrigir um bug:
+```bash
+git add .
+```
+```bash
+git commit -m "fix(api): Corrige erro de rota na API de usuários"
+```
+Atualizar a documentação:
+```bash
+git add .
+```
+```bash
+git commit -m "docs(readme): Atualiza instruções de instalação no README"
+```
+Fazer uma refatoração no código:
+```bash
+git add .
+git commit -m "refactor: Extrai lógica de autenticação para um novo serviço"
+```
 
 # Implementando flyway
  -  [Implementando flayway](https://medium.com/hprog99/set-up-flyway-with-spring-boot-1b24b8abe56e)https://medium.com/hprog99/set-up-flyway-with-spring-boot-1b24b8abe56e
@@ -825,3 +890,121 @@ A metodologia XP (Extreme Programming) é uma abordagem ágil de desenvolvimento
    - Realize reuniões curtas diárias (stand-ups) para compartilhar progresso e identificar obstáculos.
 
 Ao aplicar essas práticas e princípios do XP ao programar em Java, você pode melhorar a qualidade do código, aumentar a colaboração da equipe e entregar valor de forma mais eficiente. Lembre-se de adaptar as práticas do XP de acordo com as necessidades e contexto do seu projeto.
+
+# Pilares TDD
+    - https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html
+    - https://junit.org/junit5/docs/snapshot/user-guide/index.html#overview-getting-started-example-projects
+    - https://docs.spring.io/spring-boot/docs/current/reference/html/test-auto-configuration.html
+    - https://www.valuehost.com.br/blog/testes-unitarios/
+    - https://www.freecodecamp.org/portuguese/news/como-testar-servicos-endpoints-e-repositorios-com-o-springboot/
+
+### Conceitos
+
+Trata-se da verificação da menor parte testável de um software. Se o código for desenvolvido em uma linguagem que suporta um paradigma funcional, por exemplo, a menor parte será qualquer função. Já se tiver base na orientação a objetos, será um método de seu objeto/classe.
+
+### Boas Práticas
+Para escrever testes com qualidade, precisamos ter em mente três ideias centrais:
+
+Testes precisam ser confiáveis.
+
+Seus testes precisam dar a certeza de que eles não possuem bugs.
+
+Testes precisam ser legíveis.
+
+Os testes devem indicar claramente o que está acontecendo à primeira vista. Um teste que não dá pra saber o que está sendo testado não serve para nada.
+
+Testes precisam ser sustentáveis
+
+Os testes precisam seguir a escalabilidade do software que eles testam. Idealmente os testes devem ser imutáveis, portanto é importante garantir que eles se comportem da forma intencionada conforme o código é escalado
+
+### Primeiro Teste deve Falhar (TDD)
+
+Escreva um teste que falhe e faça ter sucesso com o código de produção, assim seus testes sempre devem ser escritos antes dos métodos de produção.
+É muito comum "furar" o TDD quando a implementação é algo muito simples. A verdade é que "furar" o TDD é uma má prática e acaba deixando o software vulnerável a erros que poderiam ter sido evitados. Isso auxilia a criação de testes confiáveis já que você sempre vai ver seu teste falhar e ter sucesso.
+
+### Nomes Auto Explicativos
+Código de testes deve ser mais legível que código de produção, então não há necessidade de nomear os métodos de teste de forma minimalista.
+Prefira nomear os testes da forma que fique o mais claro possível o que o teste está fazendo, mesmo que o nome fique grande e/ou não siga convenções nominais de métodos.
+
+Ex:  
+
+```java
+    @Test
+    @DisplayName("Dado que o pedido nao existe, quando tentar realizar pedido informando uma quantidade maior que o estoque disponivel, entao o sistema deve impedir o lancamento do pedido retornado erro")
+    void DadoQuePedidoNaoExisteQuandoTentarRealizarPedidoInformandoQuantidadeMaiorEstoqueDisponivelEntaoSistemaDeveImpedirLancamentoPedidoRetornandoErro(){
+        ...
+    }
+```
+
+### Rodar Varias Vezes
+Teste antes de codificar, após codificar e teste mais uma vez após refatorar o código, não importa o quão pequena for a alteração.
+Adotando esse tipo de prática, você assegura que seu código não vai quebrar em nenhum momento e passar despercebido.
+
+### Teste uma Coisa por Vez
+Existem ferramentas de Teste Unitário que permitem que os métodos de teste tenham mais de um assert em si.
+Isso é considerado uma má prática porque prejudica a clareza do teste, aumenta a chance de ter bugs nos seus testes e torna debugar mais trabalhoso.
+
+Teste uma coisa só por vez.
+
+
+### Não Insira Lógica nos Testes
+Testes não devem conter lógica.
+Se o seu teste possui um if ou switch é porque você, provavelmente, está testando mais de uma coisa, e aumenta muito a chance de ter bugs no seu código de teste.
+
+### Simplicidade
+Quanto mais simples for a implementação, mais fácil e melhor será de manter em produção.
+Isso quer dizer que a maioria das aplicações funcionam melhor quando são mantidas simples ao invés de desnecessariamente complexas.
+
+### Testes Independentes
+Cada teste deve executar independentemente de outros.
+Haver dependências entre os testes os tornam mais propícios a bugs com a introdução de novos testes.
+
+### Mantenha Testes Antigos Inalterados
+Evite alterar ou remover qualquer teste que já esteja passando.
+A grande vantagem de utilizar o Teste Unitário, e por consequência o TDD, é a manutenção do código de testes que é executado após cada alteração no código de produção. Alterar ou remover testes que funcionam faz perder totalmente o propósito dos testes que foram construídos.
+
+### Ciclo de Desenvolvimento Red, Green, Refactor (TDD)
+Red — o desenvolvedor cria um teste que inicialmente não passará;
+ele adiciona a nova funcionalidade ao código;
+Green — o teste passa;
+Refactor — é feita a refatoração do código;
+passa para o próximo teste.
+Esse tipo de estratégia promove um feedback rápido sobre essa nova funcionalidade, além de dar um retorno sobre a possível quebra de outras funcionalidades do sistema. Dessa forma, o desenvolvedor ganha muito mais segurança para fazer as refatorações e para adicionar funcionalidades.
+
+### Anatomia
+Os testes devem ser criados levando em consideração que dadas tais condições (arrange), ao executar tal ação (act), tais resultados devem ser retornados (assert). Isso é chamado de AAA onde:
+
+Arrange: são definidos os parâmetros de entrada do teste.
+Act: ação executada com os parâmetros.
+Assert: validação dos resultados gerados pela ação.
+Esta forma de desenvolver o teste unitário é bem intuitiva, deixando claro cada passo do teste.
+
+# Falhas de Serializacao e Deserializacao
+
+- Em caso de falhas na serialização de um objeto java no spring, deve criar uma classe de configuração com um método @Bean que retorne uma instância personalizada do ObjectMapper onde desabilita ou habilita certas  configurações, exemplo:
+
+    - SerializationFeature.WRITE_NULL_MAP_VALUES, false: Esta configuração indica que o ObjectMapper não deve incluir valores nulos ao serializar um objeto Java para JSON. Ou seja, se um campo de um objeto for nulo, ele não será incluído no JSON resultante.
+
+    - SerializationFeature.FAIL_ON_EMPTY_BEANS, false: Com esta configuração, o ObjectMapper não irá falhar se encontrar um objeto Java vazio durante a serialização. Em vez disso, ele simplesmente ignorará o objeto vazio e continuará o processo de serialização.
+
+    - DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false: Ao deserializar um JSON para um objeto Java, esta configuração indica que o ObjectMapper não deve falhar se encontrar propriedades desconhecidas no JSON que não correspondam às propriedades do objeto Java.
+
+    - DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true: Com esta configuração, o ObjectMapper irá interpretar uma string vazia como nula durante o processo de deserialização. Ou seja, se um campo em um JSON estiver vazio, ele será considerado nulo ao ser convertido para um objeto Java.
+      
+```java 
+@Configuration
+public class JacksonConfiguration {
+
+    @Bean
+    public ObjectMapper objectMapper() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(SerializationFeature.WRITE_NULL_MAP_VALUES, false);
+        objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        objectMapper.configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true);
+        return objectMapper;
+    }
+} 
+```
+
+
