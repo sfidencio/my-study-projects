@@ -118,7 +118,9 @@ dicas-macetes-ferramentas
 - [Paginacao Spring Data](#paginacao-spring-data)
 - [Respeitar ordem de execução dos testes unitários no Junit5](#respeitar-ordem-de-execução-dos-testes-unitários-no-junit5)
 - Implementando validação no jacoco (SpringBoot)
-     - https://www.baeldung.com/jacoco  
+     - https://www.baeldung.com/jacoco
+     - https://www.baeldung.com/jacoco-report-exclude
+         - Permite configurar o jacoco via annotation (Exclude) 
    ```xml
       <plugin>
                         <groupId>org.jacoco</groupId>
