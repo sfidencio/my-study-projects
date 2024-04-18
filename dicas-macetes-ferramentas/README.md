@@ -4,6 +4,10 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Continuar com a conexao insegura no chrome, devido erro ou handshake de certificado nao valido:
+    - sendCommand(SecurityInterstitialCommandId.CMD_PROCEED)
+    - Executar o comando acima no `console` no modo desenvolvedor do browser (F12) 
+
 - Configuração de Logging SpringBoot (Considerando Profile):
     - https://medium.com/codex/spring-boot-logging-da61911ce8e6 
     - https://www.baeldung.com/spring-boot-logging 
