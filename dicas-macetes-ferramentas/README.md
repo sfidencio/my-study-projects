@@ -4,6 +4,9 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Boas práticas docker
+    - https://medium.com/@bubu.tripathy/dockerizing-your-spring-boot-application-75bf2c6568d0 
+
 - Continuar com a conexao insegura no chrome, devido erro ou handshake de certificado nao valido:
     - sendCommand(SecurityInterstitialCommandId.CMD_PROCEED)
     - Executar o comando acima no `console` no modo desenvolvedor do browser (F12) 
