@@ -4,6 +4,9 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Github Actions
+    - https://ilkerguldali.medium.com/1-4-lets-create-a-spring-boot-app-with-mysql-docker-docker-compose-8acaee3a2c4d 
+
 - Boas práticas docker
     - https://medium.com/@bubu.tripathy/dockerizing-your-spring-boot-application-75bf2c6568d0 
 
