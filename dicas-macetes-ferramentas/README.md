@@ -831,6 +831,91 @@ git commit -m "Mensagem do commit"
 git push -u origin main
 ```
 
+# Básico de GITFLOW
+
+O Git Flow é uma metodologia popular para gerenciar branches em projetos de software, especialmente útil em ambientes que seguem um ciclo de lançamento regular. Ele define uma estrutura rigorosa baseada em branches para gerenciar features, releases e hotfixes, facilitando a colaboração em equipe e o desenvolvimento paralelo de funcionalidades.
+
+Aqui está um guia passo a passo sobre como instalar e começar a usar o Git Flow no macOS:
+
+Instalação do Git Flow
+Instale o Homebrew: Se você ainda não tem o Homebrew (um gerenciador de pacotes para macOS), você pode instalá-lo executando o seguinte comando no Terminal:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+Instale o Git Flow: Uma vez que o Homebrew esteja instalado, você pode instalar o Git Flow usando o Homebrew com o seguinte comando:
+
+```bash
+brew install git-flow
+```
+
+Isso instalará o Git Flow e suas dependências.
+
+Inicialização do Git Flow em um Repositório
+Depois de instalar o Git Flow, você precisa inicializá-lo em seu repositório Git local. Aqui está como você pode fazer isso:
+
+Navegue até o seu repositório local: Use o comando cd para mudar para o diretório do seu repositório local.
+
+```bash
+cd /caminho/para/seu/repositorio
+```
+
+Inicialize o Git Flow: Execute o seguinte comando para inicializar o Git Flow no repositório. Isso configurará os branches necessários para o modelo Git Flow.
+
+```bash
+git flow init
+```
+
+Durante a inicialização, o Git Flow perguntará sobre os nomes dos branches que serão usados para desenvolvimento, features, releases, hotfixes e suporte. Você pode pressionar Enter para aceitar os padrões ou especificar outros nomes se desejar.
+
+Uso Básico do Git Flow
+Aqui estão alguns comandos básicos do Git Flow para começar:
+
+Iniciar uma nova feature: Para começar a trabalhar em uma nova feature:
+
+```bash
+git flow feature start NOME_DA_FEATURE
+```
+
+Finalizar uma feature: Quando você terminar o desenvolvimento de uma feature e estiver pronto para mesclá-la no branch de desenvolvimento:
+
+```bash
+git flow feature finish NOME_DA_FEATURE
+```
+
+Após finalizar a feature, realizando os commits, 
+
+```bash
+git flow feature finish NOME_FEATURE
+```
+
+
+Iniciar uma release: Para preparar uma nova versão do software:
+
+```bash
+git flow release start VERSAO
+```
+
+Finalizar uma release: Para completar a release, o que mescla as mudanças no branch main e também no branch de desenvolvimento:
+
+```bash
+git flow release finish VERSAO
+```
+
+Iniciar um hotfix: Para fazer correções críticas em produção:
+
+```bash
+git flow hotfix start NOME_DO_HOTFIX
+```
+
+Finalizar um hotfix: Para finalizar o hotfix, o que mescla as mudanças no branch main e no branch de desenvolvimento:
+
+```bash
+git flow hotfix finish NOME_DO_HOTFIX
+```
+
+
 # Paginacao Spring Data
 ![image](https://github.com/sfidencio/my-study-projects/assets/660615/23d09292-31ff-44ef-a0d6-2cd0f34301aa)
 
