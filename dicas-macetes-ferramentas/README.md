@@ -908,6 +908,11 @@ Finalizar um hotfix: Para finalizar o hotfix, o que mescla as mudanças no branc
 git flow hotfix finish NOME_DO_HOTFIX
 ```
 
+Não é comum criar tags para versões na branch develop no GitFlow. A branch develop geralmente é utilizada para integração contínua e desenvolvimento de novas funcionalidades.
+
+As tags são geralmente criadas para marcar versões estáveis e lançamentos na branch master, que representa a versão de produção do software.
+
+No entanto, se você deseja marcar versões específicas na branch develop para facilitar o controle de versões e referências futuras, você pode criar tags para isso. A decisão de criar tags na branch develop deve ser baseada nas necessidades específicas do seu fluxo de trabalho e equipe de desenvolvimento.
 
 # Paginacao Spring Data
 ![image](https://github.com/sfidencio/my-study-projects/assets/660615/23d09292-31ff-44ef-a0d6-2cd0f34301aa)
