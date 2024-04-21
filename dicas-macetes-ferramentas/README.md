@@ -884,7 +884,7 @@ Finalizar uma feature: Quando você terminar o desenvolvimento de uma feature e 
 git flow feature finish NOME_DA_FEATURE
 ```
 
-Após finalizar a feature, realizando os commits, 
+Após finalizar a feature, ou hotfix etc.., realizando os commits, 
 
 ```bash
 git flow feature finish NOME_FEATURE
