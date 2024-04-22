@@ -903,6 +903,25 @@ jobs:
           ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
 Lembre-se de armazenar informações sensíveis, como tokens de acesso pessoal ou chaves SSH, em secrets no GitHub para manter suas credenciais seguras. Você pode configurar esses secrets em "Settings" -> "Secrets" do seu repositório.
 
+# Versionamento
+
+A semântica de versionamento é um sistema padronizado para atribuir números de versão a software, de modo que os desenvolvedores e usuários possam entender facilmente o impacto das atualizações. A versão de um software é geralmente representada por três números separados por pontos, como X.Y.Z, onde:
+
+X é a versão principal (major): Indica grandes mudanças no software que podem não ser compatíveis com versões anteriores. Geralmente, inclui novos recursos, alterações significativas na funcionalidade ou mudanças na API que podem quebrar a compatibilidade com versões anteriores.
+
+Y é a versão secundária (minor): Indica adições de funcionalidades ou melhorias que são compatíveis com versões anteriores. Geralmente, inclui novos recursos ou melhorias que não quebram a compatibilidade com versões anteriores.
+
+Z é a versão de correção (patch): Indica pequenas correções de bugs ou atualizações que não introduzem novas funcionalidades e são compatíveis com versões anteriores. Geralmente, inclui correções de bugs, atualizações de segurança ou pequenas melhorias que não afetam a compatibilidade.
+
+Além disso, a semântica de versionamento define algumas regras adicionais:
+
+Quando você faz uma mudança na versão principal (X), você deve redefinir as versões secundária (Y) e de correção (Z) para zero.
+Ao fazer uma mudança na versão secundária (Y), você deve redefinir a versão de correção (Z) para zero.
+As versões de correção (Z) podem ser incrementadas sempre que houver correções de bugs ou atualizações menores.
+Por exemplo, se um software tem a versão 1.2.3 e uma nova funcionalidade é adicionada sem quebrar a compatibilidade com versões anteriores, a versão pode ser atualizada para 1.3.0. Se houver uma correção de bug nessa versão, a versão pode ser atualizada para 1.3.1.
+
+O uso da semântica de versionamento ajuda a comunicar claramente o impacto das atualizações de software e a garantir que os desenvolvedores e usuários entendam como as mudanças afetam a compatibilidade e as funcionalidades do software.
+
 
 # Básico de GITFLOW
 
