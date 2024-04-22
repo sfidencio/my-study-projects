@@ -859,6 +859,51 @@ No seu arquivo YAML do GitHub Actions, você pode acessar o token como uma vari�
 Dessa forma, o GitHub Actions usará o token de acesso pessoal configurado como uma variável de ambiente para autenticação ao interagir com o repositório remoto. Certifique-se de proteger o token de acesso pessoal e não compartilhá-lo publicamente.
 
 
+# Outra forma de configurar o token para uso do github actions
+
+
+
+Para autenticar o GitHub Actions e permitir que seus workflows tenham acesso ao seu repositório do GitHub, você pode usar tokens de acesso pessoal ou chaves SSH. Aqui estão algumas opções de autenticação para o GitHub Actions:
+
+Token de acesso pessoal:
+Crie um token de acesso pessoal no GitHub com as permissões necessárias para acessar o repositório.
+No GitHub, vá em "Settings" -> "Developer settings" -> "Personal access tokens" -> "Generate new token".
+Copie o token gerado e armazene-o em um local seguro.
+No seu workflow do GitHub Actions, você pode usar o token de acesso pessoal como uma variável de ambiente para autenticação.
+Exemplo de como usar um token de acesso pessoal em um workflow:
+
+name: My Workflow
+
+on: [push]
+
+jobs:
+  my_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+Chave SSH:
+Adicione uma chave SSH ao GitHub que tenha acesso ao seu repositório.
+No seu workflow do GitHub Actions, você pode configurar a chave SSH para autenticação.
+Exemplo de como usar uma chave SSH em um workflow:
+
+name: My Workflow
+
+on: [push]
+
+jobs:
+  my_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+Lembre-se de armazenar informações sensíveis, como tokens de acesso pessoal ou chaves SSH, em secrets no GitHub para manter suas credenciais seguras. Você pode configurar esses secrets em "Settings" -> "Secrets" do seu repositório.
+
+
 # Básico de GITFLOW
 
 O Git Flow é uma metodologia popular para gerenciar branches em projetos de software, especialmente útil em ambientes que seguem um ciclo de lançamento regular. Ele define uma estrutura rigorosa baseada em branches para gerenciar features, releases e hotfixes, facilitando a colaboração em equipe e o desenvolvimento paralelo de funcionalidades.
