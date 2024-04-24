@@ -4,6 +4,9 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Utilizando Apache Commons Lang para comparação de valores
+    - https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/compare/ComparableUtils.html     
+
 - Instalação SonarQube via docker-compose com ajustes no pom.xml e instalação do sonar-type-nexus
     - https://medium.com/@denis.verkhovsky/sonarqube-with-docker-compose-complete-tutorial-2aaa8d0771d4     
     - https://medium.com/@chiemelaumeh1/install-sonatype-nexus-3-using-docker-compose-setup-nexus-repository-manager-for-node-js-project-47a3c5efe1ee
