@@ -4,6 +4,9 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Excelente exemplo integração de springboot + firebase
+    - https://github.com/hardikSinghBehl/firebase-integration-spring-boot/tree/main 
+
 - Utilizando Apache Commons Lang para comparação de valores
     - https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/compare/ComparableUtils.html     
 
