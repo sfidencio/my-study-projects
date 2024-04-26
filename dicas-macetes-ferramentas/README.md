@@ -7,6 +7,10 @@ dicas-macetes-ferramentas
 - Excelente exemplo integração de springboot + firebase
     - https://github.com/hardikSinghBehl/firebase-integration-spring-boot/tree/main 
 
+- Uso extensivo do RestClient
+    - https://docs.spring.io/spring-framework/reference/integration/rest-clients.html
+
+
 - Utilizando Apache Commons Lang para comparação de valores
     - https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/compare/ComparableUtils.html     
 
