@@ -4,6 +4,29 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Plugin maven testes de integração
+  - Coloque suas classes de teste de integração no diretório src/test/java seguindo o layout de diretório padrão do Maven.
+  - Nomeie suas classes de teste de integração com o seguinte padrão: *IT.java ou *ITCase.java.
+    
+  ```xml
+      <!--Plugin para rodar testes de integração -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>${maven-failsafe-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+  ```
+
+
+
 - Excelente exemplo integração de springboot + firebase
     - https://github.com/hardikSinghBehl/firebase-integration-spring-boot/tree/main 
 
