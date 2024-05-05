@@ -572,7 +572,8 @@ git commit -m "refactor: Extrai lógica de autenticação para um novo serviço"
 ```
 
 # Implementando flyway
- -  [Implementando flayway](https://medium.com/hprog99/set-up-flyway-with-spring-boot-1b24b8abe56e)https://medium.com/hprog99/set-up-flyway-with-spring-boot-1b24b8abe56e
+ -  [Implementando flayway](https://medium.com/hprog99/set-up-flyway-with-spring-boot-1b24b8abe56e)
+ -  https://medium.com/hprog99/set-up-flyway-with-spring-boot-1b24b8abe56e
  -  https://www.baeldung.com/database-migrations-with-flyway
 ```yaml
 spring:
