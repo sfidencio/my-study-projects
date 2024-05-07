@@ -4,6 +4,9 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Setar token JWT via variáveis utilizando postman (Produtividade)
+  - https://iroshandu.medium.com/set-bearer-token-as-environment-variable-in-postman-for-all-apis-13277e3ebd78 
+
 - Plugin maven testes de integração
   - Coloque suas classes de teste de integração no diretório src/test/java seguindo o layout de diretório padrão do Maven.
   - Nomeie suas classes de teste de integração com o seguinte padrão: *IT.java ou *ITCase.java.
