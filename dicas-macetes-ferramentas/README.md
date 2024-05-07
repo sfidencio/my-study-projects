@@ -304,6 +304,15 @@ public class WebMvcConfig implements WebMvcConfigurer {
     private Map<String, String> valores;
   ```
 
+# Desta maneira, usando o campo do tipo `text`, e possivel recuperar o objeto sem problemas no parse:
+
+```java
+    @Column(name = Constantes.TABLE_NAME_FEATURES_FIELD_VALORES, nullable = false, columnDefinition = "text")
+    @Convert(converter = MapConverterGlobalValues.class)
+    //@ColumnTransformer(write = "?::json")
+    private Map<String, String> valores;
+```
+
 # Implementando um Mapper pra converter Map<?,?> para campo tipo json/text, usando JPA/hibernate: 
 
 ```java
@@ -313,11 +322,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
 private Map<String, String> valores;
 
 //Implementação do converter
-public class MapConverter implements AttributeConverter<Map<String, String>, String> {
-    private final static ObjectMapper objectMapper = new ObjectMapper();
+public class MapConverterGlobalValues implements AttributeConverter<Map<String, String>, String> {
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
-    public String convertToDatabaseColumn(Map<String, String> attribute) {
+    public String convertToDatabaseColumn(Map attribute) {
         try {
             return objectMapper.writeValueAsString(attribute);
         } catch (JsonProcessingException e) {
@@ -328,7 +337,8 @@ public class MapConverter implements AttributeConverter<Map<String, String>, Str
     @Override
     public Map<String, String> convertToEntityAttribute(String dbData) {
         try {
-            return objectMapper.readValue(dbData, Map.class);
+            return objectMapper.readValue(dbData, new TypeReference<>() {
+            });
         } catch (IOException e) {
             throw new IllegalArgumentException(e);
         }
