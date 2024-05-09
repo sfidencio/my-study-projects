@@ -6,7 +6,10 @@ dicas-macetes-ferramentas
 
 - Implementando JWT Token com springboot
   - https://medium.com/@tericcabrel/implement-jwt-authentication-in-a-spring-boot-3-application-5839e4fd8fac
+    - 0.11.5 
   - https://www.toptal.com/spring/spring-security-tutorial
+  - https://www.baeldung.com/spring-security-sign-jwt-token
+    - 0.12.5 
 
 - Para avançar a `sequence` no pgsql, utilizando a função interna `nextval`
 
