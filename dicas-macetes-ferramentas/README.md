@@ -4,6 +4,9 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Implementando JWT Token com springboot
+  - https://medium.com/@tericcabrel/implement-jwt-authentication-in-a-spring-boot-3-application-5839e4fd8fac
+
 - Para avançar a `sequence` no pgsql, utilizando a função interna `nextval`
 
 ```sql
