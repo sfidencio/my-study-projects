@@ -4,6 +4,13 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Para avançar a `sequence` no pgsql, utilizando a função interna `nextval`
+
+```sql
+insert into user (id,username,password) values (nextval('user.seq'), 'john', md5('1234'));
+```
+
+
 - Setar token JWT via variáveis utilizando postman (Produtividade)
   - https://iroshandu.medium.com/set-bearer-token-as-environment-variable-in-postman-for-all-apis-13277e3ebd78 
 
