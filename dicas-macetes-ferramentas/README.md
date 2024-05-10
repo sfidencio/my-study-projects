@@ -10,6 +10,7 @@ dicas-macetes-ferramentas
   - https://www.toptal.com/spring/spring-security-tutorial
   - https://hackernoon.com/mastering-jwt-authentication-and-authorization-in-spring-boot-31
   - https://www.baeldung.com/spring-security-sign-jwt-token
+  - https://medium.com/spring-boot/spring-boot-3-spring-security-6-jwt-authentication-authorization-98702d6313a5
     - 0.12.5 
 
 - Para avançar a `sequence` no pgsql, utilizando a função interna `nextval`
