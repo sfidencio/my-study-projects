@@ -5,6 +5,7 @@ dicas-macetes-ferramentas
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
 - Implementando JWT Token com springboot
+  - https://github.com/ali-bouali/spring-boot-3-jwt-security/tree/main (funcional) 
   - https://medium.com/@tericcabrel/implement-jwt-authentication-in-a-spring-boot-3-application-5839e4fd8fac
     - 0.11.5 
   - https://www.toptal.com/spring/spring-security-tutorial
