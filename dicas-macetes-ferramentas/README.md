@@ -5,8 +5,11 @@ dicas-macetes-ferramentas
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
 - Many-to-Many fácil com Spring-Data
-  - https://www.bezkoder.com/jpa-many-to-many/ 
+  - https://www.bezkoder.com/jpa-many-to-many/
 
+- Diferentes formas de implementação do many-to-many no JPA
+  - https://www.baeldung.com/jpa-many-to-many
+     
 - Implementando JWT Token com springboot
   - https://github.com/ali-bouali/spring-boot-3-jwt-security/tree/main (funcional) 
   - https://medium.com/@tericcabrel/implement-jwt-authentication-in-a-spring-boot-3-application-5839e4fd8fac
