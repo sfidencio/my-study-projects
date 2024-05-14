@@ -1,3 +1,5 @@
+package teste01;
+
 import lombok.Builder;
 
 import java.util.List;

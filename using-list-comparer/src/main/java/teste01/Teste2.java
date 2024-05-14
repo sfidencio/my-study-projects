@@ -1,7 +1,8 @@
+package teste01;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class Teste2 {
     public static void main(String[] args) {
@@ -26,7 +27,7 @@ public class Teste2 {
 
     public static List<ParametroModelo> getParametros(List<Parametro> lista) {
 //        return lista.stream()
-//                .map(parametro -> ParametroModelo.builder()
+//                .map(parametro -> teste01.ParametroModelo.builder()
 //                        .parameters(parametro.parametros())
 //                        .type(parametro.tipo())
 //                        .build())
@@ -34,7 +35,7 @@ public class Teste2 {
 
         return lista.stream().map(
                 parametro -> {
-                    System.out.println("Teste");
+                    System.out.println("teste01.Teste");
                     return new ParametroModelo(parametro.parametros(), parametro.tipo());
                 }).toList();
     }

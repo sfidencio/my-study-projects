@@ -1,3 +1,5 @@
+package teste01;
+
 import java.math.BigInteger;
 
 public class User {
@@ -6,7 +8,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "teste01.User{" +
                 "id=" + this.getId() +
                 ", name='" + this.getName() + '\'' +
                 '}';

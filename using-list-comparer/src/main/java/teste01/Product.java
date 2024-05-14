@@ -1,4 +1,5 @@
-import lombok.Data;
+package teste01;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
