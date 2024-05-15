@@ -11,6 +11,8 @@ dicas-macetes-ferramentas
     - `Dica`: Utilize o LAZY caso queira adotar carregamento tardio, ou EAGLE, caso queria carregar o pai e os filhos em uma única consulta.
 
 - Caso queira gravar `payload` json em um campo do tipo jsonb/json no pgsql
+  - https://zjor.medium.com/support-of-jsonb-in-h2-test-dd5113c11baa 
+  - https://thorben-janssen.com/persist-postgresqls-jsonb-data-type-hibernate/ (valendo) 
   - https://prateek-ashtikar512.medium.com/how-to-handle-json-in-postgresql-5e2745d5324
   - https://vladmihalcea.com/how-to-map-json-objects-using-generic-hibernate-types/
      
