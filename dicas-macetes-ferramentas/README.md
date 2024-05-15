@@ -12,6 +12,7 @@ dicas-macetes-ferramentas
 
 - Caso queira gravar `payload` json em um campo do tipo jsonb/json no pgsql
   - https://prateek-ashtikar512.medium.com/how-to-handle-json-in-postgresql-5e2745d5324
+  - https://vladmihalcea.com/how-to-map-json-objects-using-generic-hibernate-types/
      
 - Diferentes formas de implementação do many-to-many no JPA
   - https://www.baeldung.com/jpa-many-to-many
