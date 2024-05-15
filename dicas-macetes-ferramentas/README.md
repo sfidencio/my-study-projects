@@ -10,12 +10,7 @@ dicas-macetes-ferramentas
 
 - Exemplos de uso de Lazy Loading, Eagle in JAVA
 
-  ```java
-
-  Claro! Vou fornecer exemplos de como usar Eager Loading e Lazy Loading com Spring Data JPA em Java.
-
-Configuração da Entidade
-Vamos supor que temos duas entidades ParentEntity e ChildEntity com um relacionamento Many-to-Many.
+```java
 
 ParentEntity.java
 import javax.persistence.*;
@@ -59,8 +54,8 @@ public class ChildEntity {
 
     // Getters e Setters
 }
-Repositórios
-Vamos criar os repositórios para as duas entidades.
+//Repositórios
+//Vamos criar os repositórios para as duas entidades.
 
 ParentRepository.java
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -72,10 +67,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ChildRepository extends JpaRepository<ChildEntity, Long> {
 }
-Eager Loading
-Para usar Eager Loading, você pode simplesmente definir fetch = FetchType.EAGER na anotação @ManyToMany na entidade ParentEntity. Com isso, quando você buscar um ParentEntity, os ChildEntity relacionados serão carregados automaticamente.
+//Eager Loading
+//Para usar Eager Loading, você pode simplesmente definir fetch = FetchType.EAGER na anotação @ManyToMany na entidade ParentEntity. Com isso, quando você buscar um ParentEntity, //os ChildEntity relacionados serão carregados automaticamente.
 
-Exemplo de Uso
+//Exemplo de Uso
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -91,8 +86,8 @@ public class ParentService {
         return parentRepository.findAll();
     }
 }
-Lazy Loading
-Para usar Lazy Loading, defina fetch = FetchType.LAZY na anotação @ManyToMany na entidade ParentEntity. Com isso, os ChildEntity relacionados só serão carregados quando você acessá-los pela primeira vez.
+//Lazy Loading
+//Para usar Lazy Loading, defina fetch = FetchType.LAZY na anotação @ManyToMany na entidade ParentEntity. Com isso, os ChildEntity relacionados só serão carregados quando você //acessá-los pela primeira vez.
 
 Exemplo de Uso
 import org.springframework.beans.factory.annotation.Autowired;
@@ -116,12 +111,12 @@ public class ParentService {
         return parent.getChildren(); // Aqui os filhos serão carregados
     }
 }
-Resumo
-Eager Loading: Carrega os dados relacionados junto com a consulta principal.
+//Resumo
+//Eager Loading: Carrega os dados relacionados junto com a consulta principal.
 @ManyToMany(fetch = FetchType.EAGER)
 Lazy Loading: Carrega os dados relacionados apenas quando acessados pela primeira vez.
 @ManyToMany(fetch = FetchType.LAZY)
-A técnica que você deve usar depende do contexto e das necessidades de performance da sua aplicação.
+//A técnica que você deve usar depende do contexto e das necessidades de performance da sua aplicação.
 ```
 
 
