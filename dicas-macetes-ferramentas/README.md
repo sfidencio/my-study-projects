@@ -6,6 +6,7 @@ dicas-macetes-ferramentas
 
 - Many-to-Many fácil com Spring-Data
   - https://www.bezkoder.com/jpa-many-to-many/
+    - `Cuidado`, o Set.of(), List.of(), Map.of(), cria objetos imutáveis. 
 
 - Diferentes formas de implementação do many-to-many no JPA
   - https://www.baeldung.com/jpa-many-to-many
