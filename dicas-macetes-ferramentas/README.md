@@ -6,8 +6,9 @@ dicas-macetes-ferramentas
 
 - Many-to-Many fácil com Spring-Data
   - https://www.bezkoder.com/jpa-many-to-many/
-    - `Cuidado`, o Set.of(), List.of(), Map.of(), cria objetos imutáveis. 
-
+    - `Cuidado`, o Set.of(), List.of(), Map.of(), cria objetos imutáveis.
+    - `Cuidado` ao utilizar o Set<> em uma relação many-to-many com mapeamento bi-direcional, pois o mesmo pode eliminar registros do lado da relação que possui o atributo `mappedBy`. Utilize List<>, principalmente quando estamos utilizando apenas duas entidades, para fazer o mapeamento, usando PK composta (FK, FK) -> unique=true.
+    - 
 - Exemplos de uso de Lazy Loading, Eagle in JAVA
 
 ```java
