@@ -10,6 +10,10 @@ dicas-macetes-ferramentas
     - `Cuidado` ao utilizar o Set<> em uma relação many-to-many com mapeamento bi-direcional, pois o mesmo pode eliminar registros do lado da relação que possui o atributo `mappedBy`. Utilize List<>, principalmente quando estamos utilizando apenas duas entidades, para fazer o mapeamento, usando PK composta (FK, FK) -> unique=true.
     - `Dica`: Utilize o LAZY caso queira adotar carregamento tardio, ou EAGLE, caso queria carregar o pai e os filhos em uma única consulta.
 
+- Preservar nome de colunas/tabelas no JPA/hibernate
+  - https://www.baeldung.com/hibernate-naming-strategy (Funcional)
+    - Esse tutorial aborda diversas maneiras de implementanção, principalmente com crase `, ao invés de \"\", pois no caso do pgsql, se formos gravar cadeia de caractéres que possuem aspas duplas, no caso json por exemplo, teremos problema de parse no dbms.    
+
 - Caso queira gravar `payload` json em um campo do tipo jsonb/json no pgsql
   - https://zjor.medium.com/support-of-jsonb-in-h2-test-dd5113c11baa 
   - https://thorben-janssen.com/persist-postgresqls-jsonb-data-type-hibernate/ (valendo) 
