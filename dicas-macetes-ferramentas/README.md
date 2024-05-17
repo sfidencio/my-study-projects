@@ -29,7 +29,8 @@ dicas-macetes-ferramentas
   - https://www.baeldung.com/jpa-many-to-many
      
 - Implementando JWT Token com springboot
-  - https://medium.com/spring-boot/jwt-refresh-token-spring-security-c5b4646cdbd9 (RefreshToken funcional) 
+  - https://medium.com/p/98702d6313a5 (Implementando token spring security 6) - atualizado
+    - https://medium.com/spring-boot/jwt-refresh-token-spring-security-c5b4646cdbd9 (RefreshToken funcional) 
   - https://github.com/ali-bouali/spring-boot-3-jwt-security/tree/main (funcional) 
   - https://medium.com/@tericcabrel/implement-jwt-authentication-in-a-spring-boot-3-application-5839e4fd8fac
     - 0.11.5 
