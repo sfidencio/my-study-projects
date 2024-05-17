@@ -15,4 +15,6 @@ public interface LivroService {
     void excluir(Long id);
 
     Page<Livro> buscarTodos(String titulo, @PageableDefault(page = 0, size = 5, direction = Sort.Direction.ASC) Pageable pageable);
+
+    Page<Livro> buscarTodos(Livro filtro, Pageable pageable);
 }

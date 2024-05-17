@@ -59,4 +59,11 @@ public class LivroControllerImp implements LivroController {
         log.info("Buscando todos os livros paginados {} {}", pageable.getPageNumber(), pageable.getPageSize());
         return livroService.buscarTodos(titulo, pageable);
     }
+
+    @Override
+    public Page<Livro> buscarTodos(LivroDTO filtro, Pageable pageable) {
+        log.info("Buscando todos os livros paginados {} {}", pageable.getPageNumber(), pageable.getPageSize());
+        var livro = this.modelMapper.map(filtro, Livro.class);
+        return livroService.buscarTodos(livro, pageable);
+    }
 }

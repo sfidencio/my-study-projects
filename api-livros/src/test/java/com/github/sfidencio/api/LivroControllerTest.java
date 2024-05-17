@@ -22,6 +22,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import java.util.List;
+
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -313,6 +315,40 @@ class LivroControllerTest {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("content", Matchers.hasSize(0)));
+
+        var jsonReturn = result.andReturn().getResponse().getContentAsString();
+        log.info("jsonReturn: {}", jsonReturn);
+
+    }
+
+    @Test
+    @DisplayName("Deve buscar todos os livros com sucesso passando objeto filtro")
+    void deveBuscarTodosLivrosComSucessoComFiltro() throws Exception {
+
+        Page<Livro> page = new PageImpl<>(List.of(
+                new Livro(1L, "Meu Livro", "Autor", "123"),
+                new Livro(2L, "Meu Livro 2", "Autor 2", "1234"),
+                new Livro(3L, "Meu Livro 3", "Autor 3", "12345"),
+                new Livro(4L, "Meu Livro 4", "Autor 4", "123456")
+        ));
+
+        // Mockando o service ao salvar o livro
+        BDDMockito.given(this.livroService.buscarTodos(Mockito.any(Livro.class), Mockito.any()))
+                .willReturn(page);
+
+        ObjectMapper mapper = new ObjectMapper();
+        var dto = LivroDTO.builder()
+                .titulo("Meu Livro")
+                .autor("Autor")
+                .isbn("123")
+                .build();
+        String json = mapper.writeValueAsString(dto);
+
+        var result = this.mvc.perform(MockMvcRequestBuilders.get(API + "/filtro")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(json))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("content", Matchers.hasSize(4)));
 
         var jsonReturn = result.andReturn().getResponse().getContentAsString();
         log.info("jsonReturn: {}", jsonReturn);

@@ -102,4 +102,8 @@ public interface LivroController {
     //https://github.com/sfidencio/my-study-projects/blob/master/dicas-macetes-ferramentas/README.md#paginacao-spring-data
     Page<Livro> buscarTodos(@Parameter(description = "Titulo do livro para filtrar os resultados") @RequestParam(required = false,defaultValue = "") String titulo,
                             @Parameter(hidden = true) @PageableDefault(size = 2, sort = "titulo", direction = Sort.Direction.DESC) Pageable pageable);
+
+    @GetMapping("/filtro")
+    @ResponseStatus(HttpStatus.OK)
+    Page<Livro> buscarTodos(@RequestBody LivroDTO filtro, @PageableDefault(size = 2, sort = "titulo", direction = Sort.Direction.DESC) Pageable pageable);
 }

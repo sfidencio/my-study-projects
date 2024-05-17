@@ -5,6 +5,7 @@ import com.github.sfidencio.infrastructure.exceptions.BusinessException;
 import com.github.sfidencio.infrastructure.repository.LivroRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -51,5 +52,10 @@ public class LivroServiceImp implements LivroService {
         return this.livroRepository.findByTituloContainingIgnoreCase(titulo, pageable);
     }
 
+    @Override
+    public Page<Livro> buscarTodos(Livro filtro, Pageable pageable) {
+        Example<Livro> example = Example.of(filtro);
+        return this.livroRepository.findAll(example, pageable);
+    }
 
 }
