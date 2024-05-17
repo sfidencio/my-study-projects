@@ -4,6 +4,11 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Para cobertura de código podemos usar `codecov` integrado com `gihub actions` ou `travis-ci`
+
+- Usando cronmaker pra calcular crontab (SpringBatch)
+  - http://www.cronmaker.com/;jsessionid=node01m85gpyj0h5w8qxpl3yx85h471033613.node0?0 
+
 - Many-to-Many fácil com Spring-Data
   - https://www.bezkoder.com/jpa-many-to-many/
     - `Cuidado`, o Set.of(), List.of(), Map.of(), cria objetos imutáveis.
