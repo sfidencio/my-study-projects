@@ -1,7 +1,6 @@
-package teste05.teste04;
+package teste05;
 
 import java.util.List;
-import java.util.function.Predicate;
 
 /*
  * Exemplos de uso do flatMap do Stream
