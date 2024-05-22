@@ -1,0 +1,29 @@
+//{
+//  "contexts": [
+//    {
+//      "parametros": {
+//        "Agencia": [
+//          "3206",
+//          "3207"
+//        ]
+//      },
+//      "tipo": "N",
+//      "comparador": "0"
+//    }
+//  ]
+//}
+
+{
+  "contexts": [
+    {
+      "Agencia": ["3206", "3207"],
+      "tipo": "N",
+      "comparador": "0"
+    },
+    {
+      "Agencia": ["3206"],
+      "tipo": "N",
+      "comparador": "0"
+    }
+  ]
+}
