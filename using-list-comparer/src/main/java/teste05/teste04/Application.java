@@ -32,11 +32,12 @@ public class Application {
         System.out.println("Vamos achatar a lista em uma so..pode?");
 
 
-        List<Integer> listaAchatada =
+        var listaAchatada =
                 listaAninhada.stream()
                         .flatMap(primeiroNivel -> primeiroNivel.stream())
-                        .flatMap(segundoNivel -> segundoNivel.stream())
-                        .toList();
+                                .toList();
+                        //.flatMap(segundoNivel -> segundoNivel.stream())
+                        //.toList();
 
         System.out.println(listaAchatada);
 
