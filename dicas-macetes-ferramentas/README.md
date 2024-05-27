@@ -4,6 +4,9 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Desmistificando os parâmetros de otimização da JVM, gerenciamento de memória e etc.
+   - 
+https://deviniciative.wordpress.com/2024/05/25/entendendo-o-modelo-de-memoria-do-java/
 - Para cobertura de código podemos usar `codecov` integrado com `gihub actions` ou `travis-ci`
 
 - Usando cronmaker pra calcular crontab (SpringBatch)
