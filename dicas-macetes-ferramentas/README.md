@@ -4,6 +4,9 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Usando Interable<T> Java 5
+   - https://medium.com/javarevisited/iterate-over-any-iterable-in-java-bec78eeeb452 
+
 - Desmistificando os parâmetros de otimização da JVM, gerenciamento de memória e etc.
    - https://deviniciative.wordpress.com/2024/05/25/entendendo-o-modelo-de-memoria-do-java/
 
