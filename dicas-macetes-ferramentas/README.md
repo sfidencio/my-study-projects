@@ -4,6 +4,9 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Redis Interface Admin
+   - https://github.com/joeferner/redis-commander 
+
 - Usando Interable<T> Java 5
    - https://medium.com/javarevisited/iterate-over-any-iterable-in-java-bec78eeeb452 
 
