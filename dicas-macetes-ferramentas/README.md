@@ -4,6 +4,9 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- VT (Virtual Threads), fim webflux
+   - https://medium.com/@sheywesk/o-fim-do-webflux-no-spring-boot-virtual-threads-java-21-b5a63e20f9ef 
+
 - Operações @Async
    - https://saannjaay.medium.com/how-to-implement-cache-redis-cache-and-async-communication-in-spring-boot-390c1be6f2b7 
   
