@@ -4,7 +4,7 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
-- CLI super intuitivo para PgSQL (MacOS)
+- CLI super intuitivo para PgSQL (MacOS) - By Klaus
    - https://www.pgcli.com 
 
 - Leitura de arquivos de configuração em diretórios, mapeando usando spring.config.tree:
