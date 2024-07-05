@@ -5,6 +5,8 @@
 >[!TIP]
 > Lista de artigos:
 
+  - Instalação WSL + ArchLinux
+    -  https://www.tabnews.com.br/dchueri/configurando-o-archlinux-no-windows-com-wsl-2
   - https://www.baeldung.com/linux/bash-prompt-git
     - Configuração simples do bash for linux para assumir o prompt git. 
   - https://github.com/deanbot/easy-wsl-oh-my-zsh-p10k
