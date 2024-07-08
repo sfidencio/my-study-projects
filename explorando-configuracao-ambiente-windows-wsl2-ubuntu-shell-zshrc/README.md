@@ -6,7 +6,8 @@
 > Lista de artigos:
 
   - Instalação o oh-my-posh PowerShell Windows
-    - https://ohmyposh.dev/ 
+    - https://ohmyposh.dev/
+    - https://learn.microsoft.com/pt-br/windows/terminal/tutorials/custom-prompt-setup
   - Instalação WSL + ArchLinux
     -  https://www.tabnews.com.br/dchueri/configurando-o-archlinux-no-windows-com-wsl-2
   - https://www.baeldung.com/linux/bash-prompt-git
