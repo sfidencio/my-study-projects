@@ -74,7 +74,7 @@ public class UsuarioDAO implements IUsuarioDAO {
 }
 
 ```
-## Criação da Procedure no PostgreSQL
+## Criação da Procedure/Function no PostgreSQL
 ```sql
 DROP FUNCTION IF EXISTS sp_seleciona_usuarios(varchar);
 
@@ -115,7 +115,10 @@ public class UsuarioResultSetExtractor implements ResultSetExtractor<List<Usuari
 }
 ```
 
-### Configurando um JdbcTemplate customizado, com controle de transações explícito, para aplicações reais é importante ter controle dessas configurações e não deixar o spring fazer `auto-configure`.
+### Configurando um JdbcTemplate customizado
+- O controle de transações explícito, para aplicações de produção é de suma importância
+- Deixar toda essa responsabilidade de auto-configuração a cargo do spring não permite obtermos maior otimização em cenários de alta concorrência
+
 ```java
 /*
  * Eu nem precisaria de definir um JdbcTemplate customizado, pois o Spring Boot já faz isso por mim.
