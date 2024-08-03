@@ -30,7 +30,7 @@ import java.util.List;
  *Ele permite que uma transação veja dados que foram modificados por outras transações, mas que ainda não foram commitados.
  *
  *
- *É simples entender se o spring esta adontando o nivel de isolamento correto conforme a configuração,
+ *É simples entender se o spring esta adotando o nivel de isolamento correto conforme a configuração,
  *basta ligar o log em modo TRACE, e procurar por "Setting JDBC Connection [com.zaxxer.hikari.HikariProxyConnection@xxxxxx] transaction isolation to 2"
  *Caso seja READ_COMMITTED, o nivel de isolamento esta correto, caso contrario, o nivel de isolamento esta errado.
  *
