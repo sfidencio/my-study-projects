@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/mydb
+    username: postgres
+    password: 1234
+    hikari:
+      auto-commit: false
+      connection-timeout: 20000
+      jdbc-url: jdbc:postgresql://localhost:5432/mydb
+      max-lifetime: 2000000
+logging:
+  level:
+    root: trace
