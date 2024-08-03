@@ -10,10 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /*
- *Preste bem atenção:
- *quando usamos o nivel de isolamento
+ *Atenção, quando usamos o nivel de isolamento
  *
- *READ_COMMITTED: Este é o nível de isolamento padrão no PostgreSQL.
+ *READ_COMMITTED: Este é o nível de isolamento padrão no caso do PostgreSQL.
+ *
  *Ele garante que uma transação só possa ver dados que foram commitados por outras transações.
  *O nivel de isolamento READ_COMMITTED não é pessimista, ele é otimista, porque
  *ele não trava as linhas que estão sendo lidas, ele apenas verifica se houve alguma alteração.
