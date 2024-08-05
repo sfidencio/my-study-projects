@@ -7,8 +7,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 /*
  *Atenção, quando usamos o nivel de isolamento
  *
@@ -39,22 +37,28 @@ import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
-public class UsuarioDAO implements IUsuarioDAO {
+public class UsuarioDAO implements GenericDAO<UsuarioEntity> {
 
     private final JdbcTemplate jdbcTemplate;
 
-    @Override
-    @Transactional(isolation = Isolation.READ_COMMITTED)
-    public List<UsuarioEntity> selecionarUsuarios(String nome) {
-        return jdbcTemplate.query(
-                SQL_SELECT_USUARIOS,
-                new UsuarioResultSetExtractor(),
-                nome);
+    private String getFunctionSelecionaUsuariosPorParametro() {
+        var sql = new StringBuilder();
+        sql.append("select ");
+        sql.append("id_usuario_out AS id, ");
+        sql.append("nome_usuario_out AS nome, ");
+        sql.append("id_permissao_out AS id_permissao, ");
+        sql.append("nome_permissao_out AS nome_permissao, ");
+        sql.append("status_out AS status ");
+        sql.append("from sp_seleciona_usuarios(?)");
+        return sql.toString();
     }
 
-
-    private static final String SQL_SELECT_USUARIOS = "SELECT id_out," +
-            "nome_out," +
-            "status_out " +
-            "FROM sp_seleciona_usuarios(?);";
+    @Override
+    @Transactional(isolation = Isolation.READ_COMMITTED)
+    public UsuarioEntity selecionarPorParametro(String parametro) {
+        return jdbcTemplate.query(
+                this.getFunctionSelecionaUsuariosPorParametro(),
+                new UsuarioPermissaoResultSetExtractor(),
+                parametro);
+    }
 }

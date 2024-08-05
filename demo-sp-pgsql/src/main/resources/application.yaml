@@ -11,4 +11,4 @@ spring:
       max-lifetime: 2000000
 logging:
   level:
-    root: trace
+    root: info

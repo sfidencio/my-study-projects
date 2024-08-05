@@ -15,19 +15,15 @@ O objetivo deste documento é apresentar um exemplo de chamada de procedures/fun
 ## Criando o banco de dados
 - Na pasta `code` temos os scripts para criação do banco de dados e das tabelas bem como a stored procedure/função que serão chamadas no exemplo.
 
-## Exemplo de chamada no endpoint que retorna lista de usuários:
-
-![img.png](img.png)
-
 ## Principais pontos do código
 - Camada de Acesso a Dados (DAO)
 - Utilização do JDBCTemplate para chamada de procedures/funções
 ```java
 /*
- *Preste bem atenção:
- *quando usamos o nivel de isolamento
+ *Atenção, quando usamos o nivel de isolamento
  *
- *READ_COMMITTED: Este é o nível de isolamento padrão no PostgreSQL.
+ *READ_COMMITTED: Este é o nível de isolamento padrão no caso do PostgreSQL.
+ *
  *Ele garante que uma transação só possa ver dados que foram commitados por outras transações.
  *O nivel de isolamento READ_COMMITTED não é pessimista, ele é otimista, porque
  *ele não trava as linhas que estão sendo lidas, ele apenas verifica se houve alguma alteração.
@@ -44,7 +40,7 @@ O objetivo deste documento é apresentar um exemplo de chamada de procedures/fun
  *Ele permite que uma transação veja dados que foram modificados por outras transações, mas que ainda não foram commitados.
  *
  *
- *É simples entender se o spring esta adontando o nivel de isolamento correto conforme a configuração,
+ *É simples entender se o spring esta adotando o nivel de isolamento correto conforme a configuração,
  *basta ligar o log em modo TRACE, e procurar por "Setting JDBC Connection [com.zaxxer.hikari.HikariProxyConnection@xxxxxx] transaction isolation to 2"
  *Caso seja READ_COMMITTED, o nivel de isolamento esta correto, caso contrario, o nivel de isolamento esta errado.
  *
@@ -53,64 +49,100 @@ O objetivo deste documento é apresentar um exemplo de chamada de procedures/fun
 
 @Repository
 @RequiredArgsConstructor
-public class UsuarioDAO implements IUsuarioDAO {
+public class UsuarioDAO implements GenericDAO<UsuarioEntity> {
 
     private final JdbcTemplate jdbcTemplate;
 
-    @Override
-    @Transactional(isolation = Isolation.READ_COMMITTED)
-    public List<UsuarioEntity> selecionarUsuarios(String nome) {
-        return jdbcTemplate.query(
-                SQL_SELECT_USUARIOS,
-                new UsuarioResultSetExtractor(),
-                nome);
+    private String getFunctionSelecionaUsuariosPorParametro() {
+        var sql = new StringBuilder();
+        sql.append("select ");
+        sql.append("id_usuario_out AS id, ");
+        sql.append("nome_usuario_out AS nome, ");
+        sql.append("id_permissao_out AS id_permissao, ");
+        sql.append("nome_permissao_out AS nome_permissao, ");
+        sql.append("status_out AS status ");
+        sql.append("from sp_seleciona_usuarios(?)");
+        return sql.toString();
     }
 
-
-    private static final String SQL_SELECT_USUARIOS = "SELECT id_out," +
-            "nome_out," +
-            "status_out " +
-            "FROM sp_seleciona_usuarios(?);";
+    @Override
+    @Transactional(isolation = Isolation.READ_COMMITTED)
+    public UsuarioEntity selecionarPorParametro(String parametro) {
+        return jdbcTemplate.query(
+                this.getFunctionSelecionaUsuariosPorParametro(),
+                new UsuarioPermissaoResultSetExtractor(),
+                parametro);
+    }
 }
+
 
 ```
 ## Criação da Procedure/Function no PostgreSQL
 ```sql
-DROP FUNCTION IF EXISTS sp_seleciona_usuarios(varchar);
-
 CREATE
-OR REPLACE FUNCTION sp_seleciona_usuarios(nome_in varchar)
-         RETURNS TABLE (id_out integer, nome_out varchar, status_out boolean)
-AS $$
+    OR REPLACE FUNCTION sp_seleciona_usuarios(nome_in varchar)
+    RETURNS TABLE
+            (
+                id_usuario_out     integer,
+                nome_usuario_out   varchar,
+                nome_permissao_out varchar,
+                id_permissao_out   integer,
+                usuario_id_out     integer,
+                status_out         boolean
+            )
+AS
+$$
 
 BEGIN
-
---retorna os registros da tabela usuarios
-RETURN QUERY
-SELECT u.id,
-       u.nome,
-       u.status
-FROM usuarios u
-WHERE u.nome ILIKE '%' || nome_in || '%';
---commit
+    RETURN QUERY
+        SELECT u.id         AS id_usuario_out,
+               u.nome       AS nome_usuario_out,
+               p.nome       AS nome_permissao_out,
+               p.id         as id_permissao_out,
+               p.usuario_id AS usuario_id_out,
+               u.status     AS status_out
+        FROM usuarios u
+                 INNER JOIN permissoes p ON u.id = p.usuario_id
+        WHERE u.nome = nome_in;
 END;
 $$ LANGUAGE plpgsql;
+```
+
+## Excluindo a Procedure/Function
+```sql
+    DROP FUNCTION sp_seleciona_usuarios(varchar);
 ```
 
 ## Código do ResultSetExtractor
 - O ResultSetExtractor é uma interface funcional que é usada para processar o ResultSet e retornar um objeto processado.
 ```java
-public class UsuarioResultSetExtractor implements ResultSetExtractor<List<UsuarioEntity>> {
+public class UsuarioPermissaoResultSetExtractor implements ResultSetExtractor<UsuarioEntity> {
     @Override
-    public List<UsuarioEntity> extractData(ResultSet rs) throws SQLException, DataAccessException {
-        List<UsuarioEntity> usuarios = new ArrayList<>();
+    public UsuarioEntity extractData(ResultSet rs) throws SQLException, DataAccessException {
+        Optional<UsuarioEntity> usuario = Optional.empty();
+        Optional<PermissoesEntity> permissao;
+        List<PermissoesEntity> permissoes = new ArrayList<>();
         while (rs.next()) {
-            usuarios.add(new UsuarioEntity(
-                    rs.getInt("id_out"),
-                    rs.getString("nome_out"),
-                    rs.getBoolean("status_out")));
+            permissao = Optional.of(PermissoesEntity.builder()
+                    .id(rs.getInt("id_permissao"))
+                    .descricao(rs.getString("nome_permissao"))
+                    .build());
+            permissoes.add(permissao.get());
+            if (rs.isLast()) {
+                usuario = Optional.of(this.getUsuarioEntity(rs, permissoes));
+            }
         }
-        return usuarios;
+        return usuario.orElse(null);
+    }
+
+    private UsuarioEntity getUsuarioEntity(ResultSet rs, List<PermissoesEntity> permissoes) throws SQLException {
+        var usuario = UsuarioEntity.builder()
+                .id(rs.getInt("id"))
+                .nome(rs.getString("nome"))
+                .status(rs.getBoolean("status"))
+                .permissoes(permissoes)
+                .build();
+        return usuario;
     }
 }
 ```
@@ -168,7 +200,43 @@ public class AppConfig {
 
 }
 ```
+## Exemplo de chamada do endpoint
+```json
+GET http://localhost:8080/usuarios?nome=Pedro
+
+HTTP/1.1 200 
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 05 Aug 2024 21:59:50 GMT
+
+{
+  "id": 5,
+  "nome": "Pedro",
+  "status": false,
+  "permissoes": [
+    {
+      "id": 7,
+      "descricao": "Permissão 7"
+    },
+    {
+      "id": 8,
+      "descricao": "Permissão 8"
+    },
+    {
+      "id": 9,
+      "descricao": "Permissão 9"
+    },
+    {
+      "id": 10,
+      "descricao": "Permissão 10"
+    }
+  ]
+}
+Response file saved.
+> 2024-08-05T185950.200.json
+
+Response code: 200; Time: 207ms (207 ms); Content length: 195 bytes (195 B)
+```
 
 ## Referências
 - [Documentação Spring](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#jdbc.core)
-- Uso de IA para auxiliar na criação do documento: [GPT-3](https://www.openai.com/blog/openai-api/)
