@@ -10,6 +10,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import java.util.Properties;
 
 /*
  * Eu nem precisaria de definir um JdbcTemplate customizado, pois o Spring Boot já faz isso por mim.
@@ -33,7 +34,23 @@ public class AppConfig {
     @Value("${spring.datasource.password}")
     private String password;
 
+    @Value("${spring.datasource.hikari.connection-timeout}")
+    private String connectionTimeout;
 
+    @Value("${spring.datasource.hikari.maximum-pool-size}")
+    private String maximumPoolSize;
+
+    @Value("${spring.datasource.hikari.idle-timeout}")
+    private String idleTimeout;
+
+    @Value("${spring.datasource.hikari.pool-name}")
+    private String poolName;
+
+    @Value("${spring.datasource.hikari.auto-commit}")
+    private String autoCommit;
+
+    @Value("${spring.datasource.hikari.jdbc-url}")
+    private String jdbcUrl;
 
     @Bean
     public DataSource dataSource() {
@@ -44,6 +61,15 @@ public class AppConfig {
         dataSource.setUrl(url);
         dataSource.setUsername(username);
         dataSource.setPassword(password);
+        //hikariCP - define o pool de conexões
+        Properties properties = new Properties();
+        properties.setProperty("spring.datasource.hikari.connection-timeout", connectionTimeout);
+        properties.setProperty("spring.datasource.hikari.maximum-pool-size", maximumPoolSize);
+        properties.setProperty("spring.datasource.hikari.idle-timeout", idleTimeout);
+        properties.setProperty("spring.datasource.hikari.pool-name", poolName);
+        properties.setProperty("spring.datasource.hikari.auto-commit", autoCommit);
+        properties.setProperty("spring.datasource.hikari.jdbc-url", jdbcUrl);
+        dataSource.setConnectionProperties(properties);
         return dataSource;
     }
 
@@ -56,5 +82,4 @@ public class AppConfig {
     public JdbcTemplate jdbcTemplate() {
         return new JdbcTemplate(dataSource());
     }
-
 }

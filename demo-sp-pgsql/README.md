@@ -148,7 +148,7 @@ public class UsuarioPermissaoResultSetExtractor implements ResultSetExtractor<Us
 ```
 
 ### Configurando um JdbcTemplate customizado
-- O controle de transações explícito, para aplicações de produção é de suma importância
+- Definir o controle de transações explícito, para aplicações de produção é de suma importância
 - Deixar toda essa responsabilidade de auto-configuração a cargo do spring não permite obtermos maior otimização em cenários de alta concorrência
 
 ```java
@@ -174,7 +174,23 @@ public class AppConfig {
     @Value("${spring.datasource.password}")
     private String password;
 
+    @Value("${spring.datasource.hikari.connection-timeout}")
+    private String connectionTimeout;
 
+    @Value("${spring.datasource.hikari.maximum-pool-size}")
+    private String maximumPoolSize;
+
+    @Value("${spring.datasource.hikari.idle-timeout}")
+    private String idleTimeout;
+
+    @Value("${spring.datasource.hikari.pool-name}")
+    private String poolName;
+
+    @Value("${spring.datasource.hikari.auto-commit}")
+    private String autoCommit;
+
+    @Value("${spring.datasource.hikari.jdbc-url}")
+    private String jdbcUrl;
 
     @Bean
     public DataSource dataSource() {
@@ -185,6 +201,15 @@ public class AppConfig {
         dataSource.setUrl(url);
         dataSource.setUsername(username);
         dataSource.setPassword(password);
+        //hikariCP - define o pool de conexões
+        Properties properties = new Properties();
+        properties.setProperty("spring.datasource.hikari.connection-timeout", connectionTimeout);
+        properties.setProperty("spring.datasource.hikari.maximum-pool-size", maximumPoolSize);
+        properties.setProperty("spring.datasource.hikari.idle-timeout", idleTimeout);
+        properties.setProperty("spring.datasource.hikari.pool-name", poolName);
+        properties.setProperty("spring.datasource.hikari.auto-commit", autoCommit);
+        properties.setProperty("spring.datasource.hikari.jdbc-url", jdbcUrl);
+        dataSource.setConnectionProperties(properties);
         return dataSource;
     }
 
@@ -197,18 +222,17 @@ public class AppConfig {
     public JdbcTemplate jdbcTemplate() {
         return new JdbcTemplate(dataSource());
     }
-
 }
 ```
 ## Exemplo de chamada do endpoint
+
+- GET http://localhost:8080/usuarios?nome=Pedro
+- HTTP/1.1 200
+-  Content-Type: application/json
+-  Transfer-Encoding: chunked
+ - Date: Mon, 05 Aug 2024 21:59:50 GMT
+
 ```json
-GET http://localhost:8080/usuarios?nome=Pedro
-
-HTTP/1.1 200 
-Content-Type: application/json
-Transfer-Encoding: chunked
-Date: Mon, 05 Aug 2024 21:59:50 GMT
-
 {
   "id": 5,
   "nome": "Pedro",
@@ -232,11 +256,12 @@ Date: Mon, 05 Aug 2024 21:59:50 GMT
     }
   ]
 }
-Response file saved.
-> 2024-08-05T185950.200.json
-
-Response code: 200; Time: 207ms (207 ms); Content length: 195 bytes (195 B)
 ```
+- Response file saved.
+- 2024-08-05T185950.200.json
+- Response code: 200; 
+- Time: 207ms (207 ms); 
+- Content length: 195 bytes (195 B)
 
 ## Referências
 - [Documentação Spring](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#jdbc.core)

@@ -9,6 +9,10 @@ spring:
       connection-timeout: 20000
       jdbc-url: jdbc:postgresql://localhost:5432/mydb
       max-lifetime: 2000000
+      maximum-pool-size: 5
+      minimum-idle: 1
+      idle-timeout: 30000
+      pool-name: HikariCP
 logging:
   level:
     root: info
