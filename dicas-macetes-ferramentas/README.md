@@ -574,6 +574,80 @@ public class JacksonConfig {
   "tipo": ""
 }
 ```
+> 7. Outro exemplo de conversão de um json/map para objeto request
+```json
+{
+	"code": ["Teste1","Teste2", "Teste3"]
+}
+```
+
+```java
+@Component
+public class CustomDeserializer extends JsonDeserializer<List<NumberCustom>> {
+
+    public static final Logger log = Logger.getLogger(CustomDeserializer.class.getName());
+
+    @Override
+    public List<NumberCustom> deserialize(JsonParser p, DeserializationContext deserializationContext) throws IOException, JacksonException {
+        JsonNode node = p.getCodec().readTree(p);
+
+        var list = new ArrayList<NumberCustom>();
+
+        Iterator<Map.Entry<String, JsonNode>> fields = node.fields();
+
+        while (fields.hasNext()) {
+            Map.Entry<String, JsonNode> entry = fields.next();
+            String key = entry.getKey();
+
+            JsonNode valuesNode = entry.getValue();
+
+            log.info(key);
+
+            if (valuesNode.isArray()) {
+                valuesNode.forEach(v -> {
+                    var object = new NumberCustom(v.asText());
+                    list.add(object);
+                });
+            }
+        }
+        return list;
+    }
+}
+```
+
+```java
+public record NumberCustom(@NotEmpty(message = "Nao e permitido valor vazio!") String value) {
+}
+```
+
+```java
+@RestController
+public class MyController {
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Object create(@Valid
+                         @RequestBody
+                         @JsonDeserialize(using = CustomDeserializer.class) List<NumberCustom> numbers) {
+        numbers.forEach(System.out::println);
+        return null;
+    }
+}
+```
+```java
+@Configuration
+public class JacksonConfig {
+    @Bean
+    public ObjectMapper objectMapper() {
+        var objectMapper = new ObjectMapper();
+        SimpleModule module = new SimpleModule();
+        module.addDeserializer(List.class, new CustomDeserializer());
+        objectMapper.registerModule(module);
+        return objectMapper;
+    }
+}
+```
+
 
 # Básico do GIT
 
