@@ -575,11 +575,16 @@ public class JacksonConfig {
 }
 ```
 ### Outro exemplo de conversão de um json/map para objeto request
+
+> 1. Payload no formato de um map
+
 ```json
 {
 	"code": ["Teste1","Teste2", "Teste3"]
 }
 ```
+
+> 2. Deserializador, que converte o map/json para uma lista de objetos do tipo `NumberCustom`
 
 ```java
 @Component
@@ -620,6 +625,9 @@ public record NumberCustom(@NotEmpty(message = "Nao e permitido valor vazio!") S
 }
 ```
 
+
+> 3. Abaixo o controller, e a anotação do deserializador, que aciona o conversor ou mapper
+
 ```java
 @RestController
 public class MyController {
@@ -634,6 +642,9 @@ public class MyController {
     }
 }
 ```
+
+> 4. Abaixo a configuração do springboot que necessário para configurar o deserializador, pois injeta uma instância personalizada do jackson/ObjectMapper
+
 ```java
 @Configuration
 public class JacksonConfig {
