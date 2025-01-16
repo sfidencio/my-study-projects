@@ -6,25 +6,27 @@ dicas-macetes-ferramentas
 
 - Documentação apache camel
    - Apache Camel é uma poderosa biblioteca de integração que permite a criação de aplicativos usando uma abordagem baseada em rotas.
-    ```xml
-     <dependencies>  
-    <dependency>  
-        <groupId>org.springframework.boot</groupId>  
-        <artifactId>spring-boot-starter</artifactId>  
-    </dependency>  
-    <dependency>  
-        <groupId>org.springframework.boot</groupId>  
-        <artifactId>spring-boot-starter-web</artifactId>  
-    </dependency>  
-    <dependency>  
-        <groupId>org.apache.camel</groupId>  
-        <artifactId>camel-spring-boot-starter</artifactId>  
-    </dependency>  
-</dependencies>
-    ```
+    
+  ```xml
+    <dependencies>
+        <dependencies>  
+        <dependency>  
+            <groupId>org.springframework.boot</groupId>  
+            <artifactId>spring-boot-starter</artifactId>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework.boot</groupId>  
+            <artifactId>spring-boot-starter-web</artifactId>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.apache.camel</groupId>  
+            <artifactId>camel-spring-boot-starter</artifactId>  
+        </dependency>  
+    </dependencies>
+```
     
 
-    ```java
+```java
     import org.apache.camel.builder.RouteBuilder;  
     import org.springframework.stereotype.Component;  
 
@@ -38,10 +40,10 @@ dicas-macetes-ferramentas
 	    }  
 	}
   ```
-    - Configurações
+
 ```yaml
-camel.springboot.main-run-args=--spring.main.allow-bean-definition-overriding=true  
-logging.level.org.apache.camel=INFO
+    camel.springboot.main-run-args=--spring.main.allow-bean-definition-overriding=true  
+    logging.level.org.apache.camel=INFO
 ```
    - https://camel.apache.org/docs/ 	
 
