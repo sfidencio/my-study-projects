@@ -377,6 +377,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
 
 # Instalação e Configuração do IntelliJ embarcado no WSL2
+    - https://www.renatofialho.com/blog/intellij-and-wsl-not-a-good-match (tutorial mais completo)
     - https://dev.to/janetmutua/installing-jetbrains-toolbox-on-ubuntu-527f
     - https://github.com/AppImage/AppImageKit/wiki/FUSE
     - https://dev.to/wesleyotio/configurando-wsl2-com-intellij-2pl7
