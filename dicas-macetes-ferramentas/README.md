@@ -22,7 +22,7 @@ dicas-macetes-ferramentas
     </dependency>  
 </dependencies>
     ```
-    - Código Java
+    
 
     ```java
     import org.apache.camel.builder.RouteBuilder;  
