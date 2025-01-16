@@ -4,6 +4,10 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Dicas sobre rabbitmq
+   - https://www.linkedin.com/pulse/exchanges-do-rabbitmq-otthon-le%C3%A3o-bkmbf/
+   - https://www.rabbitmq.com/ 
+
 - Precisa de realizar querys dinâmicas usando spring-data/JPA?
    - https://medium.com/@bubu.tripathy/dynamic-query-with-specification-interface-in-spring-data-jpa-ae8764e32162#:~:text=The%20Specification%20interface%20in%20Spring%20Data%20JPA%20is%20a%20powerful 
 
