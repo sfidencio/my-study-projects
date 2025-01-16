@@ -24,7 +24,7 @@ dicas-macetes-ferramentas
         </dependency>  
     </dependencies>
   ```
-   -
+
 ```java
     import org.apache.camel.builder.RouteBuilder;  
     import org.springframework.stereotype.Component;  
