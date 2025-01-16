@@ -4,6 +4,26 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Documentação apache camel
+   - Apache Camel é uma poderosa biblioteca de integração que permite a criação de aplicativos usando uma abordagem baseada em rotas.
+   - ```xml
+     <dependencies>  
+    <dependency>  
+        <groupId>org.springframework.boot</groupId>  
+        <artifactId>spring-boot-starter</artifactId>  
+    </dependency>  
+    <dependency>  
+        <groupId>org.springframework.boot</groupId>  
+        <artifactId>spring-boot-starter-web</artifactId>  
+    </dependency>  
+    <dependency>  
+        <groupId>org.apache.camel</groupId>  
+        <artifactId>camel-spring-boot-starter</artifactId>  
+    </dependency>  
+</dependencies>
+    ```
+   - https://camel.apache.org/docs/ 	
+
 - Dicas sobre rabbitmq
    - https://www.linkedin.com/pulse/exchanges-do-rabbitmq-otthon-le%C3%A3o-bkmbf/
    - https://www.rabbitmq.com/ 
