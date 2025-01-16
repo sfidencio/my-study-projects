@@ -6,7 +6,7 @@ dicas-macetes-ferramentas
 
 - Documentação apache camel
    - Apache Camel é uma poderosa biblioteca de integração que permite a criação de aplicativos usando uma abordagem baseada em rotas.
-   - ```xml
+    ```xml
      <dependencies>  
     <dependency>  
         <groupId>org.springframework.boot</groupId>  
