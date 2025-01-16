@@ -22,6 +22,26 @@ dicas-macetes-ferramentas
     </dependency>  
 </dependencies>
     ```
+
+    ```java
+    import org.apache.camel.builder.RouteBuilder;  
+import org.springframework.stereotype.Component;  
+
+@Component  
+public class MyRoute extends RouteBuilder {  
+    @Override  
+    public void configure() throws Exception {  
+        from("timer:hello?period=5000")  // Gera um evento a cada 5 segundos  
+            .setBody().simple("Hello from Apache Camel!")  // Define a mensagem a ser enviada  
+            .to("log:info");  // Log a mensagem no console  
+    }  
+}
+```
+
+```properties
+camel.springboot.main-run-args=--spring.main.allow-bean-definition-overriding=true  
+logging.level.org.apache.camel=INFO
+```
    - https://camel.apache.org/docs/ 	
 
 - Dicas sobre rabbitmq
