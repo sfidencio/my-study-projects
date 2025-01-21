@@ -60,4 +60,8 @@
 > + https://beebom.com/how-install-zsh-and-oh-my-zsh-linux/
 
 >[!TIP]
-> + Não esquecer de habilitar o docker para subir no boot do Debian/Ubuntu. https://docs.docker.com/engine/install/linux-postinstall/ 
+> + Não esquecer de habilitar o docker para subir no boot do Debian/Ubuntu. https://docs.docker.com/engine/install/linux-postinstall/
+
+>[!TIP]
+> Montando ambiente de desenvolvimento com WSL2 + Linux (FullCycle)
+> https://github.com/codeedu/wsl2-docker-quickstart 
