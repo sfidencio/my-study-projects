@@ -4,6 +4,400 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Dominando Specification SpringData - DynamicQuery
+  # Framework Dinâmico com Spring Data JPA e Specifications
+
+Este documento reúne duas ideias principais para construção de consultas dinâmicas usando Spring Data JPA e Specifications:  
+1. A geração de Specifications de forma genérica e refletida, para filtrar por qualquer campo.  
+2. A possibilidade de escolher operadores de comparação (EQUAL, LIKE, GREATER_THAN etc.), tornando a busca ainda mais flexível.
+
+--------------------------------------------------------------------------------
+
+## Sumário
+
+1. [Visão Geral](#visão-geral)  
+2. [Enum de Operadores](#enum-de-operadores)  
+3. [Objeto de Filtro](#objeto-de-filtro)  
+4. [Builder de Specifications Dinâmicas](#builder-de-specifications-dinâmicas)  
+   4.1 [Lógica de Criação de Predicates](#lógica-de-criação-de-predicates)  
+   4.2 [Conversão de Tipos (CastValue)](#conversão-de-tipos-castvalue)  
+5. [Exemplo de Uso (Repository, Service)](#exemplo-de-uso-repository-service)  
+   5.1 [Entidade de Exemplo](#entidade-de-exemplo)  
+   5.2 [Repositório com JpaSpecificationExecutor](#repositório-com-jpaspecificationexecutor)  
+   5.3 [Service/Controller Exemplo](#servicecontroller-exemplo)  
+6. [Observações Finais](#observações-finais)
+
+--------------------------------------------------------------------------------
+
+## 1. Visão Geral
+
+A abordagem aqui descrita combina:
+- Reflection para identificar se o campo informado para filtro realmente existe na entidade.  
+- Classe auxiliar (DynamicSpecificationBuilder<T>) que monta, de forma dinâmica, as cláusulas WHERE com base em uma lista de filtros.  
+- Possibilidade de aplicar JOIN de forma flexível (escolhendo por qual atributo será feito e qual JoinType).  
+- Operadores de comparação para cada filtro, como EQUAL, LIKE, GREATER_THAN, etc.  
+
+Com isso, você consegue construir queries complexas sem precisar criar vários métodos de repositório manualmente.
+
+--------------------------------------------------------------------------------
+
+## 2. Enum de Operadores
+
+Esta enum define os operadores que podem ser usados ao filtrar campos:
+
+```java
+```java
+package com.exemplo.framework;
+
+public enum FilterOperator {
+    EQUAL,
+    LIKE,
+    GREATER_THAN,
+    GREATER_OR_EQUAL,
+    LESS_THAN,
+    LESS_OR_EQUAL
+}
+```
+```
+
+- EQUAL → campo = valor  
+- LIKE → campo LIKE %valor% (específico para Strings, em geral)  
+- GREATER_THAN → campo > valor  
+- GREATER_OR_EQUAL → campo >= valor  
+- LESS_THAN → campo < valor  
+- LESS_OR_EQUAL → campo <= valor  
+
+--------------------------------------------------------------------------------
+
+## 3. Objeto de Filtro
+
+Representa cada filtro individual. Cada filtro possui:  
+1. Nome do campo (fieldName).  
+2. Operador (FilterOperator).  
+3. Valor (value).
+
+```java
+```java
+package com.exemplo.framework;
+
+public class Filter {
+    private String fieldName;
+    private FilterOperator operator;
+    private Object value;
+
+    public Filter(String fieldName, FilterOperator operator, Object value) {
+        this.fieldName = fieldName;
+        this.operator = operator;
+        this.value = value;
+    }
+
+    public String getFieldName() {
+        return fieldName;
+    }
+
+    public FilterOperator getOperator() {
+        return operator;
+    }
+
+    public Object getValue() {
+        return value;
+    }
+}
+```
+```
+
+--------------------------------------------------------------------------------
+
+## 4. Builder de Specifications Dinâmicas
+
+A seguir está um exemplo de implementação de `DynamicSpecificationBuilder<T>`, que:  
+1. Recebe uma lista de objetos Filter (cada um com campo, operador e valor).  
+2. Recebe também, opcionalmente, um Map para joins, indicando qual atributo deve ser “joined” e que tipo de join (`JoinType.LEFT`, `JoinType.INNER`, etc.).  
+3. Cria e retorna um objeto `Specification<T>` pronto para ser usado com repositórios que implementem `JpaSpecificationExecutor<T>`.
+
+```java
+```java
+package com.exemplo.framework;
+
+import org.springframework.data.jpa.domain.Specification;
+
+import javax.persistence.criteria.*;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+
+public class DynamicSpecificationBuilder<T> {
+
+    public Specification<T> buildSpecification(
+            List<Filter> filters,
+            Map<String, JoinType> joinFields
+    ) {
+        return (Root<T> root, CriteriaQuery<?> query, CriteriaBuilder cb) -> {
+
+            // Define joins dinamicamente, se necessário
+            if (joinFields != null) {
+                joinFields.forEach((joinField, joinType) -> {
+                    root.join(joinField, joinType);
+                });
+            }
+
+            List<Predicate> predicates = new ArrayList<>();
+
+            // Construção dinâmica dos Predicates
+            if (filters != null) {
+                for (Filter filtro : filters) {
+                    if (Objects.nonNull(filtro.getValue())) {
+                        try {
+                            String fieldName = filtro.getFieldName();
+                            FilterOperator operator = filtro.getOperator();
+                            Object value = filtro.getValue();
+
+                            // Verificar se o campo existe na entidade (Reflection)
+                            Field field = root.getJavaType().getDeclaredField(fieldName);
+                            Class<?> fieldType = field.getType();
+
+                            // Cria o Predicate conforme o operador especificado
+                            Predicate predicate = createPredicate(
+                                    cb,
+                                    root,
+                                    fieldName,
+                                    fieldType,
+                                    operator,
+                                    value
+                            );
+
+                            if (predicate != null) {
+                                predicates.add(predicate);
+                            }
+
+                        } catch (NoSuchFieldException e) {
+                            // Caso o campo não exista, você pode ignorar ou registrar log
+                        }
+                    }
+                }
+            }
+
+            // Combina todos os Predicates com AND
+            return cb.and(predicates.toArray(new Predicate[0]));
+        };
+    }
+
+    /**
+     * Cria o Predicate de acordo com o operador solicitado.
+     */
+    private Predicate createPredicate(
+            CriteriaBuilder cb,
+            Root<T> root,
+            String fieldName,
+            Class<?> fieldType,
+            FilterOperator operator,
+            Object value
+    ) {
+        switch (operator) {
+            case EQUAL:
+                // Igualdade
+                return cb.equal(root.get(fieldName), castValue(fieldType, value));
+
+            case LIKE:
+                // LIKE geralmente para Strings
+                if (fieldType.equals(String.class)) {
+                    String pattern = "%" + value.toString().toLowerCase() + "%";
+                    return cb.like(cb.lower(root.get(fieldName)), pattern);
+                } else {
+                    // Fallback para igual caso não seja String
+                    return cb.equal(root.get(fieldName), castValue(fieldType, value));
+                }
+
+            case GREATER_THAN:
+                // Ajuste para Number (ou datas, se precisar)
+                if (Number.class.isAssignableFrom(fieldType)) {
+                    return cb.gt(root.get(fieldName), (Number) castValue(fieldType, value));
+                }
+                break;
+
+            case GREATER_OR_EQUAL:
+                if (Number.class.isAssignableFrom(fieldType)) {
+                    return cb.ge(root.get(fieldName), (Number) castValue(fieldType, value));
+                }
+                break;
+
+            case LESS_THAN:
+                if (Number.class.isAssignableFrom(fieldType)) {
+                    return cb.lt(root.get(fieldName), (Number) castValue(fieldType, value));
+                }
+                break;
+
+            case LESS_OR_EQUAL:
+                if (Number.class.isAssignableFrom(fieldType)) {
+                    return cb.le(root.get(fieldName), (Number) castValue(fieldType, value));
+                }
+                break;
+        }
+
+        // Não encontrou operador adequado? Pode retornar null ou um predicate "sempre verdadeiro"
+        return null;
+    }
+
+    /**
+     * Converte value para o tipo do campo (fieldType).
+     * Pode ser expandido para datas, enums, etc.
+     */
+    private Object castValue(Class<?> fieldType, Object value) {
+        if (value == null) return null;
+
+        if (fieldType.equals(Long.class) || fieldType.equals(long.class)) {
+            return Long.parseLong(value.toString());
+        }
+        if (fieldType.equals(Integer.class) || fieldType.equals(int.class)) {
+            return Integer.parseInt(value.toString());
+        }
+        if (fieldType.equals(Double.class) || fieldType.equals(double.class)) {
+            return Double.parseDouble(value.toString());
+        }
+        if (fieldType.equals(Float.class) || fieldType.equals(float.class)) {
+            return Float.parseFloat(value.toString());
+        }
+
+        // Outras conversões especiais podem entrar aqui (por exemplo, datas, enums).
+        return value;
+    }
+}
+```
+```
+
+### 4.1. Lógica de Criação de Predicates
+
+- EQUAL → `cb.equal`  
+- LIKE → se for campo String, usa `cb.like` com “%valor%”; caso contrário, faz fallback para EQUAL.  
+- GREATER_THAN, GREATER_OR_EQUAL, LESS_THAN, LESS_OR_EQUAL → Exemplos de uso com Number. Pode-se expandir para outros tipos (por exemplo, datas).  
+
+### 4.2. Conversão de Tipos (castValue)
+
+- Exemplo simples para números primitivos (long, int, etc.).  
+- Se precisar converter para datas (LocalDate, Date), enums, ou tipos complexos, basta adicionar mais lógica.
+
+--------------------------------------------------------------------------------
+
+## 5. Exemplo de Uso (Repository, Service)
+
+### 5.1. Entidade de Exemplo
+
+```java
+```java
+package com.exemplo.dominio;
+
+import javax.persistence.*;
+import lombok.Data;
+
+@Entity
+@Data
+public class MinhaEntidade {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String titulo;
+    private String descricao;
+
+    // Exemplo de relacionamento
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
+}
+```
+```
+
+### 5.2. Repositório com JpaSpecificationExecutor
+
+```java
+```java
+package com.exemplo.repositorio;
+
+import com.exemplo.dominio.MinhaEntidade;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+
+public interface MinhaEntidadeRepository 
+    extends JpaRepository<MinhaEntidade, Long>, JpaSpecificationExecutor<MinhaEntidade> {
+    
+    // Métodos adicionais, se necessário
+}
+```
+```
+
+### 5.3. Service/Controller Exemplo
+
+Veja como usar o builder para criar Specifications corretamente:
+
+```java
+```java
+package com.exemplo.servico;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.criteria.JoinType;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.exemplo.dominio.MinhaEntidade;
+import com.exemplo.framework.DynamicSpecificationBuilder;
+import com.exemplo.framework.Filter;
+import com.exemplo.framework.FilterOperator;
+import com.exemplo.repositorio.MinhaEntidadeRepository;
+
+@Service
+public class MinhaEntidadeService {
+
+    private final MinhaEntidadeRepository repo;
+
+    public MinhaEntidadeService(MinhaEntidadeRepository repo) {
+        this.repo = repo;
+    }
+
+    @Transactional(readOnly = true)
+    public List<MinhaEntidade> buscarComFiltros() {
+        // Exemplos de filtros
+        List<Filter> filtros = new ArrayList<>();
+        // LIKE em "titulo" que contenha "abc"
+        filtros.add(new Filter("titulo", FilterOperator.LIKE, "abc"));
+        // id > 5
+        filtros.add(new Filter("id", FilterOperator.GREATER_THAN, 5));
+
+        // Exemplos de joins
+        Map<String, JoinType> joins = new HashMap<>();
+        joins.put("categoria", JoinType.LEFT);
+
+        // Constrói specification
+        DynamicSpecificationBuilder<MinhaEntidade> builder = new DynamicSpecificationBuilder<>();
+        var spec = builder.buildSpecification(filtros, joins);
+
+        // Executa a busca
+        return repo.findAll(spec);
+    }
+}
+```
+```
+
+--------------------------------------------------------------------------------
+
+## 6. Observações Finais
+
+1. Este “framework” de Specifications baseadas em Reflection permite grande flexibilidade, mas deve ser usado com cautela em ambientes externos, pois a possibilidade de “filtrar qualquer campo” pode expor dados ou gerar queries muito pesadas.  
+2. Restrinja e valide campos e operadores permitidos, conforme a necessidade.  
+3. Para suporte avançado a datas, enums e outros tipos, expanda o método `castValue`.  
+4. Para adicionar operadores como NOT EQUAL, BETWEEN, IN etc., basta ampliar a enum e a lógica de criação de `Predicate`.  
+5. Sempre verifique se as colunas/relacionamentos passados como filtros realmente existem na entidade. Caso não existam, decida se deseja ignorar o filtro ou lançar um erro.
+
+---
+
+Isso conclui um modelo de “framework” dinâmico de Specifications com Spring Data, incluindo operadores relacionais/comparativos e suporte a JOIN. Sinta-se livre para adaptar as classes, métodos e a estrutura do projeto de acordo com suas necessidades.  
+
 - Documentação apache camel
    - Apache Camel é uma poderosa biblioteca de integração que permite a criação de aplicativos usando uma abordagem baseada em rotas.
 
