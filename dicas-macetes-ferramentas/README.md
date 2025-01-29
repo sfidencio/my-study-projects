@@ -1598,13 +1598,13 @@ O mesmo princípio vale para DynamoDB, SQS, SNS, etc., trocando o client especí
 
 LocalStack é uma ferramenta extremamente útil para desenvolvimento e testes offline de microserviços ou aplicações que interagem com diversos serviços da AWS. Com apenas alguns ajustes na configuração do Docker e do AWS CLI (ou SDK), você consegue emular S3, DynamoDB, SQS e outros recursos sem precisar de uma conta ou ambiente AWS real.
 
+---
 
 
+# Framework Dinâmico com Spring Data JPA e Specifications
 
-  # Framework Dinâmico com Spring Data JPA e Specifications
-
-  - Mais dicas sobre o assunto
-   - https://medium.com/@bubu.tripathy/dynamic-query-with-specification-interface-in-spring-data-jpa-ae8764e32162#:~:text=The%20Specification%20interface%20in%20Spring%20Data%20JPA%20is%20a%20powerful 
+- Mais dicas sobre o assunto
+- https://medium.com/@bubu.tripathy/dynamic-query-with-specification-interface-in-spring-data-jpa-ae8764e32162#:~:text=The%20Specification%20interface%20in%20Spring%20Data%20JPA%20is%20a%20powerful 
 
 
 Este documento reúne duas ideias principais para construção de consultas dinâmicas usando Spring Data JPA e Specifications:  
