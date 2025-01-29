@@ -45,7 +45,6 @@ Com isso, você consegue construir queries complexas sem precisar criar vários 
 Esta enum define os operadores que podem ser usados ao filtrar campos:
 
 ```java
-```java
 package com.exemplo.framework;
 
 public enum FilterOperator {
@@ -56,7 +55,6 @@ public enum FilterOperator {
     LESS_THAN,
     LESS_OR_EQUAL
 }
-```
 ```
 
 - EQUAL → campo = valor  
@@ -103,7 +101,6 @@ public class Filter {
     }
 }
 ```
-```
 
 --------------------------------------------------------------------------------
 
@@ -114,7 +111,6 @@ A seguir está um exemplo de implementação de `DynamicSpecificationBuilder<T>`
 2. Recebe também, opcionalmente, um Map para joins, indicando qual atributo deve ser “joined” e que tipo de join (`JoinType.LEFT`, `JoinType.INNER`, etc.).  
 3. Cria e retorna um objeto `Specification<T>` pronto para ser usado com repositórios que implementem `JpaSpecificationExecutor<T>`.
 
-```java
 ```java
 package com.exemplo.framework;
 
@@ -264,7 +260,6 @@ public class DynamicSpecificationBuilder<T> {
     }
 }
 ```
-```
 
 ### 4.1. Lógica de Criação de Predicates
 
@@ -283,7 +278,6 @@ public class DynamicSpecificationBuilder<T> {
 
 ### 5.1. Entidade de Exemplo
 
-```java
 ```java
 package com.exemplo.dominio;
 
@@ -306,12 +300,12 @@ public class MinhaEntidade {
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 }
-```
+
 ```
 
 ### 5.2. Repositório com JpaSpecificationExecutor
 
-```java
+
 ```java
 package com.exemplo.repositorio;
 
@@ -325,13 +319,11 @@ public interface MinhaEntidadeRepository
     // Métodos adicionais, se necessário
 }
 ```
-```
 
 ### 5.3. Service/Controller Exemplo
 
 Veja como usar o builder para criar Specifications corretamente:
 
-```java
 ```java
 package com.exemplo.servico;
 
@@ -395,7 +387,7 @@ public class MinhaEntidadeService {
 
 ---
 
-Isso conclui um modelo de “framework” dinâmico de Specifications com Spring Data, incluindo operadores relacionais/comparativos e suporte a JOIN. Sinta-se livre para adaptar as classes, métodos e a estrutura do projeto de acordo com suas necessidades.  
+- Isso conclui um modelo de “framework” dinâmico de Specifications com Spring Data, incluindo operadores relacionais/comparativos e suporte a JOIN. Sinta-se livre para adaptar as classes, métodos e a estrutura do projeto de acordo com suas necessidades.  
 
 - Documentação apache camel
    - Apache Camel é uma poderosa biblioteca de integração que permite a criação de aplicativos usando uma abordagem baseada em rotas.
