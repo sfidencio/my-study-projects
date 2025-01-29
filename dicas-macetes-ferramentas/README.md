@@ -373,7 +373,6 @@ public class MinhaEntidadeService {
     }
 }
 ```
-```
 
 --------------------------------------------------------------------------------
 
@@ -389,8 +388,9 @@ public class MinhaEntidadeService {
 
 - Isso conclui um modelo de “framework” dinâmico de Specifications com Spring Data, incluindo operadores relacionais/comparativos e suporte a JOIN. Sinta-se livre para adaptar as classes, métodos e a estrutura do projeto de acordo com suas necessidades.  
 
-- Documentação apache camel
-   - Apache Camel é uma poderosa biblioteca de integração que permite a criação de aplicativos usando uma abordagem baseada em rotas.
+
+ # Documentação Apache Camel
+  - Apache Camel é uma poderosa biblioteca de integração que permite a criação de aplicativos usando uma abordagem baseada em rotas.
 
 ```xml
     <dependencies>
