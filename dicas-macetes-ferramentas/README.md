@@ -10,49 +10,7 @@ dicas-macetes-ferramentas
 - [Framework Dinâmico com Spring Data JPA e Specifications](#Framework-Dinâmico-com-Spring-Data-JPA-e-Specifications)
 
 - [Documentação Apache Camel](#Documentação-Apache-Camel)
- # Documentação Apache Camel
-  - Apache Camel é uma poderosa biblioteca de integração que permite a criação de aplicativos usando uma abordagem baseada em rotas.
-
-```xml
-    <dependencies>
-        <dependencies>  
-        <dependency>  
-            <groupId>org.springframework.boot</groupId>  
-            <artifactId>spring-boot-starter</artifactId>  
-        </dependency>  
-        <dependency>  
-            <groupId>org.springframework.boot</groupId>  
-            <artifactId>spring-boot-starter-web</artifactId>  
-        </dependency>  
-        <dependency>  
-            <groupId>org.apache.camel</groupId>  
-            <artifactId>camel-spring-boot-starter</artifactId>  
-        </dependency>  
-    </dependencies>
-  ```
-
-```java
-    import org.apache.camel.builder.RouteBuilder;  
-    import org.springframework.stereotype.Component;  
-
-    @Component  
-    public class MyRoute extends RouteBuilder {  
-        @Override  
-        public void configure() throws Exception {  
-            from("timer:hello?period=5000")  // Gera um evento a cada 5 segundos  
-                .setBody().simple("Hello from Apache Camel!")  // Define a mensagem a ser enviada  
-                .to("log:info");  // Log a mensagem no console  
-        }  
-    }
-  ```
-    
-```yaml
-    camel.springboot.main-run-args=--spring.main.allow-bean-definition-overriding=true  
-    logging.level.org.apache.camel=INFO
-```
-
-   - https://camel.apache.org/docs/ 	
-
+	
 - Dicas sobre rabbitmq
    - https://www.linkedin.com/pulse/exchanges-do-rabbitmq-otthon-le%C3%A3o-bkmbf/
    - https://www.rabbitmq.com/ 
@@ -1838,4 +1796,45 @@ public class MinhaEntidadeService {
 
 - Isso conclui um modelo de “framework” dinâmico de Specifications com Spring Data, incluindo operadores relacionais/comparativos e suporte a JOIN. Sinta-se livre para adaptar as classes, métodos e a estrutura do projeto de acordo com suas necessidades.  
 
+ # Documentação Apache Camel
+  - Apache Camel é uma poderosa biblioteca de integração que permite a criação de aplicativos usando uma abordagem baseada em rotas.
 
+```xml
+    <dependencies>
+        <dependencies>  
+        <dependency>  
+            <groupId>org.springframework.boot</groupId>  
+            <artifactId>spring-boot-starter</artifactId>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework.boot</groupId>  
+            <artifactId>spring-boot-starter-web</artifactId>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.apache.camel</groupId>  
+            <artifactId>camel-spring-boot-starter</artifactId>  
+        </dependency>  
+    </dependencies>
+  ```
+
+```java
+    import org.apache.camel.builder.RouteBuilder;  
+    import org.springframework.stereotype.Component;  
+
+    @Component  
+    public class MyRoute extends RouteBuilder {  
+        @Override  
+        public void configure() throws Exception {  
+            from("timer:hello?period=5000")  // Gera um evento a cada 5 segundos  
+                .setBody().simple("Hello from Apache Camel!")  // Define a mensagem a ser enviada  
+                .to("log:info");  // Log a mensagem no console  
+        }  
+    }
+  ```
+    
+```yaml
+    camel.springboot.main-run-args=--spring.main.allow-bean-definition-overriding=true  
+    logging.level.org.apache.camel=INFO
+```
+
+   - https://camel.apache.org/docs/ 
