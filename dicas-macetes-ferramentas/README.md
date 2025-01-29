@@ -1549,7 +1549,7 @@ Abaixo alguns exemplos de uso para S3 e DynamoDB, mas a lógica é semelhante pa
 
 Se você tem uma aplicação Java (Spring Boot, Jakarta, etc.) que utiliza AWS SDK, basta configurar o endpoint para `http://localhost:4566`. Por exemplo, se estiver usando o SDK v2 da AWS para S3:
 
-```java
+
 ```java
 import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
 import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
@@ -1577,7 +1577,6 @@ public class S3LocalStackExample {
         s3Client.createBucket(createBucketRequest);
     }
 }
-```
 ```
 
 O mesmo princípio vale para DynamoDB, SQS, SNS, etc., trocando o client específico.
