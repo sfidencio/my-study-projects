@@ -4,7 +4,6 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
-- Dominando Specification SpringData - DynamicQuery
   # Framework Dinâmico com Spring Data JPA e Specifications
 
 Este documento reúne duas ideias principais para construção de consultas dinâmicas usando Spring Data JPA e Specifications:  
