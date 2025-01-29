@@ -11,13 +11,10 @@ dicas-macetes-ferramentas
 
 - [Documentação Apache Camel](#Documentação-Apache-Camel)
 	
-- Dicas sobre rabbitmq
+- Dicas sobre RabbitMQ
    - https://www.linkedin.com/pulse/exchanges-do-rabbitmq-otthon-le%C3%A3o-bkmbf/
-   - https://www.rabbitmq.com/ 
-
-- Precisa de realizar querys dinâmicas usando spring-data/JPA?
-   - https://medium.com/@bubu.tripathy/dynamic-query-with-specification-interface-in-spring-data-jpa-ae8764e32162#:~:text=The%20Specification%20interface%20in%20Spring%20Data%20JPA%20is%20a%20powerful 
-
+   - https://www.rabbitmq.com/
+     
 - CLI super intuitivo para PgSQL (MacOS) - By Klaus
    - https://www.pgcli.com 
 
@@ -1413,6 +1410,10 @@ public class JacksonConfiguration {
 
 
   # Framework Dinâmico com Spring Data JPA e Specifications
+
+  - Mais dicas sobre o assunto
+   - https://medium.com/@bubu.tripathy/dynamic-query-with-specification-interface-in-spring-data-jpa-ae8764e32162#:~:text=The%20Specification%20interface%20in%20Spring%20Data%20JPA%20is%20a%20powerful 
+
 
 Este documento reúne duas ideias principais para construção de consultas dinâmicas usando Spring Data JPA e Specifications:  
 1. A geração de Specifications de forma genérica e refletida, para filtrar por qualquer campo.  
