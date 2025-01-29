@@ -4,8 +4,7 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
-  # Avaliar uso de localStack da AWS para testes locais
-    - Use AI para consultar sobre detalhes de implementação.
+- [Como usar o LocalStack para emular serviços AWS localmente](#Como-usar-o-LocalStack-para-emular-serviços-AWS-localmente)
 
 - [Framework Dinâmico com Spring Data JPA e Specifications](#Framework-Dinâmico-com-Spring-Data-JPA-e-Specifications)
 
@@ -1407,6 +1406,199 @@ public class JacksonConfiguration {
     }
 } 
 ```
+
+
+# Como usar o LocalStack para emular serviços AWS localmente
+
+LocalStack é uma ferramenta que permite simular diversos serviços da AWS (como S3, DynamoDB, SQS, SNS, etc.) em um ambiente local, sem precisar se conectar à nuvem. Isso facilita o desenvolvimento e testes de aplicações que dependem desses serviços, reduzindo custos e evitando configurações complexas em ambientes reais de nuvem.
+
+---
+
+## 1. Instalação
+
+A forma mais simples de rodar o LocalStack é via Docker. Certifique-se de ter o Docker instalado e em execução na sua máquina.
+
+### 1.1 Via Docker Compose
+
+Crie um arquivo chamado “docker-compose.yml” com o seguinte conteúdo de exemplo:
+
+```yaml
+version: "3.8"
+services:
+  localstack:
+    image: localstack/localstack:latest
+    container_name: localstack
+    ports:
+      - "4566:4566"   # Porta principal para todos os serviços em LocalStack
+      - "4571:4571"   # Usada em algumas versões mais antigas para IAM, etc.
+    environment:
+      - SERVICES=s3,dynamodb,sqs,sns,lambda
+      - DEBUG=1
+      - DATA_DIR=/tmp/localstack/data
+    volumes:
+      - "./localstack-data:/tmp/localstack"
+```
+
+Em seguida, rode o comando:
+
+```bash
+docker-compose up -d
+```
+
+Isso vai baixar a imagem e iniciar o contêiner do LocalStack em segundo plano (em background).  
+
+### 1.2 Sem Docker Compose
+
+Caso não queira usar Docker Compose, pode rodar diretamente:
+
+```bash
+docker run --rm -it -p 4566:4566 \
+  -e SERVICES=s3,dynamodb,sqs,sns,lambda \
+  localstack/localstack:latest
+```
+
+---
+
+## 2. Configuração do AWS CLI
+
+Para usar as ferramentas da AWS (CLI ou SDKs) apontando para LocalStack, basta definir as variáveis de endpoint e credenciais de teste (que serão ignoradas pelo LocalStack, mas ainda necessárias sintaticamente).
+
+Exemplo de configuração usando AWS CLI:
+
+```bash
+aws configure
+```
+
+Preencha com qualquer valor, pois não será utilizado de fato:  
+• AWS Access Key ID: test  
+• AWS Secret Access Key: test  
+• Default region name: us-east-1  
+• Default output format: json  
+
+Depois, para cada comando, inclua o parâmetro `--endpoint-url=http://localhost:4566`.  
+
+Por exemplo, para criar um bucket S3 no LocalStack:
+
+```bash
+aws s3 mb s3://meu-bucket-teste \
+  --endpoint-url=http://localhost:4566
+```
+
+---
+
+## 3. Exemplos de Uso
+
+Abaixo alguns exemplos de uso para S3 e DynamoDB, mas a lógica é semelhante para outros serviços.
+
+### 3.1 S3
+
+1. Criar um bucket:
+   ```bash
+   aws s3 mb s3://meu-bucket-local \
+     --endpoint-url=http://localhost:4566
+   ```
+
+2. Enviar um arquivo (upload) para o bucket:
+   ```bash
+   echo "Conteúdo de teste" > arquivo.txt
+   aws s3 cp arquivo.txt s3://meu-bucket-local/arquivo.txt \
+     --endpoint-url=http://localhost:4566
+   ```
+
+3. Listar objetos do bucket:
+   ```bash
+   aws s3 ls s3://meu-bucket-local \
+     --endpoint-url=http://localhost:4566
+   ```
+
+### 3.2 DynamoDB
+
+1. Criar uma tabela:
+
+   ```bash
+   aws dynamodb create-table \
+     --table-name MinhaTabela \
+     --attribute-definitions AttributeName=Id,AttributeType=S \
+     --key-schema AttributeName=Id,KeyType=HASH \
+     --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5 \
+     --endpoint-url=http://localhost:4566 \
+     --region us-east-1
+   ```
+
+2. Inserir item na tabela:
+   ```bash
+   aws dynamodb put-item \
+     --table-name MinhaTabela \
+     --item '{"Id": {"S": "001"}, "Nome": {"S": "Teste"}}' \
+     --endpoint-url=http://localhost:4566 \
+     --region us-east-1
+   ```
+
+3. Obter item da tabela:
+   ```bash
+   aws dynamodb get-item \
+     --table-name MinhaTabela \
+     --key '{"Id": {"S": "001"}}' \
+     --endpoint-url=http://localhost:4566 \
+     --region us-east-1
+   ```
+
+---
+
+## 4. Integração com Aplicações Java (ou Outras Linguagens)
+
+Se você tem uma aplicação Java (Spring Boot, Jakarta, etc.) que utiliza AWS SDK, basta configurar o endpoint para `http://localhost:4566`. Por exemplo, se estiver usando o SDK v2 da AWS para S3:
+
+```java
+```java
+import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
+import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.CreateBucketRequest;
+
+public class S3LocalStackExample {
+    public static void main(String[] args) {
+        // Credenciais de teste
+        AwsBasicCredentials credentials = AwsBasicCredentials.create("test", "test");
+
+        // Cria client S3 apontando para o LocalStack
+        S3Client s3Client = S3Client.builder()
+                .endpointOverride(URI.create("http://localhost:4566"))
+                .credentialsProvider(StaticCredentialsProvider.create(credentials))
+                .region(Region.US_EAST_1)
+                .build();
+
+        // Exemplo: cria bucket
+        CreateBucketRequest createBucketRequest = CreateBucketRequest.builder()
+                .bucket("meu-bucket-local")
+                .build();
+
+        s3Client.createBucket(createBucketRequest);
+    }
+}
+```
+```
+
+O mesmo princípio vale para DynamoDB, SQS, SNS, etc., trocando o client específico.
+
+---
+
+## 5. Dicas e Práticas Recomendadas
+
+1. Verifique sempre a versão do LocalStack, pois nem todos os serviços ou recursos AWS são suportados 100%.  
+2. Mantenha seu arquivo “docker-compose.yml” bem organizado, incluindo variáveis de ambiente para cada serviço que queira emular.  
+3. Em testes automatizados, é comum iniciar o LocalStack antes dos testes e derrubá-lo logo depois, garantindo um ambiente limpo.  
+4. Pode-se armazenar dados de forma persistente (mesmo depois de parar o contêiner) definindo um volume para o caminho “/tmp/localstack”.  
+5. Caso seu cenário use Lambdas, confira se o LocalStack necessita de configurações adicionais (por exemplo, LocalStack Pro).  
+
+---
+
+## Conclusão
+
+LocalStack é uma ferramenta extremamente útil para desenvolvimento e testes offline de microserviços ou aplicações que interagem com diversos serviços da AWS. Com apenas alguns ajustes na configuração do Docker e do AWS CLI (ou SDK), você consegue emular S3, DynamoDB, SQS e outros recursos sem precisar de uma conta ou ambiente AWS real.
+
+
 
 
   # Framework Dinâmico com Spring Data JPA e Specifications
