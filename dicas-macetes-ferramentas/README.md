@@ -9,6 +9,7 @@ dicas-macetes-ferramentas
 
 - [Framework Dinâmico com Spring Data JPA e Specifications](#Framework-Dinâmico-com-Spring-Data-JPA-e-Specifications)
 
+- [Documentação Apache Camel](#Documentação-Apache-Camel)
  # Documentação Apache Camel
   - Apache Camel é uma poderosa biblioteca de integração que permite a criação de aplicativos usando uma abordagem baseada em rotas.
 
