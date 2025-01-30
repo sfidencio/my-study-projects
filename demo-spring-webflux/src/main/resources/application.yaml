@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: demo-spring-webflux
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/productdb?maxPoolSize=100
+logging:
+  level:
+    root: info

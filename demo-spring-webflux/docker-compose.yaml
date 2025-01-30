@@ -1,0 +1,12 @@
+services:
+  mongodb:
+    image: mongo:latest  # Usando a imagem mais recente do MongoDB
+    container_name: mongo_container  # Nome do contêiner
+    ports:
+      - "27017:27017"  # Mapeando a porta padrão do MongoDB
+    volumes:
+      - mongo_data:/data/db  # Persistência de dados
+
+volumes:
+  mongo_data:
+    driver: local  # Utilizando o driver de volume local para persistência

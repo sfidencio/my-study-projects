@@ -1,0 +1,33 @@
+#Entendendo idempotência em Rest APIs
+
+## O que é idempotência?
+- Idempotência é a propriedade de uma operação que pode ser aplicada várias vezes sem alterar o resultado além da primeira aplicação.
+- Em outras palavras, uma operação é idempotente se o resultado da operação for o mesmo, independentemente de quantas vezes a operação for aplicada.
+- Verbos HTTP idempotentes: GET, PUT, DELETE.
+  - GET: recupera um recurso.
+    - Ex: `GET /api/users/1`
+      - Se você chamar essa operação várias vezes, o resultado será sempre o mesmo. 
+  - PUT: cria ou atualiza um recurso.
+    - Ex: `PUT /api/users/1`
+      - Se você chamar essa operação várias vezes, o resultado será sempre o mesmo. 
+  - DELETE: remove um recurso.
+    - Ex: `DELETE /api/users/1`
+      - Se você chamar essa operação várias vezes, o resultado será sempre o mesmo. 
+- Verbos HTTP não idempotentes: POST, PATCH.
+ - POST: cria um novo recurso.
+   - Ex: `POST /api/users`
+     - Se você chamar essa operação várias vezes, o resultado será diferente a cada chamada.
+     - Ex: `POST /api/users` -> `201 Created`
+     - Ex: `POST /api/users` -> `409 Conflict`
+     - Ex: `POST /api/users` -> `500 Internal Server Error`
+     - Ex: `POST /api/users` -> `200 OK`
+     - Ex: `POST /api/users` -> `400 Bad Request`
+   - O resultado da operação POST depende do estado atual do sistema.
+ - PATCH: atualiza parcialmente um recurso.
+   - Ex: `PATCH /api/users/1`
+     - Se você chamar essa operação várias vezes, o resultado será diferente a cada chamada.
+     - Ex: `PATCH /api/users/1` -> `200 OK`
+     - Ex: `PATCH /api/users/1` -> `404 Not Found`
+     - Ex: `PATCH /api/users/1` -> `500 Internal Server Error`
+     - Ex: `PATCH /api/users/1` -> `409 Conflict`
+   - O resultado da operação PATCH depende do estado atual do sistema.

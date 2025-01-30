@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: config
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/sfidencio/study-on-good-practices.git
+          search-paths: profiles
+        bootstrap: true
+server:
+  port: 8888
+logging:
+  level:
+    root: info

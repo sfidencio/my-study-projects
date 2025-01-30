@@ -30,3 +30,5 @@
 >  - [ ] Implementar projeto de teste GoLang
 >  - [ ] Implementar projeto que recebe os parametros QueryParam e um Map
 >  - [ ] Implementar projeto webflux
+>  - [ ] Generics em JAVA
+>  - [ ] Idempotência em APIs RestFull. (Key UUID enviada pelo client para preservar o fluxo) 
