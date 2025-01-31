@@ -9,6 +9,9 @@ dicas-macetes-ferramentas
 - [Framework Dinâmico com Spring Data JPA e Specifications](#Framework-Dinâmico-com-Spring-Data-JPA-e-Specifications)
 
 - [Documentação Apache Camel](#Documentação-Apache-Camel)
+
+- Implementação de Docker Multi Stage em projeto Maven Multi Project
+	- https://www.baeldung.com/docker-maven-build-multi-module-projects 
 	
 - Dicas sobre RabbitMQ
    - https://www.linkedin.com/pulse/exchanges-do-rabbitmq-otthon-le%C3%A3o-bkmbf/
