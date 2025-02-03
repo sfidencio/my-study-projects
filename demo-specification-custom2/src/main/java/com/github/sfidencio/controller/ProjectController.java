@@ -1,6 +1,7 @@
 package com.github.sfidencio.controller;
 
 import com.github.sfidencio.controller.dto.ProjectRequest;
+import com.github.sfidencio.controller.dto.ProjectResponse;
 import com.github.sfidencio.domain.entities.ProjectEntity;
 import com.github.sfidencio.domain.entities.ProjectUserEntity;
 import com.github.sfidencio.domain.entities.ProjectUserID;
@@ -9,6 +10,7 @@ import com.github.sfidencio.infra.ProjectUserRespository;
 import com.github.sfidencio.infra.spec.ProjectSpecification;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,6 +35,7 @@ public class ProjectController {
             var projectEntitySaved = this.projectRespository.save(ProjectEntity
                     .builder()
                     .name(item.getName())
+                    .key(item.getKey())
                     .build());
 
             //Create composite-key
@@ -58,19 +61,50 @@ public class ProjectController {
     @ResponseStatus(HttpStatus.OK)
     public Page<?> getAllProjects(@RequestParam(defaultValue = "0") int pageNumber,
                                   @RequestParam(defaultValue = "2") int pageSize) {
-        Pageable pageableWithSort = Pageable.ofSize(pageSize).withPage(pageNumber);
-        return this.projectRespository.findAll(pageableWithSort);
+        Pageable pageable = Pageable.ofSize(pageSize).withPage(pageNumber);
+        return this.projectRespository.findAll(pageable);
     }
 
-    @GetMapping("/spec")
+    @GetMapping("/spec-1")
     @ResponseStatus(HttpStatus.OK)
-    public Page<?> getAllProjectsByCriteria(@RequestParam(defaultValue = "0") int pageNumber,
-                                            @RequestParam(defaultValue = "2") int pageSize,
-                                            @RequestParam String parameter) {
+    public Page<?> getAllProjectsByCriteria1(@RequestParam(defaultValue = "0") int pageNumber,
+                                             @RequestParam(defaultValue = "2") int pageSize,
+                                             @RequestParam(defaultValue = "") String parameter) {
 
-        Pageable pageableWithSort = Pageable.ofSize(pageSize).withPage(pageNumber);
-        return this.projectRespository.findAll(ProjectSpecification.getProjectSpecificationByParameter(parameter), pageableWithSort);
+        Pageable pageable = Pageable.ofSize(pageSize).withPage(pageNumber);
+        return this.projectRespository.findAll(ProjectSpecification.findProjectSpecificationByParameter(parameter), pageable);
 
+    }
+
+    @GetMapping("/spec-2")
+    @ResponseStatus(HttpStatus.OK)
+    public Page<?> getAllProjectsByCriteria2(@RequestParam(defaultValue = "0") int pageNumber,
+                                             @RequestParam(defaultValue = "2") int pageSize,
+                                             @RequestParam(defaultValue = "") String parameter) {
+
+        Pageable pageable = Pageable.ofSize(pageSize).withPage(pageNumber);
+        return this.projectRespository.findAll(ProjectSpecification.findProjectSpecificationByParameterWithPredicate(parameter), pageable);
+
+    }
+
+    @GetMapping("/spec-3-mapper")
+    @ResponseStatus(HttpStatus.OK)
+    public Page<?> getAllProjectsByCriteria3(@RequestParam(defaultValue = "0") int pageNumber,
+                                             @RequestParam(defaultValue = "2") int pageSize,
+                                             @RequestParam(defaultValue = "") String parameter) {
+
+        Pageable pageable = Pageable.ofSize(pageSize).withPage(pageNumber);
+
+        var projects = this.projectRespository.findAll(ProjectSpecification.findProjectSpecificationByParameterWithPredicate(parameter), pageable)
+                .getContent().stream().map(prj -> {
+                    var projectResponse = new ProjectResponse(prj.getId(), prj.getName(), prj.getKey());
+                    prj.getUsers().forEach(item -> {
+                        projectResponse.addUser(item.getProjectUserID().getFunctionalCode());
+                    });
+                    return projectResponse;
+                }).toList();
+
+        return new PageImpl<>(projects, pageable, projects.size());
     }
 
 

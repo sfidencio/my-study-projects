@@ -9,6 +9,7 @@ import lombok.*;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
+@EqualsAndHashCode
 public class ProjectUserID {
     private Integer projectId;
     private String functionalCode;

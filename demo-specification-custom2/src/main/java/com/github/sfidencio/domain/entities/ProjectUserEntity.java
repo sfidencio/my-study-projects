@@ -16,7 +16,7 @@ public class ProjectUserEntity {
 
     @MapsId("projectId")
     @ManyToOne
-    @JoinColumn(name = "project_id")
+    @JoinColumn(name = "project_id", referencedColumnName = "id")
     @JsonBackReference
     private ProjectEntity project;
 }
