@@ -4,6 +4,10 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Estudar sobre
+ - Docker usando Layers
+ - AOT no Spring 
+
 - Engenharia de Prompt
 	- https://www.promptingguide.ai/pt/introduction/basics 
 
