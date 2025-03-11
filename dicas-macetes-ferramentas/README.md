@@ -4,6 +4,12 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Bypass coverage intellij
+	- ![image](https://github.com/user-attachments/assets/f600dc84-6940-4df2-b17e-149d0e13a4b7)
+ 	- Criar a interface @annotation e colocar nas classes que deseja "excluir".
+  	- ![image](https://github.com/user-attachments/assets/96626e06-58e8-4f82-9d5b-7c81997b697a)
+ 	
+
 - Estudar sobre
   - Docker usando Layers
   - AOT no Spring 
