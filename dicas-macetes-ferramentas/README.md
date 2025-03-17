@@ -8,7 +8,10 @@ dicas-macetes-ferramentas
 
 - Sobre deserialização de arquivo json com payload's condicionais ou polimorfico em conjunto com decodificar de erros do Feign:
 - Ex:
-  ```java
+
+
+```java
+
   @JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION)
 @JsonSubTypes({
         @JsonSubTypes.Type(value = SubErrorBusinessFeignClient.class, name = "business"),
