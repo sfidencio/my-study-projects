@@ -4,6 +4,146 @@ dicas-macetes-ferramentas
 > [!IMPORTANT]
 > Lista de dicas, macetes e ferramentas que podem ser úteis no dia a dia de um desenvolvedor.
 
+- Upload de arquivos usando a classe MultiPartFile, quando for múltiplos arquivos, usar o tipo no método do controller `MultiPartFile[]`.
+
+- Sobre deserialização de arquivo json com payload's condicionais ou polimorfico em conjunto com decodificar de erros do Feign:
+- Ex:
+  ```java
+  @JsonTypeInfo(use = JsonTypeInfo.Id.DEDUCTION)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = SubErrorBusinessFeignClient.class, name = "business"),
+        @JsonSubTypes.Type(value = ApiValidatorErrorFeignResponse.class, name = "validation")
+})
+public interface ApiSubErrorFeignResponse {
+}
+
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@JsonTypeName("validation")
+public class ApiValidatorErrorFeignResponse implements ApiSubErrorFeignResponse {
+    private String objeto;
+    private String mensagem;
+    private String campo;
+    private Object valorRejeitado;
+}
+
+
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
+@AllArgsConstructor
+@JsonTypeName("business")
+public class SubErrorBusinessFeignClient implements ApiSubErrorFeignResponse {
+    private String codigo;
+    private String mensagem;
+}
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+public class ApiErrorFeignClient {
+    private String timestamp;
+    private String status;
+    @JsonProperty("codigoErro")
+    private Integer codigoErro;
+    private String mensagem;
+    private String mensagemDetalhada;
+
+    @JsonProperty("subErros")
+    private List<ApiSubErrorFeignResponse> subErros = new ArrayList<>();
+}
+
+
+@Component
+@RequiredArgsConstructor
+@Slf4j
+public class FeignErrorDecoder implements ErrorDecoder {
+
+    private final ObjectMapper objectMapper;
+
+
+    @SneakyThrows
+    @Override
+    public Exception decode(String methodKey, Response response) {
+
+        byte[] bodyData = response.body().asInputStream().readAllBytes();
+
+        ApiErrorWrapperFeignClient error = this.deserializeError(bodyData, response);
+
+        if (error.getApierro().getSubErros().stream().anyMatch(SubErrorBusinessFeignClient.class::isInstance))
+            this.resolvResponse(error);
+
+        var newResponse =
+                Response.builder()
+                        .request(response.request())
+                        .status(response.status())
+                        .headers(response.headers())
+                        .body(bodyData)
+                        .build();
+
+        return FeignException.errorStatus(methodKey, newResponse);
+    }
+
+
+    private ApiErrorWrapperFeignClient deserializeError(byte[] bodyData, Response response) {
+        try {
+            return this.objectMapper.readValue(bodyData, ApiErrorWrapperFeignClient.class);
+        } catch (IOException e) {
+            throw new FeignException.FeignClientException(
+                    500,
+                    Constantes.ERRO_PROCESSAR_RESPOSTA_SERVICO,
+                    response.request(),
+                    null,
+                    null
+            );
+        }
+    }
+
+    private void resolvResponse(ApiErrorWrapperFeignClient error) {
+        if (Objects.nonNull(error.getApierro().getSubErros())) {
+            error.getApierro().getSubErros().forEach(subError ->
+                    this.mapError()
+                            .forEach((key, value) -> {
+                                var sub = ((SubErrorBusinessFeignClient) subError);
+                                if (sub.getCodigo().trim().equals(key.toString()) && error.getApierro().getCodigoErro().equals(value.httpCodeSrv)) {
+                                    throw new BusinessException(Integer.valueOf(sub.getCodigo()),
+                                            value.newMessageErrorBff,
+                                            null,
+                                            value.newHttpCodeBff);
+                                }
+                            }));
+        }
+    }
+
+
+    private Map<Integer, ErrorMap> mapError() {
+        /*
+         * Exemplo: Se vier o codigo 21 e status code 404, o bff deve retornar 422 e a mensagem de erro nova
+         */
+        return Map.of(
+                21, new ErrorMap(404, 422, Constantes.MSG_ERRO_NAO_ENCONTRADO),
+                22, new ErrorMap(404, 422, Constantes.MSG_ERRO_NAO_ENCONTRADA)
+        );
+    }
+
+
+    @AllArgsConstructor
+    static class ErrorMap {
+        private Integer httpCodeSrv;
+        private Integer newHttpCodeBff;
+        private String newMessageErrorBff;
+    }
+}
+
+
+```
+
+
+
 - Bypass coverage intellij
 	- ![image](https://github.com/user-attachments/assets/f600dc84-6940-4df2-b17e-149d0e13a4b7)
  	- Criar a interface @annotation e colocar nas classes que deseja "excluir".
