@@ -5,6 +5,8 @@
 >[!TIP]
 > Lista de artigos:
 
+  - **instalação do oh-my-sh autualizado:**
+    - https://scottspence.com/posts/my-updated-zsh-config-2025 
   - Instalação o oh-my-posh PowerShell Windows
     - https://ohmyposh.dev/
     - https://learn.microsoft.com/pt-br/windows/terminal/tutorials/custom-prompt-setup
