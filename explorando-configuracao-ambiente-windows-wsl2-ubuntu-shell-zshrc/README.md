@@ -5,7 +5,7 @@
 >[!TIP]
 > Lista de artigos:
 
-  - **instalação do oh-my-sh autualizado:**
+  - **instalação do oh-my-sh atualizado:**
     - https://scottspence.com/posts/my-updated-zsh-config-2025 
   - Instalação o oh-my-posh PowerShell Windows
     - https://ohmyposh.dev/
