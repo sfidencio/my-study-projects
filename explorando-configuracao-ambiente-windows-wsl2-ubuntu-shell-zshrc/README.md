@@ -26,6 +26,9 @@
   - [Instalando e configurando o zsh no Ubuntu 20.04](https://medium.com/@gutoinfo.ribeiro/instalando-e-configurando-o-zsh-no-ubuntu-20-04-4ef8a2499ed5)
 - **Configuração para MacOS:**  
   - [Customize seu terminal MacOS com Oh My Zsh e Powerlevel10k](https://v-char.medium.com/now-let-customize-your-native-macos-terminal-with-oh-my-zsh-and-powerlevel10k-b48b9c30d39f)
+- **Instalação intellij WSL2**
+  - https://jsonobject.hashnode.dev/how-to-install-intellij-idea-in-ubuntu-on-wsl-with-x410
+  - https://dev.to/wesleyotio/configurando-wsl2-com-intellij-2pl7 
 
 ---
 
